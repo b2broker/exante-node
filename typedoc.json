@@ -1,0 +1,7 @@
+{
+  "out": "docs",
+  "mode": "modules",
+  "name": "exante",
+  "exclude": "test/",
+  "hideGenerator": true
+}
