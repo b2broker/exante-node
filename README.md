@@ -22,3 +22,10 @@ const shared_key = "5eeac64cc46b34f5332e5326/CHo4bRWq6pqqynnWKQg";
 const demo = false;
 const client = new RestClient({ client_id, app_id, shared_key, demo });
 ```
+
+- [`getAccounts`](https://api-live.exante.eu/api-docs/#operation/getAccounts)
+
+```typescript
+const version = "3.0";
+const accounts = await client.getAccounts({ version });
+```
