@@ -95,6 +95,7 @@ jobs:
       GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
       GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      NPM_CONFIG_UNSAFE_PERM: true
       PGP_KEY_ID: ${{ secrets.PGP_KEY_ID }}
       PGP_PASSPHRASE: ${{ secrets.PGP_PASSPHRASE }}
       PRIVATE_KEY_PASSPHRASE: ${{ secrets.PRIVATE_KEY_PASSPHRASE }}
