@@ -19,6 +19,10 @@ export interface IVersion {
   version?: "2.0" | "3.0";
 }
 
+export interface ISymbolId extends IVersion {
+  symbolId: string | string[];
+}
+
 export interface IAccountSummaryOptions extends IVersion {
   id: string;
   date: string;
@@ -31,10 +35,10 @@ export interface IUserAccount {
 }
 
 export interface IDailyChange {
-  lastSessionClosePrice: string;
-  basePrice: string;
+  lastSessionClosePrice?: string | null;
+  basePrice?: string | null;
   symbolId: string;
-  dailyChange: string;
+  dailyChange?: string | null;
 }
 
 export interface ICurrency {
@@ -124,10 +128,22 @@ export class RestClient {
   /**
    * Get the list of daily changes
    */
-  public async getDailyChanges({ version = "2.0" }: IVersion = {}): Promise<
-    IDailyChange[]
-  > {
+  public async getDailyChanges({
+    version = DefaultAPIVersion,
+  }: IVersion = {}): Promise<IDailyChange[]> {
     const url = new URL(`/md/${version}/change`, this.url);
+    const changes = (await this.fetch(url)) as IDailyChange[];
+    return changes;
+  }
+
+  /**
+   * Get the list of daily changes for requested instruments
+   */
+  public async getDailyChange({
+    version = DefaultAPIVersion,
+    symbolId,
+  }: ISymbolId): Promise<IDailyChange[]> {
+    const url = new URL(`/md/${version}/change/${symbolId}`, this.url);
     const changes = (await this.fetch(url)) as IDailyChange[];
     return changes;
   }
