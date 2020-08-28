@@ -38,6 +38,7 @@ const id = "ABC1234.001";
 const date = "2013-02-16";
 const currency = "EUR";
 const summary = await client.getAccountSummary({
+  version,
   id,
   date,
   currency,
