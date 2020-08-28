@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.0](https://github.com/b2broker/exante-node/compare/v1.2.1...v1.3.0) (2020-08-28)
+
+### Features
+
+- add getDailyChanges method ([0898462](https://github.com/b2broker/exante-node/commit/08984625d02bf8f8f84a42a8f4c9d0c5ef5300e6))
+
 ### [1.2.1](https://github.com/b2broker/exante-node/compare/v1.2.0...v1.2.1) (2020-08-28)
 
 ## [1.2.0](https://github.com/b2broker/exante-node/compare/v1.1.0...v1.2.0) (2020-08-28)

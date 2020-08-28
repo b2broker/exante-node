@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>IVersion | exante</title>
+    <title>IDailyChange | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -81,10 +81,10 @@
               <a href="../modules/_src_rest_.html">&quot;src/rest&quot;</a>
             </li>
             <li>
-              <a href="_src_rest_.iversion.html">IVersion</a>
+              <a href="_src_rest_.idailychange.html">IDailyChange</a>
             </li>
           </ul>
-          <h1>Interface IVersion</h1>
+          <h1>Interface IDailyChange</h1>
         </div>
       </div>
     </header>
@@ -95,16 +95,7 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <span class="target">IVersion</span>
-                <ul class="tsd-hierarchy">
-                  <li>
-                    <a
-                      href="_src_rest_.iaccountsummaryoptions.html"
-                      class="tsd-signature-type"
-                      >IAccountSummaryOptions</a
-                    >
-                  </li>
-                </ul>
+                <span class="target">IDailyChange</span>
               </li>
             </ul>
           </section>
@@ -117,9 +108,30 @@
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="_src_rest_.iversion.html#version"
+                        href="_src_rest_.idailychange.html#baseprice"
                         class="tsd-kind-icon"
-                        >version</a
+                        >base<wbr />Price</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="_src_rest_.idailychange.html#dailychange"
+                        class="tsd-kind-icon"
+                        >daily<wbr />Change</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="_src_rest_.idailychange.html#lastsessioncloseprice"
+                        class="tsd-kind-icon"
+                        >last<wbr />Session<wbr />Close<wbr />Price</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="_src_rest_.idailychange.html#symbolid"
+                        class="tsd-kind-icon"
+                        >symbol<wbr />Id</a
                       >
                     </li>
                   </ul>
@@ -132,23 +144,85 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="version" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> version
-              </h3>
+              <a name="baseprice" class="tsd-anchor"></a>
+              <h3>base<wbr />Price</h3>
               <div class="tsd-signature tsd-kind-icon">
-                version<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">"2.0"</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">"3.0"</span>
+                base<wbr />Price<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/dd5e862/src/rest.ts#L19"
-                      >src/rest.ts:19</a
+                      href="https://github.com/b2broker/exante-node/blob/dd5e862/src/rest.ts#L35"
+                      >src/rest.ts:35</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="dailychange" class="tsd-anchor"></a>
+              <h3>daily<wbr />Change</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                daily<wbr />Change<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/dd5e862/src/rest.ts#L37"
+                      >src/rest.ts:37</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="lastsessioncloseprice" class="tsd-anchor"></a>
+              <h3>last<wbr />Session<wbr />Close<wbr />Price</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                last<wbr />Session<wbr />Close<wbr />Price<span
+                  class="tsd-signature-symbol"
+                  >:</span
+                >
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/dd5e862/src/rest.ts#L34"
+                      >src/rest.ts:34</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="symbolid" class="tsd-anchor"></a>
+              <h3>symbol<wbr />Id</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                symbol<wbr />Id<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/dd5e862/src/rest.ts#L36"
+                      >src/rest.ts:36</a
                     >
                   </li>
                 </ul>
@@ -204,11 +278,45 @@
                   >ICurrency</a
                 >
               </li>
-              <li class="tsd-kind-interface tsd-parent-kind-module">
+            </ul>
+            <ul class="current">
+              <li class="current tsd-kind-interface tsd-parent-kind-module">
                 <a href="_src_rest_.idailychange.html" class="tsd-kind-icon"
                   >IDaily<wbr />Change</a
                 >
+                <ul>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="_src_rest_.idailychange.html#baseprice"
+                      class="tsd-kind-icon"
+                      >base<wbr />Price</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="_src_rest_.idailychange.html#dailychange"
+                      class="tsd-kind-icon"
+                      >daily<wbr />Change</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="_src_rest_.idailychange.html#lastsessioncloseprice"
+                      class="tsd-kind-icon"
+                      >last<wbr />Session<wbr />Close<wbr />Price</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="_src_rest_.idailychange.html#symbolid"
+                      class="tsd-kind-icon"
+                      >symbol<wbr />Id</a
+                    >
+                  </li>
+                </ul>
               </li>
+            </ul>
+            <ul class="after-current">
               <li class="tsd-kind-interface tsd-parent-kind-module">
                 <a href="_src_rest_.iexanteoptions.html" class="tsd-kind-icon"
                   >IExante<wbr />Options</a
@@ -224,24 +332,11 @@
                   >IUser<wbr />Account</a
                 >
               </li>
-            </ul>
-            <ul class="current">
-              <li class="current tsd-kind-interface tsd-parent-kind-module">
+              <li class="tsd-kind-interface tsd-parent-kind-module">
                 <a href="_src_rest_.iversion.html" class="tsd-kind-icon"
                   >IVersion</a
                 >
-                <ul>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a
-                      href="_src_rest_.iversion.html#version"
-                      class="tsd-kind-icon"
-                      >version</a
-                    >
-                  </li>
-                </ul>
               </li>
-            </ul>
-            <ul class="after-current">
               <li class="tsd-kind-variable tsd-parent-kind-module">
                 <a
                   href="../modules/_src_rest_.html#defaultapiversion"
