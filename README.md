@@ -30,6 +30,13 @@ const version = "3.0";
 const accounts = await client.getAccounts({ version });
 ```
 
+- [`getDailyChanges`](https://api-live.exante.eu/api-docs/#operation/getDailyChanges)
+
+```typescript
+const version = "2.0";
+const changes = await client.getDailyChanges({ version });
+```
+
 - [`getAccountSummary`](https://api-live.exante.eu/api-docs/#operation/getAccountSummary)
 
 ```typescript
