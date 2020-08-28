@@ -1,7 +1,7 @@
 {
   "out": "docs",
-  "mode": "modules",
+  "mode": "file",
   "name": "exante",
-  "exclude": "test/",
+  "exclude": "**/*.spec.ts",
   "hideGenerator": true
 }
