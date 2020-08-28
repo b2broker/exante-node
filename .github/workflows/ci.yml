@@ -1,0 +1,100 @@
+name: CI
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12, 13, 14]
+
+    container: node:${{ matrix.node-version }}
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Node.js version
+        run: node -v
+
+      - name: npm version
+        run: npm -v
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: Prettier
+        run: npm run prettier
+
+      - name: Tests
+        run: npm test
+
+      - name: Build
+        run: npm run build:test
+
+      - name: Docs
+        run: npm run docs:test
+
+      - name: Vulnerabilities
+        run: npm run snyk:test
+
+    env:
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+  coverage:
+    needs: test
+
+    runs-on: ubuntu-latest
+
+    container: node:14
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Coverage
+        run: npm run coverage:ci
+
+    env:
+      COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      COVERALLS_GIT_BRANCH: ${{ github.ref }}
+
+  release:
+    needs: [test, coverage]
+
+    runs-on: ubuntu-latest
+
+    container: node:14-buster
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Decrypt PGP key
+        run: ./.github/scripts/decrypt.sh
+
+      - name: Setup git
+        run: ./.github/scripts/git.sh
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Release
+        run: npm run release
+
+      - name: Cleanup
+        run: ./.github/scripts/cleanup.sh
+
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
+      GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      PGP_KEY_ID: ${{ secrets.PGP_KEY_ID }}
+      PGP_PASSPHRASE: ${{ secrets.PGP_PASSPHRASE }}
+      PRIVATE_KEY_PASSPHRASE: ${{ secrets.PRIVATE_KEY_PASSPHRASE }}
