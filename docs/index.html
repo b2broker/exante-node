@@ -160,7 +160,8 @@
               <a
                 href="https://api-live.exante.eu/api-docs/#section/API-versions"
                 >API versions</a
-              >).
+              >). For more detailed documentation please see
+              <a href="https://b2broker.github.io/exante-node/">docs</a>.
             </p>
             <a
               href="#restclient"
@@ -175,6 +176,16 @@
 <span class="hljs-keyword">const</span> shared_key = <span class="hljs-string">&quot;5eeac64cc46b34f5332e5326/CHo4bRWq6pqqynnWKQg&quot;</span>;
 <span class="hljs-keyword">const</span> demo = <span class="hljs-literal">false</span>;
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> RestClient({ client_id, app_id, shared_key, demo });</code></pre>
+            <ul>
+              <li>
+                <a
+                  href="https://api-live.exante.eu/api-docs/#operation/getAccounts"
+                  ><code>getAccounts</code></a
+                >
+              </li>
+            </ul>
+            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
+<span class="hljs-keyword">const</span> accounts = <span class="hljs-keyword">await</span> client.getAccounts({ version });</code></pre>
           </div>
         </div>
         <div class="col-4 col-menu menu-sticky-wrap menu-highlight">

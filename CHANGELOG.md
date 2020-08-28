@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.0](https://github.com/b2broker/exante-node/compare/v1.0.0...v1.1.0) (2020-08-28)
+
+### Features
+
+- **rest:** add getAccounts method ([f002abf](https://github.com/b2broker/exante-node/commit/f002abfdd19242bc281c1185bdb6b128d92175bc))
+
 ## 1.0.0 (2020-08-28)
 
 ### Features
