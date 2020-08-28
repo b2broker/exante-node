@@ -61,6 +61,17 @@ export class RestClient {
     }
   }
 
+  /**
+   * Get the list of user accounts and their statuses
+   */
+  public async getAccounts({ version = "2.0" }: IVersion = {}): Promise<
+    IUserAccount[]
+  > {
+    const url = new URL(`/md/${version}/accounts`, this.url);
+    const accounts = (await this.fetch(url)) as IUserAccount[];
+    return accounts;
+  }
+
   private get token(): string {
     const header = RestClient.base64URL({ alg: "HS256", typ: "JWT" });
 
