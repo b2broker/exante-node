@@ -144,6 +144,53 @@ suite("RestClient", () => {
     assert.deepStrictEqual(changes, response);
   });
 
+  test(".getDailyChange()", async () => {
+    const version = "3.0";
+    const symbolId = "AAPL.NASDAQ";
+    const response: IDailyChange[] = [
+      {
+        symbolId: "AAPL.NASDAQ",
+        lastSessionClosePrice: "120.0",
+        dailyChange: "0.005",
+        basePrice: "120.0",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${version}/change/${symbolId}`)
+      .delay(1)
+      .reply(200, response);
+
+    const changes = await client.getDailyChange({ version, symbolId });
+    assert.deepStrictEqual(changes, response);
+  });
+
+  test(".getDailyChange() (when `symbolId` is an array)", async () => {
+    const symbolId = ["AAPL.NASDAQ", "MSFT.NASDAQ"];
+    const response: IDailyChange[] = [
+      {
+        symbolId: "AAPL.NASDAQ",
+        lastSessionClosePrice: "120.0",
+        dailyChange: "0.005",
+        basePrice: "120.0",
+      },
+      {
+        symbolId: "MSFT.NASDAQQ",
+        lastSessionClosePrice: "120.0",
+        dailyChange: "0.005",
+        basePrice: "120.0",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/change/${symbolId}`)
+      .delay(1)
+      .reply(200, response);
+
+    const changes = await client.getDailyChange({ symbolId });
+    assert.deepStrictEqual(changes, response);
+  });
+
   test(".getAccountSummary()", async () => {
     const version = "3.0";
     const id = "ABC1234.001";
