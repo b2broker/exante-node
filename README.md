@@ -1,4 +1,4 @@
-# Exante ![CI Status](https://github.com/b2broker/exante-node/workflows/CI/badge.svg) [![GitHub version](https://badge.fury.io/gh/b2broker%2Fexante-node.svg)](https://badge.fury.io/gh/b2broker%2Fexante) [![Known Vulnerabilities](https://snyk.io/test/github/b2broker/exante-node/badge.svg)](https://snyk.io/test/github/b2broker/exante-node) [![Coverage Status](https://coveralls.io/repos/github/b2broker/exante-node/badge.svg?branch=master)](https://coveralls.io/github/b2broker/exante-node?branch=master) [![languages](https://img.shields.io/github/languages/top/b2broker/exante-node.svg)](https://github.com/b2broker/exante-node) ![node](https://img.shields.io/node/v/exante-node) [![npm downloads](https://img.shields.io/npm/dt/exante-node.svg)](https://www.npmjs.com/package/exante-node) [![license](https://img.shields.io/github/license/b2broker/exante-node.svg)](https://github.com/b2broker/exante-node/blob/master/LICENSE)
+# Exante ![CI Status](https://github.com/b2broker/exante-node/workflows/CI/badge.svg) [![GitHub version](https://badge.fury.io/gh/b2broker%2Fexante-node.svg)](https://badge.fury.io/gh/b2broker%2Fexante-node) [![npm version](https://badge.fury.io/js/exante.svg)](https://badge.fury.io/js/exante) [![Known Vulnerabilities](https://snyk.io/test/github/b2broker/exante-node/badge.svg)](https://snyk.io/test/github/b2broker/exante-node) [![Coverage Status](https://coveralls.io/repos/github/b2broker/exante-node/badge.svg?branch=master)](https://coveralls.io/github/b2broker/exante-node?branch=master) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) ![GitHub top language](https://img.shields.io/github/languages/top/b2broker/exante-node) ![node-current](https://img.shields.io/node/v/exante) ![npm](https://img.shields.io/npm/dt/exante) ![GitHub](https://img.shields.io/github/license/b2broker/exante-node)
 
 Node.js library for Exante's [API](https://api-live.exante.eu/api-docs/).
 
@@ -28,4 +28,18 @@ const client = new RestClient({ client_id, app_id, shared_key, demo });
 ```typescript
 const version = "3.0";
 const accounts = await client.getAccounts({ version });
+```
+
+- [`getAccountSummary`](https://api-live.exante.eu/api-docs/#operation/getAccountSummary)
+
+```typescript
+const version = "3.0";
+const id = "ABC1234.001";
+const date = "2013-02-16";
+const currency = "EUR";
+const summary = await client.getAccountSummary({
+  id,
+  date,
+  currency,
+});
 ```
