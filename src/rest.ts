@@ -18,9 +18,50 @@ export interface IVersion {
   version?: "2.0" | "3.0";
 }
 
+export interface IAccountSummaryOptions extends IVersion {
+  id: string;
+  date: string;
+  currency: string;
+}
+
 export interface IUserAccount {
   status: string;
   accountId: string;
+}
+
+export interface ICurrency {
+  code: string;
+  convertedValue: string;
+  value?: string;
+  price?: string;
+}
+
+export interface IPosition {
+  convertedPnl: string;
+  quantity?: string;
+  pnl?: string;
+  symbolId: string;
+  convertedValue?: string;
+  price?: string;
+  symbolType: string;
+  currency: string;
+  averagePrice?: string;
+  value?: string;
+  id?: string;
+}
+
+export interface IAccountSummary {
+  currency: string;
+  account?: string;
+  freeMoney?: string;
+  accountId?: string;
+  netAssetValue?: string;
+  sessionDate?: [number, number, number];
+  timestamp: number;
+  moneyUsedForMargin?: string;
+  marginUtilization?: string;
+  currencies: ICurrency[];
+  positions: IPosition[];
 }
 
 export class RestClient {
@@ -70,6 +111,24 @@ export class RestClient {
     const url = new URL(`/md/${version}/accounts`, this.url);
     const accounts = (await this.fetch(url)) as IUserAccount[];
     return accounts;
+  }
+
+  /**
+   * Get the summary for the specified account.
+   */
+  public async getAccountSummary({
+    version = "2.0",
+    id,
+    date,
+    currency,
+  }: IAccountSummaryOptions): Promise<IAccountSummary> {
+    const url = new URL(
+      `/md/${version}/summary/${id}/${date}/${currency}`,
+      this.url
+    );
+
+    const summary = (await this.fetch(url)) as IAccountSummary;
+    return summary;
   }
 
   private get token(): string {
