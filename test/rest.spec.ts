@@ -71,6 +71,32 @@ suite("RestClient", () => {
     }
   });
 
+  test(".getAccounts()", async () => {
+    const version = "3.0";
+    const response = [
+      { status: "Full", accountId: "ABC1234.002" },
+      { status: "Full", accountId: "ABC1234.001" },
+    ];
+
+    nock(url).get(`/md/${version}/accounts`).delay(1).reply(200, response);
+
+    const accounts = await client.getAccounts({ version });
+    assert.deepStrictEqual(accounts, response);
+  });
+
+  test(".getAccounts() (with no arguments)", async () => {
+    const version = "2.0";
+    const response = [
+      { status: "Full", accountId: "ABC1234.002" },
+      { status: "Full", accountId: "ABC1234.001" },
+    ];
+
+    nock(url).get(`/md/${version}/accounts`).delay(1).reply(200, response);
+
+    const accounts = await client.getAccounts();
+    assert.deepStrictEqual(accounts, response);
+  });
+
   suite("Static methods", () => {
     test(".base64URL()", () => {
       const string = "Somestring+=";
