@@ -30,6 +30,13 @@ export interface IUserAccount {
   accountId: string;
 }
 
+export interface IDailyChange {
+  lastSessionClosePrice: string;
+  basePrice: string;
+  symbolId: string;
+  dailyChange: string;
+}
+
 export interface ICurrency {
   code: string;
   convertedValue: string;
@@ -112,6 +119,17 @@ export class RestClient {
     const url = new URL(`/md/${version}/accounts`, this.url);
     const accounts = (await this.fetch(url)) as IUserAccount[];
     return accounts;
+  }
+
+  /**
+   * Get the list of daily changes
+   */
+  public async getDailyChanges({ version = "2.0" }: IVersion = {}): Promise<
+    IDailyChange[]
+  > {
+    const url = new URL(`/md/${version}/change`, this.url);
+    const changes = (await this.fetch(url)) as IDailyChange[];
+    return changes;
   }
 
   /**
