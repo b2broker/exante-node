@@ -8,6 +8,7 @@ import {
   ExanteLiveURL,
   FetchError,
   IUserAccount,
+  IDailyChange,
   IAccountSummary,
   DefaultAPIVersion,
 } from "../";
@@ -105,6 +106,42 @@ suite("RestClient", () => {
 
     const accounts = await client.getAccounts();
     assert.deepStrictEqual(accounts, response);
+  });
+
+  test(".getDailyChanges()", async () => {
+    const version = "3.0";
+    const response: IDailyChange[] = [
+      {
+        symbolId: "AAPL.NASDAQ",
+        lastSessionClosePrice: "120.0",
+        dailyChange: "0.005",
+        basePrice: "120.0",
+      },
+    ];
+
+    nock(url).get(`/md/${version}/change`).delay(1).reply(200, response);
+
+    const changes = await client.getDailyChanges({ version });
+    assert.deepStrictEqual(changes, response);
+  });
+
+  test(".getDailyChanges() (with no arguments)", async () => {
+    const response: IDailyChange[] = [
+      {
+        symbolId: "AAPL.NASDAQ",
+        lastSessionClosePrice: "120.0",
+        dailyChange: "0.005",
+        basePrice: "120.0",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/change`)
+      .delay(1)
+      .reply(200, response);
+
+    const changes = await client.getDailyChanges();
+    assert.deepStrictEqual(changes, response);
   });
 
   test(".getAccountSummary()", async () => {

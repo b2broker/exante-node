@@ -48,12 +48,7 @@
         "prepareCmd": "npm run docs:build"
       }
     ],
-    [
-      "@semantic-release/github",
-      {
-        "successComment": ":tada: This ${ !issue.pull_request ? `issue has been resolved` : `PR is included` } in version ${nextRelease.version} :tada:${ releases.filter(({ name, url }) => name && url).length !== 0 ? `\n\nThe release is available on:\n` : `` }${ releases.filter(({ name, url }) => name && url).map(({ name, url }) => `- [${name}](${url})`).join(`\n`)}"
-      }
-    ],
+    "@semantic-release/github",
     [
       "@semantic-release/git",
       {
