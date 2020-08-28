@@ -37,6 +37,14 @@ const version = "2.0";
 const changes = await client.getDailyChanges({ version });
 ```
 
+- [`getDailyChange`](https://api-live.exante.eu/api-docs/#operation/getDailyChange)
+
+```typescript
+const version = "3.0";
+const symbolId = ["AAPL.NASDAQ", "MSFT.NASDAQ"];
+const changes = await client.getDailyChange({ version, symbolId });
+```
+
 - [`getAccountSummary`](https://api-live.exante.eu/api-docs/#operation/getAccountSummary)
 
 ```typescript
@@ -50,4 +58,10 @@ const summary = await client.getAccountSummary({
   date,
   currency,
 });
+```
+
+## Test
+
+```bash
+npm test
 ```
