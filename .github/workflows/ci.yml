@@ -2,11 +2,10 @@ name: CI
 
 on: push
 
-defaults:
-  runs-on: ubuntu-latest
-
 jobs:
   test:
+    runs-on: ubuntu-latest
+
     strategy:
       matrix:
         node-version: [12, 13, 14]
@@ -49,6 +48,8 @@ jobs:
   coverage:
     needs: test
 
+    runs-on: ubuntu-latest
+
     container: node:14
 
     steps:
@@ -66,6 +67,8 @@ jobs:
 
   release:
     needs: [test, coverage]
+
+    runs-on: ubuntu-latest
 
     container: node:14-buster
 
