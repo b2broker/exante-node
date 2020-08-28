@@ -10,7 +10,7 @@ npm install exante
 
 ## Usage
 
-The library currently supports the following API versions: `2.0` and `3.0` (see [API versions](https://api-live.exante.eu/api-docs/#section/API-versions)).
+The library currently supports the following API versions: `2.0` and `3.0` (see [API versions](https://api-live.exante.eu/api-docs/#section/API-versions)). For more detailed documentation please see [docs](https://b2broker.github.io/exante-node/).
 
 ### RestClient
 
@@ -21,4 +21,11 @@ const app_id = "6cca6a14-a5e3-4219-9542-86123fc9d6c3";
 const shared_key = "5eeac64cc46b34f5332e5326/CHo4bRWq6pqqynnWKQg";
 const demo = false;
 const client = new RestClient({ client_id, app_id, shared_key, demo });
+```
+
+- [`getAccounts`](https://api-live.exante.eu/api-docs/#operation/getAccounts)
+
+```typescript
+const version = "3.0";
+const accounts = await client.getAccounts({ version });
 ```
