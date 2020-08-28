@@ -1,0 +1,50 @@
+{
+  "name": "exante",
+  "version": "1.0.0",
+  "description": "Exante Node.js client",
+  "main": "build/index.js",
+  "type": "commonjs",
+  "types": "./build/index.d.ts",
+  "engines": {
+    "node": ">=12.18.3"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "npm run build:remove && tsc",
+    "build:remove": "rm -rf ./build",
+    "build:test": "npm run build && npm run build:remove",
+    "coverage": "nyc npm test && nyc report --reporter=lcov",
+    "coverage:ci": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "docs:build": "npm run docs:remove && typedoc && npm run lint:fix && npm run prettier:write",
+    "docs:remove": "rm -rf ./docs",
+    "docs:test": "npm run docs:build && docs:remove",
+    "install:clean": "rm -fr node_modules && rm -f package-lock.json && npm install",
+    "lint": "eslint --ext .ts,.js ./",
+    "lint:fix": "npm run lint -- --fix",
+    "postpublish": "npm run build:remove",
+    "prepublishOnly": "npm run lint && npm run prettier && npm run build && npm run lint:fix && npm run prettier:write",
+    "prettier": "prettier -c .",
+    "prettier:write": "npm run prettier -- --write",
+    "release": "semantic-release",
+    "snyk:protect": "snyk protect",
+    "snyk:test": "snyk test",
+    "test": "mocha -r ts-node/register --full-trace --ui tdd --bail --extension ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b2broker/exante-node.git"
+  },
+  "keywords": [
+    "Exante",
+    "REST",
+    "API"
+  ],
+  "author": "Sergey Bakulin <sbakulin@b2broker.net>",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/b2broker/exante-node/issues"
+  },
+  "homepage": "https://github.com/b2broker/exante-node#readme"
+}
