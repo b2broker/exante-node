@@ -5,6 +5,7 @@ import FetchError from "./error";
 
 export const ExanteDemoURL = "https://api-demo.exante.eu/";
 export const ExanteLiveURL = "https://api-live.exante.eu/";
+export const DefaultAPIVersion = "2.0";
 
 export interface IExanteOptions {
   client_id: string;
@@ -105,9 +106,9 @@ export class RestClient {
   /**
    * Get the list of user accounts and their statuses
    */
-  public async getAccounts({ version = "2.0" }: IVersion = {}): Promise<
-    IUserAccount[]
-  > {
+  public async getAccounts({
+    version = DefaultAPIVersion,
+  }: IVersion = {}): Promise<IUserAccount[]> {
     const url = new URL(`/md/${version}/accounts`, this.url);
     const accounts = (await this.fetch(url)) as IUserAccount[];
     return accounts;
@@ -117,7 +118,7 @@ export class RestClient {
    * Get the summary for the specified account.
    */
   public async getAccountSummary({
-    version = "2.0",
+    version = DefaultAPIVersion,
     id,
     date,
     currency,
