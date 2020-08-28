@@ -156,13 +156,53 @@
     {
       "id": 18,
       "kind": 256,
+      "name": "IAccountSummaryOptions",
+      "url": "interfaces/_src_rest_.iaccountsummaryoptions.html",
+      "classes": "tsd-kind-interface tsd-parent-kind-module",
+      "parent": "\"src/rest\""
+    },
+    {
+      "id": 19,
+      "kind": 1024,
+      "name": "id",
+      "url": "interfaces/_src_rest_.iaccountsummaryoptions.html#id",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummaryOptions"
+    },
+    {
+      "id": 20,
+      "kind": 1024,
+      "name": "date",
+      "url": "interfaces/_src_rest_.iaccountsummaryoptions.html#date",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummaryOptions"
+    },
+    {
+      "id": 21,
+      "kind": 1024,
+      "name": "currency",
+      "url": "interfaces/_src_rest_.iaccountsummaryoptions.html#currency",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummaryOptions"
+    },
+    {
+      "id": 22,
+      "kind": 1024,
+      "name": "version",
+      "url": "interfaces/_src_rest_.iaccountsummaryoptions.html#version",
+      "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+      "parent": "\"src/rest\".IAccountSummaryOptions"
+    },
+    {
+      "id": 23,
+      "kind": 256,
       "name": "IUserAccount",
       "url": "interfaces/_src_rest_.iuseraccount.html",
       "classes": "tsd-kind-interface tsd-parent-kind-module",
       "parent": "\"src/rest\""
     },
     {
-      "id": 19,
+      "id": 24,
       "kind": 1024,
       "name": "status",
       "url": "interfaces/_src_rest_.iuseraccount.html#status",
@@ -170,7 +210,7 @@
       "parent": "\"src/rest\".IUserAccount"
     },
     {
-      "id": 20,
+      "id": 25,
       "kind": 1024,
       "name": "accountId",
       "url": "interfaces/_src_rest_.iuseraccount.html#accountid",
@@ -178,7 +218,239 @@
       "parent": "\"src/rest\".IUserAccount"
     },
     {
-      "id": 21,
+      "id": 26,
+      "kind": 256,
+      "name": "ICurrency",
+      "url": "interfaces/_src_rest_.icurrency.html",
+      "classes": "tsd-kind-interface tsd-parent-kind-module",
+      "parent": "\"src/rest\""
+    },
+    {
+      "id": 27,
+      "kind": 1024,
+      "name": "code",
+      "url": "interfaces/_src_rest_.icurrency.html#code",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".ICurrency"
+    },
+    {
+      "id": 28,
+      "kind": 1024,
+      "name": "convertedValue",
+      "url": "interfaces/_src_rest_.icurrency.html#convertedvalue",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".ICurrency"
+    },
+    {
+      "id": 29,
+      "kind": 1024,
+      "name": "value",
+      "url": "interfaces/_src_rest_.icurrency.html#value",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".ICurrency"
+    },
+    {
+      "id": 30,
+      "kind": 1024,
+      "name": "price",
+      "url": "interfaces/_src_rest_.icurrency.html#price",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".ICurrency"
+    },
+    {
+      "id": 31,
+      "kind": 256,
+      "name": "IPosition",
+      "url": "interfaces/_src_rest_.iposition.html",
+      "classes": "tsd-kind-interface tsd-parent-kind-module",
+      "parent": "\"src/rest\""
+    },
+    {
+      "id": 32,
+      "kind": 1024,
+      "name": "convertedPnl",
+      "url": "interfaces/_src_rest_.iposition.html#convertedpnl",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IPosition"
+    },
+    {
+      "id": 33,
+      "kind": 1024,
+      "name": "quantity",
+      "url": "interfaces/_src_rest_.iposition.html#quantity",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IPosition"
+    },
+    {
+      "id": 34,
+      "kind": 1024,
+      "name": "pnl",
+      "url": "interfaces/_src_rest_.iposition.html#pnl",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IPosition"
+    },
+    {
+      "id": 35,
+      "kind": 1024,
+      "name": "symbolId",
+      "url": "interfaces/_src_rest_.iposition.html#symbolid",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IPosition"
+    },
+    {
+      "id": 36,
+      "kind": 1024,
+      "name": "convertedValue",
+      "url": "interfaces/_src_rest_.iposition.html#convertedvalue",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IPosition"
+    },
+    {
+      "id": 37,
+      "kind": 1024,
+      "name": "price",
+      "url": "interfaces/_src_rest_.iposition.html#price",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IPosition"
+    },
+    {
+      "id": 38,
+      "kind": 1024,
+      "name": "symbolType",
+      "url": "interfaces/_src_rest_.iposition.html#symboltype",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IPosition"
+    },
+    {
+      "id": 39,
+      "kind": 1024,
+      "name": "currency",
+      "url": "interfaces/_src_rest_.iposition.html#currency",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IPosition"
+    },
+    {
+      "id": 40,
+      "kind": 1024,
+      "name": "averagePrice",
+      "url": "interfaces/_src_rest_.iposition.html#averageprice",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IPosition"
+    },
+    {
+      "id": 41,
+      "kind": 1024,
+      "name": "value",
+      "url": "interfaces/_src_rest_.iposition.html#value",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IPosition"
+    },
+    {
+      "id": 42,
+      "kind": 1024,
+      "name": "id",
+      "url": "interfaces/_src_rest_.iposition.html#id",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IPosition"
+    },
+    {
+      "id": 43,
+      "kind": 256,
+      "name": "IAccountSummary",
+      "url": "interfaces/_src_rest_.iaccountsummary.html",
+      "classes": "tsd-kind-interface tsd-parent-kind-module",
+      "parent": "\"src/rest\""
+    },
+    {
+      "id": 44,
+      "kind": 1024,
+      "name": "currency",
+      "url": "interfaces/_src_rest_.iaccountsummary.html#currency",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummary"
+    },
+    {
+      "id": 45,
+      "kind": 1024,
+      "name": "account",
+      "url": "interfaces/_src_rest_.iaccountsummary.html#account",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummary"
+    },
+    {
+      "id": 46,
+      "kind": 1024,
+      "name": "freeMoney",
+      "url": "interfaces/_src_rest_.iaccountsummary.html#freemoney",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummary"
+    },
+    {
+      "id": 47,
+      "kind": 1024,
+      "name": "accountId",
+      "url": "interfaces/_src_rest_.iaccountsummary.html#accountid",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummary"
+    },
+    {
+      "id": 48,
+      "kind": 1024,
+      "name": "netAssetValue",
+      "url": "interfaces/_src_rest_.iaccountsummary.html#netassetvalue",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummary"
+    },
+    {
+      "id": 49,
+      "kind": 1024,
+      "name": "sessionDate",
+      "url": "interfaces/_src_rest_.iaccountsummary.html#sessiondate",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummary"
+    },
+    {
+      "id": 50,
+      "kind": 1024,
+      "name": "timestamp",
+      "url": "interfaces/_src_rest_.iaccountsummary.html#timestamp",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummary"
+    },
+    {
+      "id": 51,
+      "kind": 1024,
+      "name": "moneyUsedForMargin",
+      "url": "interfaces/_src_rest_.iaccountsummary.html#moneyusedformargin",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummary"
+    },
+    {
+      "id": 52,
+      "kind": 1024,
+      "name": "marginUtilization",
+      "url": "interfaces/_src_rest_.iaccountsummary.html#marginutilization",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummary"
+    },
+    {
+      "id": 53,
+      "kind": 1024,
+      "name": "currencies",
+      "url": "interfaces/_src_rest_.iaccountsummary.html#currencies",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummary"
+    },
+    {
+      "id": 54,
+      "kind": 1024,
+      "name": "positions",
+      "url": "interfaces/_src_rest_.iaccountsummary.html#positions",
+      "classes": "tsd-kind-property tsd-parent-kind-interface",
+      "parent": "\"src/rest\".IAccountSummary"
+    },
+    {
+      "id": 55,
       "kind": 128,
       "name": "RestClient",
       "url": "classes/_src_rest_.restclient.html",
@@ -186,7 +458,7 @@
       "parent": "\"src/rest\""
     },
     {
-      "id": 22,
+      "id": 56,
       "kind": 1024,
       "name": "#client_id",
       "url": "classes/_src_rest_.restclient.html#_client_id",
@@ -194,7 +466,7 @@
       "parent": "\"src/rest\".RestClient"
     },
     {
-      "id": 23,
+      "id": 57,
       "kind": 1024,
       "name": "#app_id",
       "url": "classes/_src_rest_.restclient.html#_app_id",
@@ -202,7 +474,7 @@
       "parent": "\"src/rest\".RestClient"
     },
     {
-      "id": 24,
+      "id": 58,
       "kind": 1024,
       "name": "#shared_key",
       "url": "classes/_src_rest_.restclient.html#_shared_key",
@@ -210,7 +482,7 @@
       "parent": "\"src/rest\".RestClient"
     },
     {
-      "id": 25,
+      "id": 59,
       "kind": 1024,
       "name": "url",
       "url": "classes/_src_rest_.restclient.html#url",
@@ -218,7 +490,7 @@
       "parent": "\"src/rest\".RestClient"
     },
     {
-      "id": 26,
+      "id": 60,
       "kind": 512,
       "name": "constructor",
       "url": "classes/_src_rest_.restclient.html#constructor",
@@ -226,7 +498,7 @@
       "parent": "\"src/rest\".RestClient"
     },
     {
-      "id": 27,
+      "id": 61,
       "kind": 2048,
       "name": "fetch",
       "url": "classes/_src_rest_.restclient.html#fetch",
@@ -234,7 +506,7 @@
       "parent": "\"src/rest\".RestClient"
     },
     {
-      "id": 28,
+      "id": 62,
       "kind": 2048,
       "name": "getAccounts",
       "url": "classes/_src_rest_.restclient.html#getaccounts",
@@ -242,7 +514,15 @@
       "parent": "\"src/rest\".RestClient"
     },
     {
-      "id": 29,
+      "id": 63,
+      "kind": 2048,
+      "name": "getAccountSummary",
+      "url": "classes/_src_rest_.restclient.html#getaccountsummary",
+      "classes": "tsd-kind-method tsd-parent-kind-class",
+      "parent": "\"src/rest\".RestClient"
+    },
+    {
+      "id": 64,
       "kind": 262144,
       "name": "token",
       "url": "classes/_src_rest_.restclient.html#token",
@@ -250,7 +530,7 @@
       "parent": "\"src/rest\".RestClient"
     },
     {
-      "id": 30,
+      "id": 65,
       "kind": 262144,
       "name": "headers",
       "url": "classes/_src_rest_.restclient.html#headers",
@@ -258,7 +538,7 @@
       "parent": "\"src/rest\".RestClient"
     },
     {
-      "id": 31,
+      "id": 66,
       "kind": 2048,
       "name": "base64URL",
       "url": "classes/_src_rest_.restclient.html#base64url",
@@ -266,7 +546,7 @@
       "parent": "\"src/rest\".RestClient"
     },
     {
-      "id": 32,
+      "id": 67,
       "kind": 32,
       "name": "ExanteDemoURL",
       "url": "modules/_src_rest_.html#exantedemourl",
@@ -274,7 +554,7 @@
       "parent": "\"src/rest\""
     },
     {
-      "id": 33,
+      "id": 68,
       "kind": 32,
       "name": "ExanteLiveURL",
       "url": "modules/_src_rest_.html#exanteliveurl",
@@ -282,14 +562,22 @@
       "parent": "\"src/rest\""
     },
     {
-      "id": 34,
+      "id": 69,
+      "kind": 32,
+      "name": "DefaultAPIVersion",
+      "url": "modules/_src_rest_.html#defaultapiversion",
+      "classes": "tsd-kind-variable tsd-parent-kind-module",
+      "parent": "\"src/rest\""
+    },
+    {
+      "id": 70,
       "kind": 1,
       "name": "\"index\"",
       "url": "modules/_index_.html",
       "classes": "tsd-kind-module"
     },
     {
-      "id": 35,
+      "id": 71,
       "kind": 16777216,
       "name": "FetchError",
       "url": "modules/_index_.html#fetcherror",
@@ -297,7 +585,7 @@
       "parent": "\"index\""
     },
     {
-      "id": 36,
+      "id": 72,
       "kind": 16777216,
       "name": "ExanteDemoURL",
       "url": "modules/_index_.html#exantedemourl",
@@ -305,7 +593,7 @@
       "parent": "\"index\""
     },
     {
-      "id": 37,
+      "id": 73,
       "kind": 16777216,
       "name": "ExanteLiveURL",
       "url": "modules/_index_.html#exanteliveurl",
@@ -313,7 +601,15 @@
       "parent": "\"index\""
     },
     {
-      "id": 38,
+      "id": 74,
+      "kind": 16777216,
+      "name": "DefaultAPIVersion",
+      "url": "modules/_index_.html#defaultapiversion",
+      "classes": "tsd-kind-reference tsd-parent-kind-module",
+      "parent": "\"index\""
+    },
+    {
+      "id": 75,
       "kind": 16777216,
       "name": "IExanteOptions",
       "url": "modules/_index_.html#iexanteoptions",
@@ -321,7 +617,7 @@
       "parent": "\"index\""
     },
     {
-      "id": 39,
+      "id": 76,
       "kind": 16777216,
       "name": "IVersion",
       "url": "modules/_index_.html#iversion",
@@ -329,7 +625,15 @@
       "parent": "\"index\""
     },
     {
-      "id": 40,
+      "id": 77,
+      "kind": 16777216,
+      "name": "IAccountSummaryOptions",
+      "url": "modules/_index_.html#iaccountsummaryoptions",
+      "classes": "tsd-kind-reference tsd-parent-kind-module",
+      "parent": "\"index\""
+    },
+    {
+      "id": 78,
       "kind": 16777216,
       "name": "IUserAccount",
       "url": "modules/_index_.html#iuseraccount",
@@ -337,7 +641,31 @@
       "parent": "\"index\""
     },
     {
-      "id": 41,
+      "id": 79,
+      "kind": 16777216,
+      "name": "ICurrency",
+      "url": "modules/_index_.html#icurrency",
+      "classes": "tsd-kind-reference tsd-parent-kind-module",
+      "parent": "\"index\""
+    },
+    {
+      "id": 80,
+      "kind": 16777216,
+      "name": "IPosition",
+      "url": "modules/_index_.html#iposition",
+      "classes": "tsd-kind-reference tsd-parent-kind-module",
+      "parent": "\"index\""
+    },
+    {
+      "id": 81,
+      "kind": 16777216,
+      "name": "IAccountSummary",
+      "url": "modules/_index_.html#iaccountsummary",
+      "classes": "tsd-kind-reference tsd-parent-kind-module",
+      "parent": "\"index\""
+    },
+    {
+      "id": 82,
       "kind": 16777216,
       "name": "RestClient",
       "url": "modules/_index_.html#restclient",
@@ -345,21 +673,21 @@
       "parent": "\"index\""
     },
     {
-      "id": 42,
+      "id": 83,
       "kind": 1,
       "name": "\"test/error.spec\"",
       "url": "modules/_test_error_spec_.html",
       "classes": "tsd-kind-module"
     },
     {
-      "id": 43,
+      "id": 84,
       "kind": 1,
       "name": "\"test/rest.spec\"",
       "url": "modules/_test_rest_spec_.html",
       "classes": "tsd-kind-module"
     },
     {
-      "id": 44,
+      "id": 85,
       "kind": 32,
       "name": "client_id",
       "url": "modules/_test_rest_spec_.html#client_id",
@@ -367,7 +695,7 @@
       "parent": "\"test/rest.spec\""
     },
     {
-      "id": 45,
+      "id": 86,
       "kind": 32,
       "name": "app_id",
       "url": "modules/_test_rest_spec_.html#app_id",
@@ -375,7 +703,7 @@
       "parent": "\"test/rest.spec\""
     },
     {
-      "id": 46,
+      "id": 87,
       "kind": 32,
       "name": "shared_key",
       "url": "modules/_test_rest_spec_.html#shared_key",
@@ -383,7 +711,7 @@
       "parent": "\"test/rest.spec\""
     },
     {
-      "id": 47,
+      "id": 88,
       "kind": 32,
       "name": "url",
       "url": "modules/_test_rest_spec_.html#url",
@@ -391,7 +719,7 @@
       "parent": "\"test/rest.spec\""
     },
     {
-      "id": 48,
+      "id": 89,
       "kind": 32,
       "name": "client",
       "url": "modules/_test_rest_spec_.html#client",
@@ -403,176 +731,320 @@
     "version": "2.3.9",
     "fields": ["name", "parent"],
     "fieldVectors": [
-      ["name/0", [0, 29.957]],
+      ["name/0", [0, 35.946]],
       ["parent/0", []],
-      ["name/1", [1, 29.957]],
-      ["parent/1", [0, 2.863]],
-      ["name/2", [2, 29.957]],
-      ["parent/2", [3, 1.813]],
-      ["name/3", [4, 35.066]],
-      ["parent/3", [3, 1.813]],
-      ["name/4", [5, 29.957]],
-      ["parent/4", [3, 1.813]],
-      ["name/5", [2, 29.957]],
-      ["parent/5", [3, 1.813]],
-      ["name/6", [6, 35.066]],
-      ["parent/6", [3, 1.813]],
-      ["name/7", [7, 35.066]],
-      ["parent/7", [3, 1.813]],
-      ["name/8", [8, 35.066]],
-      ["parent/8", [3, 1.813]],
-      ["name/9", [9, 18.971]],
+      ["name/1", [1, 35.946]],
+      ["parent/1", [0, 3.51]],
+      ["name/2", [2, 35.946]],
+      ["parent/2", [3, 2.437]],
+      ["name/3", [4, 41.054]],
+      ["parent/3", [3, 2.437]],
+      ["name/4", [5, 35.946]],
+      ["parent/4", [3, 2.437]],
+      ["name/5", [2, 35.946]],
+      ["parent/5", [3, 2.437]],
+      ["name/6", [6, 41.054]],
+      ["parent/6", [3, 2.437]],
+      ["name/7", [7, 41.054]],
+      ["parent/7", [3, 2.437]],
+      ["name/8", [8, 41.054]],
+      ["parent/8", [3, 2.437]],
+      ["name/9", [9, 19.851]],
       ["parent/9", []],
-      ["name/10", [10, 29.957]],
-      ["parent/10", [9, 1.813]],
-      ["name/11", [11, 26.593]],
-      ["parent/11", [12, 2.109]],
-      ["name/12", [13, 26.593]],
-      ["parent/12", [12, 2.109]],
-      ["name/13", [14, 26.593]],
-      ["parent/13", [12, 2.109]],
-      ["name/14", [15, 35.066]],
-      ["parent/14", [12, 2.109]],
-      ["name/15", [16, 26.593]],
-      ["parent/15", [12, 2.109]],
-      ["name/16", [17, 29.957]],
-      ["parent/16", [9, 1.813]],
-      ["name/17", [18, 35.066]],
-      ["parent/17", [19, 3.351]],
-      ["name/18", [20, 29.957]],
-      ["parent/18", [9, 1.813]],
-      ["name/19", [21, 35.066]],
-      ["parent/19", [22, 2.863]],
-      ["name/20", [23, 35.066]],
-      ["parent/20", [22, 2.863]],
-      ["name/21", [24, 29.957]],
-      ["parent/21", [9, 1.813]],
-      ["name/22", [11, 26.593]],
-      ["parent/22", [25, 1.491]],
-      ["name/23", [13, 26.593]],
-      ["parent/23", [25, 1.491]],
-      ["name/24", [14, 26.593]],
-      ["parent/24", [25, 1.491]],
-      ["name/25", [16, 26.593]],
-      ["parent/25", [25, 1.491]],
-      ["name/26", [5, 29.957]],
-      ["parent/26", [25, 1.491]],
-      ["name/27", [26, 35.066]],
-      ["parent/27", [25, 1.491]],
-      ["name/28", [27, 35.066]],
-      ["parent/28", [25, 1.491]],
-      ["name/29", [28, 35.066]],
-      ["parent/29", [25, 1.491]],
-      ["name/30", [29, 35.066]],
-      ["parent/30", [25, 1.491]],
-      ["name/31", [30, 35.066]],
-      ["parent/31", [25, 1.491]],
-      ["name/32", [31, 29.957]],
-      ["parent/32", [9, 1.813]],
-      ["name/33", [32, 29.957]],
-      ["parent/33", [9, 1.813]],
-      ["name/34", [33, 17.72]],
-      ["parent/34", []],
-      ["name/35", [1, 29.957]],
-      ["parent/35", [33, 1.693]],
-      ["name/36", [31, 29.957]],
-      ["parent/36", [33, 1.693]],
-      ["name/37", [32, 29.957]],
-      ["parent/37", [33, 1.693]],
-      ["name/38", [10, 29.957]],
-      ["parent/38", [33, 1.693]],
-      ["name/39", [17, 29.957]],
-      ["parent/39", [33, 1.693]],
-      ["name/40", [20, 29.957]],
-      ["parent/40", [33, 1.693]],
-      ["name/41", [24, 29.957]],
-      ["parent/41", [33, 1.693]],
-      ["name/42", [34, 35.066]],
-      ["parent/42", []],
-      ["name/43", [35, 20.402]],
-      ["parent/43", []],
-      ["name/44", [11, 26.593]],
-      ["parent/44", [35, 1.95]],
-      ["name/45", [13, 26.593]],
-      ["parent/45", [35, 1.95]],
-      ["name/46", [14, 26.593]],
-      ["parent/46", [35, 1.95]],
-      ["name/47", [16, 26.593]],
-      ["parent/47", [35, 1.95]],
-      ["name/48", [36, 35.066]],
-      ["parent/48", [35, 1.95]]
+      ["name/10", [10, 35.946]],
+      ["parent/10", [9, 1.938]],
+      ["name/11", [11, 32.581]],
+      ["parent/11", [12, 2.74]],
+      ["name/12", [13, 32.581]],
+      ["parent/12", [12, 2.74]],
+      ["name/13", [14, 32.581]],
+      ["parent/13", [12, 2.74]],
+      ["name/14", [15, 41.054]],
+      ["parent/14", [12, 2.74]],
+      ["name/15", [16, 32.581]],
+      ["parent/15", [12, 2.74]],
+      ["name/16", [17, 35.946]],
+      ["parent/16", [9, 1.938]],
+      ["name/17", [18, 35.946]],
+      ["parent/17", [19, 4.009]],
+      ["name/18", [20, 35.946]],
+      ["parent/18", [9, 1.938]],
+      ["name/19", [21, 35.946]],
+      ["parent/19", [22, 2.936]],
+      ["name/20", [23, 41.054]],
+      ["parent/20", [22, 2.936]],
+      ["name/21", [24, 32.581]],
+      ["parent/21", [22, 2.936]],
+      ["name/22", [18, 35.946]],
+      ["parent/22", [22, 2.936]],
+      ["name/23", [25, 35.946]],
+      ["parent/23", [9, 1.938]],
+      ["name/24", [26, 41.054]],
+      ["parent/24", [27, 3.51]],
+      ["name/25", [28, 35.946]],
+      ["parent/25", [27, 3.51]],
+      ["name/26", [29, 35.946]],
+      ["parent/26", [9, 1.938]],
+      ["name/27", [30, 41.054]],
+      ["parent/27", [31, 2.936]],
+      ["name/28", [32, 35.946]],
+      ["parent/28", [31, 2.936]],
+      ["name/29", [33, 35.946]],
+      ["parent/29", [31, 2.936]],
+      ["name/30", [34, 35.946]],
+      ["parent/30", [31, 2.936]],
+      ["name/31", [35, 35.946]],
+      ["parent/31", [9, 1.938]],
+      ["name/32", [36, 41.054]],
+      ["parent/32", [37, 2.02]],
+      ["name/33", [38, 41.054]],
+      ["parent/33", [37, 2.02]],
+      ["name/34", [39, 41.054]],
+      ["parent/34", [37, 2.02]],
+      ["name/35", [40, 41.054]],
+      ["parent/35", [37, 2.02]],
+      ["name/36", [32, 35.946]],
+      ["parent/36", [37, 2.02]],
+      ["name/37", [34, 35.946]],
+      ["parent/37", [37, 2.02]],
+      ["name/38", [41, 41.054]],
+      ["parent/38", [37, 2.02]],
+      ["name/39", [24, 32.581]],
+      ["parent/39", [37, 2.02]],
+      ["name/40", [42, 41.054]],
+      ["parent/40", [37, 2.02]],
+      ["name/41", [33, 35.946]],
+      ["parent/41", [37, 2.02]],
+      ["name/42", [21, 35.946]],
+      ["parent/42", [37, 2.02]],
+      ["name/43", [43, 35.946]],
+      ["parent/43", [9, 1.938]],
+      ["name/44", [24, 32.581]],
+      ["parent/44", [44, 2.02]],
+      ["name/45", [45, 41.054]],
+      ["parent/45", [44, 2.02]],
+      ["name/46", [46, 41.054]],
+      ["parent/46", [44, 2.02]],
+      ["name/47", [28, 35.946]],
+      ["parent/47", [44, 2.02]],
+      ["name/48", [47, 41.054]],
+      ["parent/48", [44, 2.02]],
+      ["name/49", [48, 41.054]],
+      ["parent/49", [44, 2.02]],
+      ["name/50", [49, 41.054]],
+      ["parent/50", [44, 2.02]],
+      ["name/51", [50, 41.054]],
+      ["parent/51", [44, 2.02]],
+      ["name/52", [51, 41.054]],
+      ["parent/52", [44, 2.02]],
+      ["name/53", [52, 41.054]],
+      ["parent/53", [44, 2.02]],
+      ["name/54", [53, 41.054]],
+      ["parent/54", [44, 2.02]],
+      ["name/55", [54, 35.946]],
+      ["parent/55", [9, 1.938]],
+      ["name/56", [11, 32.581]],
+      ["parent/56", [55, 2.02]],
+      ["name/57", [13, 32.581]],
+      ["parent/57", [55, 2.02]],
+      ["name/58", [14, 32.581]],
+      ["parent/58", [55, 2.02]],
+      ["name/59", [16, 32.581]],
+      ["parent/59", [55, 2.02]],
+      ["name/60", [5, 35.946]],
+      ["parent/60", [55, 2.02]],
+      ["name/61", [56, 41.054]],
+      ["parent/61", [55, 2.02]],
+      ["name/62", [57, 41.054]],
+      ["parent/62", [55, 2.02]],
+      ["name/63", [58, 41.054]],
+      ["parent/63", [55, 2.02]],
+      ["name/64", [59, 41.054]],
+      ["parent/64", [55, 2.02]],
+      ["name/65", [60, 41.054]],
+      ["parent/65", [55, 2.02]],
+      ["name/66", [61, 41.054]],
+      ["parent/66", [55, 2.02]],
+      ["name/67", [62, 35.946]],
+      ["parent/67", [9, 1.938]],
+      ["name/68", [63, 35.946]],
+      ["parent/68", [9, 1.938]],
+      ["name/69", [64, 35.946]],
+      ["parent/69", [9, 1.938]],
+      ["name/70", [65, 19.082]],
+      ["parent/70", []],
+      ["name/71", [1, 35.946]],
+      ["parent/71", [65, 1.863]],
+      ["name/72", [62, 35.946]],
+      ["parent/72", [65, 1.863]],
+      ["name/73", [63, 35.946]],
+      ["parent/73", [65, 1.863]],
+      ["name/74", [64, 35.946]],
+      ["parent/74", [65, 1.863]],
+      ["name/75", [10, 35.946]],
+      ["parent/75", [65, 1.863]],
+      ["name/76", [17, 35.946]],
+      ["parent/76", [65, 1.863]],
+      ["name/77", [20, 35.946]],
+      ["parent/77", [65, 1.863]],
+      ["name/78", [25, 35.946]],
+      ["parent/78", [65, 1.863]],
+      ["name/79", [29, 35.946]],
+      ["parent/79", [65, 1.863]],
+      ["name/80", [35, 35.946]],
+      ["parent/80", [65, 1.863]],
+      ["name/81", [43, 35.946]],
+      ["parent/81", [65, 1.863]],
+      ["name/82", [54, 35.946]],
+      ["parent/82", [65, 1.863]],
+      ["name/83", [66, 41.054]],
+      ["parent/83", []],
+      ["name/84", [67, 26.391]],
+      ["parent/84", []],
+      ["name/85", [11, 32.581]],
+      ["parent/85", [67, 2.577]],
+      ["name/86", [13, 32.581]],
+      ["parent/86", [67, 2.577]],
+      ["name/87", [14, 32.581]],
+      ["parent/87", [67, 2.577]],
+      ["name/88", [16, 32.581]],
+      ["parent/88", [67, 2.577]],
+      ["name/89", [68, 41.054]],
+      ["parent/89", [67, 2.577]]
     ],
     "invertedIndex": [
-      ["accountid", { "_index": 23, "name": { "20": {} }, "parent": {} }],
+      ["account", { "_index": 45, "name": { "45": {} }, "parent": {} }],
+      [
+        "accountid",
+        { "_index": 28, "name": { "25": {}, "47": {} }, "parent": {} }
+      ],
       [
         "app_id",
-        { "_index": 13, "name": { "12": {}, "23": {}, "45": {} }, "parent": {} }
+        { "_index": 13, "name": { "12": {}, "57": {}, "86": {} }, "parent": {} }
       ],
-      ["base64url", { "_index": 30, "name": { "31": {} }, "parent": {} }],
-      ["client", { "_index": 36, "name": { "48": {} }, "parent": {} }],
+      ["averageprice", { "_index": 42, "name": { "40": {} }, "parent": {} }],
+      ["base64url", { "_index": 61, "name": { "66": {} }, "parent": {} }],
+      ["client", { "_index": 68, "name": { "89": {} }, "parent": {} }],
       [
         "client_id",
-        { "_index": 11, "name": { "11": {}, "22": {}, "44": {} }, "parent": {} }
+        { "_index": 11, "name": { "11": {}, "56": {}, "85": {} }, "parent": {} }
       ],
+      ["code", { "_index": 30, "name": { "27": {} }, "parent": {} }],
       [
         "constructor",
-        { "_index": 5, "name": { "4": {}, "26": {} }, "parent": {} }
+        { "_index": 5, "name": { "4": {}, "60": {} }, "parent": {} }
+      ],
+      ["convertedpnl", { "_index": 36, "name": { "32": {} }, "parent": {} }],
+      [
+        "convertedvalue",
+        { "_index": 32, "name": { "28": {}, "36": {} }, "parent": {} }
+      ],
+      ["currencies", { "_index": 52, "name": { "53": {} }, "parent": {} }],
+      [
+        "currency",
+        { "_index": 24, "name": { "21": {}, "39": {}, "44": {} }, "parent": {} }
+      ],
+      ["date", { "_index": 23, "name": { "20": {} }, "parent": {} }],
+      [
+        "defaultapiversion",
+        { "_index": 64, "name": { "69": {}, "74": {} }, "parent": {} }
       ],
       ["demo", { "_index": 15, "name": { "14": {} }, "parent": {} }],
       ["error", { "_index": 8, "name": { "8": {} }, "parent": {} }],
       [
         "exantedemourl",
-        { "_index": 31, "name": { "32": {}, "36": {} }, "parent": {} }
+        { "_index": 62, "name": { "67": {}, "72": {} }, "parent": {} }
       ],
       [
         "exanteliveurl",
-        { "_index": 32, "name": { "33": {}, "37": {} }, "parent": {} }
+        { "_index": 63, "name": { "68": {}, "73": {} }, "parent": {} }
       ],
-      ["fetch", { "_index": 26, "name": { "27": {} }, "parent": {} }],
+      ["fetch", { "_index": 56, "name": { "61": {} }, "parent": {} }],
       [
         "fetcherror",
-        { "_index": 1, "name": { "1": {}, "35": {} }, "parent": {} }
+        { "_index": 1, "name": { "1": {}, "71": {} }, "parent": {} }
       ],
-      ["getaccounts", { "_index": 27, "name": { "28": {} }, "parent": {} }],
-      ["headers", { "_index": 29, "name": { "30": {} }, "parent": {} }],
+      ["freemoney", { "_index": 46, "name": { "46": {} }, "parent": {} }],
+      ["getaccounts", { "_index": 57, "name": { "62": {} }, "parent": {} }],
+      [
+        "getaccountsummary",
+        { "_index": 58, "name": { "63": {} }, "parent": {} }
+      ],
+      ["headers", { "_index": 60, "name": { "65": {} }, "parent": {} }],
+      [
+        "iaccountsummary",
+        { "_index": 43, "name": { "43": {}, "81": {} }, "parent": {} }
+      ],
+      [
+        "iaccountsummaryoptions",
+        { "_index": 20, "name": { "18": {}, "77": {} }, "parent": {} }
+      ],
+      [
+        "icurrency",
+        { "_index": 29, "name": { "26": {}, "79": {} }, "parent": {} }
+      ],
+      ["id", { "_index": 21, "name": { "19": {}, "42": {} }, "parent": {} }],
       [
         "iexanteoptions",
-        { "_index": 10, "name": { "10": {}, "38": {} }, "parent": {} }
+        { "_index": 10, "name": { "10": {}, "75": {} }, "parent": {} }
       ],
       [
         "index",
         {
-          "_index": 33,
-          "name": { "34": {} },
+          "_index": 65,
+          "name": { "70": {} },
           "parent": {
-            "35": {},
-            "36": {},
-            "37": {},
-            "38": {},
-            "39": {},
-            "40": {},
-            "41": {}
+            "71": {},
+            "72": {},
+            "73": {},
+            "74": {},
+            "75": {},
+            "76": {},
+            "77": {},
+            "78": {},
+            "79": {},
+            "80": {},
+            "81": {},
+            "82": {}
           }
         }
       ],
       [
+        "iposition",
+        { "_index": 35, "name": { "31": {}, "80": {} }, "parent": {} }
+      ],
+      [
         "iuseraccount",
-        { "_index": 20, "name": { "18": {}, "40": {} }, "parent": {} }
+        { "_index": 25, "name": { "23": {}, "78": {} }, "parent": {} }
       ],
       [
         "iversion",
-        { "_index": 17, "name": { "16": {}, "39": {} }, "parent": {} }
+        { "_index": 17, "name": { "16": {}, "76": {} }, "parent": {} }
+      ],
+      [
+        "marginutilization",
+        { "_index": 51, "name": { "52": {} }, "parent": {} }
       ],
       ["message", { "_index": 6, "name": { "6": {} }, "parent": {} }],
+      [
+        "moneyusedformargin",
+        { "_index": 50, "name": { "51": {} }, "parent": {} }
+      ],
       ["name", { "_index": 4, "name": { "3": {} }, "parent": {} }],
+      ["netassetvalue", { "_index": 47, "name": { "48": {} }, "parent": {} }],
+      ["pnl", { "_index": 39, "name": { "34": {} }, "parent": {} }],
+      ["positions", { "_index": 53, "name": { "54": {} }, "parent": {} }],
+      ["price", { "_index": 34, "name": { "30": {}, "37": {} }, "parent": {} }],
+      ["quantity", { "_index": 38, "name": { "33": {} }, "parent": {} }],
       ["response", { "_index": 2, "name": { "2": {}, "5": {} }, "parent": {} }],
       [
         "restclient",
-        { "_index": 24, "name": { "21": {}, "41": {} }, "parent": {} }
+        { "_index": 54, "name": { "55": {}, "82": {} }, "parent": {} }
       ],
+      ["sessiondate", { "_index": 48, "name": { "49": {} }, "parent": {} }],
       [
         "shared_key",
-        { "_index": 14, "name": { "13": {}, "24": {}, "46": {} }, "parent": {} }
+        { "_index": 14, "name": { "13": {}, "58": {}, "87": {} }, "parent": {} }
       ],
       [
         "src/error",
@@ -603,10 +1075,51 @@
             "10": {},
             "16": {},
             "18": {},
-            "21": {},
-            "32": {},
-            "33": {}
+            "23": {},
+            "26": {},
+            "31": {},
+            "43": {},
+            "55": {},
+            "67": {},
+            "68": {},
+            "69": {}
           }
+        }
+      ],
+      [
+        "src/rest\".iaccountsummary",
+        {
+          "_index": 44,
+          "name": {},
+          "parent": {
+            "44": {},
+            "45": {},
+            "46": {},
+            "47": {},
+            "48": {},
+            "49": {},
+            "50": {},
+            "51": {},
+            "52": {},
+            "53": {},
+            "54": {}
+          }
+        }
+      ],
+      [
+        "src/rest\".iaccountsummaryoptions",
+        {
+          "_index": 22,
+          "name": {},
+          "parent": { "19": {}, "20": {}, "21": {}, "22": {} }
+        }
+      ],
+      [
+        "src/rest\".icurrency",
+        {
+          "_index": 31,
+          "name": {},
+          "parent": { "27": {}, "28": {}, "29": {}, "30": {} }
         }
       ],
       [
@@ -618,8 +1131,28 @@
         }
       ],
       [
+        "src/rest\".iposition",
+        {
+          "_index": 37,
+          "name": {},
+          "parent": {
+            "32": {},
+            "33": {},
+            "34": {},
+            "35": {},
+            "36": {},
+            "37": {},
+            "38": {},
+            "39": {},
+            "40": {},
+            "41": {},
+            "42": {}
+          }
+        }
+      ],
+      [
         "src/rest\".iuseraccount",
-        { "_index": 22, "name": {}, "parent": { "19": {}, "20": {} } }
+        { "_index": 27, "name": {}, "parent": { "24": {}, "25": {} } }
       ],
       [
         "src/rest\".iversion",
@@ -628,39 +1161,47 @@
       [
         "src/rest\".restclient",
         {
-          "_index": 25,
+          "_index": 55,
           "name": {},
           "parent": {
-            "22": {},
-            "23": {},
-            "24": {},
-            "25": {},
-            "26": {},
-            "27": {},
-            "28": {},
-            "29": {},
-            "30": {},
-            "31": {}
+            "56": {},
+            "57": {},
+            "58": {},
+            "59": {},
+            "60": {},
+            "61": {},
+            "62": {},
+            "63": {},
+            "64": {},
+            "65": {},
+            "66": {}
           }
         }
       ],
       ["stack", { "_index": 7, "name": { "7": {} }, "parent": {} }],
-      ["status", { "_index": 21, "name": { "19": {} }, "parent": {} }],
-      ["test/error.spec", { "_index": 34, "name": { "42": {} }, "parent": {} }],
+      ["status", { "_index": 26, "name": { "24": {} }, "parent": {} }],
+      ["symbolid", { "_index": 40, "name": { "35": {} }, "parent": {} }],
+      ["symboltype", { "_index": 41, "name": { "38": {} }, "parent": {} }],
+      ["test/error.spec", { "_index": 66, "name": { "83": {} }, "parent": {} }],
       [
         "test/rest.spec",
         {
-          "_index": 35,
-          "name": { "43": {} },
-          "parent": { "44": {}, "45": {}, "46": {}, "47": {}, "48": {} }
+          "_index": 67,
+          "name": { "84": {} },
+          "parent": { "85": {}, "86": {}, "87": {}, "88": {}, "89": {} }
         }
       ],
-      ["token", { "_index": 28, "name": { "29": {} }, "parent": {} }],
+      ["timestamp", { "_index": 49, "name": { "50": {} }, "parent": {} }],
+      ["token", { "_index": 59, "name": { "64": {} }, "parent": {} }],
       [
         "url",
-        { "_index": 16, "name": { "15": {}, "25": {}, "47": {} }, "parent": {} }
+        { "_index": 16, "name": { "15": {}, "59": {}, "88": {} }, "parent": {} }
       ],
-      ["version", { "_index": 18, "name": { "17": {} }, "parent": {} }]
+      ["value", { "_index": 33, "name": { "29": {}, "41": {} }, "parent": {} }],
+      [
+        "version",
+        { "_index": 18, "name": { "17": {}, "22": {} }, "parent": {} }
+      ]
     ],
     "pipeline": []
   }

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/b2broker/exante-node/compare/v1.1.0...v1.2.0) (2020-08-28)
+
+### Features
+
+- add getAccountSummary method ([98c2731](https://github.com/b2broker/exante-node/commit/98c2731dbd1e5f6ef154b1ab4c88743b2038828e))
+- export default API version ([50d06e0](https://github.com/b2broker/exante-node/commit/50d06e067fecc79125beb7a4890f14c815f0b9dc))
+
 ## [1.1.0](https://github.com/b2broker/exante-node/compare/v1.0.0...v1.1.0) (2020-08-28)
 
 ### Features
