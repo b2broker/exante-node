@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.5.0](https://github.com/b2broker/exante-node/compare/v1.4.0...v1.5.0) (2020-08-29)
+
+### Features
+
+- add getCurrencies method ([1a58597](https://github.com/b2broker/exante-node/commit/1a5859720df46e9f14c8b5a3ef6e69adf2903226))
+
 ## [1.4.0](https://github.com/b2broker/exante-node/compare/v1.3.0...v1.4.0) (2020-08-28)
 
 ### Features
