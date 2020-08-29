@@ -45,6 +45,13 @@ const symbolId = ["AAPL.NASDAQ", "MSFT.NASDAQ"];
 const changes = await client.getDailyChange({ version, symbolId });
 ```
 
+- [`getCurrencies`](https://api-live.exante.eu/api-docs/#operation/getCurrencies)
+
+```typescript
+const version = "2.0";
+const currencies = await client.getCurrencies({ version });
+```
+
 - [`getAccountSummary`](https://api-live.exante.eu/api-docs/#operation/getAccountSummary)
 
 ```typescript
