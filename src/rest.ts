@@ -41,6 +41,10 @@ export interface IDailyChange {
   dailyChange?: string | null;
 }
 
+export interface ICurrencies {
+  currencies: string[];
+}
+
 export interface ICurrency {
   code: string;
   convertedValue: string;
@@ -145,6 +149,17 @@ export class RestClient {
   }: ISymbolId): Promise<IDailyChange[]> {
     const url = new URL(`/md/${version}/change/${symbolId}`, this.url);
     const changes = (await this.fetch(url)) as IDailyChange[];
+    return changes;
+  }
+
+  /**
+   * Get the list of available currencies
+   */
+  public async getCurrencies({
+    version = DefaultAPIVersion,
+  }: IVersion = {}): Promise<ICurrencies> {
+    const url = new URL(`/md/${version}/crossrates`, this.url);
+    const changes = (await this.fetch(url)) as ICurrencies;
     return changes;
   }
 
