@@ -233,6 +233,17 @@
             <ul>
               <li>
                 <a
+                  href="https://api-live.exante.eu/api-docs/#operation/getCrossrate"
+                  ><code>getCrossrate</code></a
+                >
+              </li>
+            </ul>
+            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> <span class="hljs-keyword">from</span> = <span class="hljs-string">&quot;USD&quot;</span>;
+<span class="hljs-keyword">const</span> to = <span class="hljs-string">&quot;EUR&quot;</span>;
+<span class="hljs-keyword">const</span> crossrate = <span class="hljs-keyword">await</span> client.getCrossrate({ <span class="hljs-keyword">from</span>, to });</code></pre>
+            <ul>
+              <li>
+                <a
                   href="https://api-live.exante.eu/api-docs/#operation/getAccountSummary"
                   ><code>getAccountSummary</code></a
                 >
@@ -288,6 +299,18 @@
                   href="interfaces/iaccountsummaryoptions.html"
                   class="tsd-kind-icon"
                   >IAccount<wbr />Summary<wbr />Options</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/icrossrate.html" class="tsd-kind-icon"
+                  >ICrossrate</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/icrossrateoptions.html"
+                  class="tsd-kind-icon"
+                  >ICrossrate<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-interface">

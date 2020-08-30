@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.6.0](https://github.com/b2broker/exante-node/compare/v1.5.0...v1.6.0) (2020-08-30)
+
+### Features
+
+- add getCrossrate method ([6fb192f](https://github.com/b2broker/exante-node/commit/6fb192f738145d801917f43d21b1d5775141d69b))
+
 ## [1.5.0](https://github.com/b2broker/exante-node/compare/v1.4.0...v1.5.0) (2020-08-29)
 
 ### Features

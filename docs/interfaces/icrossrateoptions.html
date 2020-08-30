@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>IExanteOptions | exante</title>
+    <title>ICrossrateOptions | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="iexanteoptions.html">IExanteOptions</a>
+              <a href="icrossrateoptions.html">ICrossrateOptions</a>
             </li>
           </ul>
-          <h1>Interface IExanteOptions</h1>
+          <h1>Interface ICrossrateOptions</h1>
         </div>
       </div>
     </header>
@@ -92,7 +92,12 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <span class="target">IExanteOptions</span>
+                <a href="iversion.html" class="tsd-signature-type">IVersion</a>
+                <ul class="tsd-hierarchy">
+                  <li>
+                    <span class="target">ICrossrateOptions</span>
+                  </li>
+                </ul>
               </li>
             </ul>
           </section>
@@ -104,32 +109,24 @@
                   <h3>Properties</h3>
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iexanteoptions.html#app_id" class="tsd-kind-icon"
-                        >app_<wbr />id</a
-                      >
-                    </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="iexanteoptions.html#client_id"
+                        href="icrossrateoptions.html#from"
                         class="tsd-kind-icon"
-                        >client_<wbr />id</a
+                        >from</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iexanteoptions.html#demo" class="tsd-kind-icon"
-                        >demo</a
+                      <a href="icrossrateoptions.html#to" class="tsd-kind-icon"
+                        >to</a
                       >
                     </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <li
+                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                    >
                       <a
-                        href="iexanteoptions.html#shared_key"
+                        href="icrossrateoptions.html#version"
                         class="tsd-kind-icon"
-                        >shared_<wbr />key</a
-                      >
-                    </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iexanteoptions.html#url" class="tsd-kind-icon"
-                        >url</a
+                        >version</a
                       >
                     </li>
                   </ul>
@@ -142,10 +139,10 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="app_id" class="tsd-anchor"></a>
-              <h3>app_<wbr />id</h3>
+              <a name="from" class="tsd-anchor"></a>
+              <h3>from</h3>
               <div class="tsd-signature tsd-kind-icon">
-                app_<wbr />id<span class="tsd-signature-symbol">:</span>
+                from<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
@@ -153,8 +150,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/3157051/src/rest.ts#L12"
-                      >src/rest.ts:12</a
+                      href="https://github.com/b2broker/exante-node/blob/3157051/src/rest.ts#L27"
+                      >src/rest.ts:27</a
                     >
                   </li>
                 </ul>
@@ -163,10 +160,10 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="client_id" class="tsd-anchor"></a>
-              <h3>client_<wbr />id</h3>
+              <a name="to" class="tsd-anchor"></a>
+              <h3>to</h3>
               <div class="tsd-signature tsd-kind-icon">
-                client_<wbr />id<span class="tsd-signature-symbol">:</span>
+                to<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
@@ -174,81 +171,39 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/3157051/src/rest.ts#L11"
-                      >src/rest.ts:11</a
+                      href="https://github.com/b2broker/exante-node/blob/3157051/src/rest.ts#L28"
+                      >src/rest.ts:28</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
             <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
             >
-              <a name="demo" class="tsd-anchor"></a>
+              <a name="version" class="tsd-anchor"></a>
               <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> demo
+                <span class="tsd-flag ts-flagOptional">Optional</span> version
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                demo<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">undefined</span
+                version<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">"2.0"</span
                 ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">false</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">true</span>
+                ><span class="tsd-signature-type">"3.0"</span>
               </div>
               <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="iversion.html">IVersion</a>.<a
+                    href="iversion.html#version"
+                    >version</a
+                  >
+                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/3157051/src/rest.ts#L14"
-                      >src/rest.ts:14</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="shared_key" class="tsd-anchor"></a>
-              <h3>shared_<wbr />key</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                shared_<wbr />key<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/3157051/src/rest.ts#L13"
-                      >src/rest.ts:13</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="url" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> url
-              </h3>
-              <div class="tsd-signature tsd-kind-icon">
-                url<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">URL</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/3157051/src/rest.ts#L15"
-                      >src/rest.ts:15</a
+                      href="https://github.com/b2broker/exante-node/blob/3157051/src/rest.ts#L19"
+                      >src/rest.ts:19</a
                     >
                   </li>
                 </ul>
@@ -289,11 +244,36 @@
               <li class="tsd-kind-interface">
                 <a href="icrossrate.html" class="tsd-kind-icon">ICrossrate</a>
               </li>
-              <li class="tsd-kind-interface">
+            </ul>
+            <ul class="current">
+              <li class="current tsd-kind-interface">
                 <a href="icrossrateoptions.html" class="tsd-kind-icon"
                   >ICrossrate<wbr />Options</a
                 >
+                <ul>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="icrossrateoptions.html#from" class="tsd-kind-icon"
+                      >from</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="icrossrateoptions.html#to" class="tsd-kind-icon"
+                      >to</a
+                    >
+                  </li>
+                  <li
+                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                  >
+                    <a
+                      href="icrossrateoptions.html#version"
+                      class="tsd-kind-icon"
+                      >version</a
+                    >
+                  </li>
+                </ul>
               </li>
+            </ul>
+            <ul class="after-current">
               <li class="tsd-kind-interface">
                 <a href="icurrencies.html" class="tsd-kind-icon">ICurrencies</a>
               </li>
@@ -305,46 +285,11 @@
                   >IDaily<wbr />Change</a
                 >
               </li>
-            </ul>
-            <ul class="current">
-              <li class="current tsd-kind-interface">
+              <li class="tsd-kind-interface">
                 <a href="iexanteoptions.html" class="tsd-kind-icon"
                   >IExante<wbr />Options</a
                 >
-                <ul>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iexanteoptions.html#app_id" class="tsd-kind-icon"
-                      >app_<wbr />id</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a
-                      href="iexanteoptions.html#client_id"
-                      class="tsd-kind-icon"
-                      >client_<wbr />id</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iexanteoptions.html#demo" class="tsd-kind-icon"
-                      >demo</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a
-                      href="iexanteoptions.html#shared_key"
-                      class="tsd-kind-icon"
-                      >shared_<wbr />key</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iexanteoptions.html#url" class="tsd-kind-icon"
-                      >url</a
-                    >
-                  </li>
-                </ul>
               </li>
-            </ul>
-            <ul class="after-current">
               <li class="tsd-kind-interface">
                 <a href="iposition.html" class="tsd-kind-icon">IPosition</a>
               </li>
