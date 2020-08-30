@@ -23,6 +23,11 @@ export interface ISymbolId extends IVersion {
   symbolId: string | string[];
 }
 
+export interface ICrossrateOptions extends IVersion {
+  from: string;
+  to: string;
+}
+
 export interface IAccountSummaryOptions extends IVersion {
   id: string;
   date: string;
@@ -43,6 +48,12 @@ export interface IDailyChange {
 
 export interface ICurrencies {
   currencies: string[];
+}
+
+export interface ICrossrate {
+  symbolId?: string | null;
+  pair: string;
+  rate: string;
 }
 
 export interface ICurrency {
@@ -161,6 +172,19 @@ export class RestClient {
     const url = new URL(`/md/${version}/crossrates`, this.url);
     const changes = (await this.fetch(url)) as ICurrencies;
     return changes;
+  }
+
+  /**
+   * Get the crossrate from one currency to another
+   */
+  public async getCrossrate({
+    version = "2.0",
+    from,
+    to,
+  }: ICrossrateOptions): Promise<ICrossrate> {
+    const url = new URL(`/md/${version}/crossrates/${from}/${to}`, this.url);
+    const crossrate = (await this.fetch(url)) as ICrossrate;
+    return crossrate;
   }
 
   /**
