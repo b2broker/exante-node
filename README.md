@@ -52,6 +52,14 @@ const version = "2.0";
 const currencies = await client.getCurrencies({ version });
 ```
 
+- [`getCrossrate`](https://api-live.exante.eu/api-docs/#operation/getCrossrate)
+
+```typescript
+const from = "USD";
+const to = "EUR";
+const crossrate = await client.getCrossrate({ from, to });
+```
+
 - [`getAccountSummary`](https://api-live.exante.eu/api-docs/#operation/getAccountSummary)
 
 ```typescript

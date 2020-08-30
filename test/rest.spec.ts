@@ -10,6 +10,7 @@ import {
   IUserAccount,
   IDailyChange,
   ICurrencies,
+  ICrossrate,
   IAccountSummary,
   DefaultAPIVersion,
 } from "../";
@@ -380,6 +381,43 @@ suite("RestClient", () => {
     assert.deepStrictEqual(currencies, response);
   });
 
+  test(".getCrossrate()", async () => {
+    const version = "3.0";
+    const from = "EUR";
+    const to = "USD";
+    const response: ICrossrate = {
+      pair: "EUR/USD",
+      rate: "1.2",
+      symbolId: "EUR/USD.E.FX",
+    };
+
+    nock(url)
+      .get(`/md/${version}/crossrates/${from}/${to}`)
+      .delay(1)
+      .reply(200, response);
+
+    const crossrate = await client.getCrossrate({ version, from, to });
+    assert.deepStrictEqual(crossrate, response);
+  });
+
+  test(".getCrossrate() (with no `version`)", async () => {
+    const from = "EUR";
+    const to = "USD";
+    const response: ICrossrate = {
+      pair: "EUR/USD",
+      rate: "1.2",
+      symbolId: "EUR/USD.E.FX",
+    };
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/crossrates/${from}/${to}`)
+      .delay(1)
+      .reply(200, response);
+
+    const currencies = await client.getCrossrate({ from, to });
+    assert.deepStrictEqual(currencies, response);
+  });
+
   test(".getAccountSummary()", async () => {
     const version = "3.0";
     const id = "ABC1234.001";
@@ -434,7 +472,7 @@ suite("RestClient", () => {
     assert.deepStrictEqual(summary, response);
   });
 
-  test(".getAccountSummary() (with no version)", async () => {
+  test(".getAccountSummary() (with no `version`)", async () => {
     const id = "ABC1234.001";
     const date = "2013-02-16";
     const currency = "EUR";
