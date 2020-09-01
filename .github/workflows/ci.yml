@@ -42,11 +42,8 @@ jobs:
       - name: Vulnerabilities
         run: npm run snyk:test
 
-      - name: prepublishOnly
-        run: npm run prepublishOnly
-
-      - name: postpublish
-        run: npm run postpublish
+      - name: Publish test
+        run: npm run publish:test
 
     env:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
