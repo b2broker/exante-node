@@ -11,6 +11,7 @@ import {
   IDailyChange,
   ICurrencies,
   ICrossrate,
+  IExchange,
   IAccountSummary,
   DefaultAPIVersion,
 } from "../";
@@ -416,6 +417,42 @@ suite("RestClient", () => {
 
     const currencies = await client.getCrossrate({ from, to });
     assert.deepStrictEqual(currencies, response);
+  });
+
+  test(".getExchanges()", async () => {
+    const version = "3.0";
+    const response: IExchange[] = [
+      {
+        id: "NASDAQ",
+        country: "US",
+        name:
+          "NASDAQ: National Association of Securities Dealers Automated Quotations",
+      },
+    ];
+
+    nock(url).get(`/md/${version}/exchanges`).delay(1).reply(200, response);
+
+    const exchanges = await client.getExchanges({ version });
+    assert.deepStrictEqual(exchanges, response);
+  });
+
+  test(".getExchanges() (with no arguments)", async () => {
+    const response: IExchange[] = [
+      {
+        id: "NASDAQ",
+        country: "US",
+        name:
+          "NASDAQ: National Association of Securities Dealers Automated Quotations",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/exchanges`)
+      .delay(1)
+      .reply(200, response);
+
+    const exchanges = await client.getExchanges();
+    assert.deepStrictEqual(exchanges, response);
   });
 
   test(".getAccountSummary()", async () => {

@@ -3,15 +3,11 @@
   "overrides": [
     {
       "files": ["*.spec.js"],
-      "env": {
-        "mocha": true
-      }
+      "env": { "mocha": true }
     },
     {
       "files": ["*.js"],
-      "rules": {
-        "@typescript-eslint/no-var-requires": "off"
-      }
+      "rules": { "@typescript-eslint/no-var-requires": "off" }
     },
     {
       "files": ["./docs/**/*.js"],
@@ -31,10 +27,7 @@
       }
     }
   ],
-  "env": {
-    "node": true,
-    "es2020": true
-  },
+  "env": { "node": true, "es2020": true },
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
