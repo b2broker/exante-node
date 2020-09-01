@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.7.0](https://github.com/b2broker/exante-node/compare/v1.6.0...v1.7.0) (2020-09-01)
+
+### Features
+
+- add getExchanges method ([3854ec8](https://github.com/b2broker/exante-node/commit/3854ec82112ffef7b0b18ca0f18c35eb18180b3a))
+
+### Bug Fixes
+
+- update status property of the interface IUserAccount ([0a19091](https://github.com/b2broker/exante-node/commit/0a190913fbbfc3ad815d10af4e49b8c69e08fe42))
+
 ## [1.6.0](https://github.com/b2broker/exante-node/compare/v1.5.0...v1.6.0) (2020-08-30)
 
 ### Features
