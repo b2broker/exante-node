@@ -56,6 +56,12 @@ export interface ICrossrate {
   rate: string;
 }
 
+export interface IExchange {
+  id: string;
+  country?: string | null;
+  name?: string | null;
+}
+
 export interface ICurrency {
   code: string;
   convertedValue: string;
@@ -178,13 +184,21 @@ export class RestClient {
    * Get the crossrate from one currency to another
    */
   public async getCrossrate({
-    version = "2.0",
+    version = DefaultAPIVersion,
     from,
     to,
   }: ICrossrateOptions): Promise<ICrossrate> {
     const url = new URL(`/md/${version}/crossrates/${from}/${to}`, this.url);
     const crossrate = (await this.fetch(url)) as ICrossrate;
     return crossrate;
+  }
+
+  public async getExchanges({
+    version = DefaultAPIVersion,
+  }: IVersion = {}): Promise<IExchange[]> {
+    const url = new URL(`/md/${version}/exchanges`, this.url);
+    const exchanges = (await this.fetch(url)) as IExchange[];
+    return exchanges;
   }
 
   /**
