@@ -16,84 +16,222 @@ export interface IExanteOptions {
 }
 
 export interface IVersion {
+  /**
+   * API version
+   */
   version?: "2.0" | "3.0";
 }
 
 export interface ISymbolId extends IVersion {
+  /**
+   * Financial instrument ids
+   */
   symbolId: string | string[];
 }
 
 export interface ICrossrateOptions extends IVersion {
+  /**
+   * From currency
+   */
   from: string;
+  /**
+   * To currency
+   */
   to: string;
 }
 
 export interface IAccountSummaryOptions extends IVersion {
+  /**
+   * Account id
+   */
   id: string;
+  /**
+   * Session date
+   */
   date: string;
+  /**
+   * Summary's currency
+   */
   currency: string;
 }
 
 export interface IUserAccount {
+  /**
+   * Account status
+   */
   status: "ReadOnly" | "CloseOnly" | "Full";
+  /**
+   * Account ID
+   */
   accountId: string;
 }
 
 export interface IDailyChange {
+  /**
+   * Previous session close price, required api 3.0 only
+   */
   lastSessionClosePrice?: string | null;
+  /**
+   * Previous session close price
+   */
   basePrice?: string | null;
+  /**
+   * Symbol id
+   */
   symbolId: string;
+  /**
+   * Absolute daily change of the price at the moment of request
+   */
   dailyChange?: string | null;
 }
 
 export interface ICurrencies {
+  /**
+   * Currencies
+   */
   currencies: string[];
 }
 
 export interface ICrossrate {
+  /**
+   * Symbol id
+   */
   symbolId?: string | null;
+  /**
+   * Crossrate pair
+   */
   pair: string;
+  /**
+   * Current crossrate
+   */
   rate: string;
 }
 
 export interface IExchange {
+  /**
+   * Exchange internal id
+   */
   id: string;
+  /**
+   * Exchange country
+   */
   country?: string | null;
+  /**
+   * Full exchange name
+   */
   name?: string | null;
 }
 
 export interface ICurrency {
+  /**
+   * Currency code
+   */
   code: string;
+  /**
+   * Converted value of position
+   */
   convertedValue: string;
+  /**
+   * Value of position
+   */
   value?: string;
+  /**
+   * Value of position
+   */
   price?: string;
 }
 
 export interface IPosition {
+  /**
+   * Current position PnL in the currency of the report
+   */
   convertedPnl: string;
+  /**
+   * Quantity on position
+   */
   quantity?: string;
+  /**
+   * Current position PnL
+   */
   pnl?: string;
+  /**
+   * Symbol id
+   */
   symbolId: string;
+  /**
+   * Position value in the currency of the report
+   */
   convertedValue?: string;
+  /**
+   * Current financial instrument price
+   */
   price?: string;
+  /**
+   * Symbol type
+   */
   symbolType: string;
+  /**
+   * Currency code
+   */
   currency: string;
+  /**
+   * Average position opening price
+   */
   averagePrice?: string;
+  /**
+   * Position value
+   */
   value?: string;
+  /**
+   * Symbol id
+   */
   id?: string;
 }
 
 export interface IAccountSummary {
+  /**
+   * Currency of the report
+   */
   currency: string;
+  /**
+   * User account id
+   */
   account?: string;
+  /**
+   * Free money in the currency of the report
+   */
   freeMoney?: string;
+  /**
+   * User account id
+   */
   accountId?: string;
+  /**
+   * Total NAV of user in the currency of the report
+   */
   netAssetValue?: string;
+  /**
+   * Session date of the report
+   */
   sessionDate?: [number, number, number];
+  /**
+   * Timestamp of the report
+   */
   timestamp: number;
+  /**
+   * Money used for margin in the currency of the report
+   */
   moneyUsedForMargin?: string;
+  /**
+   * Margin utilization in fraction of NAV
+   */
   marginUtilization?: string;
+  /**
+   * Currencies on position
+   */
   currencies: ICurrency[];
+  /**
+   * Open positions
+   */
   positions: IPosition[];
 }
 
