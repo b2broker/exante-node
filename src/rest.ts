@@ -35,7 +35,7 @@ export interface IAccountSummaryOptions extends IVersion {
 }
 
 export interface IUserAccount {
-  status: string;
+  status: "ReadOnly" | "CloseOnly" | "Full";
   accountId: string;
 }
 
