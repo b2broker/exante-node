@@ -60,6 +60,13 @@ const to = "EUR";
 const crossrate = await client.getCrossrate({ from, to });
 ```
 
+- [`getExchanges`](https://api-live.exante.eu/api-docs/#operation/getExchanges)
+
+```typescript
+const version = "3.0";
+const exchanges = await client.getExchanges({ version });
+```
+
 - [`getAccountSummary`](https://api-live.exante.eu/api-docs/#operation/getAccountSummary)
 
 ```typescript
