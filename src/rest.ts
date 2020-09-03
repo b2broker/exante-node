@@ -40,6 +40,14 @@ export interface ICrossrateOptions extends IVersion {
   to: string;
 }
 
+export interface ILastQuoteOptions extends IVersion {
+  /**
+   * Symbol id or symbol ids
+   */
+  symbolIds: string | string[];
+  level?: "best_price" | "market_depth";
+}
+
 export interface IAccountSummaryOptions extends IVersion {
   /**
    * Account id
@@ -120,6 +128,49 @@ export interface IExchange {
    * Full exchange name
    */
   name?: string | null;
+}
+
+export interface IQuoteSideV2 {
+  /**
+   * Quantity value
+   */
+  size: string;
+  /**
+   * Quantity value
+   */
+  value: string;
+}
+
+export interface IQuoteSideV3 {
+  /**
+   * Quantity value
+   */
+  size: string;
+  /**
+   * Quantity value
+   */
+  price: string;
+}
+
+export type IQuoteSide = IQuoteSideV2 | IQuoteSideV3;
+
+export interface ILastQuote {
+  /**
+   * Quote timestamp
+   */
+  timestamp: number;
+  /**
+   * Symbold id
+   */
+  symbolId: string;
+  /**
+   * Array of bid levels
+   */
+  bid: IQuoteSide[];
+  /**
+   * Array of ask levels
+   */
+  ask: IQuoteSide[];
 }
 
 export interface ICurrency {
@@ -339,6 +390,20 @@ export class RestClient {
   }: IVersion = {}): Promise<IExchange[]> {
     const url = new URL(`/md/${version}/exchanges`, this.url);
     const exchanges = (await this.fetch(url)) as IExchange[];
+    return exchanges;
+  }
+
+  /**
+   * Get the last quote
+   */
+  public async getLastQuote({
+    version = DefaultAPIVersion,
+    symbolIds,
+    level,
+  }: ILastQuoteOptions): Promise<ILastQuote[]> {
+    const url = new URL(`/md/${version}/feed/${symbolIds}/last`, this.url);
+    RestClient.setQuery(url, { level });
+    const exchanges = (await this.fetch(url)) as ILastQuote[];
     return exchanges;
   }
 
