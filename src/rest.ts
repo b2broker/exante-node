@@ -77,6 +77,13 @@ export interface ICandlesOptions extends ISymbolId {
   size?: string | number;
 }
 
+export interface ITicksOptions extends ISymbolId {
+  from?: string | number;
+  to?: string | number;
+  size?: string | number;
+  type?: "quotes" | "trades";
+}
+
 export interface IAccountSummaryOptions extends IVersion {
   /**
    * Account id
@@ -183,15 +190,18 @@ export interface IQuoteSideV3 {
 
 export type IQuoteSide = IQuoteSideV2 | IQuoteSideV3;
 
-export interface ILastQuote {
+interface ITickBase {
   /**
-   * Quote timestamp
+   * Tick timestamp
    */
   timestamp: number;
   /**
-   * Symbold id
+   * Symbol id
    */
   symbolId: string;
+}
+
+export interface ILastQuote extends ITickBase {
   /**
    * Array of bid levels
    */
@@ -228,6 +238,30 @@ export interface ICandle {
    */
   volume?: string;
 }
+
+export interface ITradeTickV2 extends ITickBase {
+  /**
+   * Trade price
+   */
+  value: string;
+  /**
+   * Trade size
+   */
+  size: string;
+}
+
+export interface ITradeTickV3 extends ITickBase {
+  /**
+   * Trade price
+   */
+  price: string;
+  /**
+   * Trade size
+   */
+  size: string;
+}
+
+export type ITick = ILastQuote | ITradeTickV2 | ITradeTickV3;
 
 export interface ICurrency {
   /**
@@ -480,6 +514,21 @@ export class RestClient {
 
     const candles = (await this.fetch(url)) as ICandle[];
     return candles;
+  }
+
+  /**
+   * Get the list of ticks
+   */
+  public async getTicks({
+    version = DefaultAPIVersion,
+    symbolId,
+    ...query
+  }: ITicksOptions): Promise<ITick[]> {
+    const url = new URL(`/md/${version}/ticks/${symbolId}`, this.url);
+    RestClient.setQuery(url, { ...query });
+
+    const ticks = (await this.fetch(url)) as ITick[];
+    return ticks;
   }
 
   /**
