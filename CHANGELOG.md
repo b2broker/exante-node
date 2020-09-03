@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.9.0](https://github.com/b2broker/exante-node/compare/v1.8.0...v1.9.0) (2020-09-03)
+
+### Features
+
+- add getCandles method ([86cfe03](https://github.com/b2broker/exante-node/commit/86cfe035173c06369b6666e86e8dd7fd9617a717))
+
 ## [1.8.0](https://github.com/b2broker/exante-node/compare/v1.7.0...v1.8.0) (2020-09-03)
 
 ### Features

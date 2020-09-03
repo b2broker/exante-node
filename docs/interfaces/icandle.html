@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>IVersion | exante</title>
+    <title>ICandle | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="iversion.html">IVersion</a>
+              <a href="icandle.html">ICandle</a>
             </li>
           </ul>
-          <h1>Interface IVersion</h1>
+          <h1>Interface ICandle</h1>
         </div>
       </div>
     </header>
@@ -92,31 +92,7 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <span class="target">IVersion</span>
-                <ul class="tsd-hierarchy">
-                  <li>
-                    <a href="isymbolid.html" class="tsd-signature-type"
-                      >ISymbolId</a
-                    >
-                  </li>
-                  <li>
-                    <a href="icrossrateoptions.html" class="tsd-signature-type"
-                      >ICrossrateOptions</a
-                    >
-                  </li>
-                  <li>
-                    <a href="ilastquoteoptions.html" class="tsd-signature-type"
-                      >ILastQuoteOptions</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="iaccountsummaryoptions.html"
-                      class="tsd-signature-type"
-                      >IAccountSummaryOptions</a
-                    >
-                  </li>
-                </ul>
+                <span class="target">ICandle</span>
               </li>
             </ul>
           </section>
@@ -128,8 +104,27 @@
                   <h3>Properties</h3>
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iversion.html#version" class="tsd-kind-icon"
-                        >version</a
+                      <a href="icandle.html#close" class="tsd-kind-icon"
+                        >close</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a href="icandle.html#high" class="tsd-kind-icon">high</a>
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a href="icandle.html#low" class="tsd-kind-icon">low</a>
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a href="icandle.html#open" class="tsd-kind-icon">open</a>
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a href="icandle.html#timestamp" class="tsd-kind-icon"
+                        >timestamp</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a href="icandle.html#volume" class="tsd-kind-icon"
+                        >volume</a
                       >
                     </li>
                   </ul>
@@ -142,30 +137,160 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="version" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> version
-              </h3>
+              <a name="close" class="tsd-anchor"></a>
+              <h3>close</h3>
               <div class="tsd-signature tsd-kind-icon">
-                version<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">"2.0"</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">"3.0"</span>
+                close<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/771e4f4/src/rest.ts#L22"
-                      >src/rest.ts:22</a
+                      href="https://github.com/b2broker/exante-node/blob/771e4f4/src/rest.ts#L221"
+                      >src/rest.ts:221</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>API version</p>
+                  <p>Candle close price</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="high" class="tsd-anchor"></a>
+              <h3>high</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                high<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/771e4f4/src/rest.ts#L225"
+                      >src/rest.ts:225</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Candle high price</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="low" class="tsd-anchor"></a>
+              <h3>low</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                low<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/771e4f4/src/rest.ts#L217"
+                      >src/rest.ts:217</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Candle low price</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="open" class="tsd-anchor"></a>
+              <h3>open</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                open<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/771e4f4/src/rest.ts#L213"
+                      >src/rest.ts:213</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Candle open price</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="timestamp" class="tsd-anchor"></a>
+              <h3>timestamp</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                timestamp<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">number</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/771e4f4/src/rest.ts#L209"
+                      >src/rest.ts:209</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Candle timestamp</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="volume" class="tsd-anchor"></a>
+              <h3>
+                <span class="tsd-flag ts-flagOptional">Optional</span> volume
+              </h3>
+              <div class="tsd-signature tsd-kind-icon">
+                volume<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">undefined</span
+                ><span class="tsd-signature-symbol"> | </span
+                ><span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/771e4f4/src/rest.ts#L229"
+                      >src/rest.ts:229</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Total volume</p>
                 </div>
               </div>
             </section>
@@ -201,9 +326,37 @@
                   >IAccount<wbr />Summary<wbr />Options</a
                 >
               </li>
-              <li class="tsd-kind-interface">
+            </ul>
+            <ul class="current">
+              <li class="current tsd-kind-interface">
                 <a href="icandle.html" class="tsd-kind-icon">ICandle</a>
+                <ul>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="icandle.html#close" class="tsd-kind-icon">close</a>
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="icandle.html#high" class="tsd-kind-icon">high</a>
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="icandle.html#low" class="tsd-kind-icon">low</a>
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="icandle.html#open" class="tsd-kind-icon">open</a>
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="icandle.html#timestamp" class="tsd-kind-icon"
+                      >timestamp</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="icandle.html#volume" class="tsd-kind-icon"
+                      >volume</a
+                    >
+                  </li>
+                </ul>
               </li>
+            </ul>
+            <ul class="after-current">
               <li class="tsd-kind-interface">
                 <a href="icandlesoptions.html" class="tsd-kind-icon"
                   >ICandles<wbr />Options</a
@@ -269,20 +422,9 @@
                   >IUser<wbr />Account</a
                 >
               </li>
-            </ul>
-            <ul class="current">
-              <li class="current tsd-kind-interface">
+              <li class="tsd-kind-interface">
                 <a href="iversion.html" class="tsd-kind-icon">IVersion</a>
-                <ul>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iversion.html#version" class="tsd-kind-icon"
-                      >version</a
-                    >
-                  </li>
-                </ul>
               </li>
-            </ul>
-            <ul class="after-current">
               <li class="tsd-kind-type-alias">
                 <a href="../globals.html#icandlesize" class="tsd-kind-icon"
                   >ICandle<wbr />Size</a

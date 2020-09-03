@@ -264,6 +264,27 @@
 <span class="hljs-keyword">const</span> quote = <span class="hljs-keyword">await</span> client.getLastQuote({ symbolIds, level });</code></pre>
             <ul>
               <li>
+                <a href="https://api-live.exante.eu/api-docs/#operation/getOHLC"
+                  ><code>getCandles</code></a
+                >
+              </li>
+            </ul>
+            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
+<span class="hljs-keyword">const</span> duration = <span class="hljs-string">&quot;3600&quot;</span>;
+<span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">from</span> = <span class="hljs-number">1481565600000</span>;
+<span class="hljs-keyword">const</span> to = <span class="hljs-number">1481572800000</span>;
+<span class="hljs-keyword">const</span> size = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">const</span> candles = <span class="hljs-keyword">await</span> client.getCandles({
+  version,
+  duration,
+  symbolId,
+  <span class="hljs-keyword">from</span>,
+  to,
+  size,
+});</code></pre>
+            <ul>
+              <li>
                 <a
                   href="https://api-live.exante.eu/api-docs/#operation/getAccountSummary"
                   ><code>getAccountSummary</code></a
@@ -320,6 +341,16 @@
                   href="interfaces/iaccountsummaryoptions.html"
                   class="tsd-kind-icon"
                   >IAccount<wbr />Summary<wbr />Options</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/icandle.html" class="tsd-kind-icon"
+                  >ICandle</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/icandlesoptions.html" class="tsd-kind-icon"
+                  >ICandles<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-interface">
@@ -399,6 +430,11 @@
               <li class="tsd-kind-interface">
                 <a href="interfaces/iversion.html" class="tsd-kind-icon"
                   >IVersion</a
+                >
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a href="globals.html#icandlesize" class="tsd-kind-icon"
+                  >ICandle<wbr />Size</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
