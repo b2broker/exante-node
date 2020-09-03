@@ -14,6 +14,7 @@ import {
   IExchange,
   ILastQuote,
   ICandle,
+  ITick,
   IAccountSummary,
   DefaultAPIVersion,
 } from "../";
@@ -601,6 +602,59 @@ suite("RestClient", () => {
 
     const candles = await client.getCandles({ duration, symbolId });
     assert.deepStrictEqual(candles, response);
+  });
+
+  test(".getTicks()", async () => {
+    const version = "3.0";
+    const symbolId = "AAPL.NASDAQ";
+    const from = 1481565600000;
+    const to = "1481572800000";
+    const size = 1;
+    const type = "trades";
+    const response: ITick[] = [
+      {
+        timestamp: 1533643655486,
+        symbolId: "AAPL.NASDAQ",
+        price: "209.58",
+        size: "2",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${version}/ticks/${symbolId}`)
+      .query({ size, to, from, type })
+      .delay(1)
+      .reply(200, response);
+
+    const ticks = await client.getTicks({
+      version,
+      symbolId,
+      from,
+      to,
+      size,
+      type,
+    });
+    assert.deepStrictEqual(ticks, response);
+  });
+
+  test(".getTicks() (with no `version`)", async () => {
+    const symbolId = "AAPL.NASDAQ";
+    const response: ITick[] = [
+      {
+        timestamp: 1599174042043,
+        symbolId: "AAPL.NASDAQ",
+        bid: [{ value: "117.7", size: "600" }],
+        ask: [{ value: "117.77", size: "900" }],
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/ticks/${symbolId}`)
+      .delay(1)
+      .reply(200, response);
+
+    const ticks = await client.getTicks({ symbolId });
+    assert.deepStrictEqual(ticks, response);
   });
 
   test(".getAccountSummary()", async () => {
