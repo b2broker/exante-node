@@ -286,6 +286,28 @@
             <ul>
               <li>
                 <a
+                  href="https://api-live.exante.eu/api-docs/#operation/getTicks"
+                  ><code>getTicks</code></a
+                >
+              </li>
+            </ul>
+            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
+<span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">from</span> = <span class="hljs-string">&quot;1481565600000&quot;</span>;
+<span class="hljs-keyword">const</span> to = <span class="hljs-number">1481572800000</span>;
+<span class="hljs-keyword">const</span> size = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">type</span> = <span class="hljs-string">&quot;trades&quot;</span>;
+<span class="hljs-keyword">const</span> ticks = <span class="hljs-keyword">await</span> client.getTicks({
+  version,
+  symbolId,
+  <span class="hljs-keyword">from</span>,
+  to,
+  size,
+  <span class="hljs-keyword">type</span>,
+});</code></pre>
+            <ul>
+              <li>
+                <a
                   href="https://api-live.exante.eu/api-docs/#operation/getAccountSummary"
                   ><code>getAccountSummary</code></a
                 >
@@ -423,6 +445,26 @@
                 >
               </li>
               <li class="tsd-kind-interface">
+                <a href="interfaces/itickbase.html" class="tsd-kind-icon"
+                  >ITick<wbr />Base</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/iticksoptions.html" class="tsd-kind-icon"
+                  >ITicks<wbr />Options</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/itradetickv2.html" class="tsd-kind-icon"
+                  >ITrade<wbr />Tick<wbr />V2</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/itradetickv3.html" class="tsd-kind-icon"
+                  >ITrade<wbr />Tick<wbr />V3</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
                 <a href="interfaces/iuseraccount.html" class="tsd-kind-icon"
                   >IUser<wbr />Account</a
                 >
@@ -441,6 +483,9 @@
                 <a href="globals.html#iquoteside" class="tsd-kind-icon"
                   >IQuote<wbr />Side</a
                 >
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a href="globals.html#itick" class="tsd-kind-icon">ITick</a>
               </li>
               <li class="tsd-kind-variable">
                 <a href="globals.html#defaultapiversion" class="tsd-kind-icon"

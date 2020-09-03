@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.10.0](https://github.com/b2broker/exante-node/compare/v1.9.0...v1.10.0) (2020-09-03)
+
+### Features
+
+- add getTicks method ([4ce7b18](https://github.com/b2broker/exante-node/commit/4ce7b187ca447fc804fd479aff0b62ab1e6c6721))
+
 ## [1.9.0](https://github.com/b2broker/exante-node/compare/v1.8.0...v1.9.0) (2020-09-03)
 
 ### Features
