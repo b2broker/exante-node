@@ -67,6 +67,14 @@ const version = "3.0";
 const exchanges = await client.getExchanges({ version });
 ```
 
+- [`getLastQuote`](https://api-live.exante.eu/api-docs/#operation/getQuoteLast)
+
+```typescript
+const symbolIds = ["MSFT.NASDAQ", "AAPL.NASDAQ"];
+const level = "market_depth";
+const quote = await client.getLastQuote({ symbolIds, level });
+```
+
 - [`getAccountSummary`](https://api-live.exante.eu/api-docs/#operation/getAccountSummary)
 
 ```typescript

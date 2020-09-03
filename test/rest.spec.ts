@@ -12,6 +12,7 @@ import {
   ICurrencies,
   ICrossrate,
   IExchange,
+  ILastQuote,
   IAccountSummary,
   DefaultAPIVersion,
 } from "../";
@@ -455,6 +456,94 @@ suite("RestClient", () => {
     assert.deepStrictEqual(exchanges, response);
   });
 
+  test(".getLastQuote()", async () => {
+    const version = "3.0";
+    const level = "market_depth" as const;
+    const symbolIds = ["MSFT.NASDAQ", "AAPL.NASDAQ"];
+    const response: ILastQuote[] = [
+      {
+        timestamp: 1599139073196,
+        symbolId: "AAPL.NASDAQ",
+        bid: [
+          { price: "126.93", size: "5000.0" },
+          { price: "126.91", size: "100.0" },
+          { price: "126.90", size: "1100.0" },
+          { price: "126.70", size: "500.0" },
+          { price: "126.65", size: "100.0" },
+          { price: "126.02", size: "200.0" },
+          { price: "125.56", size: "300.0" },
+          { price: "125.55", size: "200.0" },
+          { price: "125.12", size: "300.0" },
+          { price: "122.00", size: "100.0" },
+        ],
+        ask: [
+          { price: "126.99", size: "100.0" },
+          { price: "127.00", size: "2800.0" },
+          { price: "127.14", size: "100.0" },
+          { price: "127.50", size: "100.0" },
+          { price: "128.81", size: "100.0" },
+          { price: "133.32", size: "5000.0" },
+          { price: "133.50", size: "900.0" },
+          { price: "133.60", size: "100.0" },
+        ],
+      },
+      {
+        timestamp: 1599139073030,
+        symbolId: "MSFT.NASDAQ",
+        bid: [
+          { price: "229.30", size: "100.0" },
+          { price: "229.00", size: "1100.0" },
+          { price: "228.92", size: "100.0" },
+          { price: "228.75", size: "100.0" },
+          { price: "228.56", size: "100.0" },
+          { price: "221.45", size: "100.0" },
+          { price: "219.21", size: "500.0" },
+        ],
+        ask: [
+          { price: "229.67", size: "100.0" },
+          { price: "229.75", size: "100.0" },
+          { price: "230.00", size: "1100.0" },
+          { price: "232.00", size: "100.0" },
+          { price: "240.25", size: "600.0" },
+          { price: "242.30", size: "100.0" },
+        ],
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${version}/feed/${symbolIds}/last`)
+      .query({ level })
+      .delay(1)
+      .reply(200, response);
+
+    const quote = await client.getLastQuote({
+      version,
+      level,
+      symbolIds,
+    });
+    assert.deepStrictEqual(quote, response);
+  });
+
+  test(".getLastQuote() (with no `version`)", async () => {
+    const symbolIds = "MSFT.NASDAQ";
+    const response: ILastQuote[] = [
+      {
+        timestamp: 1599139497429,
+        symbolId: "MSFT.NASDAQ",
+        bid: [{ value: "229.82", size: "500.0" }],
+        ask: [{ value: "230.0", size: "200.0" }],
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/feed/${symbolIds}/last`)
+      .delay(1)
+      .reply(200, response);
+
+    const quote = await client.getLastQuote({ symbolIds });
+    assert.deepStrictEqual(quote, response);
+  });
+
   test(".getAccountSummary()", async () => {
     const version = "3.0";
     const id = "ABC1234.001";
@@ -583,6 +672,18 @@ suite("RestClient", () => {
         RestClient.base64URL(object),
         base64URLEncodedObject
       );
+    });
+
+    test(".setQuery()", () => {
+      const url = new URL(ExanteDemoURL);
+      RestClient.setQuery(url, { a: undefined });
+      assert.deepStrictEqual(url.href, ExanteDemoURL);
+      RestClient.setQuery(url, { a: 1 });
+      assert.deepStrictEqual(url.href, `${ExanteDemoURL}?a=1`);
+      RestClient.setQuery(url, { a: "" });
+      assert.deepStrictEqual(url.href, `${ExanteDemoURL}?a=`);
+      RestClient.setQuery(url, { b: "1" });
+      assert.deepStrictEqual(url.href, `${ExanteDemoURL}?a=&b=1`);
     });
   });
 });
