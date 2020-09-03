@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/b2broker/exante-node/compare/v1.7.0...v1.8.0) (2020-09-03)
+
+### Features
+
+- add getLastQuote method ([6d2c854](https://github.com/b2broker/exante-node/commit/6d2c854577cb334d81c83eb1daf2e23140cb639a))
+- add static method setQuery ([003ca53](https://github.com/b2broker/exante-node/commit/003ca53ba3b4675215e3f2906f33313b1bd372eb))
+
 ## [1.7.0](https://github.com/b2broker/exante-node/compare/v1.6.0...v1.7.0) (2020-09-01)
 
 ### Features

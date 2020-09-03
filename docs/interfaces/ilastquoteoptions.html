@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>ISymbolId | exante</title>
+    <title>ILastQuoteOptions | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="isymbolid.html">ISymbolId</a>
+              <a href="ilastquoteoptions.html">ILastQuoteOptions</a>
             </li>
           </ul>
-          <h1>Interface ISymbolId</h1>
+          <h1>Interface ILastQuoteOptions</h1>
         </div>
       </div>
     </header>
@@ -95,7 +95,7 @@
                 <a href="iversion.html" class="tsd-signature-type">IVersion</a>
                 <ul class="tsd-hierarchy">
                   <li>
-                    <span class="target">ISymbolId</span>
+                    <span class="target">ILastQuoteOptions</span>
                   </li>
                 </ul>
               </li>
@@ -109,14 +109,25 @@
                   <h3>Properties</h3>
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="isymbolid.html#symbolid" class="tsd-kind-icon"
-                        >symbol<wbr />Id</a
+                      <a
+                        href="ilastquoteoptions.html#level"
+                        class="tsd-kind-icon"
+                        >level</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="ilastquoteoptions.html#symbolids"
+                        class="tsd-kind-icon"
+                        >symbol<wbr />Ids</a
                       >
                     </li>
                     <li
                       class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
                     >
-                      <a href="isymbolid.html#version" class="tsd-kind-icon"
+                      <a
+                        href="ilastquoteoptions.html#version"
+                        class="tsd-kind-icon"
                         >version</a
                       >
                     </li>
@@ -130,10 +141,35 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="symbolid" class="tsd-anchor"></a>
-              <h3>symbol<wbr />Id</h3>
+              <a name="level" class="tsd-anchor"></a>
+              <h3>
+                <span class="tsd-flag ts-flagOptional">Optional</span> level
+              </h3>
               <div class="tsd-signature tsd-kind-icon">
-                symbol<wbr />Id<span class="tsd-signature-symbol">:</span>
+                level<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">"best_price"</span
+                ><span class="tsd-signature-symbol"> | </span
+                ><span class="tsd-signature-type">"market_depth"</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/8f57718/src/rest.ts#L48"
+                      >src/rest.ts:48</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="symbolids" class="tsd-anchor"></a>
+              <h3>symbol<wbr />Ids</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                symbol<wbr />Ids<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span
                 ><span class="tsd-signature-symbol"> | </span
                 ><span class="tsd-signature-type">string</span
@@ -144,15 +180,15 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/8f57718/src/rest.ts#L29"
-                      >src/rest.ts:29</a
+                      href="https://github.com/b2broker/exante-node/blob/8f57718/src/rest.ts#L47"
+                      >src/rest.ts:47</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Financial instrument ids</p>
+                  <p>Symbol id or symbol ids</p>
                 </div>
               </div>
             </section>
@@ -256,11 +292,38 @@
                   >ILast<wbr />Quote</a
                 >
               </li>
-              <li class="tsd-kind-interface">
+            </ul>
+            <ul class="current">
+              <li class="current tsd-kind-interface">
                 <a href="ilastquoteoptions.html" class="tsd-kind-icon"
                   >ILast<wbr />Quote<wbr />Options</a
                 >
+                <ul>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="ilastquoteoptions.html#level" class="tsd-kind-icon"
+                      >level</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="ilastquoteoptions.html#symbolids"
+                      class="tsd-kind-icon"
+                      >symbol<wbr />Ids</a
+                    >
+                  </li>
+                  <li
+                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                  >
+                    <a
+                      href="ilastquoteoptions.html#version"
+                      class="tsd-kind-icon"
+                      >version</a
+                    >
+                  </li>
+                </ul>
               </li>
+            </ul>
+            <ul class="after-current">
               <li class="tsd-kind-interface">
                 <a href="iposition.html" class="tsd-kind-icon">IPosition</a>
               </li>
@@ -274,29 +337,11 @@
                   >IQuote<wbr />Side<wbr />V3</a
                 >
               </li>
-            </ul>
-            <ul class="current">
-              <li class="current tsd-kind-interface">
+              <li class="tsd-kind-interface">
                 <a href="isymbolid.html" class="tsd-kind-icon"
                   >ISymbol<wbr />Id</a
                 >
-                <ul>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="isymbolid.html#symbolid" class="tsd-kind-icon"
-                      >symbol<wbr />Id</a
-                    >
-                  </li>
-                  <li
-                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
-                  >
-                    <a href="isymbolid.html#version" class="tsd-kind-icon"
-                      >version</a
-                    >
-                  </li>
-                </ul>
               </li>
-            </ul>
-            <ul class="after-current">
               <li class="tsd-kind-interface">
                 <a href="iuseraccount.html" class="tsd-kind-icon"
                   >IUser<wbr />Account</a

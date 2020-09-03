@@ -254,6 +254,17 @@
             <ul>
               <li>
                 <a
+                  href="https://api-live.exante.eu/api-docs/#operation/getQuoteLast"
+                  ><code>getLastQuote</code></a
+                >
+              </li>
+            </ul>
+            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> symbolIds = [<span class="hljs-string">&quot;MSFT.NASDAQ&quot;</span>, <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>];
+<span class="hljs-keyword">const</span> level = <span class="hljs-string">&quot;market_depth&quot;</span>;
+<span class="hljs-keyword">const</span> quote = <span class="hljs-keyword">await</span> client.getLastQuote({ symbolIds, level });</code></pre>
+            <ul>
+              <li>
+                <a
                   href="https://api-live.exante.eu/api-docs/#operation/getAccountSummary"
                   ><code>getAccountSummary</code></a
                 >
@@ -349,8 +360,30 @@
                 >
               </li>
               <li class="tsd-kind-interface">
+                <a href="interfaces/ilastquote.html" class="tsd-kind-icon"
+                  >ILast<wbr />Quote</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/ilastquoteoptions.html"
+                  class="tsd-kind-icon"
+                  >ILast<wbr />Quote<wbr />Options</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
                 <a href="interfaces/iposition.html" class="tsd-kind-icon"
                   >IPosition</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/iquotesidev2.html" class="tsd-kind-icon"
+                  >IQuote<wbr />Side<wbr />V2</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/iquotesidev3.html" class="tsd-kind-icon"
+                  >IQuote<wbr />Side<wbr />V3</a
                 >
               </li>
               <li class="tsd-kind-interface">
@@ -366,6 +399,11 @@
               <li class="tsd-kind-interface">
                 <a href="interfaces/iversion.html" class="tsd-kind-icon"
                   >IVersion</a
+                >
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a href="globals.html#iquoteside" class="tsd-kind-icon"
+                  >IQuote<wbr />Side</a
                 >
               </li>
               <li class="tsd-kind-variable">

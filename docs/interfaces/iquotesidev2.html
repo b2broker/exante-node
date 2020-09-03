@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>ISymbolId | exante</title>
+    <title>IQuoteSideV2 | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="isymbolid.html">ISymbolId</a>
+              <a href="iquotesidev2.html">IQuoteSideV2</a>
             </li>
           </ul>
-          <h1>Interface ISymbolId</h1>
+          <h1>Interface IQuoteSideV2</h1>
         </div>
       </div>
     </header>
@@ -92,12 +92,7 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <a href="iversion.html" class="tsd-signature-type">IVersion</a>
-                <ul class="tsd-hierarchy">
-                  <li>
-                    <span class="target">ISymbolId</span>
-                  </li>
-                </ul>
+                <span class="target">IQuoteSideV2</span>
               </li>
             </ul>
           </section>
@@ -109,15 +104,13 @@
                   <h3>Properties</h3>
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="isymbolid.html#symbolid" class="tsd-kind-icon"
-                        >symbol<wbr />Id</a
+                      <a href="iquotesidev2.html#size" class="tsd-kind-icon"
+                        >size</a
                       >
                     </li>
-                    <li
-                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
-                    >
-                      <a href="isymbolid.html#version" class="tsd-kind-icon"
-                        >version</a
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a href="iquotesidev2.html#value" class="tsd-kind-icon"
+                        >value</a
                       >
                     </li>
                   </ul>
@@ -130,65 +123,52 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="symbolid" class="tsd-anchor"></a>
-              <h3>symbol<wbr />Id</h3>
+              <a name="size" class="tsd-anchor"></a>
+              <h3>size</h3>
               <div class="tsd-signature tsd-kind-icon">
-                symbol<wbr />Id<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">string</span
-                ><span class="tsd-signature-symbol">[]</span>
+                size<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/8f57718/src/rest.ts#L29"
-                      >src/rest.ts:29</a
+                      href="https://github.com/b2broker/exante-node/blob/8f57718/src/rest.ts#L137"
+                      >src/rest.ts:137</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Financial instrument ids</p>
+                  <p>Quantity value</p>
                 </div>
               </div>
             </section>
             <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="version" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> version
-              </h3>
+              <a name="value" class="tsd-anchor"></a>
+              <h3>value</h3>
               <div class="tsd-signature tsd-kind-icon">
-                version<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">"2.0"</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">"3.0"</span>
+                value<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
-                <p>
-                  Inherited from <a href="iversion.html">IVersion</a>.<a
-                    href="iversion.html#version"
-                    >version</a
-                  >
-                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/8f57718/src/rest.ts#L22"
-                      >src/rest.ts:22</a
+                      href="https://github.com/b2broker/exante-node/blob/8f57718/src/rest.ts#L141"
+                      >src/rest.ts:141</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>API version</p>
+                  <p>Quantity value</p>
                 </div>
               </div>
             </section>
@@ -264,39 +244,37 @@
               <li class="tsd-kind-interface">
                 <a href="iposition.html" class="tsd-kind-icon">IPosition</a>
               </li>
-              <li class="tsd-kind-interface">
-                <a href="iquotesidev2.html" class="tsd-kind-icon"
-                  >IQuote<wbr />Side<wbr />V2</a
-                >
-              </li>
-              <li class="tsd-kind-interface">
-                <a href="iquotesidev3.html" class="tsd-kind-icon"
-                  >IQuote<wbr />Side<wbr />V3</a
-                >
-              </li>
             </ul>
             <ul class="current">
               <li class="current tsd-kind-interface">
-                <a href="isymbolid.html" class="tsd-kind-icon"
-                  >ISymbol<wbr />Id</a
+                <a href="iquotesidev2.html" class="tsd-kind-icon"
+                  >IQuote<wbr />Side<wbr />V2</a
                 >
                 <ul>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="isymbolid.html#symbolid" class="tsd-kind-icon"
-                      >symbol<wbr />Id</a
+                    <a href="iquotesidev2.html#size" class="tsd-kind-icon"
+                      >size</a
                     >
                   </li>
-                  <li
-                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
-                  >
-                    <a href="isymbolid.html#version" class="tsd-kind-icon"
-                      >version</a
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="iquotesidev2.html#value" class="tsd-kind-icon"
+                      >value</a
                     >
                   </li>
                 </ul>
               </li>
             </ul>
             <ul class="after-current">
+              <li class="tsd-kind-interface">
+                <a href="iquotesidev3.html" class="tsd-kind-icon"
+                  >IQuote<wbr />Side<wbr />V3</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="isymbolid.html" class="tsd-kind-icon"
+                  >ISymbol<wbr />Id</a
+                >
+              </li>
               <li class="tsd-kind-interface">
                 <a href="iuseraccount.html" class="tsd-kind-icon"
                   >IUser<wbr />Account</a
