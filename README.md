@@ -75,6 +75,25 @@ const level = "market_depth";
 const quote = await client.getLastQuote({ symbolIds, level });
 ```
 
+- [`getCandles`](https://api-live.exante.eu/api-docs/#operation/getOHLC)
+
+```typescript
+const version = "3.0";
+const duration = "3600";
+const symbolId = "AAPL.NASDAQ";
+const from = 1481565600000;
+const to = 1481572800000;
+const size = 1;
+const candles = await client.getCandles({
+  version,
+  duration,
+  symbolId,
+  from,
+  to,
+  size,
+});
+```
+
 - [`getAccountSummary`](https://api-live.exante.eu/api-docs/#operation/getAccountSummary)
 
 ```typescript

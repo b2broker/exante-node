@@ -13,6 +13,7 @@ import {
   ICrossrate,
   IExchange,
   ILastQuote,
+  ICandle,
   IAccountSummary,
   DefaultAPIVersion,
 } from "../";
@@ -542,6 +543,64 @@ suite("RestClient", () => {
 
     const quote = await client.getLastQuote({ symbolIds });
     assert.deepStrictEqual(quote, response);
+  });
+
+  test(".getCandles()", async () => {
+    const version = "3.0";
+    const duration = "3600" as const;
+    const symbolId = "AAPL.NASDAQ";
+    const from = 1481565600000;
+    const to = "1481572800000";
+    const size = 1;
+    const response: ICandle[] = [
+      {
+        volume: "3475756",
+        close: "112.965",
+        timestamp: 1550833075530,
+        high: "113.105",
+        low: "112.935",
+        open: "112.975",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${version}/ohlc/${symbolId}/${duration}`)
+      .query({ size, to, from })
+      .delay(1)
+      .reply(200, response);
+
+    const candles = await client.getCandles({
+      version,
+      symbolId,
+      duration,
+      from,
+      to,
+      size,
+    });
+    assert.deepStrictEqual(candles, response);
+  });
+
+  test(".getCandles() (with no `version`)", async () => {
+    const duration = "3600" as const;
+    const symbolId = "AAPL.NASDAQ";
+    const response: ICandle[] = [
+      {
+        volume: "3475756",
+        close: "112.965",
+        timestamp: 1550833075530,
+        high: "113.105",
+        low: "112.935",
+        open: "112.975",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/ohlc/${symbolId}/${duration}`)
+      .delay(1)
+      .reply(200, response);
+
+    const candles = await client.getCandles({ duration, symbolId });
+    assert.deepStrictEqual(candles, response);
   });
 
   test(".getAccountSummary()", async () => {
