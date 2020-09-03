@@ -94,6 +94,25 @@ const candles = await client.getCandles({
 });
 ```
 
+- [`getTicks`](https://api-live.exante.eu/api-docs/#operation/getTicks)
+
+```typescript
+const version = "2.0";
+const symbolId = "AAPL.NASDAQ";
+const from = "1481565600000";
+const to = 1481572800000;
+const size = 1;
+const type = "trades";
+const ticks = await client.getTicks({
+  version,
+  symbolId,
+  from,
+  to,
+  size,
+  type,
+});
+```
+
 - [`getAccountSummary`](https://api-live.exante.eu/api-docs/#operation/getAccountSummary)
 
 ```typescript
