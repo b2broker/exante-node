@@ -48,6 +48,35 @@ export interface ILastQuoteOptions extends IVersion {
   level?: "best_price" | "market_depth";
 }
 
+export type ICandleSize =
+  | "60"
+  | "300"
+  | "600"
+  | "900"
+  | "3600"
+  | "14400"
+  | "21600"
+  | "86400";
+
+export interface ICandlesOptions extends ISymbolId {
+  /**
+   * Aggregation interval in seconds
+   */
+  duration: ICandleSize;
+  /**
+   * Starting timestamp in ms
+   */
+  from?: string | number;
+  /**
+   * Ending timestamp in ms
+   */
+  to?: string | number;
+  /**
+   * Maximum amount of candles to retrieve
+   */
+  size?: string | number;
+}
+
 export interface IAccountSummaryOptions extends IVersion {
   /**
    * Account id
@@ -171,6 +200,33 @@ export interface ILastQuote {
    * Array of ask levels
    */
   ask: IQuoteSide[];
+}
+
+export interface ICandle {
+  /**
+   * Candle timestamp
+   */
+  timestamp: number;
+  /**
+   * Candle open price
+   */
+  open: string;
+  /**
+   * Candle low price
+   */
+  low: string;
+  /**
+   * Candle close price
+   */
+  close: string;
+  /**
+   * Candle high price
+   */
+  high: string;
+  /**
+   * Total volume
+   */
+  volume?: string;
 }
 
 export interface ICurrency {
@@ -408,6 +464,25 @@ export class RestClient {
   }
 
   /**
+   * Get the list of OHLC candles
+   */
+  public async getCandles({
+    version = DefaultAPIVersion,
+    symbolId,
+    duration,
+    ...query
+  }: ICandlesOptions): Promise<ICandle[]> {
+    const url = new URL(
+      `/md/${version}/ohlc/${symbolId}/${duration}`,
+      this.url
+    );
+    RestClient.setQuery(url, { ...query });
+
+    const candles = (await this.fetch(url)) as ICandle[];
+    return candles;
+  }
+
+  /**
    * Get the summary for the specified account.
    */
   public async getAccountSummary({
@@ -425,6 +500,9 @@ export class RestClient {
     return summary;
   }
 
+  /**
+   * JWT token auth
+   */
   private get token(): string {
     const header = RestClient.base64URL({ alg: "HS256", typ: "JWT" });
 
