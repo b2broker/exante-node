@@ -331,6 +331,9 @@ export class RestClient {
     return crossrate;
   }
 
+  /**
+   * Get list of exchanges
+   */
   public async getExchanges({
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<IExchange[]> {
@@ -406,6 +409,21 @@ export class RestClient {
       return RestClient.base64URL(string);
     }
     return input.replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
+  }
+
+  /**
+   * Add query to URL
+   */
+  public static setQuery(
+    url: URL,
+    query: Record<string, string | number | undefined>
+  ): void {
+    for (const key in query) {
+      const value = query[key];
+      if (value !== undefined) {
+        url.searchParams.set(key, value.toString());
+      }
+    }
   }
 }
 

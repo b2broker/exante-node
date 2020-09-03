@@ -584,5 +584,17 @@ suite("RestClient", () => {
         base64URLEncodedObject
       );
     });
+
+    test(".setQuery()", () => {
+      const url = new URL(ExanteDemoURL);
+      RestClient.setQuery(url, { a: undefined });
+      assert.deepStrictEqual(url.href, ExanteDemoURL);
+      RestClient.setQuery(url, { a: 1 });
+      assert.deepStrictEqual(url.href, `${ExanteDemoURL}?a=1`);
+      RestClient.setQuery(url, { a: "" });
+      assert.deepStrictEqual(url.href, `${ExanteDemoURL}?a=`);
+      RestClient.setQuery(url, { b: "1" });
+      assert.deepStrictEqual(url.href, `${ExanteDemoURL}?a=&b=1`);
+    });
   });
 });
