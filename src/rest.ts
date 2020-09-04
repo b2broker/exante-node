@@ -490,6 +490,9 @@ export class RestClient {
     this.url = new URL(url.toString());
   }
 
+  /**
+   * Make a request and parse the body as JSON
+   */
   public async fetch(
     url: string | URL,
     { headers = this.headers, ...options }: fetch.RequestInit = {}
@@ -662,14 +665,12 @@ export class RestClient {
   }
 
   /**
-   * JWT token auth
+   * Get a JSON Web Token
    */
   private get token(): string {
-    const header = RestClient.base64URL({ alg: "HS256", typ: "JWT" });
-
     const iat = (Date.now() / 1000) | 0;
 
-    const payload = RestClient.base64URL({
+    const payload = {
       sub: this.#app_id,
       iss: this.#client_id,
       iat,
@@ -684,17 +685,16 @@ export class RestClient {
         "transactions",
         "orders",
       ],
-    });
+    };
 
-    const signature = RestClient.base64URL(
-      createHmac("sha256", this.#shared_key)
-        .update(`${header}.${payload}`)
-        .digest("base64")
-    );
+    const jwt = RestClient.JWT(this.#shared_key, payload);
 
-    return `${header}.${payload}.${signature}`;
+    return jwt;
   }
 
+  /**
+   * Get authorization headers
+   */
   private get headers(): fetch.Headers {
     return new fetch.Headers({
       Authorization: `Bearer ${this.token}`,
@@ -702,6 +702,9 @@ export class RestClient {
     });
   }
 
+  /**
+   * Convert to Base64URL
+   */
   public static base64URL(
     input: string | Record<string, unknown> | Buffer
   ): string {
@@ -728,6 +731,27 @@ export class RestClient {
         url.searchParams.set(key, value.toString());
       }
     }
+  }
+
+  /**
+   * Get a JSON Web Token (HMAC + SHA256)
+   */
+  public static JWT(
+    secret: string,
+    payload: Record<string, unknown> | string | Buffer,
+    header:
+      | Record<string, unknown>
+      | string
+      | Buffer = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+  ): string {
+    const encodedHeader = RestClient.base64URL(header);
+    const encodedPayload = RestClient.base64URL(payload);
+    const signature = createHmac("sha256", secret)
+      .update(`${encodedHeader}.${encodedPayload}`)
+      .digest("base64");
+    const encodedSignature = RestClient.base64URL(signature);
+    const jwt = `${encodedHeader}.${encodedPayload}.${encodedSignature}`;
+    return jwt;
   }
 }
 
