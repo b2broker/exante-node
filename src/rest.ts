@@ -439,7 +439,7 @@ interface ITransactionBase {
   /**
    * Transaction symbol id
    */
-  symbolId: string;
+  symbolId: string | null;
   /**
    * Transaction asset
    */

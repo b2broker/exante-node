@@ -770,7 +770,7 @@ suite("RestClient", () => {
     const accountId = "ABC1234.001";
     const symbolId = "AAPL.NASDAQ";
     const asset = "USD";
-    const operationType = ["TRADE", "DEPOSIT"];
+    const operationType = ["TRADE", "FUNDING/WITHDRAWAL", "POSITION CLOSE"];
     const offset = 10;
     const limit = 1;
     const fromDate = "1970-01-01T00:00:00.000Z";
@@ -827,13 +827,22 @@ suite("RestClient", () => {
   test(".getTransactions() (with no `version`)", async () => {
     const response: ITransactions = [
       {
-        id: 42,
-        operationType: "TRADE",
-        symbolId: "AAPL.NASDAQ",
-        asset: "AAPL.NASDAQ",
-        when: 1503619200000,
+        symbolId: null,
+        operationType: "FUNDING/WITHDRAWAL",
         accountId: "ABC1234.001",
-        sum: "101.02",
+        id: 123456789,
+        asset: "USD",
+        when: 1571244495329,
+        sum: "1234567.8",
+      },
+      {
+        symbolId: "XRP.EXANTE",
+        when: 1571244495330,
+        operationType: "ROLLOVER",
+        accountId: "ABC1234.002",
+        id: 214365879,
+        asset: "USD",
+        sum: "-1.23",
       },
     ];
 
