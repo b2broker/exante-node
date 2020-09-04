@@ -128,6 +128,19 @@ const summary = await client.getAccountSummary({
 });
 ```
 
+- [`getTransactions`](https://api-live.exante.eu/api-docs/#operation/getTransactions)
+
+```typescript
+const symbolId = "AAPL.NASDAQ";
+const operationType = ["TRADE"];
+const limit = 1;
+const transactions = await client.getTransactions({
+  symbolId,
+  operationType,
+  limit,
+});
+```
+
 ## Test
 
 ```bash
