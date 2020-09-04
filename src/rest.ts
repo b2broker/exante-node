@@ -99,6 +99,57 @@ export interface IAccountSummaryOptions extends IVersion {
   currency: string;
 }
 
+export interface ITransactionsOptions extends IVersion {
+  /**
+   * Transaction UUID
+   */
+  uuid?: string;
+  /**
+   * Transaction account ID
+   */
+  accountId?: string;
+  /**
+   * Filter transactions by the symbol id
+   */
+  symbolId?: string;
+  /**
+   * Asset
+   */
+  asset?: string;
+  /**
+   * Transaction types
+   */
+  operationType?: string | string[];
+  /**
+   * Offset to list transactions
+   */
+  offset?: number;
+  /**
+   * Limit response to this amount of transactions
+   */
+  limit?: number;
+  /**
+   * Order transactions by descending or ascending
+   */
+  order?: "ASC" | "DESC";
+  /**
+   * Starting timestamp of transactions in ISO format
+   */
+  fromDate?: string;
+  /**
+   * Ending timestamp of transactions in ISO format
+   */
+  toDate?: string;
+  /**
+   * Filter transactions by the order id
+   */
+  orderId?: string;
+  /**
+   * Filter transactions by the position in the order
+   */
+  orderPos?: number;
+}
+
 export interface IUserAccount {
   /**
    * Account status
@@ -376,6 +427,49 @@ export interface IAccountSummary {
   positions: IPosition[];
 }
 
+interface ITransactionBase {
+  /**
+   * Transaction id
+   */
+  id: number;
+  /**
+   * Transaction type
+   */
+  operationType: string;
+  /**
+   * Transaction symbol id
+   */
+  symbolId: string;
+  /**
+   * Transaction asset
+   */
+  asset: string;
+  /**
+   * Transaction account id
+   */
+  accountId: string;
+  /**
+   * Transaction amount
+   */
+  sum: string;
+}
+
+export interface ITransactionV2 extends ITransactionBase {
+  /**
+   * Timestamp of the transaction
+   */
+  when: number;
+}
+
+export interface ITransactionV3 extends ITransactionBase {
+  /**
+   * Timestamp of the transaction
+   */
+  timestamp: number;
+}
+
+export type ITransactions = ITransactionV2[] | ITransactionV3[];
+
 export class RestClient {
   readonly #client_id: string;
   readonly #app_id: string;
@@ -547,6 +641,24 @@ export class RestClient {
 
     const summary = (await this.fetch(url)) as IAccountSummary;
     return summary;
+  }
+
+  /**
+   * Get the list of transactions
+   */
+  public async getTransactions({
+    version = DefaultAPIVersion,
+    operationType,
+    ...query
+  }: ITransactionsOptions = {}): Promise<ITransactions> {
+    if (Array.isArray(operationType)) {
+      operationType = `${operationType}`;
+    }
+    const url = new URL(`/md/${version}/transactions`, this.url);
+    RestClient.setQuery(url, { operationType, ...query });
+
+    const transactions = (await this.fetch(url)) as ITransactions;
+    return transactions;
   }
 
   /**
