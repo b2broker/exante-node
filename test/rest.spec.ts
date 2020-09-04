@@ -890,5 +890,24 @@ suite("RestClient", () => {
       RestClient.setQuery(url, { b: "1" });
       assert.deepStrictEqual(url.href, `${ExanteDemoURL}?a=&b=1`);
     });
+
+    test(".JWT()", () => {
+      const header = { a: "a" };
+      const payload = { b: "b" };
+      const secret = "secret";
+      const jwt =
+        "eyJhIjoiYSJ9.eyJiIjoiYiJ9.OEv6m0EMcLTqQIo3ckjolE3nKlaZ_dPQHxtGIlw92GQ";
+      const token = RestClient.JWT(secret, payload, header);
+      assert.deepStrictEqual(token, jwt);
+    });
+
+    test(".JWT() (with no header)", () => {
+      const payload = { sub: "sub", iss: "iss", iat: 1, exp: 2, aud: ["ohlc"] };
+      const secret = "secret";
+      const jwt =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIiLCJpc3MiOiJpc3MiLCJpYXQiOjEsImV4cCI6MiwiYXVkIjpbIm9obGMiXX0.W_YpgmyZLs-TP8cSVn0oZmGIJyWtBbkiH9KvjnQr7rw";
+      const token = RestClient.JWT(secret, payload);
+      assert.deepStrictEqual(token, jwt);
+    });
   });
 });
