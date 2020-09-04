@@ -16,6 +16,7 @@ import {
   ICandle,
   ITick,
   IAccountSummary,
+  ITransactions,
   DefaultAPIVersion,
 } from "../";
 
@@ -761,6 +762,97 @@ suite("RestClient", () => {
       currency,
     });
     assert.deepStrictEqual(summary, response);
+  });
+
+  test(".getTransactions()", async () => {
+    const version = "3.0";
+    const uuid = "c6e9abcc-e9e8-11e9-81b4-2a2ae2dbcce4";
+    const accountId = "ABC1234.001";
+    const symbolId = "AAPL.NASDAQ";
+    const asset = "USD";
+    const operationType = ["TRADE", "FUNDING/WITHDRAWAL", "POSITION CLOSE"];
+    const offset = 10;
+    const limit = 1;
+    const fromDate = "1970-01-01T00:00:00.000Z";
+    const toDate = "2019-01-01T00:00:00.000Z";
+    const orderId = "d767f127-481f-466c-99b1-4d3069d68b66";
+    const orderPos = 1;
+    const response: ITransactions = [
+      {
+        id: 42,
+        operationType: "TRADE",
+        symbolId: "AAPL.NASDAQ",
+        asset: "AAPL.NASDAQ",
+        timestamp: 1503619200000,
+        accountId: "ABC1234.001",
+        sum: "101.02",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${version}/transactions`)
+      .query({
+        uuid,
+        accountId,
+        symbolId,
+        asset,
+        operationType: `${operationType}`,
+        offset,
+        limit,
+        fromDate,
+        toDate,
+        orderId,
+        orderPos,
+      })
+      .delay(1)
+      .reply(200, response);
+
+    const transactions = await client.getTransactions({
+      version,
+      uuid,
+      accountId,
+      symbolId,
+      asset,
+      operationType,
+      offset,
+      limit,
+      fromDate,
+      toDate,
+      orderId,
+      orderPos,
+    });
+    assert.deepStrictEqual(transactions, response);
+  });
+
+  test(".getTransactions() (with no `version`)", async () => {
+    const response: ITransactions = [
+      {
+        symbolId: null,
+        operationType: "FUNDING/WITHDRAWAL",
+        accountId: "ABC1234.001",
+        id: 123456789,
+        asset: "USD",
+        when: 1571244495329,
+        sum: "1234567.8",
+      },
+      {
+        symbolId: "XRP.EXANTE",
+        when: 1571244495330,
+        operationType: "ROLLOVER",
+        accountId: "ABC1234.002",
+        id: 214365879,
+        asset: "USD",
+        sum: "-1.23",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/transactions`)
+      .delay(1)
+      .reply(200, response);
+
+    const transactions = await client.getTransactions();
+    assert.deepStrictEqual(transactions, response);
   });
 
   suite("Static methods", () => {
