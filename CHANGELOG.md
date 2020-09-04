@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.11.0](https://github.com/b2broker/exante-node/compare/v1.10.0...v1.11.0) (2020-09-04)
+
+### Features
+
+- add getTransactions method ([803f0ac](https://github.com/b2broker/exante-node/commit/803f0acfe96c27258b4210b120a3d264ff0e4475))
+
+### Bug Fixes
+
+- update symbolId type ([eed9ea5](https://github.com/b2broker/exante-node/commit/eed9ea5f9d9bb144bdb493b49df2fc573026ea95))
+
 ## [1.10.0](https://github.com/b2broker/exante-node/compare/v1.9.0...v1.10.0) (2020-09-03)
 
 ### Features

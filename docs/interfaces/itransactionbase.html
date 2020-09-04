@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>ICrossrate | exante</title>
+    <title>ITransactionBase | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="icrossrate.html">ICrossrate</a>
+              <a href="itransactionbase.html">ITransactionBase</a>
             </li>
           </ul>
-          <h1>Interface ICrossrate</h1>
+          <h1>Interface ITransactionBase</h1>
         </div>
       </div>
     </header>
@@ -92,7 +92,19 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <span class="target">ICrossrate</span>
+                <span class="target">ITransactionBase</span>
+                <ul class="tsd-hierarchy">
+                  <li>
+                    <a href="itransactionv2.html" class="tsd-signature-type"
+                      >ITransactionV2</a
+                    >
+                  </li>
+                  <li>
+                    <a href="itransactionv3.html" class="tsd-signature-type"
+                      >ITransactionV3</a
+                    >
+                  </li>
+                </ul>
               </li>
             </ul>
           </section>
@@ -104,17 +116,40 @@
                   <h3>Properties</h3>
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="icrossrate.html#pair" class="tsd-kind-icon"
-                        >pair</a
+                      <a
+                        href="itransactionbase.html#accountid"
+                        class="tsd-kind-icon"
+                        >account<wbr />Id</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="icrossrate.html#rate" class="tsd-kind-icon"
-                        >rate</a
+                      <a
+                        href="itransactionbase.html#asset"
+                        class="tsd-kind-icon"
+                        >asset</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="icrossrate.html#symbolid" class="tsd-kind-icon"
+                      <a href="itransactionbase.html#id" class="tsd-kind-icon"
+                        >id</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="itransactionbase.html#operationtype"
+                        class="tsd-kind-icon"
+                        >operation<wbr />Type</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a href="itransactionbase.html#sum" class="tsd-kind-icon"
+                        >sum</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="itransactionbase.html#symbolid"
+                        class="tsd-kind-icon"
                         >symbol<wbr />Id</a
                       >
                     </li>
@@ -128,10 +163,10 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="pair" class="tsd-anchor"></a>
-              <h3>pair</h3>
+              <a name="accountid" class="tsd-anchor"></a>
+              <h3>account<wbr />Id</h3>
               <div class="tsd-signature tsd-kind-icon">
-                pair<span class="tsd-signature-symbol">:</span>
+                account<wbr />Id<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
@@ -139,25 +174,25 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/e5ae87e/src/rest.ts#L198"
-                      >src/rest.ts:198</a
+                      href="https://github.com/b2broker/exante-node/blob/e5ae87e/src/rest.ts#L450"
+                      >src/rest.ts:450</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Crossrate pair</p>
+                  <p>Transaction account id</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="rate" class="tsd-anchor"></a>
-              <h3>rate</h3>
+              <a name="asset" class="tsd-anchor"></a>
+              <h3>asset</h3>
               <div class="tsd-signature tsd-kind-icon">
-                rate<span class="tsd-signature-symbol">:</span>
+                asset<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
@@ -165,15 +200,93 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/e5ae87e/src/rest.ts#L202"
-                      >src/rest.ts:202</a
+                      href="https://github.com/b2broker/exante-node/blob/e5ae87e/src/rest.ts#L446"
+                      >src/rest.ts:446</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Current crossrate</p>
+                  <p>Transaction asset</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="id" class="tsd-anchor"></a>
+              <h3>id</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                id<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">number</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/e5ae87e/src/rest.ts#L434"
+                      >src/rest.ts:434</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Transaction id</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="operationtype" class="tsd-anchor"></a>
+              <h3>operation<wbr />Type</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                operation<wbr />Type<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/e5ae87e/src/rest.ts#L438"
+                      >src/rest.ts:438</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Transaction type</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="sum" class="tsd-anchor"></a>
+              <h3>sum</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                sum<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/e5ae87e/src/rest.ts#L454"
+                      >src/rest.ts:454</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Transaction amount</p>
                 </div>
               </div>
             </section>
@@ -181,10 +294,7 @@
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
               <a name="symbolid" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span>
-                symbol<wbr />Id
-              </h3>
+              <h3>symbol<wbr />Id</h3>
               <div class="tsd-signature tsd-kind-icon">
                 symbol<wbr />Id<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span
@@ -196,15 +306,15 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/e5ae87e/src/rest.ts#L194"
-                      >src/rest.ts:194</a
+                      href="https://github.com/b2broker/exante-node/blob/e5ae87e/src/rest.ts#L442"
+                      >src/rest.ts:442</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Symbol id</p>
+                  <p>Transaction symbol id</p>
                 </div>
               </div>
             </section>
@@ -248,30 +358,9 @@
                   >ICandles<wbr />Options</a
                 >
               </li>
-            </ul>
-            <ul class="current">
-              <li class="current tsd-kind-interface">
+              <li class="tsd-kind-interface">
                 <a href="icrossrate.html" class="tsd-kind-icon">ICrossrate</a>
-                <ul>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="icrossrate.html#pair" class="tsd-kind-icon"
-                      >pair</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="icrossrate.html#rate" class="tsd-kind-icon"
-                      >rate</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="icrossrate.html#symbolid" class="tsd-kind-icon"
-                      >symbol<wbr />Id</a
-                    >
-                  </li>
-                </ul>
               </li>
-            </ul>
-            <ul class="after-current">
               <li class="tsd-kind-interface">
                 <a href="icrossrateoptions.html" class="tsd-kind-icon"
                   >ICrossrate<wbr />Options</a
@@ -344,11 +433,53 @@
                   >ITrade<wbr />Tick<wbr />V3</a
                 >
               </li>
-              <li class="tsd-kind-interface">
+            </ul>
+            <ul class="current">
+              <li class="current tsd-kind-interface">
                 <a href="itransactionbase.html" class="tsd-kind-icon"
                   >ITransaction<wbr />Base</a
                 >
+                <ul>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="itransactionbase.html#accountid"
+                      class="tsd-kind-icon"
+                      >account<wbr />Id</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="itransactionbase.html#asset" class="tsd-kind-icon"
+                      >asset</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="itransactionbase.html#id" class="tsd-kind-icon"
+                      >id</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="itransactionbase.html#operationtype"
+                      class="tsd-kind-icon"
+                      >operation<wbr />Type</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="itransactionbase.html#sum" class="tsd-kind-icon"
+                      >sum</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="itransactionbase.html#symbolid"
+                      class="tsd-kind-icon"
+                      >symbol<wbr />Id</a
+                    >
+                  </li>
+                </ul>
               </li>
+            </ul>
+            <ul class="after-current">
               <li class="tsd-kind-interface">
                 <a href="itransactionv2.html" class="tsd-kind-icon"
                   >ITransaction<wbr />V2</a

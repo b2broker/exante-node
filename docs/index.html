@@ -323,6 +323,22 @@
   date,
   currency,
 });</code></pre>
+            <ul>
+              <li>
+                <a
+                  href="https://api-live.exante.eu/api-docs/#operation/getTransactions"
+                  ><code>getTransactions</code></a
+                >
+              </li>
+            </ul>
+            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
+<span class="hljs-keyword">const</span> operationType = [<span class="hljs-string">&quot;TRADE&quot;</span>];
+<span class="hljs-keyword">const</span> limit = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">const</span> transactions = <span class="hljs-keyword">await</span> client.getTransactions({
+  symbolId,
+  operationType,
+  limit,
+});</code></pre>
             <a
               href="#test"
               id="test"
@@ -465,6 +481,28 @@
                 >
               </li>
               <li class="tsd-kind-interface">
+                <a href="interfaces/itransactionbase.html" class="tsd-kind-icon"
+                  >ITransaction<wbr />Base</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/itransactionv2.html" class="tsd-kind-icon"
+                  >ITransaction<wbr />V2</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/itransactionv3.html" class="tsd-kind-icon"
+                  >ITransaction<wbr />V3</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/itransactionsoptions.html"
+                  class="tsd-kind-icon"
+                  >ITransactions<wbr />Options</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
                 <a href="interfaces/iuseraccount.html" class="tsd-kind-icon"
                   >IUser<wbr />Account</a
                 >
@@ -486,6 +524,11 @@
               </li>
               <li class="tsd-kind-type-alias">
                 <a href="globals.html#itick" class="tsd-kind-icon">ITick</a>
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a href="globals.html#itransactions" class="tsd-kind-icon"
+                  >ITransactions</a
+                >
               </li>
               <li class="tsd-kind-variable">
                 <a href="globals.html#defaultapiversion" class="tsd-kind-icon"
