@@ -1,5 +1,11 @@
 # Changelog
 
+### [1.11.1](https://github.com/b2broker/exante-node/compare/v1.11.0...v1.11.1) (2020-09-04)
+
+### Performance Improvements
+
+- add static JWT method ([517b3bf](https://github.com/b2broker/exante-node/commit/517b3bf4ac5489335e3f304baab9b6e4455c6a48))
+
 ## [1.11.0](https://github.com/b2broker/exante-node/compare/v1.10.0...v1.11.0) (2020-09-04)
 
 ### Features
