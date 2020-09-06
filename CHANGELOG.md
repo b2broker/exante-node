@@ -1,5 +1,15 @@
 # Changelog
 
+### [1.11.2](https://github.com/b2broker/exante-node/compare/v1.11.1...v1.11.2) (2020-09-06)
+
+### Performance Improvements
+
+- add static fetch method ([e4dffd5](https://github.com/b2broker/exante-node/commit/e4dffd5092ee10e39c75907e9aaff3fdd2905366))
+
+### Dependencies
+
+- update node-fetch to v3.0.0-beta.9 ([1887207](https://github.com/b2broker/exante-node/commit/188720772c27b60c55fedb7b9c8d29f202ff7239))
+
 ### [1.11.1](https://github.com/b2broker/exante-node/compare/v1.11.0...v1.11.1) (2020-09-04)
 
 ### Performance Improvements
