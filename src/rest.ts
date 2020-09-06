@@ -8,10 +8,25 @@ export const ExanteLiveURL = "https://api-live.exante.eu/";
 export const DefaultAPIVersion = "2.0";
 
 export interface IExanteOptions {
+  /**
+   * Client id
+   */
   client_id: string;
+  /**
+   * Application id
+   */
   app_id: string;
+  /**
+   * Shared secret
+   */
   shared_key: string;
+  /**
+   * Use demo endpoint
+   */
   demo?: boolean;
+  /**
+   * Base url - e.g., https://api-live.exante.eu/
+   */
   url?: string | URL;
 }
 
@@ -45,6 +60,9 @@ export interface ILastQuoteOptions extends IVersion {
    * Symbol id or symbol ids
    */
   symbolIds: string | string[];
+  /**
+   * Quote level
+   */
   level?: "best_price" | "market_depth";
 }
 
@@ -78,9 +96,21 @@ export interface ICandlesOptions extends ISymbolId {
 }
 
 export interface ITicksOptions extends ISymbolId {
+  /**
+   * Starting timestamp in ms
+   */
   from?: string | number;
+  /**
+   * Ending timestamp in ms
+   */
   to?: string | number;
+  /**
+   * Maximum amount of candles to retrieve
+   */
   size?: string | number;
+  /**
+   * Tick types
+   */
   type?: "quotes" | "trades";
 }
 
@@ -497,18 +527,9 @@ export class RestClient {
     url: string | URL,
     { headers = this.headers, ...options }: fetch.RequestInit = {}
   ): Promise<unknown> {
-    const response = await fetch(url.toString(), { headers, ...options });
+    const response = await RestClient.fetch(url, { headers, ...options });
 
-    if (!response.ok) {
-      throw new FetchError(response.statusText, response);
-    }
-
-    try {
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      throw new FetchError(error.message, response);
-    }
+    return response;
   }
 
   /**
@@ -752,6 +773,27 @@ export class RestClient {
     const encodedSignature = RestClient.base64URL(signature);
     const jwt = `${encodedHeader}.${encodedPayload}.${encodedSignature}`;
     return jwt;
+  }
+
+  /**
+   * Make a request and parse the body as JSON
+   */
+  public static async fetch(
+    url: string | URL,
+    options: fetch.RequestInit = {}
+  ): Promise<unknown> {
+    const response = await fetch(url.toString(), { ...options });
+
+    if (!response.ok) {
+      throw new FetchError(response.statusText, response);
+    }
+
+    try {
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw new FetchError(error.message, response);
+    }
   }
 }
 
