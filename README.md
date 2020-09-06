@@ -141,6 +141,29 @@ const transactions = await client.getTransactions({
 });
 ```
 
+- [`placeOrder`](https://api-live.exante.eu/api-docs/#operation/placeOrder)
+
+```typescript
+const version = "3.0";
+const symbolId = "AAPL.NASDAQ";
+const side = "sell";
+const quantity = "1";
+const limitPrice = "10000";
+const duration = "good_till_cancel";
+const orderType = "limit";
+const accountId = "ABC1234.001";
+const order = await client.placeOrder({
+  version,
+  symbolId,
+  side,
+  quantity,
+  limitPrice,
+  duration,
+  orderType,
+  accountId,
+});
+```
+
 ## Test
 
 ```bash

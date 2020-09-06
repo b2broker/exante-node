@@ -180,6 +180,105 @@ export interface ITransactionsOptions extends IVersion {
   orderPos?: number;
 }
 
+export type ISide = "buy" | "sell";
+
+export type IOrderType =
+  | "unknown"
+  | "market"
+  | "limit"
+  | "stop"
+  | "stop_limit"
+  | "twap"
+  | "trailing_stop"
+  | "iceberg";
+
+export type IDuration =
+  | "unknown"
+  | "day"
+  | "fill_or_kill"
+  | "immediate_or_cancel"
+  | "good_till_cancel"
+  | "good_till_time"
+  | "at_the_opening"
+  | "at_the_close";
+
+interface IBasePlaceOrderOptions extends IVersion {
+  /**
+   * Client tag to identify or group orders
+   */
+  clientTag?: string;
+  /**
+   * Order type
+   */
+  orderType: IOrderType;
+  /**
+   * Order side
+   */
+  side: ISide;
+  /**
+   * Price of stop loss order
+   */
+  stopLoss?: string;
+  /**
+   * Order limit price
+   */
+  limitPrice?: string;
+  /**
+   * Order stop price
+   */
+  stopPrice?: string;
+  /**
+   * Order quantity
+   */
+  quantity: string;
+  /**
+   * Order partial quantity, twap and iceberg orders only
+   */
+  partQuantity?: string;
+  /**
+   * Id of an order on which this order depends
+   */
+  ifDoneParentId?: string | null;
+  /**
+   * Order duration
+   */
+  duration: IDuration;
+  /**
+   * User account to place order
+   */
+  accountId?: string;
+  /**
+   * Price of take profit order
+   */
+  takeProfit?: string;
+  /**
+   * Order place interval, twap orders only
+   */
+  placeInterval?: string;
+  /**
+   * One-Cancels-the-Other group ID if set
+   */
+  ocoGroup?: string | null;
+  /**
+   * Order expiration
+   */
+  gttExpiration?: string;
+  /**
+   * Order price distance, trailing_stop orders only
+   */
+  priceDistance?: string;
+}
+
+export interface IPlaceOrderOptionsV2 extends IBasePlaceOrderOptions {
+  instrument: string;
+}
+
+export interface IPlaceOrderOptionsV3 extends IBasePlaceOrderOptions {
+  symbolId: string;
+}
+
+export type IPlaceOrderOptions = IPlaceOrderOptionsV2 | IPlaceOrderOptionsV3;
+
 export interface IUserAccount {
   /**
    * Account status
@@ -500,6 +599,131 @@ export interface ITransactionV3 extends ITransactionBase {
 
 export type ITransactions = ITransactionV2[] | ITransactionV3[];
 
+export type IOrdersStatus =
+  | "placing"
+  | "working"
+  | "cancelled"
+  | "pending"
+  | "filled"
+  | "rejected";
+
+interface IBaseFill {
+  /**
+   * Fill quantity
+   */
+  quantity: string;
+  /**
+   * Fill serial number
+   */
+  position: string;
+  /**
+   * Fill price
+   */
+  price: string;
+}
+
+export interface IFillV2 extends IBaseFill {
+  /**
+   * Fill time
+   */
+  time: string;
+}
+
+export interface IFillV3 extends IBaseFill {
+  /**
+   * Fill time
+   */
+  timestamp: string;
+}
+
+export type IFill = IFillV2 | IFillV3;
+
+interface IBaseOrderState {
+  /**
+   * Order status
+   */
+  status: IOrdersStatus;
+  /**
+   * Order last update time
+   */
+  lastUpdate: string;
+  /**
+   * Order rejected reason
+   */
+  reason?: string;
+}
+
+export interface IOrderStateV2 extends IBaseOrderState {
+  /**
+   * Order fills
+   */
+  fills: IFillV2[];
+}
+
+export interface IOrderStateV3 extends IBaseOrderState {
+  /**
+   * Order fills
+   */
+  fills: IFillV3[];
+}
+
+export type IOrderState = IOrderStateV2 | IOrderStateV3;
+
+interface IBaseOrder {
+  /**
+   * Client tag to identify or group orders
+   */
+  clientTag?: string;
+  /**
+   * Associated account ID
+   */
+  accountId: string;
+  /**
+   * Associated name
+   */
+  username?: string;
+  /**
+   * Current order modification unique ID
+   */
+  currentModificationId: string;
+  /**
+   * Current order modification unique ID
+   */
+  placeTime: string;
+}
+
+export interface IOrderV2 extends IBaseOrder {
+  /**
+   * Order response parameters
+   */
+  orderParameters: IPlaceOrderOptionsV2;
+  /**
+   * Order state response
+   */
+  orderState: IOrderStateV2;
+  /**
+   * Unique order id
+   */
+  id: string;
+}
+
+export interface IOrderV3 extends IBaseOrder {
+  /**
+   * Order response parameters
+   */
+  orderParameters: IPlaceOrderOptionsV3;
+  /**
+   * Order state response
+   */
+  orderState: IOrderStateV3;
+  /**
+   * Unique order id
+   */
+  orderId: string;
+}
+
+export type IOrder = IOrderV2 | IOrderV3;
+
 export class RestClient {
   readonly #client_id: string;
   readonly #app_id: string;
@@ -683,6 +907,22 @@ export class RestClient {
 
     const transactions = (await this.fetch(url)) as ITransactions;
     return transactions;
+  }
+
+  /**
+   * Place new trading order
+   */
+  public async placeOrder({
+    version = DefaultAPIVersion,
+    ...data
+  }: IPlaceOrderOptions): Promise<IOrder[]> {
+    const url = new URL(`/trade/${version}/orders`, this.url);
+    const method = "POST";
+    const body = JSON.stringify(data);
+
+    const order = (await this.fetch(url, { method, body })) as IOrder[];
+
+    return order;
   }
 
   /**
