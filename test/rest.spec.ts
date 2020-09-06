@@ -40,7 +40,7 @@ suite("RestClient", () => {
       app_id,
       demo: true,
     });
-    assert.deepStrictEqual(client.url.href, ExanteDemoURL);
+    assert.deepStrictEqual(client.url, new URL(ExanteDemoURL));
   });
 
   test("constructor (when `demo` is `false`)", () => {
@@ -50,41 +50,21 @@ suite("RestClient", () => {
       app_id,
       demo: false,
     });
-    assert.deepStrictEqual(client.url.href, ExanteLiveURL);
+    assert.deepStrictEqual(client.url, new URL(ExanteLiveURL));
   });
 
-  test(".fetch()", async () => {
+  test(".fetch() (passes headers)", async () => {
     const response = { ok: 1 };
+    const reqheaders = {
+      "Content-Type": "application/json",
+      Authorization: (value: string) => value.includes("Bearer "),
+    };
 
-    nock(url).get("/").delay(1).reply(200, response);
+    nock(url, { reqheaders }).get("/").delay(1).reply(200, response);
 
     const data = await client.fetch(url);
 
     assert.deepStrictEqual(data, response);
-  });
-
-  test(".fetch() (throws `FetchError` on non 2xx responses)", async () => {
-    nock(url).get("/").delay(1).reply(404);
-
-    try {
-      await client.fetch(url);
-      throw new Error("Should throw a FetchError");
-    } catch (error) {
-      assert.ok(error instanceof FetchError);
-      assert.ok(error.response instanceof fetch.Response);
-    }
-  });
-
-  test(".fetch() (throws `FetchError` on non json reposonses)", async () => {
-    nock(url).get("/").delay(1).reply(200, "notjson");
-
-    try {
-      await client.fetch(url);
-      throw new Error("Should throw a FetchError");
-    } catch (error) {
-      assert.ok(error instanceof FetchError);
-      assert.ok(error.response instanceof fetch.Response);
-    }
   });
 
   test(".getAccounts()", async () => {
@@ -908,6 +888,40 @@ suite("RestClient", () => {
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIiLCJpc3MiOiJpc3MiLCJpYXQiOjEsImV4cCI6MiwiYXVkIjpbIm9obGMiXX0.W_YpgmyZLs-TP8cSVn0oZmGIJyWtBbkiH9KvjnQr7rw";
       const token = RestClient.JWT(secret, payload);
       assert.deepStrictEqual(token, jwt);
+    });
+
+    test(".fetch()", async () => {
+      const response = { ok: 1 };
+
+      nock(url).get("/").delay(1).reply(200, response);
+
+      const data = await RestClient.fetch(url);
+
+      assert.deepStrictEqual(data, response);
+    });
+
+    test(".fetch() (throws `FetchError` on non 2xx responses)", async () => {
+      nock(url).get("/").delay(1).reply(404);
+
+      try {
+        await RestClient.fetch(url);
+        throw new Error("Should throw a FetchError");
+      } catch (error) {
+        assert.ok(error instanceof FetchError);
+        assert.ok(error.response instanceof fetch.Response);
+      }
+    });
+
+    test(".fetch() (throws `FetchError` on non json reposonses)", async () => {
+      nock(url).get("/").delay(1).reply(200, "notjson");
+
+      try {
+        await RestClient.fetch(url);
+        throw new Error("Should throw a FetchError");
+      } catch (error) {
+        assert.ok(error instanceof FetchError);
+        assert.ok(error.response instanceof fetch.Response);
+      }
     });
   });
 });
