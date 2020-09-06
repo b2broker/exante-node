@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>IUserAccount | exante</title>
+    <title>IBaseOrderState | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="iuseraccount.html">IUserAccount</a>
+              <a href="ibaseorderstate.html">IBaseOrderState</a>
             </li>
           </ul>
-          <h1>Interface IUserAccount</h1>
+          <h1>Interface IBaseOrderState</h1>
         </div>
       </div>
     </header>
@@ -92,7 +92,19 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <span class="target">IUserAccount</span>
+                <span class="target">IBaseOrderState</span>
+                <ul class="tsd-hierarchy">
+                  <li>
+                    <a href="iorderstatev2.html" class="tsd-signature-type"
+                      >IOrderStateV2</a
+                    >
+                  </li>
+                  <li>
+                    <a href="iorderstatev3.html" class="tsd-signature-type"
+                      >IOrderStateV3</a
+                    >
+                  </li>
+                </ul>
               </li>
             </ul>
           </section>
@@ -105,13 +117,22 @@
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="iuseraccount.html#accountid"
+                        href="ibaseorderstate.html#lastupdate"
                         class="tsd-kind-icon"
-                        >account<wbr />Id</a
+                        >last<wbr />Update</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iuseraccount.html#status" class="tsd-kind-icon"
+                      <a
+                        href="ibaseorderstate.html#reason"
+                        class="tsd-kind-icon"
+                        >reason</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="ibaseorderstate.html#status"
+                        class="tsd-kind-icon"
                         >status</a
                       >
                     </li>
@@ -125,10 +146,10 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="accountid" class="tsd-anchor"></a>
-              <h3>account<wbr />Id</h3>
+              <a name="lastupdate" class="tsd-anchor"></a>
+              <h3>last<wbr />Update</h3>
               <div class="tsd-signature tsd-kind-icon">
-                account<wbr />Id<span class="tsd-signature-symbol">:</span>
+                last<wbr />Update<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
@@ -136,15 +157,45 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L290"
-                      >src/rest.ts:290</a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L649"
+                      >src/rest.ts:649</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Account ID</p>
+                  <p>Order last update time</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="reason" class="tsd-anchor"></a>
+              <h3>
+                <span class="tsd-flag ts-flagOptional">Optional</span> reason
+              </h3>
+              <div class="tsd-signature tsd-kind-icon">
+                reason<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">undefined</span
+                ><span class="tsd-signature-symbol"> | </span
+                ><span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L653"
+                      >src/rest.ts:653</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Order rejected reason</p>
                 </div>
               </div>
             </section>
@@ -155,26 +206,26 @@
               <h3>status</h3>
               <div class="tsd-signature tsd-kind-icon">
                 status<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">"ReadOnly"</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">"CloseOnly"</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">"Full"</span>
+                <a
+                  href="../globals.html#iordersstatus"
+                  class="tsd-signature-type"
+                  >IOrdersStatus</a
+                >
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L286"
-                      >src/rest.ts:286</a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L645"
+                      >src/rest.ts:645</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Account status</p>
+                  <p>Order status</p>
                 </div>
               </div>
             </section>
@@ -192,17 +243,24 @@
             <ul class="before-current"></ul>
             <ul class="current">
               <li class="current tsd-kind-interface">
-                <a href="iuseraccount.html" class="tsd-kind-icon"
-                  >IUser<wbr />Account</a
+                <a href="ibaseorderstate.html" class="tsd-kind-icon"
+                  >IBase<wbr />Order<wbr />State</a
                 >
                 <ul>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iuseraccount.html#accountid" class="tsd-kind-icon"
-                      >account<wbr />Id</a
+                    <a
+                      href="ibaseorderstate.html#lastupdate"
+                      class="tsd-kind-icon"
+                      >last<wbr />Update</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iuseraccount.html#status" class="tsd-kind-icon"
+                    <a href="ibaseorderstate.html#reason" class="tsd-kind-icon"
+                      >reason</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a href="ibaseorderstate.html#status" class="tsd-kind-icon"
                       >status</a
                     >
                   </li>

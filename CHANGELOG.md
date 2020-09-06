@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.12.0](https://github.com/b2broker/exante-node/compare/v1.11.2...v1.12.0) (2020-09-06)
+
+### Features
+
+- add placeOrder method ([9391731](https://github.com/b2broker/exante-node/commit/93917310397d89feff38750d0e2e057fa4ac17d9))
+
 ### [1.11.2](https://github.com/b2broker/exante-node/compare/v1.11.1...v1.11.2) (2020-09-06)
 
 ### Performance Improvements

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>IUserAccount | exante</title>
+    <title>IFillV2 | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="iuseraccount.html">IUserAccount</a>
+              <a href="ifillv2.html">IFillV2</a>
             </li>
           </ul>
-          <h1>Interface IUserAccount</h1>
+          <h1>Interface IFillV2</h1>
         </div>
       </div>
     </header>
@@ -92,7 +92,14 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <span class="target">IUserAccount</span>
+                <a href="ibasefill.html" class="tsd-signature-type"
+                  >IBaseFill</a
+                >
+                <ul class="tsd-hierarchy">
+                  <li>
+                    <span class="target">IFillV2</span>
+                  </li>
+                </ul>
               </li>
             </ul>
           </section>
@@ -103,17 +110,29 @@
                 <section class="tsd-index-section">
                   <h3>Properties</h3>
                   <ul class="tsd-index-list">
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a
-                        href="iuseraccount.html#accountid"
-                        class="tsd-kind-icon"
-                        >account<wbr />Id</a
+                    <li
+                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                    >
+                      <a href="ifillv2.html#position" class="tsd-kind-icon"
+                        >position</a
+                      >
+                    </li>
+                    <li
+                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                    >
+                      <a href="ifillv2.html#price" class="tsd-kind-icon"
+                        >price</a
+                      >
+                    </li>
+                    <li
+                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                    >
+                      <a href="ifillv2.html#quantity" class="tsd-kind-icon"
+                        >quantity</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iuseraccount.html#status" class="tsd-kind-icon"
-                        >status</a
-                      >
+                      <a href="ifillv2.html#time" class="tsd-kind-icon">time</a>
                     </li>
                   </ul>
                 </section>
@@ -123,12 +142,108 @@
           <section class="tsd-panel-group tsd-member-group">
             <h2>Properties</h2>
             <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+            >
+              <a name="position" class="tsd-anchor"></a>
+              <h3>position</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                position<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="ibasefill.html">IBaseFill</a>.<a
+                    href="ibasefill.html#position"
+                    >position</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L618"
+                      >src/rest.ts:618</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Fill serial number</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+            >
+              <a name="price" class="tsd-anchor"></a>
+              <h3>price</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                price<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="ibasefill.html">IBaseFill</a>.<a
+                    href="ibasefill.html#price"
+                    >price</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L622"
+                      >src/rest.ts:622</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Fill price</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+            >
+              <a name="quantity" class="tsd-anchor"></a>
+              <h3>quantity</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                quantity<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="ibasefill.html">IBaseFill</a>.<a
+                    href="ibasefill.html#quantity"
+                    >quantity</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L614"
+                      >src/rest.ts:614</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Fill quantity</p>
+                </div>
+              </div>
+            </section>
+            <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="accountid" class="tsd-anchor"></a>
-              <h3>account<wbr />Id</h3>
+              <a name="time" class="tsd-anchor"></a>
+              <h3>time</h3>
               <div class="tsd-signature tsd-kind-icon">
-                account<wbr />Id<span class="tsd-signature-symbol">:</span>
+                time<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
@@ -136,45 +251,15 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L290"
-                      >src/rest.ts:290</a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L629"
+                      >src/rest.ts:629</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Account ID</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="status" class="tsd-anchor"></a>
-              <h3>status</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                status<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">"ReadOnly"</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">"CloseOnly"</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">"Full"</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L286"
-                      >src/rest.ts:286</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Account status</p>
+                  <p>Fill time</p>
                 </div>
               </div>
             </section>
@@ -192,19 +277,29 @@
             <ul class="before-current"></ul>
             <ul class="current">
               <li class="current tsd-kind-interface">
-                <a href="iuseraccount.html" class="tsd-kind-icon"
-                  >IUser<wbr />Account</a
-                >
+                <a href="ifillv2.html" class="tsd-kind-icon">IFill<wbr />V2</a>
                 <ul>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iuseraccount.html#accountid" class="tsd-kind-icon"
-                      >account<wbr />Id</a
+                  <li
+                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                  >
+                    <a href="ifillv2.html#position" class="tsd-kind-icon"
+                      >position</a
+                    >
+                  </li>
+                  <li
+                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                  >
+                    <a href="ifillv2.html#price" class="tsd-kind-icon">price</a>
+                  </li>
+                  <li
+                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                  >
+                    <a href="ifillv2.html#quantity" class="tsd-kind-icon"
+                      >quantity</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iuseraccount.html#status" class="tsd-kind-icon"
-                      >status</a
-                    >
+                    <a href="ifillv2.html#time" class="tsd-kind-icon">time</a>
                   </li>
                 </ul>
               </li>

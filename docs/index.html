@@ -339,6 +339,32 @@
   operationType,
   limit,
 });</code></pre>
+            <ul>
+              <li>
+                <a
+                  href="https://api-live.exante.eu/api-docs/#operation/placeOrder"
+                  ><code>placeOrder</code></a
+                >
+              </li>
+            </ul>
+            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
+<span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
+<span class="hljs-keyword">const</span> side = <span class="hljs-string">&quot;sell&quot;</span>;
+<span class="hljs-keyword">const</span> quantity = <span class="hljs-string">&quot;1&quot;</span>;
+<span class="hljs-keyword">const</span> limitPrice = <span class="hljs-string">&quot;10000&quot;</span>;
+<span class="hljs-keyword">const</span> duration = <span class="hljs-string">&quot;good_till_cancel&quot;</span>;
+<span class="hljs-keyword">const</span> orderType = <span class="hljs-string">&quot;limit&quot;</span>;
+<span class="hljs-keyword">const</span> accountId = <span class="hljs-string">&quot;ABC1234.001&quot;</span>;
+<span class="hljs-keyword">const</span> order = <span class="hljs-keyword">await</span> client.placeOrder({
+  version,
+  symbolId,
+  side,
+  quantity,
+  limitPrice,
+  duration,
+  orderType,
+  accountId,
+});</code></pre>
             <a
               href="#test"
               id="test"
@@ -379,6 +405,28 @@
                   href="interfaces/iaccountsummaryoptions.html"
                   class="tsd-kind-icon"
                   >IAccount<wbr />Summary<wbr />Options</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/ibasefill.html" class="tsd-kind-icon"
+                  >IBase<wbr />Fill</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/ibaseorder.html" class="tsd-kind-icon"
+                  >IBase<wbr />Order</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/ibaseorderstate.html" class="tsd-kind-icon"
+                  >IBase<wbr />Order<wbr />State</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/ibaseplaceorderoptions.html"
+                  class="tsd-kind-icon"
+                  >IBase<wbr />Place<wbr />Order<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-interface">
@@ -429,6 +477,16 @@
                 >
               </li>
               <li class="tsd-kind-interface">
+                <a href="interfaces/ifillv2.html" class="tsd-kind-icon"
+                  >IFill<wbr />V2</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/ifillv3.html" class="tsd-kind-icon"
+                  >IFill<wbr />V3</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
                 <a href="interfaces/ilastquote.html" class="tsd-kind-icon"
                   >ILast<wbr />Quote</a
                 >
@@ -438,6 +496,40 @@
                   href="interfaces/ilastquoteoptions.html"
                   class="tsd-kind-icon"
                   >ILast<wbr />Quote<wbr />Options</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/iorderstatev2.html" class="tsd-kind-icon"
+                  >IOrder<wbr />State<wbr />V2</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/iorderstatev3.html" class="tsd-kind-icon"
+                  >IOrder<wbr />State<wbr />V3</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/iorderv2.html" class="tsd-kind-icon"
+                  >IOrder<wbr />V2</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/iorderv3.html" class="tsd-kind-icon"
+                  >IOrder<wbr />V3</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/iplaceorderoptionsv2.html"
+                  class="tsd-kind-icon"
+                  >IPlace<wbr />Order<wbr />Options<wbr />V2</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/iplaceorderoptionsv3.html"
+                  class="tsd-kind-icon"
+                  >IPlace<wbr />Order<wbr />Options<wbr />V3</a
                 >
               </li>
               <li class="tsd-kind-interface">
@@ -518,9 +610,43 @@
                 >
               </li>
               <li class="tsd-kind-type-alias">
+                <a href="globals.html#iduration" class="tsd-kind-icon"
+                  >IDuration</a
+                >
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a href="globals.html#ifill" class="tsd-kind-icon">IFill</a>
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a href="globals.html#iorder" class="tsd-kind-icon">IOrder</a>
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a href="globals.html#iorderstate" class="tsd-kind-icon"
+                  >IOrder<wbr />State</a
+                >
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a href="globals.html#iordertype" class="tsd-kind-icon"
+                  >IOrder<wbr />Type</a
+                >
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a href="globals.html#iordersstatus" class="tsd-kind-icon"
+                  >IOrders<wbr />Status</a
+                >
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a href="globals.html#iplaceorderoptions" class="tsd-kind-icon"
+                  >IPlace<wbr />Order<wbr />Options</a
+                >
+              </li>
+              <li class="tsd-kind-type-alias">
                 <a href="globals.html#iquoteside" class="tsd-kind-icon"
                   >IQuote<wbr />Side</a
                 >
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a href="globals.html#iside" class="tsd-kind-icon">ISide</a>
               </li>
               <li class="tsd-kind-type-alias">
                 <a href="globals.html#itick" class="tsd-kind-icon">ITick</a>

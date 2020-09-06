@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>ITransactionsOptions | exante</title>
+    <title>IBasePlaceOrderOptions | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="itransactionsoptions.html">ITransactionsOptions</a>
+              <a href="ibaseplaceorderoptions.html">IBasePlaceOrderOptions</a>
             </li>
           </ul>
-          <h1>Interface ITransactionsOptions</h1>
+          <h1>Interface IBasePlaceOrderOptions</h1>
         </div>
       </div>
     </header>
@@ -95,7 +95,23 @@
                 <a href="iversion.html" class="tsd-signature-type">IVersion</a>
                 <ul class="tsd-hierarchy">
                   <li>
-                    <span class="target">ITransactionsOptions</span>
+                    <span class="target">IBasePlaceOrderOptions</span>
+                    <ul class="tsd-hierarchy">
+                      <li>
+                        <a
+                          href="iplaceorderoptionsv2.html"
+                          class="tsd-signature-type"
+                          >IPlaceOrderOptionsV2</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="iplaceorderoptionsv3.html"
+                          class="tsd-signature-type"
+                          >IPlaceOrderOptionsV3</a
+                        >
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </li>
@@ -110,93 +126,121 @@
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="itransactionsoptions.html#accountid"
+                        href="ibaseplaceorderoptions.html#accountid"
                         class="tsd-kind-icon"
                         >account<wbr />Id</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="itransactionsoptions.html#asset"
+                        href="ibaseplaceorderoptions.html#clienttag"
                         class="tsd-kind-icon"
-                        >asset</a
+                        >client<wbr />Tag</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="itransactionsoptions.html#fromdate"
+                        href="ibaseplaceorderoptions.html#duration"
                         class="tsd-kind-icon"
-                        >from<wbr />Date</a
+                        >duration</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="itransactionsoptions.html#limit"
+                        href="ibaseplaceorderoptions.html#gttexpiration"
                         class="tsd-kind-icon"
-                        >limit</a
+                        >gtt<wbr />Expiration</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="itransactionsoptions.html#offset"
+                        href="ibaseplaceorderoptions.html#ifdoneparentid"
                         class="tsd-kind-icon"
-                        >offset</a
+                        >if<wbr />Done<wbr />Parent<wbr />Id</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="itransactionsoptions.html#operationtype"
+                        href="ibaseplaceorderoptions.html#limitprice"
                         class="tsd-kind-icon"
-                        >operation<wbr />Type</a
+                        >limit<wbr />Price</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="itransactionsoptions.html#order"
+                        href="ibaseplaceorderoptions.html#ocogroup"
                         class="tsd-kind-icon"
-                        >order</a
+                        >oco<wbr />Group</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="itransactionsoptions.html#orderid"
+                        href="ibaseplaceorderoptions.html#ordertype"
                         class="tsd-kind-icon"
-                        >order<wbr />Id</a
+                        >order<wbr />Type</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="itransactionsoptions.html#orderpos"
+                        href="ibaseplaceorderoptions.html#partquantity"
                         class="tsd-kind-icon"
-                        >order<wbr />Pos</a
+                        >part<wbr />Quantity</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="itransactionsoptions.html#symbolid"
+                        href="ibaseplaceorderoptions.html#placeinterval"
                         class="tsd-kind-icon"
-                        >symbol<wbr />Id</a
+                        >place<wbr />Interval</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="itransactionsoptions.html#todate"
+                        href="ibaseplaceorderoptions.html#pricedistance"
                         class="tsd-kind-icon"
-                        >to<wbr />Date</a
+                        >price<wbr />Distance</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="itransactionsoptions.html#uuid"
+                        href="ibaseplaceorderoptions.html#quantity"
                         class="tsd-kind-icon"
-                        >uuid</a
+                        >quantity</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="ibaseplaceorderoptions.html#side"
+                        class="tsd-kind-icon"
+                        >side</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="ibaseplaceorderoptions.html#stoploss"
+                        class="tsd-kind-icon"
+                        >stop<wbr />Loss</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="ibaseplaceorderoptions.html#stopprice"
+                        class="tsd-kind-icon"
+                        >stop<wbr />Price</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="ibaseplaceorderoptions.html#takeprofit"
+                        class="tsd-kind-icon"
+                        >take<wbr />Profit</a
                       >
                     </li>
                     <li
                       class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
                     >
                       <a
-                        href="itransactionsoptions.html#version"
+                        href="ibaseplaceorderoptions.html#version"
                         class="tsd-kind-icon"
                         >version</a
                       >
@@ -227,27 +271,28 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L140"
-                      >src/rest.ts:140</a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L249"
+                      >src/rest.ts:249</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Transaction account ID</p>
+                  <p>User account to place order</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="asset" class="tsd-anchor"></a>
+              <a name="clienttag" class="tsd-anchor"></a>
               <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> asset
+                <span class="tsd-flag ts-flagOptional">Optional</span>
+                client<wbr />Tag
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                asset<span class="tsd-signature-symbol">:</span>
+                client<wbr />Tag<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">undefined</span
                 ><span class="tsd-signature-symbol"> | </span
                 ><span class="tsd-signature-type">string</span>
@@ -257,28 +302,56 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L148"
-                      >src/rest.ts:148</a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L209"
+                      >src/rest.ts:209</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Asset</p>
+                  <p>Client tag to identify or group orders</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="fromdate" class="tsd-anchor"></a>
+              <a name="duration" class="tsd-anchor"></a>
+              <h3>duration</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                duration<span class="tsd-signature-symbol">:</span>
+                <a href="../globals.html#iduration" class="tsd-signature-type"
+                  >IDuration</a
+                >
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L245"
+                      >src/rest.ts:245</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Order duration</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="gttexpiration" class="tsd-anchor"></a>
               <h3>
                 <span class="tsd-flag ts-flagOptional">Optional</span>
-                from<wbr />Date
+                gtt<wbr />Expiration
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                from<wbr />Date<span class="tsd-signature-symbol">:</span>
+                gtt<wbr />Expiration<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">undefined</span
                 ><span class="tsd-signature-symbol"> | </span
                 ><span class="tsd-signature-type">string</span>
@@ -288,150 +361,62 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L168"
-                      >src/rest.ts:168</a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L265"
+                      >src/rest.ts:265</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Starting timestamp of transactions in ISO format</p>
+                  <p>Order expiration</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="limit" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> limit
-              </h3>
-              <div class="tsd-signature tsd-kind-icon">
-                limit<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">undefined</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">number</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L160"
-                      >src/rest.ts:160</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Limit response to this amount of transactions</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="offset" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> offset
-              </h3>
-              <div class="tsd-signature tsd-kind-icon">
-                offset<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">undefined</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">number</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L156"
-                      >src/rest.ts:156</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Offset to list transactions</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="operationtype" class="tsd-anchor"></a>
+              <a name="ifdoneparentid" class="tsd-anchor"></a>
               <h3>
                 <span class="tsd-flag ts-flagOptional">Optional</span>
-                operation<wbr />Type
+                if<wbr />Done<wbr />Parent<wbr />Id
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                operation<wbr />Type<span class="tsd-signature-symbol">:</span>
+                if<wbr />Done<wbr />Parent<wbr />Id<span
+                  class="tsd-signature-symbol"
+                  >:</span
+                >
                 <span class="tsd-signature-type">string</span
                 ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">string</span
-                ><span class="tsd-signature-symbol">[]</span>
+                ><span class="tsd-signature-type">null</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L152"
-                      >src/rest.ts:152</a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L241"
+                      >src/rest.ts:241</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Transaction types</p>
+                  <p>Id of an order on which this order depends</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="order" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> order
-              </h3>
-              <div class="tsd-signature tsd-kind-icon">
-                order<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">"ASC"</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">"DESC"</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L164"
-                      >src/rest.ts:164</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Order transactions by descending or ascending</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="orderid" class="tsd-anchor"></a>
+              <a name="limitprice" class="tsd-anchor"></a>
               <h3>
                 <span class="tsd-flag ts-flagOptional">Optional</span>
-                order<wbr />Id
+                limit<wbr />Price
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                order<wbr />Id<span class="tsd-signature-symbol">:</span>
+                limit<wbr />Price<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">undefined</span
                 ><span class="tsd-signature-symbol"> | </span
                 ><span class="tsd-signature-type">string</span>
@@ -441,59 +426,87 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L176"
-                      >src/rest.ts:176</a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L225"
+                      >src/rest.ts:225</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Filter transactions by the order id</p>
+                  <p>Order limit price</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="orderpos" class="tsd-anchor"></a>
+              <a name="ocogroup" class="tsd-anchor"></a>
               <h3>
                 <span class="tsd-flag ts-flagOptional">Optional</span>
-                order<wbr />Pos
+                oco<wbr />Group
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                order<wbr />Pos<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">undefined</span
+                oco<wbr />Group<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span
                 ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">number</span>
+                ><span class="tsd-signature-type">null</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L180"
-                      >src/rest.ts:180</a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L261"
+                      >src/rest.ts:261</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Filter transactions by the position in the order</p>
+                  <p>One-Cancels-the-Other group ID if set</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="symbolid" class="tsd-anchor"></a>
+              <a name="ordertype" class="tsd-anchor"></a>
+              <h3>order<wbr />Type</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                order<wbr />Type<span class="tsd-signature-symbol">:</span>
+                <a href="../globals.html#iordertype" class="tsd-signature-type"
+                  >IOrderType</a
+                >
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L213"
+                      >src/rest.ts:213</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Order type</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="partquantity" class="tsd-anchor"></a>
               <h3>
                 <span class="tsd-flag ts-flagOptional">Optional</span>
-                symbol<wbr />Id
+                part<wbr />Quantity
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                symbol<wbr />Id<span class="tsd-signature-symbol">:</span>
+                part<wbr />Quantity<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">undefined</span
                 ><span class="tsd-signature-symbol"> | </span
                 ><span class="tsd-signature-type">string</span>
@@ -503,28 +516,28 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L144"
-                      >src/rest.ts:144</a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L237"
+                      >src/rest.ts:237</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Filter transactions by the symbol id</p>
+                  <p>Order partial quantity, twap and iceberg orders only</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="todate" class="tsd-anchor"></a>
+              <a name="placeinterval" class="tsd-anchor"></a>
               <h3>
                 <span class="tsd-flag ts-flagOptional">Optional</span>
-                to<wbr />Date
+                place<wbr />Interval
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                to<wbr />Date<span class="tsd-signature-symbol">:</span>
+                place<wbr />Interval<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">undefined</span
                 ><span class="tsd-signature-symbol"> | </span
                 ><span class="tsd-signature-type">string</span>
@@ -534,27 +547,28 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L172"
-                      >src/rest.ts:172</a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L257"
+                      >src/rest.ts:257</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Ending timestamp of transactions in ISO format</p>
+                  <p>Order place interval, twap orders only</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="uuid" class="tsd-anchor"></a>
+              <a name="pricedistance" class="tsd-anchor"></a>
               <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> uuid
+                <span class="tsd-flag ts-flagOptional">Optional</span>
+                price<wbr />Distance
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                uuid<span class="tsd-signature-symbol">:</span>
+                price<wbr />Distance<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">undefined</span
                 ><span class="tsd-signature-symbol"> | </span
                 ><span class="tsd-signature-type">string</span>
@@ -564,15 +578,162 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L136"
-                      >src/rest.ts:136</a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L269"
+                      >src/rest.ts:269</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Transaction UUID</p>
+                  <p>Order price distance, trailing_stop orders only</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="quantity" class="tsd-anchor"></a>
+              <h3>quantity</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                quantity<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L233"
+                      >src/rest.ts:233</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Order quantity</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="side" class="tsd-anchor"></a>
+              <h3>side</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                side<span class="tsd-signature-symbol">:</span>
+                <a href="../globals.html#iside" class="tsd-signature-type"
+                  >ISide</a
+                >
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L217"
+                      >src/rest.ts:217</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Order side</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="stoploss" class="tsd-anchor"></a>
+              <h3>
+                <span class="tsd-flag ts-flagOptional">Optional</span>
+                stop<wbr />Loss
+              </h3>
+              <div class="tsd-signature tsd-kind-icon">
+                stop<wbr />Loss<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">undefined</span
+                ><span class="tsd-signature-symbol"> | </span
+                ><span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L221"
+                      >src/rest.ts:221</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Price of stop loss order</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="stopprice" class="tsd-anchor"></a>
+              <h3>
+                <span class="tsd-flag ts-flagOptional">Optional</span>
+                stop<wbr />Price
+              </h3>
+              <div class="tsd-signature tsd-kind-icon">
+                stop<wbr />Price<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">undefined</span
+                ><span class="tsd-signature-symbol"> | </span
+                ><span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L229"
+                      >src/rest.ts:229</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Order stop price</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="takeprofit" class="tsd-anchor"></a>
+              <h3>
+                <span class="tsd-flag ts-flagOptional">Optional</span>
+                take<wbr />Profit
+              </h3>
+              <div class="tsd-signature tsd-kind-icon">
+                take<wbr />Profit<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">undefined</span
+                ><span class="tsd-signature-symbol"> | </span
+                ><span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/99e5654/src/rest.ts#L253"
+                      >src/rest.ts:253</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Price of take profit order</p>
                 </div>
               </div>
             </section>
@@ -626,99 +787,127 @@
             <ul class="before-current"></ul>
             <ul class="current">
               <li class="current tsd-kind-interface">
-                <a href="itransactionsoptions.html" class="tsd-kind-icon"
-                  >ITransactions<wbr />Options</a
+                <a href="ibaseplaceorderoptions.html" class="tsd-kind-icon"
+                  >IBase<wbr />Place<wbr />Order<wbr />Options</a
                 >
                 <ul>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="itransactionsoptions.html#accountid"
+                      href="ibaseplaceorderoptions.html#accountid"
                       class="tsd-kind-icon"
                       >account<wbr />Id</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="itransactionsoptions.html#asset"
+                      href="ibaseplaceorderoptions.html#clienttag"
                       class="tsd-kind-icon"
-                      >asset</a
+                      >client<wbr />Tag</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="itransactionsoptions.html#fromdate"
+                      href="ibaseplaceorderoptions.html#duration"
                       class="tsd-kind-icon"
-                      >from<wbr />Date</a
+                      >duration</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="itransactionsoptions.html#limit"
+                      href="ibaseplaceorderoptions.html#gttexpiration"
                       class="tsd-kind-icon"
-                      >limit</a
+                      >gtt<wbr />Expiration</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="itransactionsoptions.html#offset"
+                      href="ibaseplaceorderoptions.html#ifdoneparentid"
                       class="tsd-kind-icon"
-                      >offset</a
+                      >if<wbr />Done<wbr />Parent<wbr />Id</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="itransactionsoptions.html#operationtype"
+                      href="ibaseplaceorderoptions.html#limitprice"
                       class="tsd-kind-icon"
-                      >operation<wbr />Type</a
+                      >limit<wbr />Price</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="itransactionsoptions.html#order"
+                      href="ibaseplaceorderoptions.html#ocogroup"
                       class="tsd-kind-icon"
-                      >order</a
+                      >oco<wbr />Group</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="itransactionsoptions.html#orderid"
+                      href="ibaseplaceorderoptions.html#ordertype"
                       class="tsd-kind-icon"
-                      >order<wbr />Id</a
+                      >order<wbr />Type</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="itransactionsoptions.html#orderpos"
+                      href="ibaseplaceorderoptions.html#partquantity"
                       class="tsd-kind-icon"
-                      >order<wbr />Pos</a
+                      >part<wbr />Quantity</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="itransactionsoptions.html#symbolid"
+                      href="ibaseplaceorderoptions.html#placeinterval"
                       class="tsd-kind-icon"
-                      >symbol<wbr />Id</a
+                      >place<wbr />Interval</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="itransactionsoptions.html#todate"
+                      href="ibaseplaceorderoptions.html#pricedistance"
                       class="tsd-kind-icon"
-                      >to<wbr />Date</a
+                      >price<wbr />Distance</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="itransactionsoptions.html#uuid"
+                      href="ibaseplaceorderoptions.html#quantity"
                       class="tsd-kind-icon"
-                      >uuid</a
+                      >quantity</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="ibaseplaceorderoptions.html#side"
+                      class="tsd-kind-icon"
+                      >side</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="ibaseplaceorderoptions.html#stoploss"
+                      class="tsd-kind-icon"
+                      >stop<wbr />Loss</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="ibaseplaceorderoptions.html#stopprice"
+                      class="tsd-kind-icon"
+                      >stop<wbr />Price</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="ibaseplaceorderoptions.html#takeprofit"
+                      class="tsd-kind-icon"
+                      >take<wbr />Profit</a
                     >
                   </li>
                   <li
                     class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
                   >
                     <a
-                      href="itransactionsoptions.html#version"
+                      href="ibaseplaceorderoptions.html#version"
                       class="tsd-kind-icon"
                       >version</a
                     >
