@@ -365,6 +365,20 @@
   orderType,
   accountId,
 });</code></pre>
+            <ul>
+              <li>
+                <a
+                  href="https://api-live.exante.eu/api-docs/#operation/getOrders"
+                  ><code>getOrders</code></a
+                >
+              </li>
+            </ul>
+            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
+<span class="hljs-keyword">const</span> limit = <span class="hljs-string">&quot;10&quot;</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">from</span> = <span class="hljs-string">&quot;2017-05-18T10:00:00.000Z&quot;</span>;
+<span class="hljs-keyword">const</span> to = <span class="hljs-string">&quot;2017-05-21T17:59:59.999Z&quot;</span>;
+<span class="hljs-keyword">const</span> account = <span class="hljs-string">&quot;ABC1234.001&quot;</span>;
+<span class="hljs-keyword">const</span> orders = <span class="hljs-keyword">await</span> client.getOrders({ version, limit, <span class="hljs-keyword">from</span>, to, account });</code></pre>
             <a
               href="#test"
               id="test"
@@ -420,6 +434,13 @@
               <li class="tsd-kind-interface">
                 <a href="interfaces/ibaseorderstate.html" class="tsd-kind-icon"
                   >IBase<wbr />Order<wbr />State</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/ibaseordersoptions.html"
+                  class="tsd-kind-icon"
+                  >IBase<wbr />Orders<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-interface">
@@ -516,6 +537,16 @@
               <li class="tsd-kind-interface">
                 <a href="interfaces/iorderv3.html" class="tsd-kind-icon"
                   >IOrder<wbr />V3</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/iordersoptionsv2.html" class="tsd-kind-icon"
+                  >IOrders<wbr />Options<wbr />V2</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/iordersoptionsv3.html" class="tsd-kind-icon"
+                  >IOrders<wbr />Options<wbr />V3</a
                 >
               </li>
               <li class="tsd-kind-interface">
@@ -628,6 +659,11 @@
               <li class="tsd-kind-type-alias">
                 <a href="globals.html#iordertype" class="tsd-kind-icon"
                   >IOrder<wbr />Type</a
+                >
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a href="globals.html#iordersoptions" class="tsd-kind-icon"
+                  >IOrders<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-type-alias">

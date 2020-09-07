@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>IBaseOrder | exante</title>
+    <title>IBaseOrdersOptions | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="ibaseorder.html">IBaseOrder</a>
+              <a href="ibaseordersoptions.html">IBaseOrdersOptions</a>
             </li>
           </ul>
-          <h1>Interface IBaseOrder</h1>
+          <h1>Interface IBaseOrdersOptions</h1>
         </div>
       </div>
     </header>
@@ -92,17 +92,26 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <span class="target">IBaseOrder</span>
+                <a href="iversion.html" class="tsd-signature-type">IVersion</a>
                 <ul class="tsd-hierarchy">
                   <li>
-                    <a href="iorderv2.html" class="tsd-signature-type"
-                      >IOrderV2</a
-                    >
-                  </li>
-                  <li>
-                    <a href="iorderv3.html" class="tsd-signature-type"
-                      >IOrderV3</a
-                    >
+                    <span class="target">IBaseOrdersOptions</span>
+                    <ul class="tsd-hierarchy">
+                      <li>
+                        <a
+                          href="iordersoptionsv2.html"
+                          class="tsd-signature-type"
+                          >IOrdersOptionsV2</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="iordersoptionsv3.html"
+                          class="tsd-signature-type"
+                          >IOrdersOptionsV3</a
+                        >
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </li>
@@ -116,30 +125,31 @@
                   <h3>Properties</h3>
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="ibaseorder.html#accountid" class="tsd-kind-icon"
-                        >account<wbr />Id</a
-                      >
-                    </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="ibaseorder.html#clienttag" class="tsd-kind-icon"
-                        >client<wbr />Tag</a
+                      <a
+                        href="ibaseordersoptions.html#from"
+                        class="tsd-kind-icon"
+                        >from</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="ibaseorder.html#currentmodificationid"
+                        href="ibaseordersoptions.html#limit"
                         class="tsd-kind-icon"
-                        >current<wbr />Modification<wbr />Id</a
+                        >limit</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="ibaseorder.html#placetime" class="tsd-kind-icon"
-                        >place<wbr />Time</a
+                      <a href="ibaseordersoptions.html#to" class="tsd-kind-icon"
+                        >to</a
                       >
                     </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="ibaseorder.html#username" class="tsd-kind-icon"
-                        >username</a
+                    <li
+                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                    >
+                      <a
+                        href="ibaseordersoptions.html#version"
+                        class="tsd-kind-icon"
+                        >version</a
                       >
                     </li>
                   </ul>
@@ -152,39 +162,12 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="accountid" class="tsd-anchor"></a>
-              <h3>account<wbr />Id</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                account<wbr />Id<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/cdfad11/src/rest.ts#L717"
-                      >src/rest.ts:717</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Associated account ID</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="clienttag" class="tsd-anchor"></a>
+              <a name="from" class="tsd-anchor"></a>
               <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span>
-                client<wbr />Tag
+                <span class="tsd-flag ts-flagOptional">Optional</span> from
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                client<wbr />Tag<span class="tsd-signature-symbol">:</span>
+                from<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">undefined</span
                 ><span class="tsd-signature-symbol"> | </span
                 ><span class="tsd-signature-type">string</span>
@@ -194,82 +177,27 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/cdfad11/src/rest.ts#L713"
-                      >src/rest.ts:713</a
+                      href="https://github.com/b2broker/exante-node/blob/cdfad11/src/rest.ts#L296"
+                      >src/rest.ts:296</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Client tag to identify or group orders</p>
+                  <p>The start date</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="currentmodificationid" class="tsd-anchor"></a>
-              <h3>current<wbr />Modification<wbr />Id</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                current<wbr />Modification<wbr />Id<span
-                  class="tsd-signature-symbol"
-                  >:</span
-                >
-                <span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/cdfad11/src/rest.ts#L725"
-                      >src/rest.ts:725</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Current order modification unique ID</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="placetime" class="tsd-anchor"></a>
-              <h3>place<wbr />Time</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                place<wbr />Time<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/cdfad11/src/rest.ts#L729"
-                      >src/rest.ts:729</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Current order modification unique ID</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="username" class="tsd-anchor"></a>
+              <a name="limit" class="tsd-anchor"></a>
               <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> username
+                <span class="tsd-flag ts-flagOptional">Optional</span> limit
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                username<span class="tsd-signature-symbol">:</span>
+                limit<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">undefined</span
                 ><span class="tsd-signature-symbol"> | </span
                 ><span class="tsd-signature-type">string</span>
@@ -279,15 +207,79 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/cdfad11/src/rest.ts#L721"
-                      >src/rest.ts:721</a
+                      href="https://github.com/b2broker/exante-node/blob/cdfad11/src/rest.ts#L292"
+                      >src/rest.ts:292</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Associated name</p>
+                  <p>The limit for max items of the order list</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="to" class="tsd-anchor"></a>
+              <h3><span class="tsd-flag ts-flagOptional">Optional</span> to</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                to<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">undefined</span
+                ><span class="tsd-signature-symbol"> | </span
+                ><span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/cdfad11/src/rest.ts#L300"
+                      >src/rest.ts:300</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>The stop date</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+            >
+              <a name="version" class="tsd-anchor"></a>
+              <h3>
+                <span class="tsd-flag ts-flagOptional">Optional</span> version
+              </h3>
+              <div class="tsd-signature tsd-kind-icon">
+                version<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">"2.0"</span
+                ><span class="tsd-signature-symbol"> | </span
+                ><span class="tsd-signature-type">"3.0"</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="iversion.html">IVersion</a>.<a
+                    href="iversion.html#version"
+                    >version</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/cdfad11/src/rest.ts#L37"
+                      >src/rest.ts:37</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>API version</p>
                 </div>
               </div>
             </section>
@@ -305,35 +297,34 @@
             <ul class="before-current"></ul>
             <ul class="current">
               <li class="current tsd-kind-interface">
-                <a href="ibaseorder.html" class="tsd-kind-icon"
-                  >IBase<wbr />Order</a
+                <a href="ibaseordersoptions.html" class="tsd-kind-icon"
+                  >IBase<wbr />Orders<wbr />Options</a
                 >
                 <ul>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="ibaseorder.html#accountid" class="tsd-kind-icon"
-                      >account<wbr />Id</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="ibaseorder.html#clienttag" class="tsd-kind-icon"
-                      >client<wbr />Tag</a
+                    <a href="ibaseordersoptions.html#from" class="tsd-kind-icon"
+                      >from</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="ibaseorder.html#currentmodificationid"
+                      href="ibaseordersoptions.html#limit"
                       class="tsd-kind-icon"
-                      >current<wbr />Modification<wbr />Id</a
+                      >limit</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="ibaseorder.html#placetime" class="tsd-kind-icon"
-                      >place<wbr />Time</a
+                    <a href="ibaseordersoptions.html#to" class="tsd-kind-icon"
+                      >to</a
                     >
                   </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="ibaseorder.html#username" class="tsd-kind-icon"
-                      >username</a
+                  <li
+                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                  >
+                    <a
+                      href="ibaseordersoptions.html#version"
+                      class="tsd-kind-icon"
+                      >version</a
                     >
                   </li>
                 </ul>
