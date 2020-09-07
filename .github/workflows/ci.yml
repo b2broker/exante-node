@@ -45,6 +45,8 @@ jobs:
       - name: Publish test
         run: npm run publish:test
 
+      - name: commitlint
+        run: npm run commitlint:all
     env:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
