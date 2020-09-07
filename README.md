@@ -164,6 +164,17 @@ const order = await client.placeOrder({
 });
 ```
 
+- [`getOrders`](https://api-live.exante.eu/api-docs/#operation/getOrders)
+
+```typescript
+const version = "2.0";
+const limit = "10";
+const from = "2017-05-18T10:00:00.000Z";
+const to = "2017-05-21T17:59:59.999Z";
+const account = "ABC1234.001";
+const orders = await client.getOrders({ version, limit, from, to, account });
+```
+
 ## Test
 
 ```bash

@@ -10,10 +10,12 @@ jobs:
       matrix:
         node-version: [12, 13, 14]
 
-    container: node:${{ matrix.node-version }}
+    container: node:${{ matrix.node-version }}-buster
 
     steps:
       - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
 
       - name: Node.js version
         run: node -v
@@ -45,6 +47,8 @@ jobs:
       - name: Publish test
         run: npm run publish:test
 
+      - name: commitlint
+        run: npm run commitlint:all
     env:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 

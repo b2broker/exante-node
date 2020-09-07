@@ -270,14 +270,51 @@ interface IBasePlaceOrderOptions extends IVersion {
 }
 
 export interface IPlaceOrderOptionsV2 extends IBasePlaceOrderOptions {
+  /**
+   * Order instrument
+   */
   instrument: string;
 }
 
 export interface IPlaceOrderOptionsV3 extends IBasePlaceOrderOptions {
+  /**
+   * Order instrument
+   */
   symbolId: string;
 }
 
 export type IPlaceOrderOptions = IPlaceOrderOptionsV2 | IPlaceOrderOptionsV3;
+
+interface IBaseOrdersOptions extends IVersion {
+  /**
+   * The limit for max items of the order list
+   */
+  limit?: string;
+  /**
+   * The start date
+   */
+  from?: string;
+  /**
+   * The stop date
+   */
+  to?: string;
+}
+
+export interface IOrdersOptionsV2 extends IBaseOrdersOptions {
+  /**
+   * User account
+   */
+  account: string;
+}
+
+export interface IOrdersOptionsV3 extends IBaseOrdersOptions {
+  /**
+   * User account
+   */
+  accountId: string;
+}
+
+export type IOrdersOptions = IOrdersOptionsV2 | IOrdersOptionsV3;
 
 export interface IUserAccount {
   /**
@@ -923,6 +960,20 @@ export class RestClient {
     const order = (await this.fetch(url, { method, body })) as IOrder[];
 
     return order;
+  }
+
+  /**
+   * Get the list of historical orders
+   */
+  public async getOrders({
+    version = DefaultAPIVersion,
+    ...query
+  }: IOrdersOptions): Promise<IOrder[]> {
+    const url = new URL(`/trade/${version}/orders`, this.url);
+    RestClient.setQuery(url, { ...query });
+
+    const orders = (await this.fetch(url)) as IOrder[];
+    return orders;
   }
 
   /**
