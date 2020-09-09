@@ -316,6 +316,43 @@ export interface IOrdersOptionsV3 extends IBaseOrdersOptions {
 
 export type IOrdersOptions = IOrdersOptionsV2 | IOrdersOptionsV3;
 
+export interface IBaseActiveOrdersOptions extends IVersion {
+  /**
+   * Limit for max items of the order list
+   */
+  limit?: string;
+}
+
+export interface IActiveOrdersOptionsV2 extends IBaseActiveOrdersOptions {
+  /**
+   * User's account
+   */
+  account: string;
+  /**
+   * Instrument identifier
+   */
+  instrument: string;
+}
+
+export interface IActiveOrdersOptionsV3 extends IBaseActiveOrdersOptions {
+  /**
+   * API version
+   */
+  version: "3.0";
+  /**
+   * User's account
+   */
+  accountId: string;
+  /**
+   * Instrument identifier
+   */
+  symbolId: string;
+}
+
+export type IActiveOrdersOptions =
+  | IActiveOrdersOptionsV2
+  | IActiveOrdersOptionsV3;
+
 export interface IUserAccount {
   /**
    * Account status
@@ -970,6 +1007,20 @@ export class RestClient {
     ...query
   }: IOrdersOptions): Promise<IOrder[]> {
     const url = new URL(`/trade/${version}/orders`, this.url);
+    RestClient.setQuery(url, { ...query });
+
+    const orders = (await this.fetch(url)) as IOrder[];
+    return orders;
+  }
+
+  /**
+   * Get the list of active trading orders
+   */
+  public async getActiveOrders({
+    version = DefaultAPIVersion,
+    ...query
+  }: IActiveOrdersOptions): Promise<IOrder[]> {
+    const url = new URL(`/trade/${version}/orders/active`, this.url);
     RestClient.setQuery(url, { ...query });
 
     const orders = (await this.fetch(url)) as IOrder[];
