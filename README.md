@@ -175,6 +175,14 @@ const account = "ABC1234.001";
 const orders = await client.getOrders({ version, limit, from, to, account });
 ```
 
+- [`getActiveOrders`](https://api-live.exante.eu/api-docs/#operation/getActiveOrders)
+
+```typescript
+const instrument = "APL.NASDAQ";
+const account = "ABC1234.001";
+const orders = await client.getActiveOrders({ instrument, account });
+```
+
 ## Test
 
 ```bash
