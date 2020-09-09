@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>IVersion | exante</title>
+    <title>IActiveOrdersOptionsV3 | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="iversion.html">IVersion</a>
+              <a href="iactiveordersoptionsv3.html">IActiveOrdersOptionsV3</a>
             </li>
           </ul>
-          <h1>Interface IVersion</h1>
+          <h1>Interface IActiveOrdersOptionsV3</h1>
         </div>
       </div>
     </header>
@@ -92,55 +92,14 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <span class="target">IVersion</span>
+                <a
+                  href="ibaseactiveordersoptions.html"
+                  class="tsd-signature-type"
+                  >IBaseActiveOrdersOptions</a
+                >
                 <ul class="tsd-hierarchy">
                   <li>
-                    <a href="isymbolid.html" class="tsd-signature-type"
-                      >ISymbolId</a
-                    >
-                  </li>
-                  <li>
-                    <a href="icrossrateoptions.html" class="tsd-signature-type"
-                      >ICrossrateOptions</a
-                    >
-                  </li>
-                  <li>
-                    <a href="ilastquoteoptions.html" class="tsd-signature-type"
-                      >ILastQuoteOptions</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="iaccountsummaryoptions.html"
-                      class="tsd-signature-type"
-                      >IAccountSummaryOptions</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="itransactionsoptions.html"
-                      class="tsd-signature-type"
-                      >ITransactionsOptions</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="ibaseplaceorderoptions.html"
-                      class="tsd-signature-type"
-                      >IBasePlaceOrderOptions</a
-                    >
-                  </li>
-                  <li>
-                    <a href="ibaseordersoptions.html" class="tsd-signature-type"
-                      >IBaseOrdersOptions</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="ibaseactiveordersoptions.html"
-                      class="tsd-signature-type"
-                      >IBaseActiveOrdersOptions</a
-                    >
+                    <span class="target">IActiveOrdersOptionsV3</span>
                   </li>
                 </ul>
               </li>
@@ -154,7 +113,34 @@
                   <h3>Properties</h3>
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iversion.html#version" class="tsd-kind-icon"
+                      <a
+                        href="iactiveordersoptionsv3.html#accountid"
+                        class="tsd-kind-icon"
+                        >account<wbr />Id</a
+                      >
+                    </li>
+                    <li
+                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                    >
+                      <a
+                        href="iactiveordersoptionsv3.html#limit"
+                        class="tsd-kind-icon"
+                        >limit</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="iactiveordersoptionsv3.html#symbolid"
+                        class="tsd-kind-icon"
+                        >symbol<wbr />Id</a
+                      >
+                    </li>
+                    <li
+                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"
+                    >
+                      <a
+                        href="iactiveordersoptionsv3.html#version"
+                        class="tsd-kind-icon"
                         >version</a
                       >
                     </li>
@@ -168,23 +154,113 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="version" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> version
-              </h3>
+              <a name="accountid" class="tsd-anchor"></a>
+              <h3>account<wbr />Id</h3>
               <div class="tsd-signature tsd-kind-icon">
-                version<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">"2.0"</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">"3.0"</span>
+                account<wbr />Id<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/3183772/src/rest.ts#L37"
-                      >src/rest.ts:37</a
+                      href="https://github.com/b2broker/exante-node/blob/3183772/src/rest.ts#L345"
+                      >src/rest.ts:345</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>User&#39;s account</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+            >
+              <a name="limit" class="tsd-anchor"></a>
+              <h3>
+                <span class="tsd-flag ts-flagOptional">Optional</span> limit
+              </h3>
+              <div class="tsd-signature tsd-kind-icon">
+                limit<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">undefined</span
+                ><span class="tsd-signature-symbol"> | </span
+                ><span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>
+                  Inherited from
+                  <a href="ibaseactiveordersoptions.html"
+                    >IBaseActiveOrdersOptions</a
+                  >.<a href="ibaseactiveordersoptions.html#limit">limit</a>
+                </p>
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/3183772/src/rest.ts#L323"
+                      >src/rest.ts:323</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Limit for max items of the order list</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="symbolid" class="tsd-anchor"></a>
+              <h3>symbol<wbr />Id</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                symbol<wbr />Id<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/3183772/src/rest.ts#L349"
+                      >src/rest.ts:349</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Instrument identifier</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"
+            >
+              <a name="version" class="tsd-anchor"></a>
+              <h3>version</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                version<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">"3.0"</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>
+                  Overrides <a href="iversion.html">IVersion</a>.<a
+                    href="iversion.html#version"
+                    >version</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/3183772/src/rest.ts#L341"
+                      >src/rest.ts:341</a
                     >
                   </li>
                 </ul>
@@ -209,10 +285,39 @@
             <ul class="before-current"></ul>
             <ul class="current">
               <li class="current tsd-kind-interface">
-                <a href="iversion.html" class="tsd-kind-icon">IVersion</a>
+                <a href="iactiveordersoptionsv3.html" class="tsd-kind-icon"
+                  >IActive<wbr />Orders<wbr />Options<wbr />V3</a
+                >
                 <ul>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iversion.html#version" class="tsd-kind-icon"
+                    <a
+                      href="iactiveordersoptionsv3.html#accountid"
+                      class="tsd-kind-icon"
+                      >account<wbr />Id</a
+                    >
+                  </li>
+                  <li
+                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                  >
+                    <a
+                      href="iactiveordersoptionsv3.html#limit"
+                      class="tsd-kind-icon"
+                      >limit</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="iactiveordersoptionsv3.html#symbolid"
+                      class="tsd-kind-icon"
+                      >symbol<wbr />Id</a
+                    >
+                  </li>
+                  <li
+                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"
+                  >
+                    <a
+                      href="iactiveordersoptionsv3.html#version"
+                      class="tsd-kind-icon"
                       >version</a
                     >
                   </li>

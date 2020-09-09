@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.14.0](https://github.com/b2broker/exante-node/compare/v1.13.0...v1.14.0) (2020-09-09)
+
+### Features
+
+- add the `getActiveOrders` method ([9c0bc72](https://github.com/b2broker/exante-node/commit/9c0bc7285abe8d26ae24f5d9e83a8d2544331d4d))
+
 ## [1.13.0](https://github.com/b2broker/exante-node/compare/v1.12.0...v1.13.0) (2020-09-07)
 
 ### Features

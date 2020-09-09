@@ -379,6 +379,17 @@
 <span class="hljs-keyword">const</span> to = <span class="hljs-string">&quot;2017-05-21T17:59:59.999Z&quot;</span>;
 <span class="hljs-keyword">const</span> account = <span class="hljs-string">&quot;ABC1234.001&quot;</span>;
 <span class="hljs-keyword">const</span> orders = <span class="hljs-keyword">await</span> client.getOrders({ version, limit, <span class="hljs-keyword">from</span>, to, account });</code></pre>
+            <ul>
+              <li>
+                <a
+                  href="https://api-live.exante.eu/api-docs/#operation/getActiveOrders"
+                  ><code>getActiveOrders</code></a
+                >
+              </li>
+            </ul>
+            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> instrument = <span class="hljs-string">&quot;APL.NASDAQ&quot;</span>;
+<span class="hljs-keyword">const</span> account = <span class="hljs-string">&quot;ABC1234.001&quot;</span>;
+<span class="hljs-keyword">const</span> orders = <span class="hljs-keyword">await</span> client.getActiveOrders({ instrument, account });</code></pre>
             <a
               href="#test"
               id="test"
@@ -419,6 +430,27 @@
                   href="interfaces/iaccountsummaryoptions.html"
                   class="tsd-kind-icon"
                   >IAccount<wbr />Summary<wbr />Options</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/iactiveordersoptionsv2.html"
+                  class="tsd-kind-icon"
+                  >IActive<wbr />Orders<wbr />Options<wbr />V2</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/iactiveordersoptionsv3.html"
+                  class="tsd-kind-icon"
+                  >IActive<wbr />Orders<wbr />Options<wbr />V3</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/ibaseactiveordersoptions.html"
+                  class="tsd-kind-icon"
+                  >IBase<wbr />Active<wbr />Orders<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-interface">
@@ -633,6 +665,13 @@
               <li class="tsd-kind-interface">
                 <a href="interfaces/iversion.html" class="tsd-kind-icon"
                   >IVersion</a
+                >
+              </li>
+              <li class="tsd-kind-type-alias">
+                <a
+                  href="globals.html#iactiveordersoptions"
+                  class="tsd-kind-icon"
+                  >IActive<wbr />Orders<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
