@@ -1103,6 +1103,105 @@ suite("RestClient", () => {
     assert.deepStrictEqual(orders, response);
   });
 
+  test(".getActiveOrders()", async () => {
+    const version = "3.0";
+    const symbolId = "AAPL.NASDAQ";
+    const accountId = "ABC1234.001";
+
+    const response: IOrder[] = [
+      {
+        orderParameters: {
+          orderType: "market",
+          ocoGroup: "d440b5b6-a40f-44e5-8c3b-a9a419fea7b3",
+          symbolId: "AAPL.NASDAQ",
+          limitPrice: "130.0",
+          stopPrice: "120.0",
+          quantity: "10",
+          partQuantity: "1",
+          ifDoneParentId: "3a5bf47e-ec54-4782-b4e3-0091164c7c71",
+          duration: "day",
+          placeInterval: "1",
+          side: "sell",
+          gttExpiration: "2017-08-14T02:40:00Z",
+          priceDistance: "1",
+        },
+        clientTag: "some client tag",
+        accountId: "ABC1234.001",
+        username: "root@example.com",
+        orderId: "d642d2ca-fcb5-4910-9de4-7c91f275ca23",
+        orderState: {
+          status: "working",
+          lastUpdate: "2017-08-14T02:40:00Z",
+          reason: "string",
+          fills: [
+            {
+              timestamp: "2017-08-14T02:40:00Z",
+              quantity: "1",
+              position: "1",
+              price: "120.1",
+            },
+          ],
+        },
+        currentModificationId: "2d2b75f2-c4ed-4f7f-b38b-8d8219d4216f",
+        id: "d642d2ca-fcb5-4910-9de4-7c91f275ca23",
+        placeTime: "2017-08-14T02:40:00Z",
+      },
+    ];
+    nock(url)
+      .get(`/trade/${version}/orders/active`)
+      .query({ symbolId, accountId })
+      .delay(1)
+      .reply(200, response);
+
+    const orders = await client.getActiveOrders({
+      version,
+      symbolId,
+      accountId,
+    });
+    assert.deepStrictEqual(orders, response);
+  });
+
+  test(".getActiveOrders() (with no version)", async () => {
+    const instrument = "APL.NASDAQ";
+    const account = "ABC1234.001";
+
+    const response: IOrder[] = [
+      {
+        placeTime: "2019-10-11T13:22:43.212Z",
+        username: "e@mail.net",
+        orderState: {
+          status: "rejected",
+          lastUpdate: "2019-10-11T13:22:43.212Z",
+          fills: [],
+          reason:
+            "Insufficient margin (position: 0, active: 0 long / 0 short, available margin: 0, margin delta: 11.11)",
+        },
+        accountId: "ABC1234.001",
+        id: "d642d2ca-fcb5-4910-9de4-7c91f275ca23",
+        orderParameters: {
+          side: "sell",
+          duration: "good_till_cancel",
+          quantity: "10000",
+          ocoGroup: null,
+          ifDoneParentId: null,
+          orderType: "limit",
+          limitPrice: "10000",
+          instrument: "AAPL.NASDAQ",
+        },
+        currentModificationId: "d642d2ca-fcb5-4910-9de4-7c91f275ca23",
+      },
+    ];
+
+    nock(url)
+      .get(`/trade/${DefaultAPIVersion}/orders/active`)
+      .query({ account, instrument })
+      .delay(1)
+      .reply(200, response);
+
+    const orders = await client.getActiveOrders({ account, instrument });
+    assert.deepStrictEqual(orders, response);
+  });
+
   suite("Static methods", () => {
     test(".base64URL()", () => {
       const string = "Somestring+=";
