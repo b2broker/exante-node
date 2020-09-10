@@ -793,7 +793,7 @@ export interface IOrderV3 extends IBaseOrder {
   /**
    * Order response parameters
    */
-  orderParameters: IPlaceOrderOptionsV3;
+  orderParameters: IBasePlaceOrderOptions & { symbolId: string };
   /**
    * Order state response
    */
