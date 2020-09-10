@@ -278,6 +278,10 @@ export interface IPlaceOrderOptionsV2 extends IBasePlaceOrderOptions {
 
 export interface IPlaceOrderOptionsV3 extends IBasePlaceOrderOptions {
   /**
+   * API version
+   */
+  version: "3.0";
+  /**
    * Order instrument
    */
   symbolId: string;
@@ -308,6 +312,10 @@ export interface IOrdersOptionsV2 extends IBaseOrdersOptions {
 }
 
 export interface IOrdersOptionsV3 extends IBaseOrdersOptions {
+  /**
+   * API version
+   */
+  version: "3.0";
   /**
    * User account
    */
@@ -785,7 +793,7 @@ export interface IOrderV3 extends IBaseOrder {
   /**
    * Order response parameters
    */
-  orderParameters: IPlaceOrderOptionsV3;
+  orderParameters: IBasePlaceOrderOptions & { symbolId: string };
   /**
    * Order state response
    */
