@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.14.1](https://github.com/b2broker/exante-node/compare/v1.14.0...v1.14.1) (2020-09-10)
+
+### Bug Fixes
+
+- add the `version` property to V3 interfaces ([61c897e](https://github.com/b2broker/exante-node/commit/61c897ed2e7894b9c80fa9e7b5302dfb1ca91101))
+- update orderParameters ([4f6de7e](https://github.com/b2broker/exante-node/commit/4f6de7e34ca3ce4670d1df4dc16db0b136dbc7e5))
+
 ## [1.14.0](https://github.com/b2broker/exante-node/compare/v1.13.0...v1.14.0) (2020-09-09)
 
 ### Features
