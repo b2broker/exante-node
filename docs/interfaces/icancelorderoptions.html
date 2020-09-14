@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>IFillV2 | exante</title>
+    <title>ICancelOrderOptions | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="ifillv2.html">IFillV2</a>
+              <a href="icancelorderoptions.html">ICancelOrderOptions</a>
             </li>
           </ul>
-          <h1>Interface IFillV2</h1>
+          <h1>Interface ICancelOrderOptions</h1>
         </div>
       </div>
     </header>
@@ -92,12 +92,10 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <a href="ibasefill.html" class="tsd-signature-type"
-                  >IBaseFill</a
-                >
+                <a href="iversion.html" class="tsd-signature-type">IVersion</a>
                 <ul class="tsd-hierarchy">
                   <li>
-                    <span class="target">IFillV2</span>
+                    <span class="target">ICancelOrderOptions</span>
                   </li>
                 </ul>
               </li>
@@ -110,29 +108,28 @@
                 <section class="tsd-index-section">
                   <h3>Properties</h3>
                   <ul class="tsd-index-list">
-                    <li
-                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
-                    >
-                      <a href="ifillv2.html#position" class="tsd-kind-icon"
-                        >position</a
-                      >
-                    </li>
-                    <li
-                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
-                    >
-                      <a href="ifillv2.html#price" class="tsd-kind-icon"
-                        >price</a
-                      >
-                    </li>
-                    <li
-                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
-                    >
-                      <a href="ifillv2.html#quantity" class="tsd-kind-icon"
-                        >quantity</a
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="icancelorderoptions.html#action"
+                        class="tsd-kind-icon"
+                        >action</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="ifillv2.html#time" class="tsd-kind-icon">time</a>
+                      <a
+                        href="icancelorderoptions.html#orderid"
+                        class="tsd-kind-icon"
+                        >order<wbr />Id</a
+                      >
+                    </li>
+                    <li
+                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                    >
+                      <a
+                        href="icancelorderoptions.html#version"
+                        class="tsd-kind-icon"
+                        >version</a
+                      >
                     </li>
                   </ul>
                 </section>
@@ -142,108 +139,38 @@
           <section class="tsd-panel-group tsd-member-group">
             <h2>Properties</h2>
             <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="position" class="tsd-anchor"></a>
-              <h3>position</h3>
+              <a name="action" class="tsd-anchor"></a>
+              <h3>action</h3>
               <div class="tsd-signature tsd-kind-icon">
-                position<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span>
+                action<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">"cancel"</span>
               </div>
               <aside class="tsd-sources">
-                <p>
-                  Inherited from <a href="ibasefill.html">IBaseFill</a>.<a
-                    href="ibasefill.html#position"
-                    >position</a
-                  >
-                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/082f1b9/src/rest.ts#L745"
-                      >src/rest.ts:745</a
+                      href="https://github.com/b2broker/exante-node/blob/082f1b9/src/rest.ts#L404"
+                      >src/rest.ts:404</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Fill serial number</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
-            >
-              <a name="price" class="tsd-anchor"></a>
-              <h3>price</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                price<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <p>
-                  Inherited from <a href="ibasefill.html">IBaseFill</a>.<a
-                    href="ibasefill.html#price"
-                    >price</a
-                  >
-                </p>
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/082f1b9/src/rest.ts#L749"
-                      >src/rest.ts:749</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Fill price</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
-            >
-              <a name="quantity" class="tsd-anchor"></a>
-              <h3>quantity</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                quantity<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <p>
-                  Inherited from <a href="ibasefill.html">IBaseFill</a>.<a
-                    href="ibasefill.html#quantity"
-                    >quantity</a
-                  >
-                </p>
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/082f1b9/src/rest.ts#L741"
-                      >src/rest.ts:741</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Fill quantity</p>
+                  <p>Order modification action</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="time" class="tsd-anchor"></a>
-              <h3>time</h3>
+              <a name="orderid" class="tsd-anchor"></a>
+              <h3>order<wbr />Id</h3>
               <div class="tsd-signature tsd-kind-icon">
-                time<span class="tsd-signature-symbol">:</span>
+                order<wbr />Id<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
@@ -251,15 +178,51 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/082f1b9/src/rest.ts#L756"
-                      >src/rest.ts:756</a
+                      href="https://github.com/b2broker/exante-node/blob/082f1b9/src/rest.ts#L400"
+                      >src/rest.ts:400</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Fill time</p>
+                  <p>The order identifier</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+            >
+              <a name="version" class="tsd-anchor"></a>
+              <h3>
+                <span class="tsd-flag ts-flagOptional">Optional</span> version
+              </h3>
+              <div class="tsd-signature tsd-kind-icon">
+                version<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">"2.0"</span
+                ><span class="tsd-signature-symbol"> | </span
+                ><span class="tsd-signature-type">"3.0"</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="iversion.html">IVersion</a>.<a
+                    href="iversion.html#version"
+                    >version</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/082f1b9/src/rest.ts#L37"
+                      >src/rest.ts:37</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>API version</p>
                 </div>
               </div>
             </section>
@@ -277,29 +240,32 @@
             <ul class="before-current"></ul>
             <ul class="current">
               <li class="current tsd-kind-interface">
-                <a href="ifillv2.html" class="tsd-kind-icon">IFill<wbr />V2</a>
+                <a href="icancelorderoptions.html" class="tsd-kind-icon"
+                  >ICancel<wbr />Order<wbr />Options</a
+                >
                 <ul>
-                  <li
-                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
-                  >
-                    <a href="ifillv2.html#position" class="tsd-kind-icon"
-                      >position</a
-                    >
-                  </li>
-                  <li
-                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
-                  >
-                    <a href="ifillv2.html#price" class="tsd-kind-icon">price</a>
-                  </li>
-                  <li
-                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
-                  >
-                    <a href="ifillv2.html#quantity" class="tsd-kind-icon"
-                      >quantity</a
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="icancelorderoptions.html#action"
+                      class="tsd-kind-icon"
+                      >action</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="ifillv2.html#time" class="tsd-kind-icon">time</a>
+                    <a
+                      href="icancelorderoptions.html#orderid"
+                      class="tsd-kind-icon"
+                      >order<wbr />Id</a
+                    >
+                  </li>
+                  <li
+                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                  >
+                    <a
+                      href="icancelorderoptions.html#version"
+                      class="tsd-kind-icon"
+                      >version</a
+                    >
                   </li>
                 </ul>
               </li>

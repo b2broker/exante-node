@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.15.0](https://github.com/b2broker/exante-node/compare/v1.14.1...v1.15.0) (2020-09-14)
+
+### Features
+
+- add the `modifyOrder` method ([4dde196](https://github.com/b2broker/exante-node/commit/4dde196c867cef6f84547708484cfda8ace031dd))
+
 ### [1.14.1](https://github.com/b2broker/exante-node/compare/v1.14.0...v1.14.1) (2020-09-10)
 
 ### Bug Fixes
