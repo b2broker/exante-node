@@ -70,7 +70,7 @@
     "nyc": "^15.1.0",
     "prettier": "^2.1.1",
     "semantic-release": "^17.1.1",
-    "snyk": "^1.392.1",
+    "snyk": "^1.395.0",
     "ts-node": "^9.0.0",
     "typedoc": "^0.19.1",
     "typescript": "^4.0.2"
