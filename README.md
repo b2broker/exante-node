@@ -183,6 +183,24 @@ const account = "ABC1234.001";
 const orders = await client.getActiveOrders({ instrument, account });
 ```
 
+- [`modifyOrder`](https://api-live.exante.eu/api-docs/#operation/modifyOrder)
+
+```typescript
+const version = "3.0";
+const orderId = "d642d2ca-fcb5-4910-9de4-7c91f275ca23";
+const action = "replace";
+const limitPrice = "101.0";
+const quantity = "7";
+const stopPrice = "102.0";
+const priceDistance = "1.0";
+const order = await client.modifyOrder({
+  version,
+  orderId,
+  action,
+  parameters: { limitPrice, quantity, stopPrice, priceDistance },
+});
+```
+
 ## Test
 
 ```bash
