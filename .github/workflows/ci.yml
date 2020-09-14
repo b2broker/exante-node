@@ -10,7 +10,7 @@ jobs:
       matrix:
         node-version: [12, 13, 14]
 
-    container: node:${{ matrix.node-version }}-buster
+    container: node:${{ matrix.node-version }}
 
     steps:
       - uses: actions/checkout@master
@@ -27,7 +27,7 @@ jobs:
       - name: Tests
         run: npm test
 
-  preRelease:
+  release:
     needs: test
 
     runs-on: ubuntu-latest
@@ -80,27 +80,11 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-    env:
-      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-
-  release:
-    needs: [test, preRelease]
-
-    runs-on: ubuntu-latest
-
-    container: node:14-buster
-
-    steps:
-      - uses: actions/checkout@master
-
       - name: Decrypt PGP key
         run: ./.github/scripts/decrypt.sh
 
       - name: Setup git
         run: ./.github/scripts/git.sh
-
-      - name: Install dependencies
-        run: npm ci
 
       - name: Release
         run: npm run release
@@ -110,10 +94,11 @@ jobs:
 
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
       GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
       NPM_CONFIG_UNSAFE_PERM: true
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       PGP_KEY_ID: ${{ secrets.PGP_KEY_ID }}
       PGP_PASSPHRASE: ${{ secrets.PGP_PASSPHRASE }}
       PRIVATE_KEY_PASSPHRASE: ${{ secrets.PRIVATE_KEY_PASSPHRASE }}
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
