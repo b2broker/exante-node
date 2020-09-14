@@ -361,6 +361,51 @@ export type IActiveOrdersOptions =
   | IActiveOrdersOptionsV2
   | IActiveOrdersOptionsV3;
 
+export interface IReplaceOrderOptions extends IVersion {
+  /**
+   * The order identifier
+   */
+  orderId: string;
+  /**
+   * Order modification action
+   */
+  action: "replace";
+  /**
+   * Order modification parameters
+   */
+  parameters: {
+    /**
+     * New order quantity to replace
+     */
+    quantity: string;
+    /**
+     * New order stop price
+     */
+    stopPrice?: string;
+    /**
+     * New order limit price
+     */
+    limitPrice?: string;
+    /**
+     * New order price distance
+     */
+    priceDistance?: string;
+  };
+}
+
+export interface ICancelOrderOptions extends IVersion {
+  /**
+   * The order identifier
+   */
+  orderId: string;
+  /**
+   * Order modification action
+   */
+  action: "cancel";
+}
+
+export type IModifyOrderOptions = IReplaceOrderOptions | ICancelOrderOptions;
+
 export interface IUserAccount {
   /**
    * Account status
@@ -1033,6 +1078,22 @@ export class RestClient {
 
     const orders = (await this.fetch(url)) as IOrder[];
     return orders;
+  }
+
+  /**
+   * Replace or cancel trading order
+   */
+  public async modifyOrder({
+    version = DefaultAPIVersion,
+    orderId,
+    ...data
+  }: IModifyOrderOptions): Promise<IOrder> {
+    const url = new URL(`/trade/${version}/orders/${orderId}`, this.url);
+    const body = JSON.stringify(data);
+
+    const order = (await this.fetch(url, { method: "POST", body })) as IOrder;
+
+    return order;
   }
 
   /**
