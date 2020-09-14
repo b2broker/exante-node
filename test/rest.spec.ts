@@ -1202,6 +1202,104 @@ suite("RestClient", () => {
     assert.deepStrictEqual(orders, response);
   });
 
+  test(".modifyOrder()", async () => {
+    const version = "3.0";
+    const orderId = "ffecfac8-ccf9-4015-9a0f-b49a6b9673b8";
+    const action = "replace";
+    const limitPrice = "101.0";
+    const quantity = "7";
+    const stopPrice = "102.0";
+    const priceDistance = "1.0";
+    const parameters = { limitPrice, quantity, stopPrice, priceDistance };
+
+    const response: IOrder = {
+      orderParameters: {
+        instrument: "AAPL.NASDAQ",
+        orderType: "market",
+        ocoGroup: "d440b5b6-a40f-44e5-8c3b-a9a419fea7b3",
+        symbolId: "AAPL.NASDAQ",
+        limitPrice: "130.0",
+        stopPrice: "120.0",
+        quantity: "10",
+        partQuantity: "1",
+        ifDoneParentId: "3a5bf47e-ec54-4782-b4e3-0091164c7c71",
+        duration: "day",
+        placeInterval: "1",
+        side: "sell",
+        gttExpiration: "2017-08-14T02:40:00Z",
+        priceDistance: "1",
+      },
+      clientTag: "some client tag",
+      accountId: "ABC1234.001",
+      username: "root@example.com",
+      orderId: "d642d2ca-fcb5-4910-9de4-7c91f275ca23",
+      orderState: {
+        status: "working",
+        lastUpdate: "2017-08-14T02:40:00Z",
+        reason: "string",
+        fills: [
+          {
+            timestamp: "2017-08-14T02:40:00Z",
+            quantity: "1",
+            position: "1",
+            price: "120.1",
+          },
+        ],
+      },
+      currentModificationId: "2d2b75f2-c4ed-4f7f-b38b-8d8219d4216f",
+      id: "d642d2ca-fcb5-4910-9de4-7c91f275ca23",
+      placeTime: "2017-08-14T02:40:00Z",
+    };
+    nock(url)
+      .post(`/trade/${version}/orders/${orderId}`, { action, parameters })
+      .delay(1)
+      .reply(200, response);
+
+    const order = await client.modifyOrder({
+      version,
+      orderId,
+      action,
+      parameters,
+    });
+    assert.deepStrictEqual(order, response);
+  });
+
+  test(".modifyOrder()  (with no version)", async () => {
+    const orderId = "ffecfac8-ccf9-4015-9a0f-b49a6b9673b8";
+    const action = "cancel";
+
+    const response: IOrder = {
+      placeTime: "2017-08-14T02:40:00Z",
+      username: "root@example.com",
+      orderState: {
+        status: "cancelled",
+        lastUpdate: "2017-08-14T02:40:00Z",
+        fills: [],
+      },
+      accountId: "ABC1234.001",
+      id: "d642d2ca-fcb5-4910-9de4-7c91f275ca23",
+      orderParameters: {
+        side: "sell",
+        duration: "day",
+        quantity: "10",
+        ocoGroup: null,
+        ifDoneParentId: null,
+        orderType: "limit",
+        limitPrice: "130.0",
+        instrument: "AAPL.NASDAQ",
+      },
+      currentModificationId: "2d2b75f2-c4ed-4f7f-b38b-8d8219d4216f",
+    };
+
+    nock(url)
+      .post(`/trade/${DefaultAPIVersion}/orders/${orderId}`, { action })
+      .delay(1)
+      .reply(200, response);
+
+    const order = await client.modifyOrder({ orderId, action });
+    assert.deepStrictEqual(order, response);
+  });
+
   suite("Static methods", () => {
     test(".base64URL()", () => {
       const string = "Somestring+=";
