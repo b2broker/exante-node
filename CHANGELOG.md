@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.16.0](https://github.com/b2broker/exante-node/compare/v1.15.1...v1.16.0) (2020-09-15)
+
+### Features
+
+- add the `getOrder` method ([08735a3](https://github.com/b2broker/exante-node/commit/08735a3956125079265c74bad61a4288d2b99f8c))
+
 ### [1.15.1](https://github.com/b2broker/exante-node/compare/v1.15.0...v1.15.1) (2020-09-15)
 
 ### Bug Fixes
