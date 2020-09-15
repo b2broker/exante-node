@@ -244,10 +244,6 @@ interface IBasePlaceOrderOptions extends IVersion {
    */
   duration: IDuration;
   /**
-   * User account to place order
-   */
-  accountId?: string;
-  /**
    * Price of take profit order
    */
   takeProfit?: string;
@@ -271,12 +267,20 @@ interface IBasePlaceOrderOptions extends IVersion {
 
 export interface IPlaceOrderOptionsV2 extends IBasePlaceOrderOptions {
   /**
+   * User account to place order
+   */
+  accountId: string;
+  /**
    * Order instrument
    */
   instrument: string;
 }
 
 export interface IPlaceOrderOptionsV3 extends IBasePlaceOrderOptions {
+  /**
+   * User account to place order
+   */
+  accountId: string;
   /**
    * API version
    */
@@ -823,7 +827,7 @@ export interface IOrderV2 extends IBaseOrder {
   /**
    * Order response parameters
    */
-  orderParameters: IPlaceOrderOptionsV2;
+  orderParameters: IBasePlaceOrderOptions & { instrument: string };
   /**
    * Order state response
    */
