@@ -1,5 +1,11 @@
 # Changelog
 
+### [1.15.1](https://github.com/b2broker/exante-node/compare/v1.15.0...v1.15.1) (2020-09-15)
+
+### Bug Fixes
+
+- `accountId` is required ([51900e3](https://github.com/b2broker/exante-node/commit/51900e3ab1a4ee35968563227a8aaa672a2d6f0d)), closes [#24](https://github.com/b2broker/exante-node/issues/24)
+
 ## [1.15.0](https://github.com/b2broker/exante-node/compare/v1.14.1...v1.15.0) (2020-09-14)
 
 ### Features
