@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.18.0](https://github.com/b2broker/exante-node/compare/v1.17.0...v1.18.0) (2020-09-15)
+
+### Features
+
+- add the `getGroups` method ([8f46948](https://github.com/b2broker/exante-node/commit/8f469483306d7ae07e182ea59cf4d8793e28c74e))
+
 ## [1.17.0](https://github.com/b2broker/exante-node/compare/v1.16.0...v1.17.0) (2020-09-15)
 
 ### Features
