@@ -599,6 +599,25 @@ export type IIntrument = IIntrumentV2 | IIntrumentV3;
 
 export type IIntruments = IIntrumentV2[] | IIntrumentV3[];
 
+export interface IInstrumentGroup {
+  /**
+   * Exchange id where the group is traded
+   */
+  exchange?: string;
+  /**
+   * List of symbol types in the group
+   */
+  types: string[];
+  /**
+   * Group title
+   */
+  name?: string;
+  /**
+   * Group id
+   */
+  group: string;
+}
+
 export interface IQuoteSideV2 {
   /**
    * Quantity value
@@ -1088,6 +1107,17 @@ export class RestClient {
     const url = new URL(`/md/${version}/exchanges/${exchangeId}`, this.url);
     const instruments = (await this.fetch(url)) as IIntruments;
     return instruments;
+  }
+
+  /**
+   * Get list of available instrument groups
+   */
+  public async getGroups({
+    version = DefaultAPIVersion,
+  }: IVersion = {}): Promise<IInstrumentGroup[]> {
+    const url = new URL(`/md/${version}/groups`, this.url);
+    const groups = (await this.fetch(url)) as IInstrumentGroup[];
+    return groups;
   }
 
   /**
