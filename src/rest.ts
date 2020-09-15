@@ -410,6 +410,13 @@ export interface ICancelOrderOptions extends IVersion {
 
 export type IModifyOrderOptions = IReplaceOrderOptions | ICancelOrderOptions;
 
+export interface IOrderId extends IVersion {
+  /**
+   * The order identifier
+   */
+  orderId: string;
+}
+
 export interface IUserAccount {
   /**
    * Account status
@@ -1097,6 +1104,19 @@ export class RestClient {
 
     const order = (await this.fetch(url, { method: "POST", body })) as IOrder;
 
+    return order;
+  }
+
+  /**
+   * Get the order with specified identifier
+   */
+  public async getOrder({
+    version = DefaultAPIVersion,
+    orderId,
+  }: IOrderId): Promise<IOrder> {
+    const url = new URL(`/trade/${version}/orders/${orderId}`, this.url);
+
+    const order = (await this.fetch(url)) as IOrder;
     return order;
   }
 
