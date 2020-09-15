@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>ILastQuoteOptions | exante</title>
+    <title>IOptionDataV2 | exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="ilastquoteoptions.html">ILastQuoteOptions</a>
+              <a href="ioptiondatav2.html">IOptionDataV2</a>
             </li>
           </ul>
-          <h1>Interface ILastQuoteOptions</h1>
+          <h1>Interface IOptionDataV2</h1>
         </div>
       </div>
     </header>
@@ -92,10 +92,12 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <a href="iversion.html" class="tsd-signature-type">IVersion</a>
+                <a href="ibaseoptiondata.html" class="tsd-signature-type"
+                  >IBaseOptionData</a
+                >
                 <ul class="tsd-hierarchy">
                   <li>
-                    <span class="target">ILastQuoteOptions</span>
+                    <span class="target">IOptionDataV2</span>
                   </li>
                 </ul>
               </li>
@@ -108,27 +110,27 @@
                 <section class="tsd-index-section">
                   <h3>Properties</h3>
                   <ul class="tsd-index-list">
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <li
+                      class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                    >
                       <a
-                        href="ilastquoteoptions.html#level"
+                        href="ioptiondatav2.html#optiongroupid"
                         class="tsd-kind-icon"
-                        >level</a
+                        >option<wbr />Group<wbr />Id</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a
-                        href="ilastquoteoptions.html#symbolids"
-                        class="tsd-kind-icon"
-                        >symbol<wbr />Ids</a
+                      <a href="ioptiondatav2.html#right" class="tsd-kind-icon"
+                        >right</a
                       >
                     </li>
                     <li
                       class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
                     >
                       <a
-                        href="ilastquoteoptions.html#version"
+                        href="ioptiondatav2.html#strikeprice"
                         class="tsd-kind-icon"
-                        >version</a
+                        >strike<wbr />Price</a
                       >
                     </li>
                   </ul>
@@ -139,97 +141,96 @@
           <section class="tsd-panel-group tsd-member-group">
             <h2>Properties</h2>
             <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="level" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> level
-              </h3>
-              <div class="tsd-signature tsd-kind-icon">
-                level<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">"best_price"</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">"market_depth"</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/dffcff2/src/rest.ts#L73"
-                      >src/rest.ts:73</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Quote level</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="symbolids" class="tsd-anchor"></a>
-              <h3>symbol<wbr />Ids</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                symbol<wbr />Ids<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">string</span
-                ><span class="tsd-signature-symbol">[]</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/dffcff2/src/rest.ts#L69"
-                      >src/rest.ts:69</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Symbol id or symbol ids</p>
-                </div>
-              </div>
-            </section>
-            <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
             >
-              <a name="version" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> version
-              </h3>
+              <a name="optiongroupid" class="tsd-anchor"></a>
+              <h3>option<wbr />Group<wbr />Id</h3>
               <div class="tsd-signature tsd-kind-icon">
-                version<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">"2.0"</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">"3.0"</span>
+                option<wbr />Group<wbr />Id<span class="tsd-signature-symbol"
+                  >:</span
+                >
+                <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
                 <p>
-                  Inherited from <a href="iversion.html">IVersion</a>.<a
-                    href="iversion.html#version"
-                    >version</a
+                  Inherited from
+                  <a href="ibaseoptiondata.html">IBaseOptionData</a>.<a
+                    href="ibaseoptiondata.html#optiongroupid"
+                    >optionGroupId</a
                   >
                 </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/dffcff2/src/rest.ts#L37"
-                      >src/rest.ts:37</a
+                      href="https://github.com/b2broker/exante-node/blob/dffcff2/src/rest.ts#L502"
+                      >src/rest.ts:502</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>API version</p>
+                  <p>Option group name</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="right" class="tsd-anchor"></a>
+              <h3>right</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                right<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/dffcff2/src/rest.ts#L509"
+                      >src/rest.ts:509</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Option right</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+            >
+              <a name="strikeprice" class="tsd-anchor"></a>
+              <h3>strike<wbr />Price</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                strike<wbr />Price<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>
+                  Inherited from
+                  <a href="ibaseoptiondata.html">IBaseOptionData</a>.<a
+                    href="ibaseoptiondata.html#strikeprice"
+                    >strikePrice</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/dffcff2/src/rest.ts#L498"
+                      >src/rest.ts:498</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Option strike price</p>
                 </div>
               </div>
             </section>
@@ -247,29 +248,31 @@
             <ul class="before-current"></ul>
             <ul class="current">
               <li class="current tsd-kind-interface">
-                <a href="ilastquoteoptions.html" class="tsd-kind-icon"
-                  >ILast<wbr />Quote<wbr />Options</a
+                <a href="ioptiondatav2.html" class="tsd-kind-icon"
+                  >IOption<wbr />Data<wbr />V2</a
                 >
                 <ul>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="ilastquoteoptions.html#level" class="tsd-kind-icon"
-                      >level</a
+                  <li
+                    class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
+                  >
+                    <a
+                      href="ioptiondatav2.html#optiongroupid"
+                      class="tsd-kind-icon"
+                      >option<wbr />Group<wbr />Id</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a
-                      href="ilastquoteoptions.html#symbolids"
-                      class="tsd-kind-icon"
-                      >symbol<wbr />Ids</a
+                    <a href="ioptiondatav2.html#right" class="tsd-kind-icon"
+                      >right</a
                     >
                   </li>
                   <li
                     class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"
                   >
                     <a
-                      href="ilastquoteoptions.html#version"
+                      href="ioptiondatav2.html#strikeprice"
                       class="tsd-kind-icon"
-                      >version</a
+                      >strike<wbr />Price</a
                     >
                   </li>
                 </ul>
