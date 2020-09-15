@@ -201,6 +201,14 @@ const order = await client.modifyOrder({
 });
 ```
 
+- [`getOrder`](https://api-live.exante.eu/api-docs/#operation/getOrder)
+
+```typescript
+const version = "3.0";
+const orderId = "ffecfac8-ccf9-4015-9a0f-b49a6b9673b8";
+const order = await client.getOrder({ version, orderId });
+```
+
 ## Test
 
 ```bash
