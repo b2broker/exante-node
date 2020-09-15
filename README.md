@@ -67,6 +67,14 @@ const version = "3.0";
 const exchanges = await client.getExchanges({ version });
 ```
 
+- [`getExchangeSymbols`](https://api-live.exante.eu/api-docs/#operation/getExchangeSymbols)
+
+```typescript
+const version = "2.0";
+const exchangeId = "NASDAQ";
+const symbols = await client.getExchangeSymbols({ version, exchangeId });
+```
+
 - [`getLastQuote`](https://api-live.exante.eu/api-docs/#operation/getQuoteLast)
 
 ```typescript
