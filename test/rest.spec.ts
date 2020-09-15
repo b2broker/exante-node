@@ -12,6 +12,7 @@ import {
   ICurrencies,
   ICrossrate,
   IExchange,
+  IIntruments,
   ILastQuote,
   ICandle,
   ITick,
@@ -437,6 +438,73 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const exchanges = await client.getExchanges();
+    assert.deepStrictEqual(exchanges, response);
+  });
+
+  test(".getExchangeSymbols()", async () => {
+    const version = "3.0";
+    const exchangeId = "NASDAQ";
+    const response: IIntruments = [
+      {
+        ticker: "AAPL",
+        country: "US",
+        symbolType: "Stock",
+        exchange: "NASDAQ",
+        expiration: 1503619200000,
+        minPriceIncrement: "0.01",
+        currency: "0.01",
+        i18n: {
+          property1: "string",
+          property2: "string",
+        },
+        optionData: {
+          strikePrice: "30.5",
+          optionRight: "PUT",
+          optionGroupId: "OZL.CBOT.U2017.P*",
+        },
+        group: "AAPL",
+        name: "Apple",
+        symbolId: "AAPL.NASDAQ",
+        description: "Apple",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${version}/exchanges/${exchangeId}`)
+      .delay(1)
+      .reply(200, response);
+
+    const exchanges = await client.getExchangeSymbols({ version, exchangeId });
+    assert.deepStrictEqual(exchanges, response);
+  });
+
+  test(".getExchangeSymbols() (with no version)", async () => {
+    const exchangeId = "NASDAQ";
+    const response: IIntruments = [
+      {
+        optionData: null,
+        i18n: {},
+        name: "Himax Technologies",
+        description:
+          "Himax Technologies, Inc. - American depositary shares, each of which represents two ordinary shares.",
+        country: "US",
+        exchange: "NASDAQ",
+        id: "HIMX.NASDAQ",
+        currency: "USD",
+        mpi: "0.01",
+        type: "STOCK",
+        ticker: "HIMX",
+        expiration: null,
+        group: null,
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/exchanges/${exchangeId}`)
+      .delay(1)
+      .reply(200, response);
+
+    const exchanges = await client.getExchangeSymbols({ exchangeId });
     assert.deepStrictEqual(exchanges, response);
   });
 
