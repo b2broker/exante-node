@@ -3,5 +3,6 @@
   "mode": "file",
   "name": "exante",
   "exclude": "**/*.spec.ts",
-  "hideGenerator": true
+  "hideGenerator": true,
+  "includeVersion": true
 }

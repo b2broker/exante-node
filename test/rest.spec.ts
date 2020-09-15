@@ -13,6 +13,7 @@ import {
   ICrossrate,
   IExchange,
   IIntruments,
+  IInstrumentGroup,
   ILastQuote,
   ICandle,
   ITick,
@@ -474,8 +475,8 @@ suite("RestClient", () => {
       .delay(1)
       .reply(200, response);
 
-    const exchanges = await client.getExchangeSymbols({ version, exchangeId });
-    assert.deepStrictEqual(exchanges, response);
+    const symbols = await client.getExchangeSymbols({ version, exchangeId });
+    assert.deepStrictEqual(symbols, response);
   });
 
   test(".getExchangeSymbols() (with no version)", async () => {
@@ -504,8 +505,44 @@ suite("RestClient", () => {
       .delay(1)
       .reply(200, response);
 
-    const exchanges = await client.getExchangeSymbols({ exchangeId });
-    assert.deepStrictEqual(exchanges, response);
+    const symbols = await client.getExchangeSymbols({ exchangeId });
+    assert.deepStrictEqual(symbols, response);
+  });
+
+  test(".getGroups()", async () => {
+    const version = "3.0";
+    const response: IInstrumentGroup[] = [
+      {
+        exchange: "NYMEX",
+        types: [""],
+        name: "Henry Hub Natural Gas",
+        group: "NG",
+      },
+    ];
+
+    nock(url).get(`/md/${version}/groups`).delay(1).reply(200, response);
+
+    const groups = await client.getGroups({ version });
+    assert.deepStrictEqual(groups, response);
+  });
+
+  test(".getGroups() (with no version)", async () => {
+    const response: IInstrumentGroup[] = [
+      {
+        group: "GD",
+        name: "S&P-GSCI Commodity Index",
+        types: ["FUTURE"],
+        exchange: "CME",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/groups`)
+      .delay(1)
+      .reply(200, response);
+
+    const groups = await client.getGroups();
+    assert.deepStrictEqual(groups, response);
   });
 
   test(".getLastQuote()", async () => {

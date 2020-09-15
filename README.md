@@ -75,6 +75,12 @@ const exchangeId = "NASDAQ";
 const symbols = await client.getExchangeSymbols({ version, exchangeId });
 ```
 
+- [`getGroups`](https://api-live.exante.eu/api-docs/#operation/getGroups)
+
+```typescript
+const groups = await client.getGroups({});
+```
+
 - [`getLastQuote`](https://api-live.exante.eu/api-docs/#operation/getQuoteLast)
 
 ```typescript
