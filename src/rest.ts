@@ -55,6 +55,13 @@ export interface ICrossrateOptions extends IVersion {
   to: string;
 }
 
+export interface IExchangeId extends IVersion {
+  /**
+   * Exchange id
+   */
+  exchangeId: string;
+}
+
 export interface ILastQuoteOptions extends IVersion {
   /**
    * Symbol id or symbol ids
@@ -483,6 +490,114 @@ export interface IExchange {
    */
   name?: string | null;
 }
+
+interface IBaseOptionData {
+  /**
+   * Option strike price
+   */
+  strikePrice: string;
+  /**
+   * Option group name
+   */
+  optionGroupId: string;
+}
+
+export interface IOptionDataV2 extends IBaseOptionData {
+  /**
+   * Option right
+   */
+  right: string;
+}
+
+export interface IOptionDataV3 extends IBaseOptionData {
+  /**
+   * Option right
+   */
+  optionRight: string;
+}
+
+export type IOptionData = IOptionDataV2 | IOptionDataV3;
+
+interface IBaseIntrument {
+  /**
+   * Exchange ticker
+   */
+  ticker: string;
+  /**
+   * Country of symbol's exchange
+   */
+  country?: string;
+  /**
+   * Exchange id
+   */
+  exchange?: string;
+  /**
+   * Expiration timestamp in ms
+   */
+  expiration?: number | string | null;
+  /**
+   * Currency of symbol price
+   */
+  currency: string;
+  /**
+   * Localized symbol descriptions
+   */
+  i18n?: Record<string, unknown>;
+  /**
+   * Group of symbol
+   */
+  group?: string | null;
+  /**
+   * Short symbol description
+   */
+  name?: string;
+  /**
+   * Long symbol description
+   */
+  description: string;
+}
+
+export interface IIntrumentV2 extends IBaseIntrument {
+  /**
+   * Minimum possible increment of symbol price
+   */
+  mpi: string;
+  /**
+   * Internal symbol id
+   */
+  id: string;
+  /**
+   * Symbol type
+   */
+  type: string;
+  /**
+   * Option specific properties
+   */
+  optionData?: IOptionDataV2 | null;
+}
+
+export interface IIntrumentV3 extends IBaseIntrument {
+  /**
+   * Symbol type
+   */
+  symbolType: string;
+  /**
+   * Minimum possible increment of symbol price
+   */
+  minPriceIncrement: string;
+  /**
+   * Option specific properties
+   */
+  optionData?: IOptionDataV3 | null;
+  /**
+   * Internal symbol id
+   */
+  symbolId: string;
+}
+
+export type IIntrument = IIntrumentV2 | IIntrumentV3;
+
+export type IIntruments = IIntrumentV2[] | IIntrumentV3[];
 
 export interface IQuoteSideV2 {
   /**
@@ -961,6 +1076,18 @@ export class RestClient {
     const url = new URL(`/md/${version}/exchanges`, this.url);
     const exchanges = (await this.fetch(url)) as IExchange[];
     return exchanges;
+  }
+
+  /**
+   * Get instruments by exchange
+   */
+  public async getExchangeSymbols({
+    version = DefaultAPIVersion,
+    exchangeId,
+  }: IExchangeId): Promise<IIntruments> {
+    const url = new URL(`/md/${version}/exchanges/${exchangeId}`, this.url);
+    const instruments = (await this.fetch(url)) as IIntruments;
+    return instruments;
   }
 
   /**
