@@ -62,6 +62,13 @@ export interface IExchangeId extends IVersion {
   exchangeId: string;
 }
 
+export interface IGroupId extends IVersion {
+  /**
+   * Group id
+   */
+  groupId: string;
+}
+
 export interface ILastQuoteOptions extends IVersion {
   /**
    * Symbol id or symbol ids
@@ -1118,6 +1125,18 @@ export class RestClient {
     const url = new URL(`/md/${version}/groups`, this.url);
     const groups = (await this.fetch(url)) as IInstrumentGroup[];
     return groups;
+  }
+
+  /**
+   * Get financial instruments which belong to specified group
+   */
+  public async getGroupSymbols({
+    version = DefaultAPIVersion,
+    groupId,
+  }: IGroupId): Promise<IIntruments> {
+    const url = new URL(`/md/${version}/groups/${groupId}`, this.url);
+    const instruments = (await this.fetch(url)) as IIntruments;
+    return instruments;
   }
 
   /**
