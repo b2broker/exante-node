@@ -545,6 +545,77 @@ suite("RestClient", () => {
     assert.deepStrictEqual(groups, response);
   });
 
+  test(".getGroupSymbols()", async () => {
+    const version = "3.0";
+    const groupId = "NG";
+    const response: IIntruments = [
+      {
+        currency: "0.01",
+        expiration: 1503619200000,
+        symbolType: "Stock",
+        name: "Apple",
+        group: "AAPL",
+        exchange: "NASDAQ",
+        description: "Apple",
+        optionData: {
+          strikePrice: "30.5",
+          optionGroupId: "OZL.CBOT.U2017.P*",
+          optionRight: "PUT",
+        },
+        symbolId: "AAPL.NASDAQ",
+        country: "US",
+        minPriceIncrement: "0.01",
+        i18n: {
+          property1: "string",
+          property2: "string",
+        },
+        ticker: "AAPL",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${version}/groups/${groupId}`)
+      .delay(1)
+      .reply(200, response);
+
+    const symbols = await client.getGroupSymbols({ version, groupId });
+    assert.deepStrictEqual(symbols, response);
+  });
+
+  test(".getGroupSymbols() (with no `version`)", async () => {
+    const groupId = "NG";
+    const response: IIntruments = [
+      {
+        optionData: {
+          optionGroupId: "ON.NYMEX.X2020.P*",
+          strikePrice: "0.65",
+          right: "PUT",
+        },
+        i18n: {},
+        name: "Natural Gas",
+        description:
+          "American Options On Natural Gas Futures Nov 2020 PUT 0.65",
+        country: "US",
+        exchange: "NYMEX",
+        id: "ON.NYMEX.X2020.P0_65",
+        currency: "USD",
+        mpi: "0.001",
+        type: "OPTION",
+        ticker: "ON",
+        expiration: 1603832400000,
+        group: "NG",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/groups/${groupId}`)
+      .delay(1)
+      .reply(200, response);
+
+    const symbols = await client.getGroupSymbols({ groupId });
+    assert.deepStrictEqual(symbols, response);
+  });
+
   test(".getLastQuote()", async () => {
     const version = "3.0";
     const level = "market_depth" as const;
