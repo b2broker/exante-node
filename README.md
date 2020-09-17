@@ -81,6 +81,14 @@ const symbols = await client.getExchangeSymbols({ version, exchangeId });
 const groups = await client.getGroups({});
 ```
 
+- [`getGroupSymbols`](https://api-live.exante.eu/api-docs/#operation/getGroupSymbols)
+
+```typescript
+const version = "3.0";
+const groupId = "NG";
+const symbols = await client.getGroupSymbols({ version, groupId });
+```
+
 - [`getLastQuote`](https://api-live.exante.eu/api-docs/#operation/getQuoteLast)
 
 ```typescript
