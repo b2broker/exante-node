@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.19.0](https://github.com/b2broker/exante-node/compare/v1.18.0...v1.19.0) (2020-09-17)
+
+### Features
+
+- add the `getGroupSymbols` method ([ee248a3](https://github.com/b2broker/exante-node/commit/ee248a3352314bc27e7246935edbaafe39da42ca))
+
 ## [1.18.0](https://github.com/b2broker/exante-node/compare/v1.17.0...v1.18.0) (2020-09-15)
 
 ### Features
