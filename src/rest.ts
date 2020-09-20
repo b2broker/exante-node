@@ -1310,6 +1310,17 @@ export class RestClient {
   }
 
   /**
+   * Get order updates stream via HTTP
+   */
+  public async orderUpdatesHttp({
+    version = DefaultAPIVersion,
+  }: IVersion = {}): Promise<JSONStream> {
+    const url = new URL(`/trade/${version}/stream/orders`, this.url);
+    const stream = await this.fetchStream(url);
+    return stream;
+  }
+
+  /**
    * Make a request and return JSONStream
    */
   public async fetchStream(
