@@ -1775,6 +1775,74 @@ suite("RestClient", () => {
     });
   });
 
+  test(".tradesHttp()", async () => {
+    const version = "3.0";
+
+    const trade = {
+      orderId: "2abe909b-ec53-4091-a0d4-ea4f82aa047c",
+      quantity: "1",
+      price: "101.1",
+      timestamp: "2017-08-14T02:40:00.000Z",
+      position: "1",
+      event: "trade",
+      time: "2017-08-14T02:40:00.000Z",
+    };
+    const heartbeat = { event: "heartbeat" };
+    nock(url)
+      .get(`/trade/${version}/stream/trades`)
+      .delay(1)
+      .reply(200, () =>
+        Readable.from(StreamMessages([{ ...trade }, heartbeat]))
+      );
+
+    const stream = await client.tradesHttp({ version });
+
+    assert.ok(stream instanceof JSONStream);
+
+    await new Promise((resolve) => {
+      stream.once("data", (data) => {
+        assert.deepStrictEqual(data, trade);
+        stream.once("data", (data) => {
+          assert.deepStrictEqual(data, heartbeat);
+          stream.once("end", resolve);
+        });
+      });
+    });
+  });
+
+  test(".tradesHttp() (with no version)", async () => {
+    const trade = {
+      orderId: "2abe909b-ec53-4091-a0d4-ea4f82aa047c",
+      quantity: "1",
+      price: "101.1",
+      timestamp: "2017-08-14T02:40:00.000Z",
+      position: "1",
+      event: "trade",
+      time: "2017-08-14T02:40:00.000Z",
+    };
+    const heartbeat = { event: "heartbeat" };
+    nock(url)
+      .get(`/trade/${DefaultAPIVersion}/stream/trades`)
+      .delay(1)
+      .reply(200, () =>
+        Readable.from(StreamMessages([{ ...trade }, heartbeat]))
+      );
+
+    const stream = await client.tradesHttp();
+
+    assert.ok(stream instanceof JSONStream);
+
+    await new Promise((resolve) => {
+      stream.once("data", (data) => {
+        assert.deepStrictEqual(data, trade);
+        stream.once("data", (data) => {
+          assert.deepStrictEqual(data, heartbeat);
+          stream.once("end", resolve);
+        });
+      });
+    });
+  });
+
   suite("Static methods", () => {
     test(".base64URL()", () => {
       const string = "Somestring+=";
