@@ -1,16 +1,16 @@
-import type fetch from "node-fetch";
+import type { Response } from "node-fetch";
 
 export class FetchError extends Error {
-  readonly #response: fetch.Response;
+  readonly #response: Response;
 
   public readonly name = "FetchError";
 
-  constructor(message: string, response: fetch.Response) {
+  constructor(message: string, response: Response) {
     super(message);
     this.#response = response;
   }
 
-  public get response(): fetch.Response {
+  public get response(): Response {
     return this.#response;
   }
 }
