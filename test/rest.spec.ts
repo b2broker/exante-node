@@ -12,6 +12,7 @@ import {
   ICurrencies,
   ICrossrate,
   IExchange,
+  IIntrument,
   IIntruments,
   IInstrumentGroup,
   ILastQuote,
@@ -614,6 +615,72 @@ suite("RestClient", () => {
 
     const symbols = await client.getGroupSymbols({ groupId });
     assert.deepStrictEqual(symbols, response);
+  });
+
+  test(".getGroupNearestSymbol()", async () => {
+    const version = "3.0";
+    const groupId = "NG";
+    const response: IIntrument = {
+      currency: "0.01",
+      type: "Stock",
+      expiration: 1503619200000,
+      symbolType: "Stock",
+      name: "Apple",
+      group: "AAPL",
+      exchange: "NASDAQ",
+      description: "Apple",
+      mpi: "0.01",
+      id: "AAPL.NASDAQ",
+      optionData: {
+        strikePrice: "30.5",
+        optionGroupId: "OZL.CBOT.U2017.P*",
+        optionRight: "PUT",
+        right: "PUT",
+      },
+      symbolId: "AAPL.NASDAQ",
+      country: "US",
+      minPriceIncrement: "0.01",
+      i18n: {
+        property1: "string",
+        property2: "string",
+      },
+      ticker: "AAPL",
+    };
+
+    nock(url)
+      .get(`/md/${version}/groups/${groupId}/nearest`)
+      .delay(1)
+      .reply(200, response);
+
+    const symbol = await client.getGroupNearestSymbol({ version, groupId });
+    assert.deepStrictEqual(symbol, response);
+  });
+
+  test(".getGroupNearestSymbol() (with no `version`)", async () => {
+    const groupId = "NG";
+    const response: IIntrument = {
+      optionData: null,
+      i18n: {},
+      name: "Henry Hub Natural Gas",
+      description: "Futures On Henry Hub Natural Gas Oct 2020",
+      country: "US",
+      exchange: "NYMEX",
+      id: "NG.NYMEX.V2020",
+      currency: "USD",
+      mpi: "0.001",
+      type: "FUTURE",
+      ticker: "NG",
+      expiration: 1601326800000,
+      group: "NG",
+    };
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/groups/${groupId}/nearest`)
+      .delay(1)
+      .reply(200, response);
+
+    const symbol = await client.getGroupNearestSymbol({ groupId });
+    assert.deepStrictEqual(symbol, response);
   });
 
   test(".getLastQuote()", async () => {
