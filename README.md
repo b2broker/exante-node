@@ -239,11 +239,21 @@ const orderId = "ffecfac8-ccf9-4015-9a0f-b49a6b9673b8";
 const order = await client.getOrder({ version, orderId });
 ```
 
-- [`orderUpdatesHttp`](https://api-live.exante.eu/api-docs/#tag/Orders-stream-API)
+- [`orderUpdatesHttp`](https://api-live.exante.eu/api-docs/#operation/orderUpdatesHttp)
 
 ```typescript
 const version = "2.0";
 const stream = await client.orderUpdatesHttp({ version });
+for await (const update of stream) {
+  console.log(update);
+}
+```
+
+- [`tradesHttp`](https://api-live.exante.eu/api-docs/#operation/tradesHttp)
+
+```typescript
+const version = "3.0";
+const stream = await client.tradesHttp({ version });
 for await (const update of stream) {
   console.log(update);
 }
