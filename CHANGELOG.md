@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.20.0](https://github.com/b2broker/exante-node/compare/v1.19.0...v1.20.0) (2020-09-20)
+
+### Features
+
+- add the `getGroupNearestSymbol` method ([d128ac4](https://github.com/b2broker/exante-node/commit/d128ac463c200b5f852d6f70ebe4558917fe15a6))
+
 ## [1.19.0](https://github.com/b2broker/exante-node/compare/v1.18.0...v1.19.0) (2020-09-17)
 
 ### Features

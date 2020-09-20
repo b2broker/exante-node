@@ -1,6 +1,6 @@
 {
   "name": "exante",
-  "version": "1.19.0",
+  "version": "1.20.0",
   "description": "Exante Node.js client",
   "main": "build/index.js",
   "type": "commonjs",
