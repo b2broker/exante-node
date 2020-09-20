@@ -23,3 +23,5 @@ export class JSONStream extends Transform {
     }
   }
 }
+
+export default JSONStream;

@@ -1,4 +1,5 @@
 import assert from "assert";
+import { Readable } from "stream";
 import nock from "nock";
 import fetch from "node-fetch";
 
@@ -22,6 +23,7 @@ import {
   ITransactions,
   IOrder,
   DefaultAPIVersion,
+  JSONStream,
 } from "../";
 
 const client_id = "d0c5340b-6d6c-49d9-b567-48c4bfca13d2";
@@ -31,6 +33,18 @@ const shared_key = "5eeac64cc46b34f5332e5326/CHo4bRWq6pqqynnWKQg";
 const url = "https://some-other-api.exante.eu/";
 
 const client = new RestClient({ client_id, shared_key, app_id, url });
+
+async function* StreamMessages(
+  messages: Record<string, unknown>[]
+): AsyncGenerator<Buffer> {
+  for (const message of messages) {
+    const data = Buffer.from(JSON.stringify({ ...message }));
+    const promise = await new Promise<Buffer>((resolve) => {
+      setTimeout(resolve, 1, data);
+    });
+    yield promise;
+  }
+}
 
 suite("RestClient", () => {
   test("constructor", () => {
@@ -69,6 +83,29 @@ suite("RestClient", () => {
     const data = await client.fetch(url);
 
     assert.deepStrictEqual(data, response);
+  });
+
+  test(".fetchStream() (passes headers)", async () => {
+    const response = { ok: 1 };
+    const reqheaders = {
+      "Content-Type": "application/json",
+      Authorization: (value: string) => value.includes("Bearer "),
+      Accept: "application/x-json-stream",
+    };
+
+    nock(url, { reqheaders })
+      .get("/")
+      .delay(1)
+      .reply(200, () => Readable.from(StreamMessages([response])));
+
+    const stream = await client.fetchStream(url);
+
+    await new Promise((resolve) => {
+      stream.on("data", (data) => {
+        assert.deepStrictEqual(data, response);
+        resolve();
+      });
+    });
   });
 
   test(".getAccounts()", async () => {
@@ -1683,6 +1720,41 @@ suite("RestClient", () => {
       assert.deepStrictEqual(token, jwt);
     });
 
+    test(".fetchStream()", async () => {
+      const heartbeat = { event: "heartbeat" };
+      const pong = { event: "pong" };
+      nock(url)
+        .get("/")
+        .delay(1)
+        .reply(200, () => Readable.from(StreamMessages([heartbeat, pong])));
+
+      const stream = await RestClient.fetchStream(url);
+
+      assert.ok(stream instanceof JSONStream);
+
+      await new Promise((resolve) => {
+        stream.once("data", (data) => {
+          assert.deepStrictEqual(data, heartbeat);
+          stream.once("data", (data) => {
+            assert.deepStrictEqual(data, pong);
+            stream.once("end", resolve);
+          });
+        });
+      });
+    });
+
+    test(".fetchStream()  (throws `FetchError` on non 2xx responses)", async () => {
+      nock(url).get("/").delay(1).reply(404);
+
+      try {
+        await RestClient.fetchStream(url);
+        assert.fail("Should throw a FetchError");
+      } catch (error) {
+        assert.ok(error instanceof FetchError);
+        assert.ok(error.response instanceof fetch.Response);
+      }
+    });
+
     test(".fetch()", async () => {
       const response = { ok: 1 };
 
@@ -1698,7 +1770,7 @@ suite("RestClient", () => {
 
       try {
         await RestClient.fetch(url);
-        throw new Error("Should throw a FetchError");
+        assert.fail("Should throw a FetchError");
       } catch (error) {
         assert.ok(error instanceof FetchError);
         assert.ok(error.response instanceof fetch.Response);
@@ -1710,7 +1782,7 @@ suite("RestClient", () => {
 
       try {
         await RestClient.fetch(url);
-        throw new Error("Should throw a FetchError");
+        assert.fail("Should throw a FetchError");
       } catch (error) {
         assert.ok(error instanceof FetchError);
         assert.ok(error.response instanceof fetch.Response);

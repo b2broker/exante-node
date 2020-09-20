@@ -2,6 +2,7 @@ import { createHmac } from "crypto";
 import fetch from "node-fetch";
 
 import FetchError from "./error";
+import JSONStream from "./stream";
 
 export const ExanteDemoURL = "https://api-demo.exante.eu/";
 export const ExanteLiveURL = "https://api-live.exante.eu/";
@@ -1309,6 +1310,21 @@ export class RestClient {
   }
 
   /**
+   * Make a request and return JSONStream
+   */
+  public async fetchStream(
+    url: string | URL,
+    options: fetch.RequestInit = {}
+  ): Promise<JSONStream> {
+    const headers = new fetch.Headers(options.headers || this.headers);
+    headers.set("Accept", "application/x-json-stream");
+
+    const stream = RestClient.fetchStream(url, { ...options, headers });
+
+    return stream;
+  }
+
+  /**
    * Get a JSON Web Token
    */
   private get token(): string {
@@ -1396,6 +1412,29 @@ export class RestClient {
     const encodedSignature = RestClient.base64URL(signature);
     const jwt = `${encodedHeader}.${encodedPayload}.${encodedSignature}`;
     return jwt;
+  }
+
+  /**
+   * Make a request and return a stream
+   */
+  public static async fetchStream(
+    url: string | URL,
+    options: fetch.RequestInit = {}
+  ): Promise<JSONStream> {
+    const response = await fetch(url.toString(), { ...options });
+
+    if (!response.body) {
+      /* istanbul ignore next */
+      throw new FetchError("Empty body", response);
+    } else if (!response.ok) {
+      throw new FetchError(response.statusText, response);
+    }
+
+    const stream = new JSONStream();
+
+    response.body.pipe(stream);
+
+    return stream;
   }
 
   /**
