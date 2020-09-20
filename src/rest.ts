@@ -1032,7 +1032,6 @@ export class RestClient {
     { headers = this.headers, ...options }: fetch.RequestInit = {}
   ): Promise<unknown> {
     const response = await RestClient.fetch(url, { headers, ...options });
-
     return response;
   }
 
@@ -1175,12 +1174,9 @@ export class RestClient {
     duration,
     ...query
   }: ICandlesOptions): Promise<ICandle[]> {
-    const url = new URL(
-      `/md/${version}/ohlc/${symbolId}/${duration}`,
-      this.url
-    );
+    const path = `/md/${version}/ohlc/${symbolId}/${duration}`;
+    const url = new URL(path, this.url);
     RestClient.setQuery(url, { ...query });
-
     const candles = (await this.fetch(url)) as ICandle[];
     return candles;
   }
@@ -1195,7 +1191,6 @@ export class RestClient {
   }: ITicksOptions): Promise<ITick[]> {
     const url = new URL(`/md/${version}/ticks/${symbolId}`, this.url);
     RestClient.setQuery(url, { ...query });
-
     const ticks = (await this.fetch(url)) as ITick[];
     return ticks;
   }
@@ -1209,11 +1204,8 @@ export class RestClient {
     date,
     currency,
   }: IAccountSummaryOptions): Promise<IAccountSummary> {
-    const url = new URL(
-      `/md/${version}/summary/${id}/${date}/${currency}`,
-      this.url
-    );
-
+    const path = `/md/${version}/summary/${id}/${date}/${currency}`;
+    const url = new URL(path, this.url);
     const summary = (await this.fetch(url)) as IAccountSummary;
     return summary;
   }
@@ -1231,7 +1223,6 @@ export class RestClient {
     }
     const url = new URL(`/md/${version}/transactions`, this.url);
     RestClient.setQuery(url, { operationType, ...query });
-
     const transactions = (await this.fetch(url)) as ITransactions;
     return transactions;
   }
@@ -1246,9 +1237,7 @@ export class RestClient {
     const url = new URL(`/trade/${version}/orders`, this.url);
     const method = "POST";
     const body = JSON.stringify(data);
-
     const order = (await this.fetch(url, { method, body })) as IOrder[];
-
     return order;
   }
 
@@ -1261,7 +1250,6 @@ export class RestClient {
   }: IOrdersOptions): Promise<IOrder[]> {
     const url = new URL(`/trade/${version}/orders`, this.url);
     RestClient.setQuery(url, { ...query });
-
     const orders = (await this.fetch(url)) as IOrder[];
     return orders;
   }
@@ -1275,7 +1263,6 @@ export class RestClient {
   }: IActiveOrdersOptions): Promise<IOrder[]> {
     const url = new URL(`/trade/${version}/orders/active`, this.url);
     RestClient.setQuery(url, { ...query });
-
     const orders = (await this.fetch(url)) as IOrder[];
     return orders;
   }
@@ -1290,9 +1277,7 @@ export class RestClient {
   }: IModifyOrderOptions): Promise<IOrder> {
     const url = new URL(`/trade/${version}/orders/${orderId}`, this.url);
     const body = JSON.stringify(data);
-
     const order = (await this.fetch(url, { method: "POST", body })) as IOrder;
-
     return order;
   }
 
@@ -1304,7 +1289,6 @@ export class RestClient {
     orderId,
   }: IOrderId): Promise<IOrder> {
     const url = new URL(`/trade/${version}/orders/${orderId}`, this.url);
-
     const order = (await this.fetch(url)) as IOrder;
     return order;
   }
@@ -1316,6 +1300,17 @@ export class RestClient {
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<JSONStream> {
     const url = new URL(`/trade/${version}/stream/orders`, this.url);
+    const stream = await this.fetchStream(url);
+    return stream;
+  }
+
+  /**
+   * Get trades updates stream via HTTP
+   */
+  public async tradesHttp({
+    version = DefaultAPIVersion,
+  }: IVersion = {}): Promise<JSONStream> {
+    const url = new URL(`/trade/${version}/stream/trades`, this.url);
     const stream = await this.fetchStream(url);
     return stream;
   }
@@ -1367,10 +1362,9 @@ export class RestClient {
    * Get authorization headers
    */
   private get headers(): fetch.Headers {
-    return new fetch.Headers({
-      Authorization: `Bearer ${this.token}`,
-      "Content-Type": "application/json",
-    });
+    const Authorization = `Bearer ${this.token}`;
+    const type = "application/json";
+    return new fetch.Headers({ Authorization, "Content-Type": type });
   }
 
   /**
@@ -1433,20 +1427,14 @@ export class RestClient {
     options: fetch.RequestInit = {}
   ): Promise<JSONStream> {
     const response = await fetch(url.toString(), { ...options });
-
     /* istanbul ignore next */
     if (!response.body) {
       throw new FetchError("Empty body", response);
-    }
-
-    if (!response.ok) {
+    } else if (!response.ok) {
       throw new FetchError(response.statusText, response);
     }
-
     const stream = new JSONStream();
-
     response.body.pipe(stream);
-
     return stream;
   }
 
@@ -1458,11 +1446,9 @@ export class RestClient {
     options: fetch.RequestInit = {}
   ): Promise<unknown> {
     const response = await fetch(url.toString(), { ...options });
-
     if (!response.ok) {
       throw new FetchError(response.statusText, response);
     }
-
     try {
       const data = await response.json();
       return data;

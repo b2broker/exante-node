@@ -7,19 +7,17 @@ export class JSONStream extends Transform {
     super({ objectMode: true });
   }
 
-  public _transform(chunk: Buffer, _encoding: string, callback: Callback) {
+  public _transform(chunk: Buffer, _encoding: string, cb: Callback): void {
     try {
       const messages = chunk.toString("utf8").split("\n");
-
       for (const message of messages) {
         if (message) {
           this.push(JSON.parse(message));
         }
       }
-
-      callback(null);
+      cb(null);
     } catch (error) {
-      callback(error);
+      cb(error);
     }
   }
 }
