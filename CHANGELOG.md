@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.21.0](https://github.com/b2broker/exante-node/compare/v1.20.0...v1.21.0) (2020-09-20)
+
+### Features
+
+- add the `fetchStream` method ([aa641ad](https://github.com/b2broker/exante-node/commit/aa641ad7cdd1b7986e15265081a0264c0d37d2b7))
+- add the `JSONStream` class ([95b8978](https://github.com/b2broker/exante-node/commit/95b89784262013e1bb0a7a76b49888b6ca34c66e))
+- add the `orderUpdatesHttp` method ([cf56dd0](https://github.com/b2broker/exante-node/commit/cf56dd0f89325e823b733bca4913328a82bea34c))
+
 ## [1.20.0](https://github.com/b2broker/exante-node/compare/v1.19.0...v1.20.0) (2020-09-20)
 
 ### Features

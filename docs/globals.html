@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>exante - v1.20.0</title>
-    <meta name="description" content="Documentation for exante - v1.20.0" />
+    <title>exante - v1.21.0</title>
+    <meta name="description" content="Documentation for exante - v1.21.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
@@ -31,7 +31,7 @@
                 <li class="state loading">Preparing search index...</li>
                 <li class="state failure">The search index is not available</li>
               </ul>
-              <a href="index.html" class="title">exante - v1.20.0</a>
+              <a href="index.html" class="title">exante - v1.21.0</a>
             </div>
             <div class="table-cell" id="tsd-widgets">
               <div id="tsd-filter">
@@ -78,7 +78,7 @@
               <a href="globals.html">Globals</a>
             </li>
           </ul>
-          <h1>exante - v1.20.0</h1>
+          <h1>exante - v1.21.0</h1>
         </div>
       </div>
     </header>
@@ -95,6 +95,11 @@
                     <li class="tsd-kind-class">
                       <a href="classes/fetcherror.html" class="tsd-kind-icon"
                         >Fetch<wbr />Error</a
+                      >
+                    </li>
+                    <li class="tsd-kind-class">
+                      <a href="classes/jsonstream.html" class="tsd-kind-icon"
+                        >JSONStream</a
                       >
                     </li>
                     <li class="tsd-kind-class">
@@ -478,6 +483,11 @@
                   <h3>Type aliases</h3>
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-type-alias">
+                      <a href="globals.html#callback" class="tsd-kind-icon"
+                        >Callback</a
+                      >
+                    </li>
+                    <li class="tsd-kind-type-alias">
                       <a
                         href="globals.html#iactiveordersoptions"
                         class="tsd-kind-icon"
@@ -605,6 +615,82 @@
           <section class="tsd-panel-group tsd-member-group">
             <h2>Type aliases</h2>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
+              <a name="callback" class="tsd-anchor"></a>
+              <h3>Callback</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                Callback<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-symbol">(</span>error<span
+                  class="tsd-signature-symbol"
+                  >: </span
+                ><a
+                  href="classes/fetcherror.html#error"
+                  class="tsd-signature-type"
+                  >Error</a
+                ><span class="tsd-signature-symbol"> | </span
+                ><span class="tsd-signature-type">null</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol"> =&gt; </span
+                ><span class="tsd-signature-type">void</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/stream.ts#L3"
+                      >src/stream.ts:3</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-type-declaration">
+                <h4>Type declaration</h4>
+                <ul class="tsd-parameters">
+                  <li class="tsd-parameter-signature">
+                    <ul
+                      class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias"
+                    >
+                      <li class="tsd-signature tsd-kind-icon">
+                        <span class="tsd-signature-symbol">(</span>error<span
+                          class="tsd-signature-symbol"
+                          >: </span
+                        ><a
+                          href="classes/fetcherror.html#error"
+                          class="tsd-signature-type"
+                          >Error</a
+                        ><span class="tsd-signature-symbol"> | </span
+                        ><span class="tsd-signature-type">null</span
+                        ><span class="tsd-signature-symbol">)</span
+                        ><span class="tsd-signature-symbol">: </span
+                        ><span class="tsd-signature-type">void</span>
+                      </li>
+                    </ul>
+                    <ul class="tsd-descriptions">
+                      <li class="tsd-description">
+                        <h4 class="tsd-parameters-title">Parameters</h4>
+                        <ul class="tsd-parameters">
+                          <li>
+                            <h5>
+                              error:
+                              <a
+                                href="classes/fetcherror.html#error"
+                                class="tsd-signature-type"
+                                >Error</a
+                              ><span class="tsd-signature-symbol"> | </span
+                              ><span class="tsd-signature-type">null</span>
+                            </h5>
+                          </li>
+                        </ul>
+                        <h4 class="tsd-returns-title">
+                          Returns <span class="tsd-signature-type">void</span>
+                        </h4>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <section class="tsd-panel tsd-member tsd-kind-type-alias">
               <a name="iactiveordersoptions" class="tsd-anchor"></a>
               <h3>IActive<wbr />Orders<wbr />Options</h3>
               <div class="tsd-signature tsd-kind-icon">
@@ -628,8 +714,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L378"
-                      >src/rest.ts:378</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L379"
+                      >src/rest.ts:379</a
                     >
                   </li>
                 </ul>
@@ -661,8 +747,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L83"
-                      >src/rest.ts:83</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L84"
+                      >src/rest.ts:84</a
                     >
                   </li>
                 </ul>
@@ -694,8 +780,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L209"
-                      >src/rest.ts:209</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L210"
+                      >src/rest.ts:210</a
                     >
                   </li>
                 </ul>
@@ -718,8 +804,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L918"
-                      >src/rest.ts:918</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L919"
+                      >src/rest.ts:919</a
                     >
                   </li>
                 </ul>
@@ -746,8 +832,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L605"
-                      >src/rest.ts:605</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L606"
+                      >src/rest.ts:606</a
                     >
                   </li>
                 </ul>
@@ -775,8 +861,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L607"
-                      >src/rest.ts:607</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L608"
+                      >src/rest.ts:608</a
                     >
                   </li>
                 </ul>
@@ -806,8 +892,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L425"
-                      >src/rest.ts:425</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L426"
+                      >src/rest.ts:426</a
                     >
                   </li>
                 </ul>
@@ -834,8 +920,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L526"
-                      >src/rest.ts:526</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L527"
+                      >src/rest.ts:527</a
                     >
                   </li>
                 </ul>
@@ -858,8 +944,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L1004"
-                      >src/rest.ts:1004</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L1005"
+                      >src/rest.ts:1005</a
                     >
                   </li>
                 </ul>
@@ -886,8 +972,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L949"
-                      >src/rest.ts:949</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L950"
+                      >src/rest.ts:950</a
                     >
                   </li>
                 </ul>
@@ -919,8 +1005,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L199"
-                      >src/rest.ts:199</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L200"
+                      >src/rest.ts:200</a
                     >
                   </li>
                 </ul>
@@ -947,8 +1033,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L343"
-                      >src/rest.ts:343</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L344"
+                      >src/rest.ts:344</a
                     >
                   </li>
                 </ul>
@@ -976,8 +1062,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L881"
-                      >src/rest.ts:881</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L882"
+                      >src/rest.ts:882</a
                     >
                   </li>
                 </ul>
@@ -1007,8 +1093,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L308"
-                      >src/rest.ts:308</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L309"
+                      >src/rest.ts:309</a
                     >
                   </li>
                 </ul>
@@ -1035,8 +1121,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L650"
-                      >src/rest.ts:650</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L651"
+                      >src/rest.ts:651</a
                     >
                   </li>
                 </ul>
@@ -1056,8 +1142,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L197"
-                      >src/rest.ts:197</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L198"
+                      >src/rest.ts:198</a
                     >
                   </li>
                 </ul>
@@ -1087,8 +1173,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L723"
-                      >src/rest.ts:723</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L724"
+                      >src/rest.ts:724</a
                     >
                   </li>
                 </ul>
@@ -1116,8 +1202,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L879"
-                      >src/rest.ts:879</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L880"
+                      >src/rest.ts:880</a
                     >
                   </li>
                 </ul>
@@ -1142,8 +1228,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L8"
-                      >src/rest.ts:8</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L9"
+                      >src/rest.ts:9</a
                     >
                   </li>
                 </ul>
@@ -1168,8 +1254,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L6"
-                      >src/rest.ts:6</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L7"
+                      >src/rest.ts:7</a
                     >
                   </li>
                 </ul>
@@ -1194,8 +1280,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/f8ea770/src/rest.ts#L7"
-                      >src/rest.ts:7</a
+                      href="https://github.com/b2broker/exante-node/blob/5c8a61d/src/rest.ts#L8"
+                      >src/rest.ts:8</a
                     >
                   </li>
                 </ul>
@@ -1216,6 +1302,11 @@
               <li class="tsd-kind-class">
                 <a href="classes/fetcherror.html" class="tsd-kind-icon"
                   >Fetch<wbr />Error</a
+                >
+              </li>
+              <li class="tsd-kind-class">
+                <a href="classes/jsonstream.html" class="tsd-kind-icon"
+                  >JSONStream</a
                 >
               </li>
               <li class="tsd-kind-class">
@@ -1535,6 +1626,11 @@
                 >
               </li>
               <li class="tsd-kind-type-alias">
+                <a href="globals.html#callback" class="tsd-kind-icon"
+                  >Callback</a
+                >
+              </li>
+              <li class="tsd-kind-type-alias">
                 <a
                   href="globals.html#iactiveordersoptions"
                   class="tsd-kind-icon"
@@ -1654,6 +1750,16 @@
             </li>
           </ul>
           <ul class="tsd-legend">
+            <li
+              class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
+            >
+              <span class="tsd-kind-icon">Inherited property</span>
+            </li>
+            <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+              <span class="tsd-kind-icon">Inherited method</span>
+            </li>
+          </ul>
+          <ul class="tsd-legend">
             <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static">
               <span class="tsd-kind-icon">Static property</span>
             </li>
@@ -1664,13 +1770,6 @@
           <ul class="tsd-legend">
             <li class="tsd-kind-property tsd-parent-kind-interface">
               <span class="tsd-kind-icon">Property</span>
-            </li>
-          </ul>
-          <ul class="tsd-legend">
-            <li
-              class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-            >
-              <span class="tsd-kind-icon">Inherited property</span>
             </li>
           </ul>
           <ul class="tsd-legend">
