@@ -1010,7 +1010,7 @@ export class RestClient {
 
   public readonly url: URL;
 
-  constructor({
+  public constructor({
     client_id,
     app_id,
     shared_key,
@@ -1137,6 +1137,18 @@ export class RestClient {
     const url = new URL(`/md/${version}/groups/${groupId}`, this.url);
     const instruments = (await this.fetch(url)) as IIntruments;
     return instruments;
+  }
+
+  /**
+   * Get financial instrument which has the nearest expiration in the group
+   */
+  public async getGroupNearestSymbol({
+    version = DefaultAPIVersion,
+    groupId,
+  }: IGroupId): Promise<IIntrument> {
+    const url = new URL(`/md/${version}/groups/${groupId}/nearest`, this.url);
+    const instrument = (await this.fetch(url)) as IIntrument;
+    return instrument;
   }
 
   /**
