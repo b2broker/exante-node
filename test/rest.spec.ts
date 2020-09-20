@@ -1,4 +1,5 @@
 import assert from "assert";
+import { Readable } from "stream";
 import nock from "nock";
 import fetch from "node-fetch";
 
@@ -22,6 +23,7 @@ import {
   ITransactions,
   IOrder,
   DefaultAPIVersion,
+  JSONStream,
 } from "../";
 
 const client_id = "d0c5340b-6d6c-49d9-b567-48c4bfca13d2";
@@ -31,6 +33,18 @@ const shared_key = "5eeac64cc46b34f5332e5326/CHo4bRWq6pqqynnWKQg";
 const url = "https://some-other-api.exante.eu/";
 
 const client = new RestClient({ client_id, shared_key, app_id, url });
+
+async function* StreamMessages(
+  messages: Record<string, unknown>[]
+): AsyncGenerator<Buffer> {
+  for (const message of messages) {
+    const data = Buffer.from(JSON.stringify({ ...message }));
+    const promise = await new Promise<Buffer>((resolve) => {
+      setTimeout(resolve, 1, data);
+    });
+    yield promise;
+  }
+}
 
 suite("RestClient", () => {
   test("constructor", () => {
@@ -69,6 +83,29 @@ suite("RestClient", () => {
     const data = await client.fetch(url);
 
     assert.deepStrictEqual(data, response);
+  });
+
+  test(".fetchStream() (passes headers)", async () => {
+    const response = { ok: 1 };
+    const reqheaders = {
+      "Content-Type": "application/json",
+      Authorization: (value: string) => value.includes("Bearer "),
+      Accept: "application/x-json-stream",
+    };
+
+    nock(url, { reqheaders })
+      .get("/")
+      .delay(1)
+      .reply(200, () => Readable.from(StreamMessages([response])));
+
+    const stream = await client.fetchStream(url);
+
+    await new Promise((resolve) => {
+      stream.on("data", (data) => {
+        assert.deepStrictEqual(data, response);
+        resolve();
+      });
+    });
   });
 
   test(".getAccounts()", async () => {
@@ -1628,6 +1665,116 @@ suite("RestClient", () => {
     assert.deepStrictEqual(order, response);
   });
 
+  test(".orderUpdatesHttp()", async () => {
+    const version = "3.0";
+
+    const order: IOrder = {
+      orderId: "d642d2ca-fcb5-4910-9de4-7c91f275ca23",
+      placeTime: "2017-08-14T02:40:00Z",
+      orderState: {
+        reason: "string",
+        fills: [
+          {
+            quantity: "1",
+            timestamp: "2017-08-14T02:40:00Z",
+            position: "1",
+            price: "120.1",
+          },
+        ],
+        lastUpdate: "2017-08-14T02:40:00Z",
+        status: "working",
+      },
+      id: "d642d2ca-fcb5-4910-9de4-7c91f275ca23",
+      username: "root@example.com",
+      clientTag: "some client tag",
+      currentModificationId: "2d2b75f2-c4ed-4f7f-b38b-8d8219d4216f",
+      orderParameters: {
+        symbolId: "AAPL.NASDAQ",
+        limitPrice: "130.0",
+        instrument: "AAPL.NASDAQ",
+        ifDoneParentId: "3a5bf47e-ec54-4782-b4e3-0091164c7c71",
+        duration: "day",
+        gttExpiration: "2017-08-14T02:40:00Z",
+        stopPrice: "120.0",
+        quantity: "10",
+        ocoGroup: "d440b5b6-a40f-44e5-8c3b-a9a419fea7b3",
+        orderType: "market",
+        priceDistance: "1",
+        partQuantity: "1",
+        placeInterval: "1",
+        side: "sell",
+      },
+      accountId: "ABC1234.001",
+    };
+    const heartbeat = { event: "heartbeat" };
+    nock(url)
+      .get(`/trade/${version}/stream/orders`)
+      .delay(1)
+      .reply(200, () =>
+        Readable.from(StreamMessages([{ ...order }, heartbeat]))
+      );
+
+    const stream = await client.orderUpdatesHttp({ version });
+
+    assert.ok(stream instanceof JSONStream);
+
+    await new Promise((resolve) => {
+      stream.once("data", (data) => {
+        assert.deepStrictEqual(data, order);
+        stream.once("data", (data) => {
+          assert.deepStrictEqual(data, heartbeat);
+          stream.once("end", resolve);
+        });
+      });
+    });
+  });
+
+  test(".orderUpdatesHttp() (with no version)", async () => {
+    const order: IOrder = {
+      placeTime: "2017-08-14T02:40:00.123Z",
+      username: "root@example.com",
+      orderState: {
+        status: "working",
+        lastUpdate: "2017-08-14T02:40:00.123Z",
+        fills: [],
+      },
+      accountId: "ABC1234.001",
+      id: "ffecfac8-ccf9-4015-9a0f-b49a6b9673b8",
+      orderParameters: {
+        side: "buy",
+        duration: "good_till_cancel",
+        quantity: "10",
+        ocoGroup: null,
+        ifDoneParentId: null,
+        orderType: "limit",
+        limitPrice: "130.0",
+        instrument: "AAPL.NASDAQ",
+      },
+      currentModificationId: "ffecfac8-ccf9-4015-9a0f-b49a6b9673b8",
+    };
+    const heartbeat = { event: "heartbeat" };
+    nock(url)
+      .get(`/trade/${DefaultAPIVersion}/stream/orders`)
+      .delay(1)
+      .reply(200, () =>
+        Readable.from(StreamMessages([{ ...order }, heartbeat]))
+      );
+
+    const stream = await client.orderUpdatesHttp();
+
+    assert.ok(stream instanceof JSONStream);
+
+    await new Promise((resolve) => {
+      stream.once("data", (data) => {
+        assert.deepStrictEqual(data, order);
+        stream.once("data", (data) => {
+          assert.deepStrictEqual(data, heartbeat);
+          stream.once("end", resolve);
+        });
+      });
+    });
+  });
+
   suite("Static methods", () => {
     test(".base64URL()", () => {
       const string = "Somestring+=";
@@ -1683,6 +1830,41 @@ suite("RestClient", () => {
       assert.deepStrictEqual(token, jwt);
     });
 
+    test(".fetchStream()", async () => {
+      const heartbeat = { event: "heartbeat" };
+      const pong = { event: "pong" };
+      nock(url)
+        .get("/")
+        .delay(1)
+        .reply(200, () => Readable.from(StreamMessages([heartbeat, pong])));
+
+      const stream = await RestClient.fetchStream(url);
+
+      assert.ok(stream instanceof JSONStream);
+
+      await new Promise((resolve) => {
+        stream.once("data", (data) => {
+          assert.deepStrictEqual(data, heartbeat);
+          stream.once("data", (data) => {
+            assert.deepStrictEqual(data, pong);
+            stream.once("end", resolve);
+          });
+        });
+      });
+    });
+
+    test(".fetchStream()  (throws `FetchError` on non 2xx responses)", async () => {
+      nock(url).get("/").delay(1).reply(404);
+
+      try {
+        await RestClient.fetchStream(url);
+        assert.fail("Should throw a FetchError");
+      } catch (error) {
+        assert.ok(error instanceof FetchError);
+        assert.ok(error.response instanceof fetch.Response);
+      }
+    });
+
     test(".fetch()", async () => {
       const response = { ok: 1 };
 
@@ -1698,7 +1880,7 @@ suite("RestClient", () => {
 
       try {
         await RestClient.fetch(url);
-        throw new Error("Should throw a FetchError");
+        assert.fail("Should throw a FetchError");
       } catch (error) {
         assert.ok(error instanceof FetchError);
         assert.ok(error.response instanceof fetch.Response);
@@ -1710,7 +1892,7 @@ suite("RestClient", () => {
 
       try {
         await RestClient.fetch(url);
-        throw new Error("Should throw a FetchError");
+        assert.fail("Should throw a FetchError");
       } catch (error) {
         assert.ok(error instanceof FetchError);
         assert.ok(error.response instanceof fetch.Response);
