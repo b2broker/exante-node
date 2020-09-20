@@ -1434,10 +1434,12 @@ export class RestClient {
   ): Promise<JSONStream> {
     const response = await fetch(url.toString(), { ...options });
 
+    /* istanbul ignore next */
     if (!response.body) {
-      /* istanbul ignore next */
       throw new FetchError("Empty body", response);
-    } else if (!response.ok) {
+    }
+
+    if (!response.ok) {
       throw new FetchError(response.statusText, response);
     }
 
