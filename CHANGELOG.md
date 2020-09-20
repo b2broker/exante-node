@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.22.0](https://github.com/b2broker/exante-node/compare/v1.21.0...v1.22.0) (2020-09-20)
+
+### Features
+
+- add the `tradesHttp` method ([8549194](https://github.com/b2broker/exante-node/commit/85491948a1470e5eb058a358083b7fc8f27a6a89))
+
 ## [1.21.0](https://github.com/b2broker/exante-node/compare/v1.20.0...v1.21.0) (2020-09-20)
 
 ### Features
