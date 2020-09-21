@@ -77,6 +77,13 @@ export interface ISymbolIdOptions extends IVersion {
   symbolId: string;
 }
 
+export interface ISymbolSchedule extends ISymbolIdOptions {
+  /**
+   * Show available order types
+   */
+  types?: boolean;
+}
+
 export interface ILastQuoteOptions extends IVersion {
   /**
    * Symbol id or symbol ids
@@ -633,6 +640,37 @@ export interface IInstrumentGroup {
   group: string;
 }
 
+export interface IIntrumentInterval {
+  /**
+   * Trading session name
+   */
+  name: string;
+  /**
+   * Trading session interval
+   */
+  period: {
+    /**
+     * Session start timestamp in ms
+     */
+    start: number;
+    /**
+     * Session end timestamp in ms
+     */
+    end: number;
+  };
+  /**
+   * Available order types
+   */
+  orderTypes?: Record<string, unknown[]> | null;
+}
+
+export interface IInstrumentSchedule {
+  /**
+   * Instrument schedule intervals
+   */
+  intervals: IIntrumentInterval[];
+}
+
 export interface IQuoteSideV2 {
   /**
    * Quantity value
@@ -1182,6 +1220,21 @@ export class RestClient {
   }
 
   /**
+   * Get financial schedule for requested instrument
+   */
+  public async getSymbolSchedule({
+    version = DefaultAPIVersion,
+    symbolId,
+    types,
+  }: ISymbolSchedule): Promise<IInstrumentSchedule> {
+    const path = `/md/${version}/symbols/${symbolId}/schedule`;
+    const url = new URL(path, this.url);
+    RestClient.setQuery(url, { types });
+    const schedule = (await this.fetch(url)) as IInstrumentSchedule;
+    return schedule;
+  }
+
+  /**
    * Get the last quote
    */
   public async getLastQuote({
@@ -1418,7 +1471,7 @@ export class RestClient {
    */
   public static setQuery(
     url: URL,
-    query: Record<string, string | number | undefined>
+    query: Record<string, string | number | boolean | undefined>
   ): void {
     for (const key in query) {
       const value = query[key];

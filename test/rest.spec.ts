@@ -16,6 +16,7 @@ import {
   IIntrument,
   IIntruments,
   IInstrumentGroup,
+  IInstrumentSchedule,
   ILastQuote,
   ICandle,
   ITick,
@@ -845,6 +846,69 @@ suite("RestClient", () => {
 
     const symbol = await client.getSymbol({ symbolId });
     assert.deepStrictEqual(symbol, response);
+  });
+
+  test(".getSymbolSchedule()", async () => {
+    const version = "3.0";
+    const symbolId = "AAPL.NASDAQ";
+    const response: IInstrumentSchedule = {
+      intervals: [
+        {
+          period: { start: 1481533200000, end: 1481553000000 },
+          orderTypes: { property1: [{}], property2: [{}] },
+          name: "online",
+        },
+      ],
+    };
+
+    nock(url)
+      .get(`/md/${version}/symbols/${symbolId}/schedule`)
+      .delay(1)
+      .reply(200, response);
+
+    const schedule = await client.getSymbolSchedule({ version, symbolId });
+    assert.deepStrictEqual(schedule, response);
+  });
+
+  test(".getSymbolSchedule() (with no `version`)", async () => {
+    const symbolId = "AAPL.NASDAQ";
+    const response: IInstrumentSchedule = {
+      intervals: [
+        {
+          name: "MainSession",
+          period: { start: 1600695000000, end: 1600718400000 },
+          orderTypes: {
+            market: [
+              "day",
+              "immediate_or_cancel",
+              "good_till_cancel",
+              "at_the_close",
+              "at_the_opening",
+            ],
+            unknown: ["day"],
+            stop: ["day", "good_till_cancel"],
+            stop_limit: ["day", "good_till_cancel", "at_the_close"],
+            limit: [
+              "day",
+              "good_till_cancel",
+              "immediate_or_cancel",
+              "at_the_close",
+              "at_the_opening",
+            ],
+          },
+        },
+      ],
+    };
+    const types = true;
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/symbols/${symbolId}/schedule`)
+      .query({ types })
+      .delay(1)
+      .reply(200, response);
+
+    const schedule = await client.getSymbolSchedule({ types, symbolId });
+    assert.deepStrictEqual(schedule, response);
   });
 
   test(".getLastQuote()", async () => {
