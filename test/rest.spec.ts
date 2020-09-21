@@ -17,6 +17,7 @@ import {
   IIntruments,
   IInstrumentGroup,
   IInstrumentSchedule,
+  IInstrumentSpecification,
   ILastQuote,
   ICandle,
   ITick,
@@ -909,6 +910,48 @@ suite("RestClient", () => {
 
     const schedule = await client.getSymbolSchedule({ types, symbolId });
     assert.deepStrictEqual(schedule, response);
+  });
+
+  test(".getSymbolSpecification()", async () => {
+    const version = "3.0";
+    const symbolId = "AAPL.NASDAQ";
+    const response: IInstrumentSpecification = {
+      leverage: "0.2",
+      units: "Shares, Contracts",
+      lotSize: "1.0",
+      priceUnit: "1.0",
+      contractMultiplier: "1.0",
+    };
+
+    nock(url)
+      .get(`/md/${version}/symbols/${symbolId}/specification`)
+      .delay(1)
+      .reply(200, response);
+
+    const specification = await client.getSymbolSpecification({
+      version,
+      symbolId,
+    });
+    assert.deepStrictEqual(specification, response);
+  });
+
+  test(".getSymbolSpecification() (with no `version`)", async () => {
+    const symbolId = "AAPL.NASDAQ";
+    const response: IInstrumentSpecification = {
+      leverage: "0.2",
+      contractMultiplier: "1.0",
+      priceUnit: "1.0",
+      units: "Shares",
+      lotSize: "1.0",
+    };
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/symbols/${symbolId}/specification`)
+      .delay(1)
+      .reply(200, response);
+
+    const specification = await client.getSymbolSpecification({ symbolId });
+    assert.deepStrictEqual(specification, response);
   });
 
   test(".getLastQuote()", async () => {
