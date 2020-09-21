@@ -661,7 +661,7 @@ export interface IIntrumentInterval {
   /**
    * Available order types
    */
-  orderTypes?: Record<string, unknown[]>;
+  orderTypes?: Record<string, unknown[]> | null;
 }
 
 export interface IInstrumentSchedule {
