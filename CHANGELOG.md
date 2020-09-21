@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.25.0](https://github.com/b2broker/exante-node/compare/v1.24.0...v1.25.0) (2020-09-21)
+
+### Features
+
+- add the `getSymbolSchedule` method ([02cccaf](https://github.com/b2broker/exante-node/commit/02cccaf75942093ca87340837cd2702e67b4d36f))
+
+### Bug Fixes
+
+- **types:** the `orderTypes` can be `null` ([79158c6](https://github.com/b2broker/exante-node/commit/79158c639ebe5cf0db7d4d47521b6df4a854c764))
+
+### Performance Improvements
+
+- allow the boolean type in a query object ([65f53a5](https://github.com/b2broker/exante-node/commit/65f53a5aad304904eb4ae39218361e06dd8b9905))
+
 ## [1.24.0](https://github.com/b2broker/exante-node/compare/v1.23.0...v1.24.0) (2020-09-21)
 
 ### Features

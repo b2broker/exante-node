@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>exante - v1.24.0</title>
-    <meta name="description" content="Documentation for exante - v1.24.0" />
+    <title>exante - v1.25.0</title>
+    <meta name="description" content="Documentation for exante - v1.25.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
@@ -31,7 +31,7 @@
                 <li class="state loading">Preparing search index...</li>
                 <li class="state failure">The search index is not available</li>
               </ul>
-              <a href="index.html" class="title">exante - v1.24.0</a>
+              <a href="index.html" class="title">exante - v1.25.0</a>
             </div>
             <div class="table-cell" id="tsd-widgets">
               <div id="tsd-filter">
@@ -78,7 +78,7 @@
               <a href="globals.html">Globals</a>
             </li>
           </ul>
-          <h1>exante - v1.24.0</h1>
+          <h1>exante - v1.25.0</h1>
         </div>
       </div>
     </header>
@@ -316,6 +316,18 @@
             <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
 <span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
 <span class="hljs-keyword">const</span> symbol = <span class="hljs-keyword">await</span> client.getSymbol({ version, symbolId });</code></pre>
+            <ul>
+              <li>
+                <a
+                  href="https://api-live.exante.eu/api-docs/#operation/getSymbolSchedule"
+                  ><code>getSymbolSchedule</code></a
+                >
+              </li>
+            </ul>
+            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
+<span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
+<span class="hljs-keyword">const</span> types = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">const</span> schedule = <span class="hljs-keyword">await</span> client.getSymbolSchedule({ version, symbolId, types });</code></pre>
             <ul>
               <li>
                 <a
@@ -700,6 +712,20 @@
                 >
               </li>
               <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/iinstrumentschedule.html"
+                  class="tsd-kind-icon"
+                  >IInstrument<wbr />Schedule</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/iintrumentinterval.html"
+                  class="tsd-kind-icon"
+                  >IIntrument<wbr />Interval</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
                 <a href="interfaces/iintrumentv2.html" class="tsd-kind-icon"
                   >IIntrument<wbr />V2</a
                 >
@@ -810,6 +836,11 @@
               <li class="tsd-kind-interface">
                 <a href="interfaces/isymbolidoptions.html" class="tsd-kind-icon"
                   >ISymbol<wbr />IdOptions</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/isymbolschedule.html" class="tsd-kind-icon"
+                  >ISymbol<wbr />Schedule</a
                 >
               </li>
               <li class="tsd-kind-interface">

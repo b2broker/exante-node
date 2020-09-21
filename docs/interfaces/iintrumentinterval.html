@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>IInstrumentGroup | exante - v1.25.0</title>
+    <title>IIntrumentInterval | exante - v1.25.0</title>
     <meta name="description" content="Documentation for exante - v1.25.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="iinstrumentgroup.html">IInstrumentGroup</a>
+              <a href="iintrumentinterval.html">IIntrumentInterval</a>
             </li>
           </ul>
-          <h1>Interface IInstrumentGroup</h1>
+          <h1>Interface IIntrumentInterval</h1>
         </div>
       </div>
     </header>
@@ -92,7 +92,7 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <span class="target">IInstrumentGroup</span>
+                <span class="target">IIntrumentInterval</span>
               </li>
             </ul>
           </section>
@@ -105,28 +105,23 @@
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="iinstrumentgroup.html#exchange"
+                        href="iintrumentinterval.html#name"
                         class="tsd-kind-icon"
-                        >exchange</a
-                      >
-                    </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a
-                        href="iinstrumentgroup.html#group"
-                        class="tsd-kind-icon"
-                        >group</a
-                      >
-                    </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iinstrumentgroup.html#name" class="tsd-kind-icon"
                         >name</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="iinstrumentgroup.html#types"
+                        href="iintrumentinterval.html#ordertypes"
                         class="tsd-kind-icon"
-                        >types</a
+                        >order<wbr />Types</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="iintrumentinterval.html#period"
+                        class="tsd-kind-icon"
+                        >period</a
                       >
                     </li>
                   </ul>
@@ -139,40 +134,10 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="exchange" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> exchange
-              </h3>
+              <a name="name" class="tsd-anchor"></a>
+              <h3>name</h3>
               <div class="tsd-signature tsd-kind-icon">
-                exchange<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">undefined</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/cb36612/src/rest.ts#L628"
-                      >src/rest.ts:628</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Exchange id where the group is traded</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="group" class="tsd-anchor"></a>
-              <h3>group</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                group<span class="tsd-signature-symbol">:</span>
+                name<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
@@ -180,73 +145,114 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/cb36612/src/rest.ts#L640"
-                      >src/rest.ts:640</a
+                      href="https://github.com/b2broker/exante-node/blob/cb36612/src/rest.ts#L647"
+                      >src/rest.ts:647</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Group id</p>
+                  <p>Trading session name</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="name" class="tsd-anchor"></a>
+              <a name="ordertypes" class="tsd-anchor"></a>
               <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> name
+                <span class="tsd-flag ts-flagOptional">Optional</span>
+                order<wbr />Types
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                name<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">undefined</span
+                order<wbr />Types<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">Record</span
+                ><span class="tsd-signature-symbol">&lt;</span
+                ><span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">, </span
+                ><span class="tsd-signature-type">unknown</span
+                ><span class="tsd-signature-symbol">[]</span
+                ><span class="tsd-signature-symbol">&gt;</span
                 ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">string</span>
+                ><span class="tsd-signature-type">null</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/cb36612/src/rest.ts#L636"
-                      >src/rest.ts:636</a
+                      href="https://github.com/b2broker/exante-node/blob/cb36612/src/rest.ts#L664"
+                      >src/rest.ts:664</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Group title</p>
+                  <p>Available order types</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="types" class="tsd-anchor"></a>
-              <h3>types</h3>
+              <a name="period" class="tsd-anchor"></a>
+              <h3>period</h3>
               <div class="tsd-signature tsd-kind-icon">
-                types<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span
-                ><span class="tsd-signature-symbol">[]</span>
+                period<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-symbol">{ </span>end<span
+                  class="tsd-signature-symbol"
+                  >: </span
+                ><span class="tsd-signature-type">number</span
+                ><span class="tsd-signature-symbol">; </span>start<span
+                  class="tsd-signature-symbol"
+                  >: </span
+                ><span class="tsd-signature-type">number</span
+                ><span class="tsd-signature-symbol"> }</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/cb36612/src/rest.ts#L632"
-                      >src/rest.ts:632</a
+                      href="https://github.com/b2broker/exante-node/blob/cb36612/src/rest.ts#L651"
+                      >src/rest.ts:651</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>List of symbol types in the group</p>
+                  <p>Trading session interval</p>
                 </div>
+              </div>
+              <div class="tsd-type-declaration">
+                <h4>Type declaration</h4>
+                <ul class="tsd-parameters">
+                  <li class="tsd-parameter">
+                    <h5>
+                      end<span class="tsd-signature-symbol">: </span
+                      ><span class="tsd-signature-type">number</span>
+                    </h5>
+                    <div class="tsd-comment tsd-typography">
+                      <div class="lead">
+                        <p>Session end timestamp in ms</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="tsd-parameter">
+                    <h5>
+                      start<span class="tsd-signature-symbol">: </span
+                      ><span class="tsd-signature-type">number</span>
+                    </h5>
+                    <div class="tsd-comment tsd-typography">
+                      <div class="lead">
+                        <p>Session start timestamp in ms</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </section>
           </section>
@@ -263,30 +269,27 @@
             <ul class="before-current"></ul>
             <ul class="current">
               <li class="current tsd-kind-interface">
-                <a href="iinstrumentgroup.html" class="tsd-kind-icon"
-                  >IInstrument<wbr />Group</a
+                <a href="iintrumentinterval.html" class="tsd-kind-icon"
+                  >IIntrument<wbr />Interval</a
                 >
                 <ul>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a
-                      href="iinstrumentgroup.html#exchange"
-                      class="tsd-kind-icon"
-                      >exchange</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iinstrumentgroup.html#group" class="tsd-kind-icon"
-                      >group</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iinstrumentgroup.html#name" class="tsd-kind-icon"
+                    <a href="iintrumentinterval.html#name" class="tsd-kind-icon"
                       >name</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iinstrumentgroup.html#types" class="tsd-kind-icon"
-                      >types</a
+                    <a
+                      href="iintrumentinterval.html#ordertypes"
+                      class="tsd-kind-icon"
+                      >order<wbr />Types</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="iintrumentinterval.html#period"
+                      class="tsd-kind-icon"
+                      >period</a
                     >
                   </li>
                 </ul>

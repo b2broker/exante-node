@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>IInstrumentGroup | exante - v1.25.0</title>
+    <title>IInstrumentSchedule | exante - v1.25.0</title>
     <meta name="description" content="Documentation for exante - v1.25.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="iinstrumentgroup.html">IInstrumentGroup</a>
+              <a href="iinstrumentschedule.html">IInstrumentSchedule</a>
             </li>
           </ul>
-          <h1>Interface IInstrumentGroup</h1>
+          <h1>Interface IInstrumentSchedule</h1>
         </div>
       </div>
     </header>
@@ -92,7 +92,7 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <span class="target">IInstrumentGroup</span>
+                <span class="target">IInstrumentSchedule</span>
               </li>
             </ul>
           </section>
@@ -105,28 +105,9 @@
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="iinstrumentgroup.html#exchange"
+                        href="iinstrumentschedule.html#intervals"
                         class="tsd-kind-icon"
-                        >exchange</a
-                      >
-                    </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a
-                        href="iinstrumentgroup.html#group"
-                        class="tsd-kind-icon"
-                        >group</a
-                      >
-                    </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iinstrumentgroup.html#name" class="tsd-kind-icon"
-                        >name</a
-                      >
-                    </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a
-                        href="iinstrumentgroup.html#types"
-                        class="tsd-kind-icon"
-                        >types</a
+                        >intervals</a
                       >
                     </li>
                   </ul>
@@ -139,97 +120,12 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="exchange" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> exchange
-              </h3>
+              <a name="intervals" class="tsd-anchor"></a>
+              <h3>intervals</h3>
               <div class="tsd-signature tsd-kind-icon">
-                exchange<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">undefined</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/cb36612/src/rest.ts#L628"
-                      >src/rest.ts:628</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Exchange id where the group is traded</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="group" class="tsd-anchor"></a>
-              <h3>group</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                group<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/cb36612/src/rest.ts#L640"
-                      >src/rest.ts:640</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Group id</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="name" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> name
-              </h3>
-              <div class="tsd-signature tsd-kind-icon">
-                name<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">undefined</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/cb36612/src/rest.ts#L636"
-                      >src/rest.ts:636</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Group title</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="types" class="tsd-anchor"></a>
-              <h3>types</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                types<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span
+                intervals<span class="tsd-signature-symbol">:</span>
+                <a href="iintrumentinterval.html" class="tsd-signature-type"
+                  >IIntrumentInterval</a
                 ><span class="tsd-signature-symbol">[]</span>
               </div>
               <aside class="tsd-sources">
@@ -237,15 +133,15 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/cb36612/src/rest.ts#L632"
-                      >src/rest.ts:632</a
+                      href="https://github.com/b2broker/exante-node/blob/cb36612/src/rest.ts#L671"
+                      >src/rest.ts:671</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>List of symbol types in the group</p>
+                  <p>Instrument schedule intervals</p>
                 </div>
               </div>
             </section>
@@ -263,30 +159,15 @@
             <ul class="before-current"></ul>
             <ul class="current">
               <li class="current tsd-kind-interface">
-                <a href="iinstrumentgroup.html" class="tsd-kind-icon"
-                  >IInstrument<wbr />Group</a
+                <a href="iinstrumentschedule.html" class="tsd-kind-icon"
+                  >IInstrument<wbr />Schedule</a
                 >
                 <ul>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="iinstrumentgroup.html#exchange"
+                      href="iinstrumentschedule.html#intervals"
                       class="tsd-kind-icon"
-                      >exchange</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iinstrumentgroup.html#group" class="tsd-kind-icon"
-                      >group</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iinstrumentgroup.html#name" class="tsd-kind-icon"
-                      >name</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iinstrumentgroup.html#types" class="tsd-kind-icon"
-                      >types</a
+                      >intervals</a
                     >
                   </li>
                 </ul>
