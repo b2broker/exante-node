@@ -103,6 +103,14 @@ const symbol = await client.getGroupNearestSymbol({ version, groupId });
 const symbols = await client.getSymbols();
 ```
 
+- [`getSymbol`](https://api-live.exante.eu/api-docs/#operation/getSymbol)
+
+```typescript
+const version = "3.0";
+const symbolId = "AAPL.NASDAQ";
+const symbol = await client.getSymbol({ version, symbolId });
+```
+
 - [`getLastQuote`](https://api-live.exante.eu/api-docs/#operation/getQuoteLast)
 
 ```typescript

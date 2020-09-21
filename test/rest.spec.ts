@@ -781,6 +781,72 @@ suite("RestClient", () => {
     assert.deepStrictEqual(symbols, response);
   });
 
+  test(".getSymbol()", async () => {
+    const version = "3.0";
+    const symbolId = "AAPL.NASDAQ";
+    const response: IIntrument = {
+      ticker: "AAPL",
+      mpi: "0.01",
+      id: "AAPL.NASDAQ",
+      country: "US",
+      symbolType: "Stock",
+      exchange: "NASDAQ",
+      type: "Stock",
+      expiration: 1503619200000,
+      minPriceIncrement: "0.01",
+      currency: "0.01",
+      i18n: {
+        property1: "string",
+        property2: "string",
+      },
+      optionData: {
+        right: "PUT",
+        strikePrice: "30.5",
+        optionRight: "PUT",
+        optionGroupId: "OZL.CBOT.U2017.P*",
+      },
+      group: "AAPL",
+      name: "Apple",
+      symbolId: "AAPL.NASDAQ",
+      description: "Apple",
+    };
+
+    nock(url)
+      .get(`/md/${version}/symbols/${symbolId}`)
+      .delay(1)
+      .reply(200, response);
+
+    const symbol = await client.getSymbol({ version, symbolId });
+    assert.deepStrictEqual(symbol, response);
+  });
+
+  test(".getSymbol()  (with no `version`)", async () => {
+    const symbolId = "AAPL.NASDAQ";
+    const response: IIntrument = {
+      optionData: null,
+      i18n: {},
+      name: "Apple",
+      description: "Apple Inc. - Common Stock",
+      country: "US",
+      exchange: "NASDAQ",
+      id: "AAPL.NASDAQ",
+      currency: "USD",
+      mpi: "0.01",
+      type: "STOCK",
+      ticker: "AAPL",
+      expiration: null,
+      group: null,
+    };
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/symbols/${symbolId}`)
+      .delay(1)
+      .reply(200, response);
+
+    const symbol = await client.getSymbol({ symbolId });
+    assert.deepStrictEqual(symbol, response);
+  });
+
   test(".getLastQuote()", async () => {
     const version = "3.0";
     const level = "market_depth" as const;
