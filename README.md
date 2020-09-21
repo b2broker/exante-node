@@ -97,6 +97,12 @@ const groupId = "NG";
 const symbol = await client.getGroupNearestSymbol({ version, groupId });
 ```
 
+- [`getSymbols`](https://api-live.exante.eu/api-docs/#operation/getSymbols)
+
+```typescript
+const symbols = await client.getSymbols();
+```
+
 - [`getLastQuote`](https://api-live.exante.eu/api-docs/#operation/getQuoteLast)
 
 ```typescript
