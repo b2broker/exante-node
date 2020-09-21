@@ -720,6 +720,67 @@ suite("RestClient", () => {
     assert.deepStrictEqual(symbol, response);
   });
 
+  test(".getSymbols()", async () => {
+    const version = "3.0";
+    const response: IIntruments = [
+      {
+        ticker: "AAPL",
+        mpi: "0.01",
+        id: "AAPL.NASDAQ",
+        country: "US",
+        exchange: "NASDAQ",
+        type: "Stock",
+        expiration: 1503619200000,
+        currency: "0.01",
+        i18n: {
+          property1: "string",
+          property2: "string",
+        },
+        optionData: {
+          right: "PUT",
+          strikePrice: "30.5",
+          optionGroupId: "OZL.CBOT.U2017.P*",
+        },
+        group: "AAPL",
+        name: "Apple",
+        description: "Apple",
+      },
+    ];
+
+    nock(url).get(`/md/${version}/symbols`).delay(1).reply(200, response);
+
+    const symbols = await client.getSymbols({ version });
+    assert.deepStrictEqual(symbols, response);
+  });
+
+  test(".getSymbols() (with no `version`)", async () => {
+    const response: IIntruments = [
+      {
+        optionData: null,
+        i18n: {},
+        name: "BASGR 2.5 1/18/2022",
+        description: "BASGR 2.5 1/18/2022, BASF SE, Annually",
+        country: "DE",
+        exchange: "USD",
+        id: "XS1551001768.USD",
+        currency: "USD",
+        mpi: "0.001",
+        type: "BOND",
+        ticker: "XS1551001768",
+        expiration: 1642550399000,
+        group: null,
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/symbols`)
+      .delay(1)
+      .reply(200, response);
+
+    const symbols = await client.getSymbols();
+    assert.deepStrictEqual(symbols, response);
+  });
+
   test(".getLastQuote()", async () => {
     const version = "3.0";
     const level = "market_depth" as const;
