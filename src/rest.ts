@@ -1152,6 +1152,17 @@ export class RestClient {
   }
 
   /**
+   * Get list of instruments available for authorized user
+   */
+  public async getSymbols({
+    version = DefaultAPIVersion,
+  }: IVersion = {}): Promise<IIntruments> {
+    const url = new URL(`/md/${version}/symbols`, this.url);
+    const groups = (await this.fetch(url)) as IIntruments;
+    return groups;
+  }
+
+  /**
    * Get the last quote
    */
   public async getLastQuote({
