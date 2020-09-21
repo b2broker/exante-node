@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.24.0](https://github.com/b2broker/exante-node/compare/v1.23.0...v1.24.0) (2020-09-21)
+
+### Features
+
+- add the `getSymbol` method ([08bdb45](https://github.com/b2broker/exante-node/commit/08bdb4548561cab8e34722b2f81069547ee37d21))
+
 ## [1.23.0](https://github.com/b2broker/exante-node/compare/v1.22.0...v1.23.0) (2020-09-21)
 
 ### Features
