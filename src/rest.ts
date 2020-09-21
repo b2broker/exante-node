@@ -1418,7 +1418,7 @@ export class RestClient {
    */
   public static setQuery(
     url: URL,
-    query: Record<string, string | number | undefined>
+    query: Record<string, string | number | boolean | undefined>
   ): void {
     for (const key in query) {
       const value = query[key];
