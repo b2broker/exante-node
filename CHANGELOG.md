@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.27.0](https://github.com/b2broker/exante-node/compare/v1.26.0...v1.27.0) (2020-09-22)
+
+### Features
+
+- add the `getTypes` method ([d2ccec7](https://github.com/b2broker/exante-node/commit/d2ccec7fd8af1485de305cf5beee026c88370b50))
+
 ## [1.26.0](https://github.com/b2broker/exante-node/compare/v1.25.0...v1.26.0) (2020-09-22)
 
 ### Features
