@@ -1338,6 +1338,20 @@ export class RestClient {
   }
 
   /**
+   * Get the trades stream for the specified financial instrument
+   */
+  public async getQuoteStream({
+    version = DefaultAPIVersion,
+    symbolIds,
+    ...query
+  }: ILastQuoteOptions): Promise<JSONStream> {
+    const url = new URL(`/md/${version}/feed/${symbolIds}`, this.url);
+    RestClient.setQuery(url, { ...query });
+    const stream = await this.fetchStream(url);
+    return stream;
+  }
+
+  /**
    * Get the list of OHLC candles
    */
   public async getCandles({
