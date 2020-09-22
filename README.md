@@ -134,6 +134,14 @@ const version = "3.0";
 const types = await client.getTypes({ version });
 ```
 
+- [`getTypeSymbols`](https://api-live.exante.eu/api-docs/#operation/getTypeSymbols)
+
+```typescript
+const version = "2.0";
+const symbolType = "OPTION";
+const symbols = await client.getTypeSymbols({ version, symbolType });
+```
+
 - [`getLastQuote`](https://api-live.exante.eu/api-docs/#operation/getQuoteLast)
 
 ```typescript

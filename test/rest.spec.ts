@@ -987,6 +987,72 @@ suite("RestClient", () => {
     assert.deepStrictEqual(types, response);
   });
 
+  test(".getTypeSymbols()", async () => {
+    const version = "3.0";
+    const symbolType = "Stock";
+    const response: IIntruments = [
+      {
+        ticker: "AAPL",
+        mpi: "0.01",
+        id: "AAPL.NASDAQ",
+        country: "US",
+        exchange: "NASDAQ",
+        type: "Stock",
+        expiration: 1503619200000,
+        currency: "0.01",
+        i18n: {
+          property1: "string",
+          property2: "string",
+        },
+        optionData: {
+          right: "PUT",
+          strikePrice: "30.5",
+          optionGroupId: "OZL.CBOT.U2017.P*",
+        },
+        group: "AAPL",
+        name: "Apple",
+        description: "Apple",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${version}/types/${symbolType}`)
+      .delay(1)
+      .reply(200, response);
+
+    const symbols = await client.getTypeSymbols({ version, symbolType });
+    assert.deepStrictEqual(symbols, response);
+  });
+
+  test(".getTypeSymbols()  (with no `version`)", async () => {
+    const symbolType = "FUTURE";
+    const response: IIntruments = [
+      {
+        optionData: null,
+        i18n: {},
+        name: "CAD/USD",
+        description: "Canadian Dollar Futures Jun 2025",
+        country: "US",
+        exchange: "CME",
+        id: "6C.CME.M2025",
+        currency: "USD",
+        mpi: "0.00005",
+        type: "FUTURE",
+        ticker: "6C",
+        expiration: 1750169760000,
+        group: "6C",
+      },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/types/${symbolType}`)
+      .delay(1)
+      .reply(200, response);
+
+    const symbols = await client.getTypeSymbols({ symbolType });
+    assert.deepStrictEqual(symbols, response);
+  });
+
   test(".getLastQuote()", async () => {
     const version = "3.0";
     const level = "market_depth" as const;
