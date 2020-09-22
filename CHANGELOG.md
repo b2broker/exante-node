@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.29.0](https://github.com/b2broker/exante-node/compare/v1.28.0...v1.29.0) (2020-09-22)
+
+### Features
+
+- add the `getTradesStream` method ([fcfc701](https://github.com/b2broker/exante-node/commit/fcfc70131e2c1b5783135d7bb9299db9788834bf))
+
 ## [1.28.0](https://github.com/b2broker/exante-node/compare/v1.27.0...v1.28.0) (2020-09-22)
 
 ### Features

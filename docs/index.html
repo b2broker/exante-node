@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>exante - v1.28.0</title>
-    <meta name="description" content="Documentation for exante - v1.28.0" />
+    <title>exante - v1.29.0</title>
+    <meta name="description" content="Documentation for exante - v1.29.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
@@ -31,7 +31,7 @@
                 <li class="state loading">Preparing search index...</li>
                 <li class="state failure">The search index is not available</li>
               </ul>
-              <a href="index.html" class="title">exante - v1.28.0</a>
+              <a href="index.html" class="title">exante - v1.29.0</a>
             </div>
             <div class="table-cell" id="tsd-widgets">
               <div id="tsd-filter">
@@ -78,7 +78,7 @@
               <a href="globals.html">Globals</a>
             </li>
           </ul>
-          <h1>exante - v1.28.0</h1>
+          <h1>exante - v1.29.0</h1>
         </div>
       </div>
     </header>
@@ -359,6 +359,19 @@
             <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
 <span class="hljs-keyword">const</span> symbolType = <span class="hljs-string">&quot;OPTION&quot;</span>;
 <span class="hljs-keyword">const</span> symbols = <span class="hljs-keyword">await</span> client.getTypeSymbols({ version, symbolType });</code></pre>
+            <ul>
+              <li>
+                <a
+                  href="https://api-live.exante.eu/api-docs/#operation/getTradesStream"
+                  ><code>getTradesStream</code></a
+                >
+              </li>
+            </ul>
+            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> symbolIds = [<span class="hljs-string">&quot;MSFT.NASDAQ&quot;</span>, <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>, <span class="hljs-string">&quot;GAZP.MICEX&quot;</span>];
+<span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">await</span> client.getTradesStream({ symbolIds });
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">await</span> (<span class="hljs-keyword">const</span> update <span class="hljs-keyword">of</span> stream) {
+  <span class="hljs-built_in">console</span>.log(update);
+}</code></pre>
             <ul>
               <li>
                 <a
@@ -884,6 +897,11 @@
               <li class="tsd-kind-interface">
                 <a href="interfaces/isymbolidtype.html" class="tsd-kind-icon"
                   >ISymbol<wbr />IdType</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a href="interfaces/isymbolids.html" class="tsd-kind-icon"
+                  >ISymbol<wbr />Ids</a
                 >
               </li>
               <li class="tsd-kind-interface">
