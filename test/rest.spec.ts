@@ -18,6 +18,7 @@ import {
   IInstrumentGroup,
   IInstrumentSchedule,
   IInstrumentSpecification,
+  IInstrumentType,
   ILastQuote,
   ICandle,
   ITick,
@@ -952,6 +953,38 @@ suite("RestClient", () => {
 
     const specification = await client.getSymbolSpecification({ symbolId });
     assert.deepStrictEqual(specification, response);
+  });
+
+  test(".getTypes()", async () => {
+    const version = "3.0";
+    const response: IInstrumentType[] = [{ id: "FUTURE" }];
+
+    nock(url).get(`/md/${version}/types`).delay(1).reply(200, response);
+
+    const types = await client.getTypes({ version });
+    assert.deepStrictEqual(types, response);
+  });
+
+  test(".getTypes() (with no `version`)", async () => {
+    const response: IInstrumentType[] = [
+      { id: "CALENDAR_SPREAD" },
+      { id: "CURRENCY" },
+      { id: "FX_SPOT" },
+      { id: "CFD" },
+      { id: "FUND" },
+      { id: "STOCK" },
+      { id: "FUTURE" },
+      { id: "OPTION" },
+      { id: "BOND" },
+    ];
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/types`)
+      .delay(1)
+      .reply(200, response);
+
+    const types = await client.getTypes();
+    assert.deepStrictEqual(types, response);
   });
 
   test(".getLastQuote()", async () => {
