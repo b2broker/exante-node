@@ -127,6 +127,13 @@ const symbolId = "AAPL.NASDAQ";
 const specification = await client.getSymbolSpecification({ symbolId });
 ```
 
+- [`getTypes`](https://api-live.exante.eu/api-docs/#operation/getTypes)
+
+```typescript
+const version = "3.0";
+const types = await client.getTypes({ version });
+```
+
 - [`getLastQuote`](https://api-live.exante.eu/api-docs/#operation/getQuoteLast)
 
 ```typescript
