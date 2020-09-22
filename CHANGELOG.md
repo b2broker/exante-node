@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.30.0](https://github.com/b2broker/exante-node/compare/v1.29.0...v1.30.0) (2020-09-22)
+
+### Features
+
+- add the `getQuoteStream` method ([4885346](https://github.com/b2broker/exante-node/commit/488534616e99bfd5244ffc4def33b95df038c2c5))
+
 ## [1.29.0](https://github.com/b2broker/exante-node/compare/v1.28.0...v1.29.0) (2020-09-22)
 
 ### Features
