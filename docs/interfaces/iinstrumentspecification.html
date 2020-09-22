@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>IExanteOptions | exante - v1.26.0</title>
+    <title>IInstrumentSpecification | exante - v1.26.0</title>
     <meta name="description" content="Documentation for exante - v1.26.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -78,10 +78,12 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="iexanteoptions.html">IExanteOptions</a>
+              <a href="iinstrumentspecification.html"
+                >IInstrumentSpecification</a
+              >
             </li>
           </ul>
-          <h1>Interface IExanteOptions</h1>
+          <h1>Interface IInstrumentSpecification</h1>
         </div>
       </div>
     </header>
@@ -92,7 +94,7 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <span class="target">IExanteOptions</span>
+                <span class="target">IInstrumentSpecification</span>
               </li>
             </ul>
           </section>
@@ -104,32 +106,38 @@
                   <h3>Properties</h3>
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iexanteoptions.html#app_id" class="tsd-kind-icon"
-                        >app_<wbr />id</a
+                      <a
+                        href="iinstrumentspecification.html#contractmultiplier"
+                        class="tsd-kind-icon"
+                        >contract<wbr />Multiplier</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="iexanteoptions.html#client_id"
+                        href="iinstrumentspecification.html#leverage"
                         class="tsd-kind-icon"
-                        >client_<wbr />id</a
-                      >
-                    </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iexanteoptions.html#demo" class="tsd-kind-icon"
-                        >demo</a
+                        >leverage</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="iexanteoptions.html#shared_key"
+                        href="iinstrumentspecification.html#lotsize"
                         class="tsd-kind-icon"
-                        >shared_<wbr />key</a
+                        >lot<wbr />Size</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iexanteoptions.html#url" class="tsd-kind-icon"
-                        >url</a
+                      <a
+                        href="iinstrumentspecification.html#priceunit"
+                        class="tsd-kind-icon"
+                        >price<wbr />Unit</a
+                      >
+                    </li>
+                    <li class="tsd-kind-property tsd-parent-kind-interface">
+                      <a
+                        href="iinstrumentspecification.html#units"
+                        class="tsd-kind-icon"
+                        >units</a
                       >
                     </li>
                   </ul>
@@ -142,10 +150,12 @@
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="app_id" class="tsd-anchor"></a>
-              <h3>app_<wbr />id</h3>
+              <a name="contractmultiplier" class="tsd-anchor"></a>
+              <h3>contract<wbr />Multiplier</h3>
               <div class="tsd-signature tsd-kind-icon">
-                app_<wbr />id<span class="tsd-signature-symbol">:</span>
+                contract<wbr />Multiplier<span class="tsd-signature-symbol"
+                  >:</span
+                >
                 <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
@@ -153,25 +163,25 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/e62ebd5/src/rest.ts#L19"
-                      >src/rest.ts:19</a
+                      href="https://github.com/b2broker/exante-node/blob/e62ebd5/src/rest.ts#L682"
+                      >src/rest.ts:682</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Application id</p>
+                  <p>Instrument contract multiplier</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="client_id" class="tsd-anchor"></a>
-              <h3>client_<wbr />id</h3>
+              <a name="leverage" class="tsd-anchor"></a>
+              <h3>leverage</h3>
               <div class="tsd-signature tsd-kind-icon">
-                client_<wbr />id<span class="tsd-signature-symbol">:</span>
+                leverage<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span>
               </div>
               <aside class="tsd-sources">
@@ -179,108 +189,97 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/e62ebd5/src/rest.ts#L15"
-                      >src/rest.ts:15</a
+                      href="https://github.com/b2broker/exante-node/blob/e62ebd5/src/rest.ts#L678"
+                      >src/rest.ts:678</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>Client id</p>
+                  <p>Instrument leverage rate value</p>
                 </div>
               </div>
             </section>
             <section
               class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
             >
-              <a name="demo" class="tsd-anchor"></a>
+              <a name="lotsize" class="tsd-anchor"></a>
+              <h3>lot<wbr />Size</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                lot<wbr />Size<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/e62ebd5/src/rest.ts#L694"
+                      >src/rest.ts:694</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Instrument lot size value</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="priceunit" class="tsd-anchor"></a>
+              <h3>price<wbr />Unit</h3>
+              <div class="tsd-signature tsd-kind-icon">
+                price<wbr />Unit<span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/b2broker/exante-node/blob/e62ebd5/src/rest.ts#L686"
+                      >src/rest.ts:686</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+              <div class="tsd-comment tsd-typography">
+                <div class="lead">
+                  <p>Instrument price unit</p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+            >
+              <a name="units" class="tsd-anchor"></a>
               <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> demo
+                <span class="tsd-flag ts-flagOptional">Optional</span> units
               </h3>
               <div class="tsd-signature tsd-kind-icon">
-                demo<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">undefined</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">false</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">true</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/e62ebd5/src/rest.ts#L27"
-                      >src/rest.ts:27</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Use demo endpoint</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="shared_key" class="tsd-anchor"></a>
-              <h3>shared_<wbr />key</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                shared_<wbr />key<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/e62ebd5/src/rest.ts#L23"
-                      >src/rest.ts:23</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Shared secret</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="url" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagOptional">Optional</span> url
-              </h3>
-              <div class="tsd-signature tsd-kind-icon">
-                url<span class="tsd-signature-symbol">:</span>
+                units<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span
                 ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">URL</span>
+                ><span class="tsd-signature-type">null</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/e62ebd5/src/rest.ts#L31"
-                      >src/rest.ts:31</a
+                      href="https://github.com/b2broker/exante-node/blob/e62ebd5/src/rest.ts#L690"
+                      >src/rest.ts:690</a
                     >
                   </li>
                 </ul>
               </aside>
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
-                  <p>
-                    Base url - e.g.,
-                    <a href="https://api-live.exante.eu/"
-                      >https://api-live.exante.eu/</a
-                    >
-                  </p>
+                  <p>Instrument units name</p>
                 </div>
               </div>
             </section>
@@ -298,37 +297,43 @@
             <ul class="before-current"></ul>
             <ul class="current">
               <li class="current tsd-kind-interface">
-                <a href="iexanteoptions.html" class="tsd-kind-icon"
-                  >IExante<wbr />Options</a
+                <a href="iinstrumentspecification.html" class="tsd-kind-icon"
+                  >IInstrument<wbr />Specification</a
                 >
                 <ul>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iexanteoptions.html#app_id" class="tsd-kind-icon"
-                      >app_<wbr />id</a
+                    <a
+                      href="iinstrumentspecification.html#contractmultiplier"
+                      class="tsd-kind-icon"
+                      >contract<wbr />Multiplier</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="iexanteoptions.html#client_id"
+                      href="iinstrumentspecification.html#leverage"
                       class="tsd-kind-icon"
-                      >client_<wbr />id</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iexanteoptions.html#demo" class="tsd-kind-icon"
-                      >demo</a
+                      >leverage</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="iexanteoptions.html#shared_key"
+                      href="iinstrumentspecification.html#lotsize"
                       class="tsd-kind-icon"
-                      >shared_<wbr />key</a
+                      >lot<wbr />Size</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iexanteoptions.html#url" class="tsd-kind-icon"
-                      >url</a
+                    <a
+                      href="iinstrumentspecification.html#priceunit"
+                      class="tsd-kind-icon"
+                      >price<wbr />Unit</a
+                    >
+                  </li>
+                  <li class="tsd-kind-property tsd-parent-kind-interface">
+                    <a
+                      href="iinstrumentspecification.html#units"
+                      class="tsd-kind-icon"
+                      >units</a
                     >
                   </li>
                 </ul>
