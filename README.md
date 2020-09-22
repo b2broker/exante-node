@@ -152,6 +152,18 @@ for await (const update of stream) {
 }
 ```
 
+- [`getQuoteStream`](https://api-live.exante.eu/api-docs/#operation/getQuoteStream)
+
+```typescript
+const version = "3.0";
+const symbolIds = ["MSFT.NASDAQ", "AAPL.NASDAQ", "GAZP.MICEX"];
+const level = "market_depth";
+const stream = await client.getQuoteStream({ version, symbolIds, level });
+for await (const update of stream) {
+  console.log(update);
+}
+```
+
 - [`getLastQuote`](https://api-live.exante.eu/api-docs/#operation/getQuoteLast)
 
 ```typescript
