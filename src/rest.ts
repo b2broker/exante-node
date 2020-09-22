@@ -671,6 +671,29 @@ export interface IInstrumentSchedule {
   intervals: IIntrumentInterval[];
 }
 
+export interface IInstrumentSpecification {
+  /**
+   * Instrument leverage rate value
+   */
+  leverage: string;
+  /**
+   * Instrument contract multiplier
+   */
+  contractMultiplier: string;
+  /**
+   * Instrument price unit
+   */
+  priceUnit: string;
+  /**
+   * Instrument units name
+   */
+  units?: string | null;
+  /**
+   * Instrument lot size value
+   */
+  lotSize: string;
+}
+
 export interface IQuoteSideV2 {
   /**
    * Quantity value
@@ -1232,6 +1255,19 @@ export class RestClient {
     RestClient.setQuery(url, { types });
     const schedule = (await this.fetch(url)) as IInstrumentSchedule;
     return schedule;
+  }
+
+  /**
+   * Get additional parameters for requested instrument
+   */
+  public async getSymbolSpecification({
+    version = DefaultAPIVersion,
+    symbolId,
+  }: ISymbolId): Promise<IInstrumentSpecification> {
+    const path = `/md/${version}/symbols/${symbolId}/specification`;
+    const url = new URL(path, this.url);
+    const instrument = (await this.fetch(url)) as IInstrumentSpecification;
+    return instrument;
   }
 
   /**

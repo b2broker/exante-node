@@ -120,6 +120,13 @@ const types = true;
 const schedule = await client.getSymbolSchedule({ version, symbolId, types });
 ```
 
+- [`getSymbolSpecification`](https://api-live.exante.eu/api-docs/#operation/getSymbolSpecification)
+
+```typescript
+const symbolId = "AAPL.NASDAQ";
+const specification = await client.getSymbolSpecification({ symbolId });
+```
+
 - [`getLastQuote`](https://api-live.exante.eu/api-docs/#operation/getQuoteLast)
 
 ```typescript
