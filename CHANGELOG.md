@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.28.0](https://github.com/b2broker/exante-node/compare/v1.27.0...v1.28.0) (2020-09-22)
+
+### Features
+
+- add the `getTypeSymbols` method ([03b7ca3](https://github.com/b2broker/exante-node/commit/03b7ca32381dc85ce201d98037d563a5734e0d24))
+
 ## [1.27.0](https://github.com/b2broker/exante-node/compare/v1.26.0...v1.27.0) (2020-09-22)
 
 ### Features
