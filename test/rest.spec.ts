@@ -1053,6 +1053,46 @@ suite("RestClient", () => {
     assert.deepStrictEqual(symbols, response);
   });
 
+  test(".getTradesStream()", async () => {
+    const symbolIds = ["MSFT.NASDAQ", "AAPL.NASDAQ", "GAZP.MICEX"];
+    const trade1 = {
+      timestamp: 1600767324644,
+      symbolId: "MSFT.NASDAQ",
+      price: "204.52",
+      size: "106.0",
+    };
+    const trade2 = {
+      timestamp: 1600767396670,
+      symbolId: "GAZP.MICEX",
+      price: "179.70",
+      size: "1490.0",
+    };
+
+    const trades = [trade1, trade2];
+    const heartbeat = { event: "heartbeat" };
+    nock(url)
+      .get(`/md/3.0/feed/trades/${symbolIds}`)
+      .delay(1)
+      .reply(200, () => Readable.from(StreamMessages([...trades, heartbeat])));
+
+    const stream = await client.getTradesStream({ symbolIds });
+
+    assert.ok(stream instanceof JSONStream);
+
+    await new Promise((resolve) => {
+      stream.once("data", (data) => {
+        assert.deepStrictEqual(data, trade1);
+        stream.once("data", (data) => {
+          assert.deepStrictEqual(data, trade2);
+          stream.once("data", (data) => {
+            assert.deepStrictEqual(data, heartbeat);
+            stream.once("end", resolve);
+          });
+        });
+      });
+    });
+  });
+
   test(".getLastQuote()", async () => {
     const version = "3.0";
     const level = "market_depth" as const;
