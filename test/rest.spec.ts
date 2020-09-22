@@ -823,7 +823,7 @@ suite("RestClient", () => {
     assert.deepStrictEqual(symbol, response);
   });
 
-  test(".getSymbol()  (with no `version`)", async () => {
+  test(".getSymbol() (with no `version`)", async () => {
     const symbolId = "AAPL.NASDAQ";
     const response: IIntrument = {
       optionData: null,
@@ -1024,7 +1024,7 @@ suite("RestClient", () => {
     assert.deepStrictEqual(symbols, response);
   });
 
-  test(".getTypeSymbols()  (with no `version`)", async () => {
+  test(".getTypeSymbols() (with no `version`)", async () => {
     const symbolType = "FUTURE";
     const response: IIntruments = [
       {
@@ -1084,6 +1084,78 @@ suite("RestClient", () => {
         assert.deepStrictEqual(data, trade1);
         stream.once("data", (data) => {
           assert.deepStrictEqual(data, trade2);
+          stream.once("data", (data) => {
+            assert.deepStrictEqual(data, heartbeat);
+            stream.once("end", resolve);
+          });
+        });
+      });
+    });
+  });
+
+  test(".getQuoteStream()", async () => {
+    const version = "3.0";
+    const symbolIds = "AAPL.NASDAQ";
+    const level = "best_price";
+
+    const quote = {
+      timestamp: 1550833075530,
+      bid: [{ price: "101.02", value: "101.02", size: "100" }],
+      ask: [{ price: "101.02", value: "101.02", size: "100" }],
+      symbolId: "AAPL.NASDAQ",
+    };
+    nock(url)
+      .get(`/md/${version}/feed/${symbolIds}`)
+      .query({ level })
+      .delay(1)
+      .reply(200, () => Readable.from(StreamMessages([quote])));
+
+    const stream = await client.getQuoteStream({ version, symbolIds, level });
+
+    assert.ok(stream instanceof JSONStream);
+
+    await new Promise((resolve) => {
+      stream.once("data", (data) => {
+        assert.deepStrictEqual(data, quote);
+        stream.once("end", resolve);
+      });
+    });
+  });
+
+  test(".getQuoteStream() (with no `version`)", async () => {
+    const symbolIds = ["MSFT.NASDAQ", "AAPL.NASDAQ", "GAZP.MICEX"];
+    const level = "market_depth";
+
+    const quote1 = {
+      timestamp: 1600767324644,
+      symbolId: "MSFT.NASDAQ",
+      price: "204.52",
+      size: "106.0",
+    };
+    const quote2 = {
+      timestamp: 1600767396670,
+      symbolId: "GAZP.MICEX",
+      price: "179.70",
+      size: "1490.0",
+    };
+    const quotes = [quote1, quote2];
+    const heartbeat = { event: "heartbeat" };
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/feed/${symbolIds}`)
+      .query({ level })
+      .delay(1)
+      .reply(200, () => Readable.from(StreamMessages([...quotes, heartbeat])));
+
+    const stream = await client.getQuoteStream({ symbolIds, level });
+
+    assert.ok(stream instanceof JSONStream);
+
+    await new Promise((resolve) => {
+      stream.once("data", (data) => {
+        assert.deepStrictEqual(data, quote1);
+        stream.once("data", (data) => {
+          assert.deepStrictEqual(data, quote2);
           stream.once("data", (data) => {
             assert.deepStrictEqual(data, heartbeat);
             stream.once("end", resolve);
