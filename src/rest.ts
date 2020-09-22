@@ -84,6 +84,13 @@ export interface ISymbolSchedule extends ISymbolIdOptions {
   types?: boolean;
 }
 
+export interface ISymbolIdType extends IVersion {
+  /**
+   * Type name
+   */
+  symbolType: string;
+}
+
 export interface ILastQuoteOptions extends IVersion {
   /**
    * Symbol id or symbol ids
@@ -1286,6 +1293,18 @@ export class RestClient {
     const url = new URL(`/md/${version}/types`, this.url);
     const groups = (await this.fetch(url)) as IInstrumentType[];
     return groups;
+  }
+
+  /**
+   * Get financial instruments of the requested type
+   */
+  public async getTypeSymbols({
+    version = DefaultAPIVersion,
+    symbolType,
+  }: ISymbolIdType): Promise<IIntruments> {
+    const url = new URL(`/md/${version}/types/${symbolType}`, this.url);
+    const symbols = (await this.fetch(url)) as IIntruments;
+    return symbols;
   }
 
   /**
