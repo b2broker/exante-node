@@ -142,6 +142,16 @@ const symbolType = "OPTION";
 const symbols = await client.getTypeSymbols({ version, symbolType });
 ```
 
+- [`getTradesStream`](https://api-live.exante.eu/api-docs/#operation/getTradesStream)
+
+```typescript
+const symbolIds = ["MSFT.NASDAQ", "AAPL.NASDAQ", "GAZP.MICEX"];
+const stream = await client.getTradesStream({ symbolIds });
+for await (const update of stream) {
+  console.log(update);
+}
+```
+
 - [`getLastQuote`](https://api-live.exante.eu/api-docs/#operation/getQuoteLast)
 
 ```typescript

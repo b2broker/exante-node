@@ -91,6 +91,13 @@ export interface ISymbolIdType extends IVersion {
   symbolType: string;
 }
 
+export interface ISymbolIds {
+  /**
+   * Financial instrument id
+   */
+  symbolIds: string | string[];
+}
+
 export interface ILastQuoteOptions extends IVersion {
   /**
    * Symbol id or symbol ids
@@ -1319,6 +1326,15 @@ export class RestClient {
     RestClient.setQuery(url, { level });
     const exchanges = (await this.fetch(url)) as ILastQuote[];
     return exchanges;
+  }
+
+  /**
+   * Get the trades stream for the specified financial instrument
+   */
+  public async getTradesStream({ symbolIds }: ISymbolIds): Promise<JSONStream> {
+    const url = new URL(`/md/3.0/feed/trades/${symbolIds}`, this.url);
+    const stream = await this.fetchStream(url);
+    return stream;
   }
 
   /**
