@@ -694,6 +694,13 @@ export interface IInstrumentSpecification {
   lotSize: string;
 }
 
+export interface IInstrumentType {
+  /**
+   * Type id
+   */
+  id: string;
+}
+
 export interface IQuoteSideV2 {
   /**
    * Quantity value
@@ -1268,6 +1275,17 @@ export class RestClient {
     const url = new URL(path, this.url);
     const instrument = (await this.fetch(url)) as IInstrumentSpecification;
     return instrument;
+  }
+
+  /**
+   * Get list of known instrument types
+   */
+  public async getTypes({
+    version = DefaultAPIVersion,
+  }: IVersion = {}): Promise<IInstrumentType[]> {
+    const url = new URL(`/md/${version}/types`, this.url);
+    const groups = (await this.fetch(url)) as IInstrumentType[];
+    return groups;
   }
 
   /**
