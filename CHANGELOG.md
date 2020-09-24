@@ -1,5 +1,11 @@
 # Changelog
 
+### [1.30.1](https://github.com/b2broker/exante-node/compare/v1.30.0...v1.30.1) (2020-09-24)
+
+### Dependencies
+
+- set the `node-fetch` to 3.0.0-beta.9 ([6f3d058](https://github.com/b2broker/exante-node/commit/6f3d0588dd0c243f1b4a9c1899fcccad1c4bfad0))
+
 ## [1.30.0](https://github.com/b2broker/exante-node/compare/v1.29.0...v1.30.0) (2020-09-22)
 
 ### Features
