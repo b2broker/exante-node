@@ -210,6 +210,15 @@ const ticks = await client.getTicks({
 });
 ```
 
+- [`getAccountSummaryWithoutDate`](https://api-live.exante.eu/api-docs/#operation/getAccountSummaryWithoutDate)
+
+```typescript
+const version = "3.0";
+const id = "ABC1234.001";
+const currency = "EUR";
+const summary = await client.getAccountSummary({ version, id, currency });
+```
+
 - [`getAccountSummary`](https://api-live.exante.eu/api-docs/#operation/getAccountSummary)
 
 ```typescript
