@@ -157,19 +157,22 @@ export interface ITicksOptions extends ISymbolId {
   type?: "quotes" | "trades";
 }
 
-export interface IAccountSummaryOptions extends IVersion {
+export interface IBaseAccountSummaryOptions extends IVersion {
   /**
    * Account id
    */
   id: string;
   /**
-   * Session date
-   */
-  date: string;
-  /**
    * Summary's currency
    */
   currency: string;
+}
+
+export interface IAccountSummaryOptions extends IBaseAccountSummaryOptions {
+  /**
+   * Session date
+   */
+  date: string;
 }
 
 export interface ITransactionsOptions extends IVersion {
@@ -1382,7 +1385,21 @@ export class RestClient {
   }
 
   /**
-   * Get the summary for the specified account.
+   * Get the summary for the specified account
+   */
+  public async getAccountSummaryWithoutDate({
+    version = DefaultAPIVersion,
+    id,
+    currency,
+  }: IBaseAccountSummaryOptions): Promise<IAccountSummary> {
+    const path = `/md/${version}/summary/${id}/${currency}`;
+    const url = new URL(path, this.url);
+    const summary = (await this.fetch(url)) as IAccountSummary;
+    return summary;
+  }
+
+  /**
+   * Get the summary for the specified account and session date
    */
   public async getAccountSummary({
     version = DefaultAPIVersion,
