@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.31.0](https://github.com/b2broker/exante-node/compare/v1.30.1...v1.31.0) (2020-10-06)
+
+### Features
+
+- add the getAccountSummaryWithoutDate method ([fb1f109](https://github.com/b2broker/exante-node/commit/fb1f10934190173ac5e84cdc6c1fa5cb692cab92))
+
+### Bug Fixes
+
+- update position types ([bde45b5](https://github.com/b2broker/exante-node/commit/bde45b55139752c9933b739393caa3cb1d2dc077))
+
 ### [1.30.1](https://github.com/b2broker/exante-node/compare/v1.30.0...v1.30.1) (2020-09-24)
 
 ### Dependencies

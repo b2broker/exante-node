@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>IPosition | exante - v1.30.1</title>
-    <meta name="description" content="Documentation for exante - v1.30.1" />
+    <title>IBasePosition | exante - v1.31.0</title>
+    <meta name="description" content="Documentation for exante - v1.31.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
   </head>
@@ -31,7 +31,7 @@
                 <li class="state loading">Preparing search index...</li>
                 <li class="state failure">The search index is not available</li>
               </ul>
-              <a href="../index.html" class="title">exante - v1.30.1</a>
+              <a href="../index.html" class="title">exante - v1.31.0</a>
             </div>
             <div class="table-cell" id="tsd-widgets">
               <div id="tsd-filter">
@@ -78,10 +78,10 @@
               <a href="../globals.html">Globals</a>
             </li>
             <li>
-              <a href="iposition.html">IPosition</a>
+              <a href="ibaseposition.html">IBasePosition</a>
             </li>
           </ul>
-          <h1>Interface IPosition</h1>
+          <h1>Interface IBasePosition</h1>
         </div>
       </div>
     </header>
@@ -92,7 +92,19 @@
             <h3>Hierarchy</h3>
             <ul class="tsd-hierarchy">
               <li>
-                <span class="target">IPosition</span>
+                <span class="target">IBasePosition</span>
+                <ul class="tsd-hierarchy">
+                  <li>
+                    <a href="ipositionv2.html" class="tsd-signature-type"
+                      >IPositionV2</a
+                    >
+                  </li>
+                  <li>
+                    <a href="ipositionv3.html" class="tsd-signature-type"
+                      >IPositionV3</a
+                    >
+                  </li>
+                </ul>
               </li>
             </ul>
           </section>
@@ -105,58 +117,58 @@
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="iposition.html#averageprice"
+                        href="ibaseposition.html#averageprice"
                         class="tsd-kind-icon"
                         >average<wbr />Price</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="iposition.html#convertedpnl"
+                        href="ibaseposition.html#convertedpnl"
                         class="tsd-kind-icon"
                         >converted<wbr />Pnl</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
                       <a
-                        href="iposition.html#convertedvalue"
+                        href="ibaseposition.html#convertedvalue"
                         class="tsd-kind-icon"
                         >converted<wbr />Value</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iposition.html#currency" class="tsd-kind-icon"
+                      <a
+                        href="ibaseposition.html#currency"
+                        class="tsd-kind-icon"
                         >currency</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iposition.html#id" class="tsd-kind-icon">id</a>
+                      <a href="ibaseposition.html#pnl" class="tsd-kind-icon"
+                        >pnl</a
+                      >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iposition.html#pnl" class="tsd-kind-icon">pnl</a>
-                    </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iposition.html#price" class="tsd-kind-icon"
+                      <a href="ibaseposition.html#price" class="tsd-kind-icon"
                         >price</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iposition.html#quantity" class="tsd-kind-icon"
+                      <a
+                        href="ibaseposition.html#quantity"
+                        class="tsd-kind-icon"
                         >quantity</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iposition.html#symbolid" class="tsd-kind-icon"
-                        >symbol<wbr />Id</a
-                      >
-                    </li>
-                    <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iposition.html#symboltype" class="tsd-kind-icon"
+                      <a
+                        href="ibaseposition.html#symboltype"
+                        class="tsd-kind-icon"
                         >symbol<wbr />Type</a
                       >
                     </li>
                     <li class="tsd-kind-property tsd-parent-kind-interface">
-                      <a href="iposition.html#value" class="tsd-kind-icon"
+                      <a href="ibaseposition.html#value" class="tsd-kind-icon"
                         >value</a
                       >
                     </li>
@@ -186,8 +198,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/c21c351/src/rest.ts#L870"
-                      >src/rest.ts:870</a
+                      href="https://github.com/b2broker/exante-node/blob/f2322db/src/rest.ts#L869"
+                      >src/rest.ts:869</a
                     >
                   </li>
                 </ul>
@@ -212,8 +224,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/c21c351/src/rest.ts#L838"
-                      >src/rest.ts:838</a
+                      href="https://github.com/b2broker/exante-node/blob/f2322db/src/rest.ts#L841"
+                      >src/rest.ts:841</a
                     >
                   </li>
                 </ul>
@@ -243,8 +255,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/c21c351/src/rest.ts#L854"
-                      >src/rest.ts:854</a
+                      href="https://github.com/b2broker/exante-node/blob/f2322db/src/rest.ts#L853"
+                      >src/rest.ts:853</a
                     >
                   </li>
                 </ul>
@@ -269,8 +281,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/c21c351/src/rest.ts#L866"
-                      >src/rest.ts:866</a
+                      href="https://github.com/b2broker/exante-node/blob/f2322db/src/rest.ts#L865"
+                      >src/rest.ts:865</a
                     >
                   </li>
                 </ul>
@@ -278,34 +290,6 @@
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
                   <p>Currency code</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="id" class="tsd-anchor"></a>
-              <h3><span class="tsd-flag ts-flagOptional">Optional</span> id</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                id<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">undefined</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/c21c351/src/rest.ts#L878"
-                      >src/rest.ts:878</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Symbol id</p>
                 </div>
               </div>
             </section>
@@ -327,8 +311,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/c21c351/src/rest.ts#L846"
-                      >src/rest.ts:846</a
+                      href="https://github.com/b2broker/exante-node/blob/f2322db/src/rest.ts#L849"
+                      >src/rest.ts:849</a
                     >
                   </li>
                 </ul>
@@ -357,8 +341,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/c21c351/src/rest.ts#L858"
-                      >src/rest.ts:858</a
+                      href="https://github.com/b2broker/exante-node/blob/f2322db/src/rest.ts#L857"
+                      >src/rest.ts:857</a
                     >
                   </li>
                 </ul>
@@ -387,8 +371,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/c21c351/src/rest.ts#L842"
-                      >src/rest.ts:842</a
+                      href="https://github.com/b2broker/exante-node/blob/f2322db/src/rest.ts#L845"
+                      >src/rest.ts:845</a
                     >
                   </li>
                 </ul>
@@ -396,32 +380,6 @@
               <div class="tsd-comment tsd-typography">
                 <div class="lead">
                   <p>Quantity on position</p>
-                </div>
-              </div>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
-            >
-              <a name="symbolid" class="tsd-anchor"></a>
-              <h3>symbol<wbr />Id</h3>
-              <div class="tsd-signature tsd-kind-icon">
-                symbol<wbr />Id<span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">string</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/b2broker/exante-node/blob/c21c351/src/rest.ts#L850"
-                      >src/rest.ts:850</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-              <div class="tsd-comment tsd-typography">
-                <div class="lead">
-                  <p>Symbol id</p>
                 </div>
               </div>
             </section>
@@ -439,8 +397,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/c21c351/src/rest.ts#L862"
-                      >src/rest.ts:862</a
+                      href="https://github.com/b2broker/exante-node/blob/f2322db/src/rest.ts#L861"
+                      >src/rest.ts:861</a
                     >
                   </li>
                 </ul>
@@ -469,8 +427,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/b2broker/exante-node/blob/c21c351/src/rest.ts#L874"
-                      >src/rest.ts:874</a
+                      href="https://github.com/b2broker/exante-node/blob/f2322db/src/rest.ts#L873"
+                      >src/rest.ts:873</a
                     >
                   </li>
                 </ul>
@@ -495,58 +453,60 @@
             <ul class="before-current"></ul>
             <ul class="current">
               <li class="current tsd-kind-interface">
-                <a href="iposition.html" class="tsd-kind-icon">IPosition</a>
+                <a href="ibaseposition.html" class="tsd-kind-icon"
+                  >IBase<wbr />Position</a
+                >
                 <ul>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iposition.html#averageprice" class="tsd-kind-icon"
+                    <a
+                      href="ibaseposition.html#averageprice"
+                      class="tsd-kind-icon"
                       >average<wbr />Price</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iposition.html#convertedpnl" class="tsd-kind-icon"
+                    <a
+                      href="ibaseposition.html#convertedpnl"
+                      class="tsd-kind-icon"
                       >converted<wbr />Pnl</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
                     <a
-                      href="iposition.html#convertedvalue"
+                      href="ibaseposition.html#convertedvalue"
                       class="tsd-kind-icon"
                       >converted<wbr />Value</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iposition.html#currency" class="tsd-kind-icon"
+                    <a href="ibaseposition.html#currency" class="tsd-kind-icon"
                       >currency</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iposition.html#id" class="tsd-kind-icon">id</a>
+                    <a href="ibaseposition.html#pnl" class="tsd-kind-icon"
+                      >pnl</a
+                    >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iposition.html#pnl" class="tsd-kind-icon">pnl</a>
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iposition.html#price" class="tsd-kind-icon"
+                    <a href="ibaseposition.html#price" class="tsd-kind-icon"
                       >price</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iposition.html#quantity" class="tsd-kind-icon"
+                    <a href="ibaseposition.html#quantity" class="tsd-kind-icon"
                       >quantity</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iposition.html#symbolid" class="tsd-kind-icon"
-                      >symbol<wbr />Id</a
-                    >
-                  </li>
-                  <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iposition.html#symboltype" class="tsd-kind-icon"
+                    <a
+                      href="ibaseposition.html#symboltype"
+                      class="tsd-kind-icon"
                       >symbol<wbr />Type</a
                     >
                   </li>
                   <li class="tsd-kind-property tsd-parent-kind-interface">
-                    <a href="iposition.html#value" class="tsd-kind-icon"
+                    <a href="ibaseposition.html#value" class="tsd-kind-icon"
                       >value</a
                     >
                   </li>
