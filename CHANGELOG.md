@@ -1,5 +1,11 @@
 # Changelog
 
+### [1.31.1](https://github.com/b2broker/exante-node/compare/v1.31.0...v1.31.1) (2020-10-06)
+
+### Bug Fixes
+
+- update position types ([f921d88](https://github.com/b2broker/exante-node/commit/f921d8879edebb739b1a176a54ff8b82294d9df6))
+
 ## [1.31.0](https://github.com/b2broker/exante-node/compare/v1.30.1...v1.31.0) (2020-10-06)
 
 ### Features
