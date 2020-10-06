@@ -877,14 +877,14 @@ export interface IPositionV2 extends IBasePosition {
   /**
    * Symbol id
    */
-  id?: string;
+  id: string;
 }
 
 export interface IPositionV3 extends IBasePosition {
   /**
    * Symbol id
    */
-  symbolId?: string;
+  symbolId: string;
 }
 
 export type IPosition = IPositionV2 | IPositionV3;
