@@ -5,7 +5,7 @@ export class FetchError extends Error {
 
   public readonly name = "FetchError";
 
-  constructor(message: string, response: Response) {
+  public constructor(message: string, response: Response) {
     super(message);
     this.#response = response;
   }

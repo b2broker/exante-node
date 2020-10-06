@@ -1364,6 +1364,103 @@ suite("RestClient", () => {
     assert.deepStrictEqual(ticks, response);
   });
 
+  test(".getAccountSummaryWithoutDate()", async () => {
+    const version = "3.0";
+    const id = "ABC1234.001";
+    const currency = "EUR";
+    const response: IAccountSummary = {
+      freeMoney: "123406.01",
+      marginUtilization: "0.0",
+      account: "ABC1234.001",
+      currencies: [
+        {
+          convertedValue: "123456.01",
+          price: "123456.01",
+          code: "EUR",
+          value: "123456.01",
+        },
+      ],
+      netAssetValue: "123456.01",
+      currency: "EUR",
+      moneyUsedForMargin: "50.0",
+      positions: [
+        {
+          quantity: "1",
+          convertedValue: "133.1",
+          convertedPnl: "12.1",
+          currency: "USD",
+          price: "120.0",
+          symbolId: "AAPL.NASDAQ",
+          symbolType: "STOCK",
+          value: "110.0",
+          averagePrice: "110.0",
+          pnl: "10.0",
+        },
+      ],
+      timestamp: 1503619200000,
+      sessionDate: [2013, 2, 16],
+      accountId: "ABC1234.001",
+    };
+
+    nock(url)
+      .get(`/md/${version}/summary/${id}/${currency}`)
+      .delay(1)
+      .reply(200, response);
+
+    const summary = await client.getAccountSummaryWithoutDate({
+      version,
+      id,
+      currency,
+    });
+    assert.deepStrictEqual(summary, response);
+  });
+
+  test(".getAccountSummaryWithoutDate() (with no `version`)", async () => {
+    const id = "ABC1234.001";
+    const currency = "EUR";
+    const response: IAccountSummary = {
+      freeMoney: "123406.01",
+      marginUtilization: "0.0",
+      account: "ABC1234.001",
+      currencies: [
+        {
+          convertedValue: "123456.01",
+          price: "123456.01",
+          code: "EUR",
+          value: "123456.01",
+        },
+      ],
+      netAssetValue: "123456.01",
+      currency: "EUR",
+      moneyUsedForMargin: "50.0",
+      positions: [
+        {
+          quantity: "1",
+          convertedValue: "133.1",
+          convertedPnl: "12.1",
+          id: "AAPL.NASDAQ",
+          currency: "USD",
+          price: "120.0",
+          symbolType: "STOCK",
+          value: "110.0",
+          averagePrice: "110.0",
+          pnl: "10.0",
+        },
+      ],
+      timestamp: 1503619200000,
+      sessionDate: [2013, 2, 16],
+      accountId: "ABC1234.001",
+    };
+
+    nock(url)
+      .get(`/md/${DefaultAPIVersion}/summary/${id}/${currency}`)
+      .delay(1)
+      .reply(200, response);
+
+    const summary = await client.getAccountSummaryWithoutDate({ id, currency });
+    assert.deepStrictEqual(summary, response);
+  });
+
   test(".getAccountSummary()", async () => {
     const version = "3.0";
     const id = "ABC1234.001";
@@ -1389,7 +1486,6 @@ suite("RestClient", () => {
           quantity: "1",
           convertedValue: "133.1",
           convertedPnl: "12.1",
-          id: "AAPL.NASDAQ",
           currency: "USD",
           price: "120.0",
           symbolId: "AAPL.NASDAQ",
@@ -1445,7 +1541,6 @@ suite("RestClient", () => {
           id: "AAPL.NASDAQ",
           currency: "USD",
           price: "120.0",
-          symbolId: "AAPL.NASDAQ",
           symbolType: "STOCK",
           value: "110.0",
           averagePrice: "110.0",

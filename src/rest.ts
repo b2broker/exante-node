@@ -157,19 +157,22 @@ export interface ITicksOptions extends ISymbolId {
   type?: "quotes" | "trades";
 }
 
-export interface IAccountSummaryOptions extends IVersion {
+export interface IBaseAccountSummaryOptions extends IVersion {
   /**
    * Account id
    */
   id: string;
   /**
-   * Session date
-   */
-  date: string;
-  /**
    * Summary's currency
    */
   currency: string;
+}
+
+export interface IAccountSummaryOptions extends IBaseAccountSummaryOptions {
+  /**
+   * Session date
+   */
+  date: string;
 }
 
 export interface ITransactionsOptions extends IVersion {
@@ -831,7 +834,7 @@ export interface ICurrency {
   price?: string;
 }
 
-export interface IPosition {
+export interface IBasePosition {
   /**
    * Current position PnL in the currency of the report
    */
@@ -844,10 +847,6 @@ export interface IPosition {
    * Current position PnL
    */
   pnl?: string;
-  /**
-   * Symbol id
-   */
-  symbolId: string;
   /**
    * Position value in the currency of the report
    */
@@ -872,11 +871,23 @@ export interface IPosition {
    * Position value
    */
   value?: string;
+}
+
+export interface IPositionV2 extends IBasePosition {
   /**
    * Symbol id
    */
   id?: string;
 }
+
+export interface IPositionV3 extends IBasePosition {
+  /**
+   * Symbol id
+   */
+  symbolId?: string;
+}
+
+export type IPosition = IPositionV2 | IPositionV3;
 
 export interface IAccountSummary {
   /**
@@ -902,7 +913,7 @@ export interface IAccountSummary {
   /**
    * Session date of the report
    */
-  sessionDate?: [number, number, number];
+  sessionDate?: [number, number, number] | null;
   /**
    * Timestamp of the report
    */
@@ -922,7 +933,7 @@ export interface IAccountSummary {
   /**
    * Open positions
    */
-  positions: IPosition[];
+  positions: IPositionV2[] | IPositionV3[];
 }
 
 interface ITransactionBase {
@@ -1382,7 +1393,21 @@ export class RestClient {
   }
 
   /**
-   * Get the summary for the specified account.
+   * Get the summary for the specified account
+   */
+  public async getAccountSummaryWithoutDate({
+    version = DefaultAPIVersion,
+    id,
+    currency,
+  }: IBaseAccountSummaryOptions): Promise<IAccountSummary> {
+    const path = `/md/${version}/summary/${id}/${currency}`;
+    const url = new URL(path, this.url);
+    const summary = (await this.fetch(url)) as IAccountSummary;
+    return summary;
+  }
+
+  /**
+   * Get the summary for the specified account and session date
    */
   public async getAccountSummary({
     version = DefaultAPIVersion,
