@@ -834,7 +834,7 @@ export interface ICurrency {
   price?: string;
 }
 
-export interface IPosition {
+export interface IBasePosition {
   /**
    * Current position PnL in the currency of the report
    */
@@ -847,10 +847,6 @@ export interface IPosition {
    * Current position PnL
    */
   pnl?: string;
-  /**
-   * Symbol id
-   */
-  symbolId: string;
   /**
    * Position value in the currency of the report
    */
@@ -875,11 +871,23 @@ export interface IPosition {
    * Position value
    */
   value?: string;
+}
+
+export interface IPositionV2 extends IBasePosition {
   /**
    * Symbol id
    */
   id?: string;
 }
+
+export interface IPositionV3 extends IBasePosition {
+  /**
+   * Symbol id
+   */
+  symbolId?: string;
+}
+
+export type IPosition = IPositionV2 | IPositionV3;
 
 export interface IAccountSummary {
   /**
@@ -905,7 +913,7 @@ export interface IAccountSummary {
   /**
    * Session date of the report
    */
-  sessionDate?: [number, number, number];
+  sessionDate?: [number, number, number] | null;
   /**
    * Timestamp of the report
    */
@@ -925,7 +933,7 @@ export interface IAccountSummary {
   /**
    * Open positions
    */
-  positions: IPosition[];
+  positions: IPositionV2[] | IPositionV3[];
 }
 
 interface ITransactionBase {
