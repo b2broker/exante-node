@@ -55,30 +55,44 @@ suite("RestClient", () => {
   });
 
   test("constructor (when `demo` is `true`)", () => {
-    const client = new RestClient({
+    const otherClient = new RestClient({
       client_id,
       shared_key,
       app_id,
       demo: true,
     });
-    assert.deepStrictEqual(client.url, new URL(ExanteDemoURL));
+    assert.deepStrictEqual(otherClient.url, new URL(ExanteDemoURL));
   });
 
   test("constructor (when `demo` is `false`)", () => {
-    const client = new RestClient({
+    const otherClient = new RestClient({
       client_id,
       shared_key,
       app_id,
       demo: false,
     });
-    assert.deepStrictEqual(client.url, new URL(ExanteLiveURL));
+    assert.deepStrictEqual(otherClient.url, new URL(ExanteLiveURL));
   });
 
   test(".fetch() (passes headers)", async () => {
     const response = { ok: 1 };
     const reqheaders = {
       "Content-Type": "application/json",
-      Authorization: (value: string) => value.includes("Bearer "),
+      Authorization: (value: string): boolean => value.includes("Bearer "),
+    };
+
+    nock(url, { reqheaders }).get("/").delay(1).reply(200, response);
+
+    const data = await client.fetch(url);
+
+    assert.deepStrictEqual(data, response);
+  });
+
+  test(".fetch() (rejects with non `Error`)", async () => {
+    const response = { ok: 1 };
+    const reqheaders = {
+      "Content-Type": "application/json",
+      Authorization: (value: string): boolean => value.includes("Bearer "),
     };
 
     nock(url, { reqheaders }).get("/").delay(1).reply(200, response);
@@ -92,7 +106,7 @@ suite("RestClient", () => {
     const response = { ok: 1 };
     const reqheaders = {
       "Content-Type": "application/json",
-      Authorization: (value: string) => value.includes("Bearer "),
+      Authorization: (value: string): boolean => value.includes("Bearer "),
       Accept: "application/x-json-stream",
     };
 
@@ -214,7 +228,7 @@ suite("RestClient", () => {
     ];
 
     nock(url)
-      .get(`/md/${DefaultAPIVersion}/change/${symbolId}`)
+      .get(`/md/${DefaultAPIVersion}/change/${symbolId.join(",")}`)
       .delay(1)
       .reply(200, response);
 
@@ -937,7 +951,7 @@ suite("RestClient", () => {
   });
 
   test(".getSymbolSpecification() (with no `version`)", async () => {
-    const symbolId = "AAPL.NASDAQ";
+    const symbolId = ["AAPL.NASDAQ"];
     const response: IInstrumentSpecification = {
       leverage: "0.2",
       contractMultiplier: "1.0",
@@ -947,7 +961,9 @@ suite("RestClient", () => {
     };
 
     nock(url)
-      .get(`/md/${DefaultAPIVersion}/symbols/${symbolId}/specification`)
+      .get(
+        `/md/${DefaultAPIVersion}/symbols/${symbolId.join(",")}/specification`
+      )
       .delay(1)
       .reply(200, response);
 
@@ -1071,6 +1087,46 @@ suite("RestClient", () => {
     const trades = [trade1, trade2];
     const heartbeat = { event: "heartbeat" };
     nock(url)
+      .get(`/md/3.0/feed/trades/${symbolIds.join(",")}`)
+      .delay(1)
+      .reply(200, () => Readable.from(StreamMessages([...trades, heartbeat])));
+
+    const stream = await client.getTradesStream({ symbolIds });
+
+    assert.ok(stream instanceof JSONStream);
+
+    await new Promise((resolve) => {
+      stream.once("data", (data1) => {
+        assert.deepStrictEqual(data1, trade1);
+        stream.once("data", (data2) => {
+          assert.deepStrictEqual(data2, trade2);
+          stream.once("data", (data3) => {
+            assert.deepStrictEqual(data3, heartbeat);
+            stream.once("end", resolve);
+          });
+        });
+      });
+    });
+  });
+
+  test(".getTradesStream()", async () => {
+    const symbolIds = "MSFT.NASDAQ";
+    const trade1 = {
+      timestamp: 1600767324644,
+      symbolId: "MSFT.NASDAQ",
+      price: "204.52",
+      size: "106.0",
+    };
+    const trade2 = {
+      timestamp: 1600767324658,
+      symbolId: "MSFT.NASDAQ",
+      price: "204.53",
+      size: "1102.0",
+    };
+
+    const trades = [trade1, trade2];
+    const heartbeat = { event: "heartbeat" };
+    nock(url)
       .get(`/md/3.0/feed/trades/${symbolIds}`)
       .delay(1)
       .reply(200, () => Readable.from(StreamMessages([...trades, heartbeat])));
@@ -1080,12 +1136,12 @@ suite("RestClient", () => {
     assert.ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
-      stream.once("data", (data) => {
-        assert.deepStrictEqual(data, trade1);
-        stream.once("data", (data) => {
-          assert.deepStrictEqual(data, trade2);
-          stream.once("data", (data) => {
-            assert.deepStrictEqual(data, heartbeat);
+      stream.once("data", (data1) => {
+        assert.deepStrictEqual(data1, trade1);
+        stream.once("data", (data2) => {
+          assert.deepStrictEqual(data2, trade2);
+          stream.once("data", (data3) => {
+            assert.deepStrictEqual(data3, heartbeat);
             stream.once("end", resolve);
           });
         });
@@ -1142,7 +1198,7 @@ suite("RestClient", () => {
     const heartbeat = { event: "heartbeat" };
 
     nock(url)
-      .get(`/md/${DefaultAPIVersion}/feed/${symbolIds}`)
+      .get(`/md/${DefaultAPIVersion}/feed/${symbolIds.join(",")}`)
       .query({ level })
       .delay(1)
       .reply(200, () => Readable.from(StreamMessages([...quotes, heartbeat])));
@@ -1152,12 +1208,12 @@ suite("RestClient", () => {
     assert.ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
-      stream.once("data", (data) => {
-        assert.deepStrictEqual(data, quote1);
-        stream.once("data", (data) => {
-          assert.deepStrictEqual(data, quote2);
-          stream.once("data", (data) => {
-            assert.deepStrictEqual(data, heartbeat);
+      stream.once("data", (data1) => {
+        assert.deepStrictEqual(data1, quote1);
+        stream.once("data", (data2) => {
+          assert.deepStrictEqual(data2, quote2);
+          stream.once("data", (data3) => {
+            assert.deepStrictEqual(data3, heartbeat);
             stream.once("end", resolve);
           });
         });
@@ -1220,7 +1276,7 @@ suite("RestClient", () => {
     ];
 
     nock(url)
-      .get(`/md/${version}/feed/${symbolIds}/last`)
+      .get(`/md/${version}/feed/${symbolIds.join(",")}/last`)
       .query({ level })
       .delay(1)
       .reply(200, response);
@@ -1290,7 +1346,7 @@ suite("RestClient", () => {
 
   test(".getCandles() (with no `version`)", async () => {
     const duration = "3600" as const;
-    const symbolId = "AAPL.NASDAQ";
+    const symbolId = ["AAPL.NASDAQ"];
     const response: ICandle[] = [
       {
         volume: "3475756",
@@ -1303,7 +1359,7 @@ suite("RestClient", () => {
     ];
 
     nock(url)
-      .get(`/md/${DefaultAPIVersion}/ohlc/${symbolId}/${duration}`)
+      .get(`/md/${DefaultAPIVersion}/ohlc/${symbolId.join(",")}/${duration}`)
       .delay(1)
       .reply(200, response);
 
@@ -1313,7 +1369,7 @@ suite("RestClient", () => {
 
   test(".getTicks()", async () => {
     const version = "3.0";
-    const symbolId = "AAPL.NASDAQ";
+    const symbolId = ["AAPL.NASDAQ"];
     const from = 1481565600000;
     const to = "1481572800000";
     const size = 1;
@@ -1328,7 +1384,7 @@ suite("RestClient", () => {
     ];
 
     nock(url)
-      .get(`/md/${version}/ticks/${symbolId}`)
+      .get(`/md/${version}/ticks/${symbolId.join(",")}`)
       .query({ size, to, from, type })
       .delay(1)
       .reply(200, response);
@@ -1597,7 +1653,7 @@ suite("RestClient", () => {
         accountId,
         symbolId,
         asset,
-        operationType: `${operationType}`,
+        operationType: `${operationType.join(",")}`,
         offset,
         limit,
         fromDate,
@@ -2259,10 +2315,10 @@ suite("RestClient", () => {
     assert.ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
-      stream.once("data", (data) => {
-        assert.deepStrictEqual(data, order);
-        stream.once("data", (data) => {
-          assert.deepStrictEqual(data, heartbeat);
+      stream.once("data", (data1) => {
+        assert.deepStrictEqual(data1, order);
+        stream.once("data", (data2) => {
+          assert.deepStrictEqual(data2, heartbeat);
           stream.once("end", resolve);
         });
       });
@@ -2305,10 +2361,10 @@ suite("RestClient", () => {
     assert.ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
-      stream.once("data", (data) => {
-        assert.deepStrictEqual(data, order);
-        stream.once("data", (data) => {
-          assert.deepStrictEqual(data, heartbeat);
+      stream.once("data", (data1) => {
+        assert.deepStrictEqual(data1, order);
+        stream.once("data", (data2) => {
+          assert.deepStrictEqual(data2, heartbeat);
           stream.once("end", resolve);
         });
       });
@@ -2340,10 +2396,10 @@ suite("RestClient", () => {
     assert.ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
-      stream.once("data", (data) => {
-        assert.deepStrictEqual(data, trade);
-        stream.once("data", (data) => {
-          assert.deepStrictEqual(data, heartbeat);
+      stream.once("data", (data1) => {
+        assert.deepStrictEqual(data1, trade);
+        stream.once("data", (data2) => {
+          assert.deepStrictEqual(data2, heartbeat);
           stream.once("end", resolve);
         });
       });
@@ -2373,10 +2429,10 @@ suite("RestClient", () => {
     assert.ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
-      stream.once("data", (data) => {
-        assert.deepStrictEqual(data, trade);
-        stream.once("data", (data) => {
-          assert.deepStrictEqual(data, heartbeat);
+      stream.once("data", (data1) => {
+        assert.deepStrictEqual(data1, trade);
+        stream.once("data", (data2) => {
+          assert.deepStrictEqual(data2, heartbeat);
           stream.once("end", resolve);
         });
       });
@@ -2408,15 +2464,16 @@ suite("RestClient", () => {
     });
 
     test(".setQuery()", () => {
-      const url = new URL(ExanteDemoURL);
-      RestClient.setQuery(url, { a: undefined });
-      assert.deepStrictEqual(url.href, ExanteDemoURL);
-      RestClient.setQuery(url, { a: 1 });
-      assert.deepStrictEqual(url.href, `${ExanteDemoURL}?a=1`);
-      RestClient.setQuery(url, { a: "" });
-      assert.deepStrictEqual(url.href, `${ExanteDemoURL}?a=`);
-      RestClient.setQuery(url, { b: "1" });
-      assert.deepStrictEqual(url.href, `${ExanteDemoURL}?a=&b=1`);
+      let a: undefined;
+      const otherUrl = new URL(ExanteDemoURL);
+      RestClient.setQuery(otherUrl, { a });
+      assert.deepStrictEqual(otherUrl.href, ExanteDemoURL);
+      RestClient.setQuery(otherUrl, { a: 1 });
+      assert.deepStrictEqual(otherUrl.href, `${ExanteDemoURL}?a=1`);
+      RestClient.setQuery(otherUrl, { a: "" });
+      assert.deepStrictEqual(otherUrl.href, `${ExanteDemoURL}?a=`);
+      RestClient.setQuery(otherUrl, { b: "1" });
+      assert.deepStrictEqual(otherUrl.href, `${ExanteDemoURL}?a=&b=1`);
     });
 
     test(".JWT()", () => {
@@ -2451,10 +2508,10 @@ suite("RestClient", () => {
       assert.ok(stream instanceof JSONStream);
 
       await new Promise((resolve) => {
-        stream.once("data", (data) => {
-          assert.deepStrictEqual(data, heartbeat);
-          stream.once("data", (data) => {
-            assert.deepStrictEqual(data, pong);
+        stream.once("data", (data1) => {
+          assert.deepStrictEqual(data1, heartbeat);
+          stream.once("data", (data2) => {
+            assert.deepStrictEqual(data2, pong);
             stream.once("end", resolve);
           });
         });
