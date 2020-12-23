@@ -747,7 +747,8 @@ export class RestClient {
     version = DefaultAPIVersion,
     symbolId,
   }: ISymbolId): Promise<IDailyChange[]> {
-    const url = new URL(`/md/${version}/change/${symbolId}`, this.url);
+    const symbolIds = Array.isArray(symbolId) ? symbolId.join(",") : symbolId;
+    const url = new URL(`/md/${version}/change/${symbolIds}`, this.url);
     const changes = (await this.fetch(url)) as IDailyChange[];
     return changes;
   }
@@ -857,7 +858,8 @@ export class RestClient {
     version = DefaultAPIVersion,
     symbolId,
   }: ISymbolId): Promise<IInstrumentSpecification> {
-    const path = `/md/${version}/symbols/${symbolId}/specification`;
+    const symbolIds = Array.isArray(symbolId) ? symbolId.join(",") : symbolId;
+    const path = `/md/${version}/symbols/${symbolIds}/specification`;
     const url = new URL(path, this.url);
     const instrument = (await this.fetch(url)) as IInstrumentSpecification;
     return instrument;
@@ -888,7 +890,8 @@ export class RestClient {
     symbolIds,
     level,
   }: ILastQuoteOptions): Promise<ILastQuote[]> {
-    const url = new URL(`/md/${version}/feed/${symbolIds}/last`, this.url);
+    const symbolId = Array.isArray(symbolIds) ? symbolIds.join(",") : symbolIds;
+    const url = new URL(`/md/${version}/feed/${symbolId}/last`, this.url);
     RestClient.setQuery(url, { level });
     const exchanges = (await this.fetch(url)) as ILastQuote[];
     return exchanges;
@@ -896,7 +899,8 @@ export class RestClient {
 
   /** Get the trades stream for the specified financial instrument */
   public async getTradesStream({ symbolIds }: ISymbolIds): Promise<JSONStream> {
-    const url = new URL(`/md/3.0/feed/trades/${symbolIds}`, this.url);
+    const symbolId = Array.isArray(symbolIds) ? symbolIds.join(",") : symbolIds;
+    const url = new URL(`/md/3.0/feed/trades/${symbolId}`, this.url);
     const stream = await this.fetchStream(url);
     return stream;
   }
@@ -907,7 +911,8 @@ export class RestClient {
     symbolIds,
     ...query
   }: ILastQuoteOptions): Promise<JSONStream> {
-    const url = new URL(`/md/${version}/feed/${symbolIds}`, this.url);
+    const symbolId = Array.isArray(symbolIds) ? symbolIds.join(",") : symbolIds;
+    const url = new URL(`/md/${version}/feed/${symbolId}`, this.url);
     RestClient.setQuery(url, { ...query });
     const stream = await this.fetchStream(url);
     return stream;
@@ -920,7 +925,8 @@ export class RestClient {
     duration,
     ...query
   }: ICandlesOptions): Promise<ICandle[]> {
-    const path = `/md/${version}/ohlc/${symbolId}/${duration}`;
+    const symbolIds = Array.isArray(symbolId) ? symbolId.join(",") : symbolId;
+    const path = `/md/${version}/ohlc/${symbolIds}/${duration}`;
     const url = new URL(path, this.url);
     RestClient.setQuery(url, { ...query });
     const candles = (await this.fetch(url)) as ICandle[];
@@ -933,7 +939,8 @@ export class RestClient {
     symbolId,
     ...query
   }: ITicksOptions): Promise<ITick[]> {
-    const url = new URL(`/md/${version}/ticks/${symbolId}`, this.url);
+    const symbolIds = Array.isArray(symbolId) ? symbolId.join(",") : symbolId;
+    const url = new URL(`/md/${version}/ticks/${symbolIds}`, this.url);
     RestClient.setQuery(url, { ...query });
     const ticks = (await this.fetch(url)) as ITick[];
     return ticks;
@@ -970,11 +977,11 @@ export class RestClient {
     operationType,
     ...query
   }: ITransactionsOptions = {}): Promise<ITransactions> {
-    if (Array.isArray(operationType)) {
-      operationType = `${operationType}`;
-    }
+    const type = Array.isArray(operationType)
+      ? operationType.join(",")
+      : operationType;
     const url = new URL(`/md/${version}/transactions`, this.url);
-    RestClient.setQuery(url, { operationType, ...query });
+    RestClient.setQuery(url, { operationType: type, ...query });
     const transactions = (await this.fetch(url)) as ITransactions;
     return transactions;
   }
@@ -1058,7 +1065,7 @@ export class RestClient {
     url: string | URL,
     options: fetch.RequestInit = {}
   ): Promise<JSONStream> {
-    const headers = new fetch.Headers(options.headers || this.headers);
+    const headers = new fetch.Headers(options.headers ?? this.headers);
     headers.set("Accept", "application/x-json-stream");
 
     const stream = RestClient.fetchStream(url, { ...options, headers });
@@ -1120,7 +1127,7 @@ export class RestClient {
   ): void {
     for (const key in query) {
       const value = query[key];
-      if (value !== undefined) {
+      if (typeof value !== "undefined") {
         url.searchParams.set(key, value.toString());
       }
     }
@@ -1175,7 +1182,7 @@ export class RestClient {
       const data = await response.json();
       return data;
     } catch (error) {
-      throw new FetchError(error.message, response);
+      throw new FetchError((error as Error)?.message, response);
     }
   }
 }
