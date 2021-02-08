@@ -987,14 +987,18 @@ export class RestClient {
   }
 
   /** Place new trading order */
+  public async placeOrder(options: IPlaceOrderOptionsV2): Promise<IOrderV2[]>;
+  public async placeOrder(options: IPlaceOrderOptionsV3): Promise<IOrderV3[]>;
   public async placeOrder({
     version = DefaultAPIVersion,
     ...data
-  }: IPlaceOrderOptions): Promise<IOrder[]> {
+  }: IPlaceOrderOptions): Promise<IOrderV2[] | IOrderV3[]> {
     const url = new URL(`/trade/${version}/orders`, this.url);
     const method = "POST";
     const body = JSON.stringify(data);
-    const order = (await this.fetch(url, { method, body })) as IOrder[];
+    const order = (await this.fetch(url, { method, body })) as
+      | IOrderV2[]
+      | IOrderV3[];
     return order;
   }
 
