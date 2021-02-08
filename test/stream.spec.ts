@@ -6,7 +6,7 @@ suite("JSONStream", () => {
     const message = { event: "heartbeat" };
     const stream = new JSONStream();
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       stream.once("data", (data) => {
         assert.deepStrictEqual(data, message);
         resolve();
@@ -19,7 +19,7 @@ suite("JSONStream", () => {
     const message = "Unexpected token N in JSON at position 0";
     const stream = new JSONStream();
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       stream.once("error", (error) => {
         assert.deepStrictEqual(error.message, message);
         assert.deepStrictEqual(error.name, "SyntaxError");

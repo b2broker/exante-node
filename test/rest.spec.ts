@@ -117,7 +117,7 @@ suite("RestClient", () => {
 
     const stream = await client.fetchStream(url);
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       stream.on("data", (data) => {
         assert.deepStrictEqual(data, response);
         resolve();
