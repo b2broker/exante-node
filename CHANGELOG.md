@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.0.0](https://github.com/b2broker/exante-node/compare/v1.31.1...v2.0.0) (2021-02-08)
+
+### ⚠ BREAKING CHANGES
+
+- drop Node <14.15.4 support
+
+### Performance Improvements
+
+- add method overloading to the `placeOrder` method ([3802db2](https://github.com/b2broker/exante-node/commit/3802db2fa84ba448b8b53b199bec9395b576346c))
+
+### Miscellaneous Chores
+
+- drop Node <14.15.4 support ([b5d617c](https://github.com/b2broker/exante-node/commit/b5d617c1b7b0c953ff54e44aa4ef4f65b787fa98))
+
 ### [1.31.1](https://github.com/b2broker/exante-node/compare/v1.31.0...v1.31.1) (2020-10-06)
 
 ### Bug Fixes

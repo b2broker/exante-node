@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>exante - v1.31.1</title>
-    <meta name="description" content="Documentation for exante - v1.31.1" />
+    <title>exante</title>
+    <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <script async src="assets/js/search.js" id="search-script"></script>
   </head>
   <body>
     <header>
@@ -31,7 +32,7 @@
                 <li class="state loading">Preparing search index...</li>
                 <li class="state failure">The search index is not available</li>
               </ul>
-              <a href="index.html" class="title">exante - v1.31.1</a>
+              <a href="index.html" class="title">exante</a>
             </div>
             <div class="table-cell" id="tsd-widgets">
               <div id="tsd-filter">
@@ -58,10 +59,6 @@
                   <label class="tsd-widget" for="tsd-filter-externals"
                     >Externals</label
                   >
-                  <input type="checkbox" id="tsd-filter-only-exported" />
-                  <label class="tsd-widget" for="tsd-filter-only-exported"
-                    >Only exported</label
-                  >
                 </div>
               </div>
               <a href="#" class="tsd-widget menu no-caption" data-toggle="menu"
@@ -73,12 +70,7 @@
       </div>
       <div class="tsd-page-title">
         <div class="container">
-          <ul class="tsd-breadcrumb">
-            <li>
-              <a href="globals.html">Globals</a>
-            </li>
-          </ul>
-          <h1>exante - v1.31.1</h1>
+          <h1>exante</h1>
         </div>
       </div>
     </header>
@@ -162,7 +154,8 @@
             >
               <h2>Installation</h2>
             </a>
-            <pre><code class="language-bash">npm install exante</code></pre>
+            <pre><code class="language-bash"><span style="color: #000000">npm install exante</span>
+</code></pre>
             <a
               href="#usage"
               id="usage"
@@ -186,12 +179,13 @@
             >
               <h3>RestClient</h3>
             </a>
-            <pre><code class="language-typescript"><span class="hljs-keyword">import</span> { RestClient } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;exante&quot;</span>;
-<span class="hljs-keyword">const</span> client_id = <span class="hljs-string">&quot;d0c5340b-6d6c-49d9-b567-48c4bfca13d2&quot;</span>;
-<span class="hljs-keyword">const</span> app_id = <span class="hljs-string">&quot;6cca6a14-a5e3-4219-9542-86123fc9d6c3&quot;</span>;
-<span class="hljs-keyword">const</span> shared_key = <span class="hljs-string">&quot;5eeac64cc46b34f5332e5326/CHo4bRWq6pqqynnWKQg&quot;</span>;
-<span class="hljs-keyword">const</span> demo = <span class="hljs-literal">false</span>;
-<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> RestClient({ client_id, app_id, shared_key, demo });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">RestClient</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;exante&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client_id</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;d0c5340b-6d6c-49d9-b567-48c4bfca13d2&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">app_id</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;6cca6a14-a5e3-4219-9542-86123fc9d6c3&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">shared_key</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;5eeac64cc46b34f5332e5326/CHo4bRWq6pqqynnWKQg&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">demo</span><span style="color: #000000"> = </span><span style="color: #0000FF">false</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">RestClient</span><span style="color: #000000">({ </span><span style="color: #001080">client_id</span><span style="color: #000000">, </span><span style="color: #001080">app_id</span><span style="color: #000000">, </span><span style="color: #001080">shared_key</span><span style="color: #000000">, </span><span style="color: #001080">demo</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -200,8 +194,9 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> accounts = <span class="hljs-keyword">await</span> client.getAccounts({ version });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">accounts</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getAccounts</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -210,8 +205,9 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
-<span class="hljs-keyword">const</span> changes = <span class="hljs-keyword">await</span> client.getDailyChanges({ version });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">changes</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getDailyChanges</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -220,9 +216,10 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> symbolId = [<span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>, <span class="hljs-string">&quot;MSFT.NASDAQ&quot;</span>];
-<span class="hljs-keyword">const</span> changes = <span class="hljs-keyword">await</span> client.getDailyChange({ version, symbolId });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;MSFT.NASDAQ&quot;</span><span style="color: #000000">];</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">changes</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getDailyChange</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">symbolId</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -231,8 +228,9 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
-<span class="hljs-keyword">const</span> currencies = <span class="hljs-keyword">await</span> client.getCurrencies({ version });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">currencies</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getCurrencies</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -241,9 +239,10 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> <span class="hljs-keyword">from</span> = <span class="hljs-string">&quot;USD&quot;</span>;
-<span class="hljs-keyword">const</span> to = <span class="hljs-string">&quot;EUR&quot;</span>;
-<span class="hljs-keyword">const</span> crossrate = <span class="hljs-keyword">await</span> client.getCrossrate({ <span class="hljs-keyword">from</span>, to });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">from</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;USD&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">to</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;EUR&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">crossrate</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getCrossrate</span><span style="color: #000000">({ </span><span style="color: #001080">from</span><span style="color: #000000">, </span><span style="color: #001080">to</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -252,8 +251,9 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> exchanges = <span class="hljs-keyword">await</span> client.getExchanges({ version });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">exchanges</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getExchanges</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -262,9 +262,10 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
-<span class="hljs-keyword">const</span> exchangeId = <span class="hljs-string">&quot;NASDAQ&quot;</span>;
-<span class="hljs-keyword">const</span> symbols = <span class="hljs-keyword">await</span> client.getExchangeSymbols({ version, exchangeId });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">exchangeId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;NASDAQ&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbols</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getExchangeSymbols</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">exchangeId</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -273,7 +274,8 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> groups = <span class="hljs-keyword">await</span> client.getGroups({});</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">groups</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getGroups</span><span style="color: #000000">({});</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -282,9 +284,10 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> groupId = <span class="hljs-string">&quot;NG&quot;</span>;
-<span class="hljs-keyword">const</span> symbols = <span class="hljs-keyword">await</span> client.getGroupSymbols({ version, groupId });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">groupId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;NG&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbols</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getGroupSymbols</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">groupId</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -293,9 +296,10 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
-<span class="hljs-keyword">const</span> groupId = <span class="hljs-string">&quot;NG&quot;</span>;
-<span class="hljs-keyword">const</span> symbol = <span class="hljs-keyword">await</span> client.getGroupNearestSymbol({ version, groupId });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">groupId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;NG&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbol</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getGroupNearestSymbol</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">groupId</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -304,7 +308,8 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> symbols = <span class="hljs-keyword">await</span> client.getSymbols();</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbols</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getSymbols</span><span style="color: #000000">();</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -313,9 +318,10 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
-<span class="hljs-keyword">const</span> symbol = <span class="hljs-keyword">await</span> client.getSymbol({ version, symbolId });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbol</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getSymbol</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">symbolId</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -324,10 +330,11 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
-<span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
-<span class="hljs-keyword">const</span> types = <span class="hljs-literal">true</span>;
-<span class="hljs-keyword">const</span> schedule = <span class="hljs-keyword">await</span> client.getSymbolSchedule({ version, symbolId, types });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">types</span><span style="color: #000000"> = </span><span style="color: #0000FF">true</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">schedule</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getSymbolSchedule</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">symbolId</span><span style="color: #000000">, </span><span style="color: #001080">types</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -336,8 +343,9 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
-<span class="hljs-keyword">const</span> specification = <span class="hljs-keyword">await</span> client.getSymbolSpecification({ symbolId });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">specification</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getSymbolSpecification</span><span style="color: #000000">({ </span><span style="color: #001080">symbolId</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -346,8 +354,9 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> types = <span class="hljs-keyword">await</span> client.getTypes({ version });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">types</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getTypes</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -356,9 +365,10 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
-<span class="hljs-keyword">const</span> symbolType = <span class="hljs-string">&quot;OPTION&quot;</span>;
-<span class="hljs-keyword">const</span> symbols = <span class="hljs-keyword">await</span> client.getTypeSymbols({ version, symbolType });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolType</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;OPTION&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbols</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getTypeSymbols</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">symbolType</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -367,11 +377,12 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> symbolIds = [<span class="hljs-string">&quot;MSFT.NASDAQ&quot;</span>, <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>, <span class="hljs-string">&quot;GAZP.MICEX&quot;</span>];
-<span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">await</span> client.getTradesStream({ symbolIds });
-<span class="hljs-keyword">for</span> <span class="hljs-keyword">await</span> (<span class="hljs-keyword">const</span> update <span class="hljs-keyword">of</span> stream) {
-  <span class="hljs-built_in">console</span>.log(update);
-}</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolIds</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;MSFT.NASDAQ&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;GAZP.MICEX&quot;</span><span style="color: #000000">];</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">stream</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getTradesStream</span><span style="color: #000000">({ </span><span style="color: #001080">symbolIds</span><span style="color: #000000"> });</span>
+<span style="color: #AF00DB">for</span><span style="color: #000000"> </span><span style="color: #AF00DB">await</span><span style="color: #000000"> (</span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">update</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">stream</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">update</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -380,13 +391,14 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> symbolIds = [<span class="hljs-string">&quot;MSFT.NASDAQ&quot;</span>, <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>, <span class="hljs-string">&quot;GAZP.MICEX&quot;</span>];
-<span class="hljs-keyword">const</span> level = <span class="hljs-string">&quot;market_depth&quot;</span>;
-<span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">await</span> client.getQuoteStream({ version, symbolIds, level });
-<span class="hljs-keyword">for</span> <span class="hljs-keyword">await</span> (<span class="hljs-keyword">const</span> update <span class="hljs-keyword">of</span> stream) {
-  <span class="hljs-built_in">console</span>.log(update);
-}</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolIds</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;MSFT.NASDAQ&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;GAZP.MICEX&quot;</span><span style="color: #000000">];</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">level</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;market_depth&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">stream</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getQuoteStream</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">symbolIds</span><span style="color: #000000">, </span><span style="color: #001080">level</span><span style="color: #000000"> });</span>
+<span style="color: #AF00DB">for</span><span style="color: #000000"> </span><span style="color: #AF00DB">await</span><span style="color: #000000"> (</span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">update</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">stream</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">update</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -395,9 +407,10 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> symbolIds = [<span class="hljs-string">&quot;MSFT.NASDAQ&quot;</span>, <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>];
-<span class="hljs-keyword">const</span> level = <span class="hljs-string">&quot;market_depth&quot;</span>;
-<span class="hljs-keyword">const</span> quote = <span class="hljs-keyword">await</span> client.getLastQuote({ symbolIds, level });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolIds</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;MSFT.NASDAQ&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">];</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">level</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;market_depth&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">quote</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getLastQuote</span><span style="color: #000000">({ </span><span style="color: #001080">symbolIds</span><span style="color: #000000">, </span><span style="color: #001080">level</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a href="https://api-live.exante.eu/api-docs/#operation/getOHLC"
@@ -405,20 +418,21 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> duration = <span class="hljs-string">&quot;3600&quot;</span>;
-<span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">from</span> = <span class="hljs-number">1481565600000</span>;
-<span class="hljs-keyword">const</span> to = <span class="hljs-number">1481572800000</span>;
-<span class="hljs-keyword">const</span> size = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">const</span> candles = <span class="hljs-keyword">await</span> client.getCandles({
-  version,
-  duration,
-  symbolId,
-  <span class="hljs-keyword">from</span>,
-  to,
-  size,
-});</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">duration</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3600&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">from</span><span style="color: #000000"> = </span><span style="color: #098658">1481565600000</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">to</span><span style="color: #000000"> = </span><span style="color: #098658">1481572800000</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">size</span><span style="color: #000000"> = </span><span style="color: #098658">1</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">candles</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getCandles</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">version</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">duration</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">symbolId</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">from</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">to</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">size</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -427,20 +441,21 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
-<span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">from</span> = <span class="hljs-string">&quot;1481565600000&quot;</span>;
-<span class="hljs-keyword">const</span> to = <span class="hljs-number">1481572800000</span>;
-<span class="hljs-keyword">const</span> size = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">type</span> = <span class="hljs-string">&quot;trades&quot;</span>;
-<span class="hljs-keyword">const</span> ticks = <span class="hljs-keyword">await</span> client.getTicks({
-  version,
-  symbolId,
-  <span class="hljs-keyword">from</span>,
-  to,
-  size,
-  <span class="hljs-keyword">type</span>,
-});</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">from</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;1481565600000&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">to</span><span style="color: #000000"> = </span><span style="color: #098658">1481572800000</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">size</span><span style="color: #000000"> = </span><span style="color: #098658">1</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">type</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;trades&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">ticks</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getTicks</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">version</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">symbolId</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">from</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">to</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">size</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">type</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -449,10 +464,11 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> id = <span class="hljs-string">&quot;ABC1234.001&quot;</span>;
-<span class="hljs-keyword">const</span> currency = <span class="hljs-string">&quot;EUR&quot;</span>;
-<span class="hljs-keyword">const</span> summary = <span class="hljs-keyword">await</span> client.getAccountSummary({ version, id, currency });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">id</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;ABC1234.001&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">currency</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;EUR&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">summary</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getAccountSummary</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">id</span><span style="color: #000000">, </span><span style="color: #001080">currency</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -461,16 +477,17 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> id = <span class="hljs-string">&quot;ABC1234.001&quot;</span>;
-<span class="hljs-keyword">const</span> date = <span class="hljs-string">&quot;2013-02-16&quot;</span>;
-<span class="hljs-keyword">const</span> currency = <span class="hljs-string">&quot;EUR&quot;</span>;
-<span class="hljs-keyword">const</span> summary = <span class="hljs-keyword">await</span> client.getAccountSummary({
-  version,
-  id,
-  date,
-  currency,
-});</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">id</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;ABC1234.001&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">date</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2013-02-16&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">currency</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;EUR&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">summary</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getAccountSummary</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">version</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">id</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">date</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">currency</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -479,14 +496,15 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
-<span class="hljs-keyword">const</span> operationType = [<span class="hljs-string">&quot;TRADE&quot;</span>];
-<span class="hljs-keyword">const</span> limit = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">const</span> transactions = <span class="hljs-keyword">await</span> client.getTransactions({
-  symbolId,
-  operationType,
-  limit,
-});</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">operationType</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;TRADE&quot;</span><span style="color: #000000">];</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">limit</span><span style="color: #000000"> = </span><span style="color: #098658">1</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">transactions</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getTransactions</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">symbolId</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">operationType</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">limit</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -495,24 +513,25 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> symbolId = <span class="hljs-string">&quot;AAPL.NASDAQ&quot;</span>;
-<span class="hljs-keyword">const</span> side = <span class="hljs-string">&quot;sell&quot;</span>;
-<span class="hljs-keyword">const</span> quantity = <span class="hljs-string">&quot;1&quot;</span>;
-<span class="hljs-keyword">const</span> limitPrice = <span class="hljs-string">&quot;10000&quot;</span>;
-<span class="hljs-keyword">const</span> duration = <span class="hljs-string">&quot;good_till_cancel&quot;</span>;
-<span class="hljs-keyword">const</span> orderType = <span class="hljs-string">&quot;limit&quot;</span>;
-<span class="hljs-keyword">const</span> accountId = <span class="hljs-string">&quot;ABC1234.001&quot;</span>;
-<span class="hljs-keyword">const</span> order = <span class="hljs-keyword">await</span> client.placeOrder({
-  version,
-  symbolId,
-  side,
-  quantity,
-  limitPrice,
-  duration,
-  orderType,
-  accountId,
-});</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">side</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;sell&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">quantity</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;1&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">limitPrice</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;10000&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">duration</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;good_till_cancel&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orderType</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;limit&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">accountId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;ABC1234.001&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">order</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">placeOrder</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">version</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">symbolId</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">side</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">quantity</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">limitPrice</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">duration</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">orderType</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">accountId</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -521,12 +540,13 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
-<span class="hljs-keyword">const</span> limit = <span class="hljs-string">&quot;10&quot;</span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">from</span> = <span class="hljs-string">&quot;2017-05-18T10:00:00.000Z&quot;</span>;
-<span class="hljs-keyword">const</span> to = <span class="hljs-string">&quot;2017-05-21T17:59:59.999Z&quot;</span>;
-<span class="hljs-keyword">const</span> account = <span class="hljs-string">&quot;ABC1234.001&quot;</span>;
-<span class="hljs-keyword">const</span> orders = <span class="hljs-keyword">await</span> client.getOrders({ version, limit, <span class="hljs-keyword">from</span>, to, account });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">limit</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;10&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">from</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2017-05-18T10:00:00.000Z&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">to</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2017-05-21T17:59:59.999Z&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">account</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;ABC1234.001&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orders</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getOrders</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">limit</span><span style="color: #000000">, </span><span style="color: #001080">from</span><span style="color: #000000">, </span><span style="color: #001080">to</span><span style="color: #000000">, </span><span style="color: #001080">account</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -535,9 +555,10 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> instrument = <span class="hljs-string">&quot;APL.NASDAQ&quot;</span>;
-<span class="hljs-keyword">const</span> account = <span class="hljs-string">&quot;ABC1234.001&quot;</span>;
-<span class="hljs-keyword">const</span> orders = <span class="hljs-keyword">await</span> client.getActiveOrders({ instrument, account });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">instrument</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;APL.NASDAQ&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">account</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;ABC1234.001&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orders</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getActiveOrders</span><span style="color: #000000">({ </span><span style="color: #001080">instrument</span><span style="color: #000000">, </span><span style="color: #001080">account</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -546,19 +567,20 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> orderId = <span class="hljs-string">&quot;d642d2ca-fcb5-4910-9de4-7c91f275ca23&quot;</span>;
-<span class="hljs-keyword">const</span> action = <span class="hljs-string">&quot;replace&quot;</span>;
-<span class="hljs-keyword">const</span> limitPrice = <span class="hljs-string">&quot;101.0&quot;</span>;
-<span class="hljs-keyword">const</span> quantity = <span class="hljs-string">&quot;7&quot;</span>;
-<span class="hljs-keyword">const</span> stopPrice = <span class="hljs-string">&quot;102.0&quot;</span>;
-<span class="hljs-keyword">const</span> priceDistance = <span class="hljs-string">&quot;1.0&quot;</span>;
-<span class="hljs-keyword">const</span> order = <span class="hljs-keyword">await</span> client.modifyOrder({
-  version,
-  orderId,
-  action,
-  parameters: { limitPrice, quantity, stopPrice, priceDistance },
-});</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orderId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;d642d2ca-fcb5-4910-9de4-7c91f275ca23&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">action</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;replace&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">limitPrice</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;101.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">quantity</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;7&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">stopPrice</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;102.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">priceDistance</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;1.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">order</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">modifyOrder</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">version</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">orderId</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">action</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">parameters:</span><span style="color: #000000"> { </span><span style="color: #001080">limitPrice</span><span style="color: #000000">, </span><span style="color: #001080">quantity</span><span style="color: #000000">, </span><span style="color: #001080">stopPrice</span><span style="color: #000000">, </span><span style="color: #001080">priceDistance</span><span style="color: #000000"> },</span>
+<span style="color: #000000">});</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -567,9 +589,10 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> orderId = <span class="hljs-string">&quot;ffecfac8-ccf9-4015-9a0f-b49a6b9673b8&quot;</span>;
-<span class="hljs-keyword">const</span> order = <span class="hljs-keyword">await</span> client.getOrder({ version, orderId });</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orderId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;ffecfac8-ccf9-4015-9a0f-b49a6b9673b8&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">order</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getOrder</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">orderId</span><span style="color: #000000"> });</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -578,11 +601,12 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;2.0&quot;</span>;
-<span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">await</span> client.orderUpdatesHttp({ version });
-<span class="hljs-keyword">for</span> <span class="hljs-keyword">await</span> (<span class="hljs-keyword">const</span> update <span class="hljs-keyword">of</span> stream) {
-  <span class="hljs-built_in">console</span>.log(update);
-}</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">stream</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">orderUpdatesHttp</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
+<span style="color: #AF00DB">for</span><span style="color: #000000"> </span><span style="color: #AF00DB">await</span><span style="color: #000000"> (</span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">update</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">stream</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">update</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+</code></pre>
             <ul>
               <li>
                 <a
@@ -591,11 +615,12 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span class="hljs-keyword">const</span> version = <span class="hljs-string">&quot;3.0&quot;</span>;
-<span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">await</span> client.tradesHttp({ version });
-<span class="hljs-keyword">for</span> <span class="hljs-keyword">await</span> (<span class="hljs-keyword">const</span> update <span class="hljs-keyword">of</span> stream) {
-  <span class="hljs-built_in">console</span>.log(update);
-}</code></pre>
+            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">stream</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">tradesHttp</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
+<span style="color: #AF00DB">for</span><span style="color: #000000"> </span><span style="color: #AF00DB">await</span><span style="color: #000000"> (</span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">update</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">stream</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">update</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+</code></pre>
             <a
               href="#test"
               id="test"
@@ -603,14 +628,15 @@
             >
               <h2>Test</h2>
             </a>
-            <pre><code class="language-bash">npm <span class="hljs-built_in">test</span></code></pre>
+            <pre><code class="language-bash"><span style="color: #000000">npm </span><span style="color: #795E26">test</span>
+</code></pre>
           </div>
         </div>
         <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
           <nav class="tsd-navigation primary">
             <ul>
-              <li class="globals">
-                <a href="globals.html"><em>Globals</em></a>
+              <li class=" ">
+                <a href="modules.html">Exports</a>
               </li>
             </ul>
           </nav>
@@ -669,45 +695,6 @@
                   href="interfaces/ibaseactiveordersoptions.html"
                   class="tsd-kind-icon"
                   >IBase<wbr />Active<wbr />Orders<wbr />Options</a
-                >
-              </li>
-              <li class="tsd-kind-interface">
-                <a href="interfaces/ibasefill.html" class="tsd-kind-icon"
-                  >IBase<wbr />Fill</a
-                >
-              </li>
-              <li class="tsd-kind-interface">
-                <a href="interfaces/ibaseintrument.html" class="tsd-kind-icon"
-                  >IBase<wbr />Intrument</a
-                >
-              </li>
-              <li class="tsd-kind-interface">
-                <a href="interfaces/ibaseoptiondata.html" class="tsd-kind-icon"
-                  >IBase<wbr />Option<wbr />Data</a
-                >
-              </li>
-              <li class="tsd-kind-interface">
-                <a href="interfaces/ibaseorder.html" class="tsd-kind-icon"
-                  >IBase<wbr />Order</a
-                >
-              </li>
-              <li class="tsd-kind-interface">
-                <a href="interfaces/ibaseorderstate.html" class="tsd-kind-icon"
-                  >IBase<wbr />Order<wbr />State</a
-                >
-              </li>
-              <li class="tsd-kind-interface">
-                <a
-                  href="interfaces/ibaseordersoptions.html"
-                  class="tsd-kind-icon"
-                  >IBase<wbr />Orders<wbr />Options</a
-                >
-              </li>
-              <li class="tsd-kind-interface">
-                <a
-                  href="interfaces/ibaseplaceorderoptions.html"
-                  class="tsd-kind-icon"
-                  >IBase<wbr />Place<wbr />Order<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-interface">
@@ -954,11 +941,6 @@
                 >
               </li>
               <li class="tsd-kind-interface">
-                <a href="interfaces/itickbase.html" class="tsd-kind-icon"
-                  >ITick<wbr />Base</a
-                >
-              </li>
-              <li class="tsd-kind-interface">
                 <a href="interfaces/iticksoptions.html" class="tsd-kind-icon"
                   >ITicks<wbr />Options</a
                 >
@@ -971,11 +953,6 @@
               <li class="tsd-kind-interface">
                 <a href="interfaces/itradetickv3.html" class="tsd-kind-icon"
                   >ITrade<wbr />Tick<wbr />V3</a
-                >
-              </li>
-              <li class="tsd-kind-interface">
-                <a href="interfaces/itransactionbase.html" class="tsd-kind-icon"
-                  >ITransaction<wbr />Base</a
                 >
               </li>
               <li class="tsd-kind-interface">
@@ -1006,111 +983,106 @@
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#callback" class="tsd-kind-icon"
-                  >Callback</a
-                >
-              </li>
-              <li class="tsd-kind-type-alias">
                 <a
-                  href="globals.html#iactiveordersoptions"
+                  href="modules.html#iactiveordersoptions"
                   class="tsd-kind-icon"
                   >IActive<wbr />Orders<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#icandlesize" class="tsd-kind-icon"
+                <a href="modules.html#icandlesize" class="tsd-kind-icon"
                   >ICandle<wbr />Size</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#iduration" class="tsd-kind-icon"
+                <a href="modules.html#iduration" class="tsd-kind-icon"
                   >IDuration</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#ifill" class="tsd-kind-icon">IFill</a>
+                <a href="modules.html#ifill" class="tsd-kind-icon">IFill</a>
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#iintrument" class="tsd-kind-icon"
+                <a href="modules.html#iintrument" class="tsd-kind-icon"
                   >IIntrument</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#iintruments" class="tsd-kind-icon"
+                <a href="modules.html#iintruments" class="tsd-kind-icon"
                   >IIntruments</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#imodifyorderoptions" class="tsd-kind-icon"
+                <a href="modules.html#imodifyorderoptions" class="tsd-kind-icon"
                   >IModify<wbr />Order<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#ioptiondata" class="tsd-kind-icon"
+                <a href="modules.html#ioptiondata" class="tsd-kind-icon"
                   >IOption<wbr />Data</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#iorder" class="tsd-kind-icon">IOrder</a>
+                <a href="modules.html#iorder" class="tsd-kind-icon">IOrder</a>
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#iorderstate" class="tsd-kind-icon"
+                <a href="modules.html#iorderstate" class="tsd-kind-icon"
                   >IOrder<wbr />State</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#iordertype" class="tsd-kind-icon"
+                <a href="modules.html#iordertype" class="tsd-kind-icon"
                   >IOrder<wbr />Type</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#iordersoptions" class="tsd-kind-icon"
+                <a href="modules.html#iordersoptions" class="tsd-kind-icon"
                   >IOrders<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#iordersstatus" class="tsd-kind-icon"
+                <a href="modules.html#iordersstatus" class="tsd-kind-icon"
                   >IOrders<wbr />Status</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#iplaceorderoptions" class="tsd-kind-icon"
+                <a href="modules.html#iplaceorderoptions" class="tsd-kind-icon"
                   >IPlace<wbr />Order<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#iposition" class="tsd-kind-icon"
+                <a href="modules.html#iposition" class="tsd-kind-icon"
                   >IPosition</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#iquoteside" class="tsd-kind-icon"
+                <a href="modules.html#iquoteside" class="tsd-kind-icon"
                   >IQuote<wbr />Side</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#iside" class="tsd-kind-icon">ISide</a>
+                <a href="modules.html#iside" class="tsd-kind-icon">ISide</a>
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#itick" class="tsd-kind-icon">ITick</a>
+                <a href="modules.html#itick" class="tsd-kind-icon">ITick</a>
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="globals.html#itransactions" class="tsd-kind-icon"
+                <a href="modules.html#itransactions" class="tsd-kind-icon"
                   >ITransactions</a
                 >
               </li>
               <li class="tsd-kind-variable">
-                <a href="globals.html#defaultapiversion" class="tsd-kind-icon"
+                <a href="modules.html#defaultapiversion" class="tsd-kind-icon"
                   >DefaultAPIVersion</a
                 >
               </li>
               <li class="tsd-kind-variable">
-                <a href="globals.html#exantedemourl" class="tsd-kind-icon"
+                <a href="modules.html#exantedemourl" class="tsd-kind-icon"
                   >Exante<wbr />DemoURL</a
                 >
               </li>
               <li class="tsd-kind-variable">
-                <a href="globals.html#exanteliveurl" class="tsd-kind-icon"
+                <a href="modules.html#exanteliveurl" class="tsd-kind-icon"
                   >Exante<wbr />LiveURL</a
                 >
               </li>
@@ -1135,24 +1107,6 @@
             </li>
           </ul>
           <ul class="tsd-legend">
-            <li
-              class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-            >
-              <span class="tsd-kind-icon">Inherited property</span>
-            </li>
-            <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-              <span class="tsd-kind-icon">Inherited method</span>
-            </li>
-          </ul>
-          <ul class="tsd-legend">
-            <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static">
-              <span class="tsd-kind-icon">Static property</span>
-            </li>
-            <li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
-              <span class="tsd-kind-icon">Static method</span>
-            </li>
-          </ul>
-          <ul class="tsd-legend">
             <li class="tsd-kind-property tsd-parent-kind-interface">
               <span class="tsd-kind-icon">Property</span>
             </li>
@@ -1160,6 +1114,11 @@
           <ul class="tsd-legend">
             <li class="tsd-kind-property tsd-parent-kind-class tsd-is-private">
               <span class="tsd-kind-icon">Private property</span>
+            </li>
+          </ul>
+          <ul class="tsd-legend">
+            <li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+              <span class="tsd-kind-icon">Static method</span>
             </li>
           </ul>
         </div>
