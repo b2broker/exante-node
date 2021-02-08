@@ -6,7 +6,7 @@
   "type": "commonjs",
   "types": "./build/index.d.ts",
   "engines": {
-    "node": ">=12.18.3"
+    "node": ">=14.15.4"
   },
   "directories": {
     "test": "test"
@@ -19,11 +19,11 @@
     "commitlint": "commitlint --verbose",
     "commitlint:all": "npm run commitlint -- --from=$( git rev-list --max-parents=0 $( git rev-parse --abbrev-ref HEAD ) )",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
-    "docs:build": "npm run docs:remove && typedoc && npm run lint:fix && npm run prettier:write -- --ignore-path .prettierignore_docs",
+    "docs:build": "npm run docs:remove && typedoc && npm run prettier:write -- --ignore-path .prettierignore_docs",
     "docs:remove": "rm -rf ./docs",
     "docs:test": "npm run docs:build && npm run docs:remove",
     "install:clean": "rm -fr node_modules && rm -f package-lock.json && npm install",
-    "lint": "eslint --ext .ts,.js ./",
+    "lint": "eslint --ext .ts ./",
     "lint:fix": "npm run lint -- --fix",
     "postpublish": "npm run build:remove",
     "prepublishOnly": "npm run build && npm run lint:fix && npm run prettier:write",
@@ -54,25 +54,22 @@
     "node-fetch": "3.0.0-beta.9"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^11.0.0",
+    "@b2broker/tsconfig": "^1.0.3",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/exec": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
-    "@types/mocha": "^8.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.4.0",
-    "@typescript-eslint/parser": "^4.4.0",
-    "commitlint": "^11.0.0",
-    "eslint": "^7.10.0",
-    "husky": "^4.3.0",
-    "lint-staged": "^10.4.0",
-    "mocha": "^8.1.3",
-    "nock": "^13.0.4",
+    "@types/mocha": "^8.2.0",
+    "commitlint-config-b2broker": "^1.0.0",
+    "eslint-config-b2broker-ts": "^1.0.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "mocha": "^8.2.1",
+    "nock": "^13.0.7",
     "nyc": "^15.1.0",
-    "prettier": "^2.1.2",
-    "semantic-release": "^17.1.2",
-    "snyk": "^1.409.1",
-    "ts-node": "^9.0.0",
-    "typedoc": "^0.19.2",
-    "typescript": "^4.0.3"
+    "prettier": "^2.2.1",
+    "semantic-release": "^17.3.7",
+    "snyk": "^1.446.0",
+    "ts-node": "^9.1.1",
+    "typedoc": "^0.20.23"
   }
 }
