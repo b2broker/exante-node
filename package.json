@@ -26,6 +26,7 @@
     "lint": "eslint --ext .ts ./",
     "lint:fix": "npm run lint -- --fix",
     "postpublish": "npm run build:remove",
+    "prepare": "husky install",
     "prepublishOnly": "npm run build && npm run lint:fix && npm run prettier:write",
     "prettier": "prettier -c .",
     "prettier:write": "npm run prettier -- --write",
