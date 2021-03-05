@@ -70,6 +70,6 @@
     "semantic-release": "^17.4.1",
     "snyk": "^1.446.0",
     "ts-node": "^9.1.1",
-    "typedoc": "^0.20.23"
+    "typedoc": "^0.20.29"
   }
 }
