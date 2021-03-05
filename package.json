@@ -29,7 +29,7 @@
     "prepublishOnly": "npm run build && npm run lint:fix && npm run prettier:write",
     "prettier": "prettier -c .",
     "prettier:write": "npm run prettier -- --write",
-    "publish:test": "npm run prepublishOnly && npm pack --dry-run && npm run postpublish",
+    "publish:test": "npm publish --dry-run",
     "release": "semantic-release",
     "snyk:protect": "snyk protect",
     "snyk:test": "snyk test",
@@ -68,7 +68,7 @@
     "nyc": "^15.1.0",
     "prettier": "^2.2.1",
     "semantic-release": "^17.4.1",
-    "snyk": "^1.446.0",
+    "snyk": "^1.473.0",
     "ts-node": "^9.1.1",
     "typedoc": "^0.20.29"
   }
