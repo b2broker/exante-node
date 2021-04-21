@@ -10,7 +10,7 @@ jobs:
       matrix:
         node: [14, 15]
 
-    container: node:${{ matrix.node }}-alpine
+    container: node:${{ matrix.node }}-buster
 
     steps:
       - uses: actions/checkout@main
@@ -39,11 +39,6 @@ jobs:
       - name: Publish test
         run: npm run publish:test
 
-      - name: Docs
-        run: |
-          rm -rf docs
-          npm run docs:build
-
       - name: Coverage
         run: npm run coverage
 
@@ -66,12 +61,29 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           parallel-finished: true
 
+  docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@main
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@main
+        with:
+          node-version: 16
+          check-latest: true
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Docs
+        run: npm run docs:build
+
   release:
     needs: [test, coverage]
 
     runs-on: ubuntu-latest
-
-    container: node:14-buster
 
     steps:
       - uses: actions/checkout@main
