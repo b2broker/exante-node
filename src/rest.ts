@@ -1,7 +1,6 @@
 import { createHmac } from "crypto";
 import fetch from "node-fetch";
 
-import FetchError from "./error";
 import JSONStream from "./stream";
 
 export const ExanteDemoURL = "https://api-demo.exante.eu/";
@@ -272,8 +271,7 @@ export interface IReplaceOrderOptions extends IVersion {
   orderId: string;
   /** Order modification action */
   action: "replace";
-  /** Order modification parameters
-   */
+  /** Order modification parameters */
   parameters: {
     /** New order quantity to replace */
     quantity: string;
@@ -716,12 +714,11 @@ export class RestClient {
   }
 
   /** Make a request and parse the body as JSON */
-  public async fetch(
+  public fetch<T = unknown>(
     url: string | URL,
     { headers = this.headers, ...options }: fetch.RequestInit = {}
-  ): Promise<unknown> {
-    const response = await RestClient.fetch(url, { headers, ...options });
-    return response;
+  ): Promise<T> {
+    return RestClient.fetch<T>(url, { headers, ...options });
   }
 
   /** Get the list of user accounts and their statuses */
@@ -729,7 +726,7 @@ export class RestClient {
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<IUserAccount[]> {
     const url = new URL(`/md/${version}/accounts`, this.url);
-    const accounts = (await this.fetch(url)) as IUserAccount[];
+    const accounts = await this.fetch<IUserAccount[]>(url);
     return accounts;
   }
 
@@ -738,7 +735,7 @@ export class RestClient {
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<IDailyChange[]> {
     const url = new URL(`/md/${version}/change`, this.url);
-    const changes = (await this.fetch(url)) as IDailyChange[];
+    const changes = await this.fetch<IDailyChange[]>(url);
     return changes;
   }
 
@@ -749,7 +746,7 @@ export class RestClient {
   }: ISymbolId): Promise<IDailyChange[]> {
     const symbolIds = Array.isArray(symbolId) ? symbolId.join(",") : symbolId;
     const url = new URL(`/md/${version}/change/${symbolIds}`, this.url);
-    const changes = (await this.fetch(url)) as IDailyChange[];
+    const changes = await this.fetch<IDailyChange[]>(url);
     return changes;
   }
 
@@ -758,7 +755,7 @@ export class RestClient {
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<ICurrencies> {
     const url = new URL(`/md/${version}/crossrates`, this.url);
-    const changes = (await this.fetch(url)) as ICurrencies;
+    const changes = await this.fetch<ICurrencies>(url);
     return changes;
   }
 
@@ -769,7 +766,7 @@ export class RestClient {
     to,
   }: ICrossrateOptions): Promise<ICrossrate> {
     const url = new URL(`/md/${version}/crossrates/${from}/${to}`, this.url);
-    const crossrate = (await this.fetch(url)) as ICrossrate;
+    const crossrate = await this.fetch<ICrossrate>(url);
     return crossrate;
   }
 
@@ -778,7 +775,7 @@ export class RestClient {
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<IExchange[]> {
     const url = new URL(`/md/${version}/exchanges`, this.url);
-    const exchanges = (await this.fetch(url)) as IExchange[];
+    const exchanges = await this.fetch<IExchange[]>(url);
     return exchanges;
   }
 
@@ -788,7 +785,7 @@ export class RestClient {
     exchangeId,
   }: IExchangeId): Promise<IIntruments> {
     const url = new URL(`/md/${version}/exchanges/${exchangeId}`, this.url);
-    const instruments = (await this.fetch(url)) as IIntruments;
+    const instruments = await this.fetch<IIntruments>(url);
     return instruments;
   }
 
@@ -797,7 +794,7 @@ export class RestClient {
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<IInstrumentGroup[]> {
     const url = new URL(`/md/${version}/groups`, this.url);
-    const groups = (await this.fetch(url)) as IInstrumentGroup[];
+    const groups = await this.fetch<IInstrumentGroup[]>(url);
     return groups;
   }
 
@@ -807,7 +804,7 @@ export class RestClient {
     groupId,
   }: IGroupId): Promise<IIntruments> {
     const url = new URL(`/md/${version}/groups/${groupId}`, this.url);
-    const instruments = (await this.fetch(url)) as IIntruments;
+    const instruments = await this.fetch<IIntruments>(url);
     return instruments;
   }
 
@@ -817,7 +814,7 @@ export class RestClient {
     groupId,
   }: IGroupId): Promise<IIntrument> {
     const url = new URL(`/md/${version}/groups/${groupId}/nearest`, this.url);
-    const instrument = (await this.fetch(url)) as IIntrument;
+    const instrument = await this.fetch<IIntrument>(url);
     return instrument;
   }
 
@@ -826,7 +823,7 @@ export class RestClient {
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<IIntruments> {
     const url = new URL(`/md/${version}/symbols`, this.url);
-    const groups = (await this.fetch(url)) as IIntruments;
+    const groups = await this.fetch<IIntruments>(url);
     return groups;
   }
 
@@ -836,7 +833,7 @@ export class RestClient {
     symbolId,
   }: ISymbolIdOptions): Promise<IIntrument> {
     const url = new URL(`/md/${version}/symbols/${symbolId}`, this.url);
-    const symbol = (await this.fetch(url)) as IIntrument;
+    const symbol = await this.fetch<IIntrument>(url);
     return symbol;
   }
 
@@ -849,7 +846,7 @@ export class RestClient {
     const path = `/md/${version}/symbols/${symbolId}/schedule`;
     const url = new URL(path, this.url);
     RestClient.setQuery(url, { types });
-    const schedule = (await this.fetch(url)) as IInstrumentSchedule;
+    const schedule = await this.fetch<IInstrumentSchedule>(url);
     return schedule;
   }
 
@@ -861,7 +858,7 @@ export class RestClient {
     const symbolIds = Array.isArray(symbolId) ? symbolId.join(",") : symbolId;
     const path = `/md/${version}/symbols/${symbolIds}/specification`;
     const url = new URL(path, this.url);
-    const instrument = (await this.fetch(url)) as IInstrumentSpecification;
+    const instrument = await this.fetch<IInstrumentSpecification>(url);
     return instrument;
   }
 
@@ -870,7 +867,7 @@ export class RestClient {
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<IInstrumentType[]> {
     const url = new URL(`/md/${version}/types`, this.url);
-    const groups = (await this.fetch(url)) as IInstrumentType[];
+    const groups = await this.fetch<IInstrumentType[]>(url);
     return groups;
   }
 
@@ -880,7 +877,7 @@ export class RestClient {
     symbolType,
   }: ISymbolIdType): Promise<IIntruments> {
     const url = new URL(`/md/${version}/types/${symbolType}`, this.url);
-    const symbols = (await this.fetch(url)) as IIntruments;
+    const symbols = await this.fetch<IIntruments>(url);
     return symbols;
   }
 
@@ -893,7 +890,7 @@ export class RestClient {
     const symbolId = Array.isArray(symbolIds) ? symbolIds.join(",") : symbolIds;
     const url = new URL(`/md/${version}/feed/${symbolId}/last`, this.url);
     RestClient.setQuery(url, { level });
-    const exchanges = (await this.fetch(url)) as ILastQuote[];
+    const exchanges = await this.fetch<ILastQuote[]>(url);
     return exchanges;
   }
 
@@ -929,7 +926,7 @@ export class RestClient {
     const path = `/md/${version}/ohlc/${symbolIds}/${duration}`;
     const url = new URL(path, this.url);
     RestClient.setQuery(url, { ...query });
-    const candles = (await this.fetch(url)) as ICandle[];
+    const candles = await this.fetch<ICandle[]>(url);
     return candles;
   }
 
@@ -942,7 +939,7 @@ export class RestClient {
     const symbolIds = Array.isArray(symbolId) ? symbolId.join(",") : symbolId;
     const url = new URL(`/md/${version}/ticks/${symbolIds}`, this.url);
     RestClient.setQuery(url, { ...query });
-    const ticks = (await this.fetch(url)) as ITick[];
+    const ticks = await this.fetch<ITick[]>(url);
     return ticks;
   }
 
@@ -954,7 +951,7 @@ export class RestClient {
   }: IBaseAccountSummaryOptions): Promise<IAccountSummary> {
     const path = `/md/${version}/summary/${id}/${currency}`;
     const url = new URL(path, this.url);
-    const summary = (await this.fetch(url)) as IAccountSummary;
+    const summary = await this.fetch<IAccountSummary>(url);
     return summary;
   }
 
@@ -967,7 +964,7 @@ export class RestClient {
   }: IAccountSummaryOptions): Promise<IAccountSummary> {
     const path = `/md/${version}/summary/${id}/${date}/${currency}`;
     const url = new URL(path, this.url);
-    const summary = (await this.fetch(url)) as IAccountSummary;
+    const summary = await this.fetch<IAccountSummary>(url);
     return summary;
   }
 
@@ -982,7 +979,7 @@ export class RestClient {
       : operationType;
     const url = new URL(`/md/${version}/transactions`, this.url);
     RestClient.setQuery(url, { operationType: type, ...query });
-    const transactions = (await this.fetch(url)) as ITransactions;
+    const transactions = await this.fetch<ITransactions>(url);
     return transactions;
   }
 
@@ -996,9 +993,10 @@ export class RestClient {
     const url = new URL(`/trade/${version}/orders`, this.url);
     const method = "POST";
     const body = JSON.stringify(data);
-    const order = (await this.fetch(url, { method, body })) as
-      | IOrderV2[]
-      | IOrderV3[];
+    const order = await this.fetch<IOrderV2[] | IOrderV3[]>(url, {
+      method,
+      body,
+    });
     return order;
   }
 
@@ -1009,7 +1007,7 @@ export class RestClient {
   }: IOrdersOptions): Promise<IOrder[]> {
     const url = new URL(`/trade/${version}/orders`, this.url);
     RestClient.setQuery(url, { ...query });
-    const orders = (await this.fetch(url)) as IOrder[];
+    const orders = await this.fetch<IOrder[]>(url);
     return orders;
   }
 
@@ -1020,7 +1018,7 @@ export class RestClient {
   }: IActiveOrdersOptions): Promise<IOrder[]> {
     const url = new URL(`/trade/${version}/orders/active`, this.url);
     RestClient.setQuery(url, { ...query });
-    const orders = (await this.fetch(url)) as IOrder[];
+    const orders = await this.fetch<IOrder[]>(url);
     return orders;
   }
 
@@ -1032,7 +1030,7 @@ export class RestClient {
   }: IModifyOrderOptions): Promise<IOrder> {
     const url = new URL(`/trade/${version}/orders/${orderId}`, this.url);
     const body = JSON.stringify(data);
-    const order = (await this.fetch(url, { method: "POST", body })) as IOrder;
+    const order = await this.fetch<IOrder>(url, { method: "POST", body });
     return order;
   }
 
@@ -1042,7 +1040,7 @@ export class RestClient {
     orderId,
   }: IOrderId): Promise<IOrder> {
     const url = new URL(`/trade/${version}/orders/${orderId}`, this.url);
-    const order = (await this.fetch(url)) as IOrder;
+    const order = await this.fetch<IOrder>(url);
     return order;
   }
 
@@ -1164,30 +1162,33 @@ export class RestClient {
     const response = await fetch(url.toString(), { ...options });
     /* istanbul ignore next */
     if (!response.body) {
-      throw new FetchError("Empty body", response);
-    } else if (!response.ok) {
-      throw new FetchError(response.statusText, response);
+      throw new Error("Empty body");
     }
+
+    if (!response.ok) {
+      const data = await response.json();
+      throw data;
+    }
+
     const stream = new JSONStream();
     response.body.pipe(stream);
     return stream;
   }
 
   /** Make a request and parse the body as JSON */
-  public static async fetch(
+  public static async fetch<T = unknown>(
     url: string | URL,
     options: fetch.RequestInit = {}
-  ): Promise<unknown> {
+  ): Promise<T> {
     const response = await fetch(url.toString(), { ...options });
+
+    const data = (await response.json()) as T;
+
     if (!response.ok) {
-      throw new FetchError(response.statusText, response);
+      throw data;
     }
-    try {
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      throw new FetchError((error as Error)?.message, response);
-    }
+
+    return data;
   }
 }
 

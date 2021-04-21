@@ -1,13 +1,11 @@
 import assert from "assert";
 import { Readable } from "stream";
 import nock from "nock";
-import fetch from "node-fetch";
 
 import {
   RestClient,
   ExanteDemoURL,
   ExanteLiveURL,
-  FetchError,
   IUserAccount,
   IDailyChange,
   ICurrencies,
@@ -2518,15 +2516,15 @@ suite("RestClient", () => {
       });
     });
 
-    test(".fetchStream()  (throws `FetchError` on non 2xx responses)", async () => {
-      nock(url).get("/").delay(1).reply(404);
+    test(".fetchStream()  (throws `Error` on non 2xx responses)", async () => {
+      const message = { error: "Bad error", code: 1 };
+      nock(url).get("/").delay(1).reply(404, JSON.stringify(message));
 
       try {
         await RestClient.fetchStream(url);
-        assert.fail("Should throw a FetchError");
+        assert.fail("Should throw a Error");
       } catch (error) {
-        assert.ok(error instanceof FetchError);
-        assert.ok(error.response instanceof fetch.Response);
+        assert.deepStrictEqual(error, message);
       }
     });
 
@@ -2540,27 +2538,28 @@ suite("RestClient", () => {
       assert.deepStrictEqual(data, response);
     });
 
-    test(".fetch() (throws `FetchError` on non 2xx responses)", async () => {
-      nock(url).get("/").delay(1).reply(404);
+    test(".fetch() (throws `Error` on non 2xx responses)", async () => {
+      const message = { error: "Message", code: 1 };
+      nock(url).get("/").delay(1).reply(404, JSON.stringify(message));
 
       try {
         await RestClient.fetch(url);
-        assert.fail("Should throw a FetchError");
+        assert.fail("Should throw a Error");
       } catch (error) {
-        assert.ok(error instanceof FetchError);
-        assert.ok(error.response instanceof fetch.Response);
+        assert.deepStrictEqual(error, message);
       }
     });
 
-    test(".fetch() (throws `FetchError` on non json reposonses)", async () => {
+    test(".fetch() (throws `Error` on non json reposonses)", async () => {
       nock(url).get("/").delay(1).reply(200, "notjson");
 
+      const message = "Unexpected token o in JSON at position 1";
       try {
         await RestClient.fetch(url);
-        assert.fail("Should throw a FetchError");
+        assert.fail("Should throw a Error");
       } catch (error) {
-        assert.ok(error instanceof FetchError);
-        assert.ok(error.response instanceof fetch.Response);
+        assert.ok(error instanceof Error);
+        assert.deepStrictEqual(error.message, message);
       }
     });
   });
