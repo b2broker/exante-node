@@ -27,7 +27,7 @@
     "lint:fix": "npm run lint -- --fix",
     "postpublish": "npm run build:remove",
     "prepare": "husky install",
-    "prepublishOnly": "npm run build && npm run lint:fix && npm run prettier:write",
+    "prepublishOnly": "npm run build && npm run prettier:write",
     "prettier": "prettier -c .",
     "prettier:write": "npm run prettier -- --write",
     "publish:test": "npm publish --dry-run",
@@ -68,7 +68,7 @@
     "nock": "^13.0.11",
     "nyc": "^15.1.0",
     "prettier": "^2.2.1",
-    "semantic-release": "^17.4.1",
+    "semantic-release": "^17.4.2",
     "snyk": "^1.563.0",
     "ts-node": "^9.1.1",
     "typedoc": "^0.20.35"
