@@ -40,7 +40,9 @@ jobs:
         run: npm run publish:test
 
       - name: Docs
-        run: npm run docs:test
+        run: |
+          rm -rf docs
+          npm run docs:build
 
       - name: Coverage
         run: npm run coverage
