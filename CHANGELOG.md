@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.0.0](https://github.com/b2broker/exante-node/compare/v2.0.0...v3.0.0) (2021-04-21)
+
+### ⚠ BREAKING CHANGES
+
+- parse not ok responses as json
+
+### Bug Fixes
+
+- parse not ok responses as json ([4a590a1](https://github.com/b2broker/exante-node/commit/4a590a15a0cf5a3b8faaa9d1666a2bf9b7bb61a5))
+
+### Performance Improvements
+
+- **JSONStream:** add the `json_string` field to errors ([23ae7cf](https://github.com/b2broker/exante-node/commit/23ae7cfcffa516d89ea418e1cf884f120932bc6e))
+
 ## [2.0.0](https://github.com/b2broker/exante-node/compare/v1.31.1...v2.0.0) (2021-02-08)
 
 ### ⚠ BREAKING CHANGES
