@@ -38,18 +38,15 @@ jobs:
       - name: commitlint
         run: npm run commitlint:all
 
-  coverage_parallel:
+  coverage:
     needs: [test]
 
     runs-on: ubuntu-latest
 
+    container: node:15-alpine
+
     steps:
       - uses: actions/checkout@main
-
-      - uses: actions/setup-node@main
-        with:
-          node-version: ${{ matrix.node }}
-          check-latest: true
 
       - name: Install dependencies
         run: npm ci
@@ -57,24 +54,10 @@ jobs:
       - name: Coverage
         run: npm run coverage
 
-      - name: Coveralls Parallel
+      - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          flag-name: node:${{ matrix.node }}
-          parallel: true
-
-  coverage_finished:
-    needs: [test, coverage_parallel]
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          parallel-finished: true
 
   docs:
     runs-on: ubuntu-latest
@@ -99,7 +82,7 @@ jobs:
         run: npm run publish:test
 
   release:
-    needs: [test, coverage_parallel, coverage_finished]
+    needs: [test, coverage, docs]
 
     runs-on: ubuntu-latest
 
