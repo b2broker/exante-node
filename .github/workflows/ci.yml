@@ -6,16 +6,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node: [14, 15]
-
-    container: node:${{ matrix.node }}-buster
-
     steps:
       - uses: actions/checkout@main
         with:
           fetch-depth: 0
+
+      - uses: actions/setup-node@main
+        with:
+          node-version: 16
+          check-latest: true
 
       - name: Node.js version
         run: node --version
@@ -38,12 +37,18 @@ jobs:
       - name: commitlint
         run: npm run commitlint:all
 
+      - name: Docs
+        run: npm run docs:ci
+
+      - name: Publish
+        run: npm run publish:test
+
   coverage:
     needs: [test]
 
     runs-on: ubuntu-latest
 
-    container: node:15-alpine
+    container: node:16-alpine
 
     steps:
       - uses: actions/checkout@main
@@ -59,37 +64,13 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-  docs:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@main
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-node@main
-        with:
-          node-version: 16
-          check-latest: true
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Docs
-        run: npm run docs:ci
-
-      - name: Publish
-        run: npm run publish:test
-
   release:
-    needs: [test, coverage, docs]
+    needs: [test, coverage]
 
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@main
-        with:
-          fetch-depth: 0
 
       - uses: actions/setup-node@main
         with:
