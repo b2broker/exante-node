@@ -722,123 +722,111 @@ export class RestClient {
   }
 
   /** Get the list of user accounts and their statuses */
-  public async getAccounts({
-    version = DefaultAPIVersion,
-  }: IVersion = {}): Promise<IUserAccount[]> {
+  public getAccounts({ version = DefaultAPIVersion }: IVersion = {}): Promise<
+    IUserAccount[]
+  > {
     const url = new URL(`/md/${version}/accounts`, this.url);
-    const accounts = await this.fetch<IUserAccount[]>(url);
-    return accounts;
+    return this.fetch<IUserAccount[]>(url);
   }
 
   /** Get the list of daily changes */
-  public async getDailyChanges({
+  public getDailyChanges({
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<IDailyChange[]> {
     const url = new URL(`/md/${version}/change`, this.url);
-    const changes = await this.fetch<IDailyChange[]>(url);
-    return changes;
+    return this.fetch<IDailyChange[]>(url);
   }
 
   /** Get the list of daily changes for requested instruments */
-  public async getDailyChange({
+  public getDailyChange({
     version = DefaultAPIVersion,
     symbolId,
   }: ISymbolId): Promise<IDailyChange[]> {
     const symbolIds = Array.isArray(symbolId) ? symbolId.join(",") : symbolId;
     const url = new URL(`/md/${version}/change/${symbolIds}`, this.url);
-    const changes = await this.fetch<IDailyChange[]>(url);
-    return changes;
+    return this.fetch<IDailyChange[]>(url);
   }
 
   /** Get the list of available currencies */
-  public async getCurrencies({
+  public getCurrencies({
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<ICurrencies> {
     const url = new URL(`/md/${version}/crossrates`, this.url);
-    const changes = await this.fetch<ICurrencies>(url);
-    return changes;
+    return this.fetch<ICurrencies>(url);
   }
 
   /** Get the crossrate from one currency to another */
-  public async getCrossrate({
+  public getCrossrate({
     version = DefaultAPIVersion,
     from,
     to,
   }: ICrossrateOptions): Promise<ICrossrate> {
     const url = new URL(`/md/${version}/crossrates/${from}/${to}`, this.url);
-    const crossrate = await this.fetch<ICrossrate>(url);
-    return crossrate;
+    return this.fetch<ICrossrate>(url);
   }
 
   /** Get list of exchanges */
-  public async getExchanges({
-    version = DefaultAPIVersion,
-  }: IVersion = {}): Promise<IExchange[]> {
+  public getExchanges({ version = DefaultAPIVersion }: IVersion = {}): Promise<
+    IExchange[]
+  > {
     const url = new URL(`/md/${version}/exchanges`, this.url);
-    const exchanges = await this.fetch<IExchange[]>(url);
-    return exchanges;
+    return this.fetch<IExchange[]>(url);
   }
 
   /** Get instruments by exchange */
-  public async getExchangeSymbols({
+  public getExchangeSymbols({
     version = DefaultAPIVersion,
     exchangeId,
   }: IExchangeId): Promise<IIntruments> {
     const url = new URL(`/md/${version}/exchanges/${exchangeId}`, this.url);
-    const instruments = await this.fetch<IIntruments>(url);
-    return instruments;
+    return this.fetch<IIntruments>(url);
   }
 
   /** Get list of available instrument groups */
-  public async getGroups({
-    version = DefaultAPIVersion,
-  }: IVersion = {}): Promise<IInstrumentGroup[]> {
+  public getGroups({ version = DefaultAPIVersion }: IVersion = {}): Promise<
+    IInstrumentGroup[]
+  > {
     const url = new URL(`/md/${version}/groups`, this.url);
-    const groups = await this.fetch<IInstrumentGroup[]>(url);
-    return groups;
+    return this.fetch<IInstrumentGroup[]>(url);
   }
 
   /** Get financial instruments which belong to specified group */
-  public async getGroupSymbols({
+  public getGroupSymbols({
     version = DefaultAPIVersion,
     groupId,
   }: IGroupId): Promise<IIntruments> {
     const url = new URL(`/md/${version}/groups/${groupId}`, this.url);
-    const instruments = await this.fetch<IIntruments>(url);
-    return instruments;
+    return this.fetch<IIntruments>(url);
   }
 
   /** Get financial instrument which has the nearest expiration in the group */
-  public async getGroupNearestSymbol({
+  public getGroupNearestSymbol({
     version = DefaultAPIVersion,
     groupId,
   }: IGroupId): Promise<IIntrument> {
     const url = new URL(`/md/${version}/groups/${groupId}/nearest`, this.url);
-    const instrument = await this.fetch<IIntrument>(url);
-    return instrument;
+    return this.fetch<IIntrument>(url);
   }
 
   /** Get list of instruments available for authorized user */
-  public async getSymbols({
+  public getSymbols({
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<IIntruments> {
     const url = new URL(`/md/${version}/symbols`, this.url);
-    const groups = await this.fetch<IIntruments>(url);
-    return groups;
+    return this.fetch<IIntruments>(url);
   }
 
   /** Get instrument available for authorized user */
-  public async getSymbol({
+  public getSymbol({
     version = DefaultAPIVersion,
     symbolId,
   }: ISymbolIdOptions): Promise<IIntrument> {
     const url = new URL(`/md/${version}/symbols/${symbolId}`, this.url);
-    const symbol = await this.fetch<IIntrument>(url);
-    return symbol;
+    return this.fetch<IIntrument>(url);
   }
 
   /** Get financial schedule for requested instrument */
-  public async getSymbolSchedule({
+  public getSymbolSchedule({
     version = DefaultAPIVersion,
     symbolId,
     types,
@@ -846,43 +834,39 @@ export class RestClient {
     const path = `/md/${version}/symbols/${symbolId}/schedule`;
     const url = new URL(path, this.url);
     RestClient.setQuery(url, { types });
-    const schedule = await this.fetch<IInstrumentSchedule>(url);
-    return schedule;
+    return this.fetch<IInstrumentSchedule>(url);
   }
 
   /** Get additional parameters for requested instrument */
-  public async getSymbolSpecification({
+  public getSymbolSpecification({
     version = DefaultAPIVersion,
     symbolId,
   }: ISymbolId): Promise<IInstrumentSpecification> {
     const symbolIds = Array.isArray(symbolId) ? symbolId.join(",") : symbolId;
     const path = `/md/${version}/symbols/${symbolIds}/specification`;
     const url = new URL(path, this.url);
-    const instrument = await this.fetch<IInstrumentSpecification>(url);
-    return instrument;
+    return this.fetch<IInstrumentSpecification>(url);
   }
 
   /** Get list of known instrument types */
-  public async getTypes({
-    version = DefaultAPIVersion,
-  }: IVersion = {}): Promise<IInstrumentType[]> {
+  public getTypes({ version = DefaultAPIVersion }: IVersion = {}): Promise<
+    IInstrumentType[]
+  > {
     const url = new URL(`/md/${version}/types`, this.url);
-    const groups = await this.fetch<IInstrumentType[]>(url);
-    return groups;
+    return this.fetch<IInstrumentType[]>(url);
   }
 
   /** Get financial instruments of the requested type */
-  public async getTypeSymbols({
+  public getTypeSymbols({
     version = DefaultAPIVersion,
     symbolType,
   }: ISymbolIdType): Promise<IIntruments> {
     const url = new URL(`/md/${version}/types/${symbolType}`, this.url);
-    const symbols = await this.fetch<IIntruments>(url);
-    return symbols;
+    return this.fetch<IIntruments>(url);
   }
 
   /** Get the last quote */
-  public async getLastQuote({
+  public getLastQuote({
     version = DefaultAPIVersion,
     symbolIds,
     level,
@@ -890,20 +874,18 @@ export class RestClient {
     const symbolId = Array.isArray(symbolIds) ? symbolIds.join(",") : symbolIds;
     const url = new URL(`/md/${version}/feed/${symbolId}/last`, this.url);
     RestClient.setQuery(url, { level });
-    const exchanges = await this.fetch<ILastQuote[]>(url);
-    return exchanges;
+    return this.fetch<ILastQuote[]>(url);
   }
 
   /** Get the trades stream for the specified financial instrument */
-  public async getTradesStream({ symbolIds }: ISymbolIds): Promise<JSONStream> {
+  public getTradesStream({ symbolIds }: ISymbolIds): Promise<JSONStream> {
     const symbolId = Array.isArray(symbolIds) ? symbolIds.join(",") : symbolIds;
     const url = new URL(`/md/3.0/feed/trades/${symbolId}`, this.url);
-    const stream = await this.fetchStream(url);
-    return stream;
+    return this.fetchStream(url);
   }
 
   /** Get the trades stream for the specified financial instrument */
-  public async getQuoteStream({
+  public getQuoteStream({
     version = DefaultAPIVersion,
     symbolIds,
     ...query
@@ -911,12 +893,11 @@ export class RestClient {
     const symbolId = Array.isArray(symbolIds) ? symbolIds.join(",") : symbolIds;
     const url = new URL(`/md/${version}/feed/${symbolId}`, this.url);
     RestClient.setQuery(url, { ...query });
-    const stream = await this.fetchStream(url);
-    return stream;
+    return this.fetchStream(url);
   }
 
   /** Get the list of OHLC candles */
-  public async getCandles({
+  public getCandles({
     version = DefaultAPIVersion,
     symbolId,
     duration,
@@ -926,12 +907,11 @@ export class RestClient {
     const path = `/md/${version}/ohlc/${symbolIds}/${duration}`;
     const url = new URL(path, this.url);
     RestClient.setQuery(url, { ...query });
-    const candles = await this.fetch<ICandle[]>(url);
-    return candles;
+    return this.fetch<ICandle[]>(url);
   }
 
   /** Get the list of ticks */
-  public async getTicks({
+  public getTicks({
     version = DefaultAPIVersion,
     symbolId,
     ...query
@@ -939,24 +919,22 @@ export class RestClient {
     const symbolIds = Array.isArray(symbolId) ? symbolId.join(",") : symbolId;
     const url = new URL(`/md/${version}/ticks/${symbolIds}`, this.url);
     RestClient.setQuery(url, { ...query });
-    const ticks = await this.fetch<ITick[]>(url);
-    return ticks;
+    return this.fetch<ITick[]>(url);
   }
 
   /** Get the summary for the specified account */
-  public async getAccountSummaryWithoutDate({
+  public getAccountSummaryWithoutDate({
     version = DefaultAPIVersion,
     id,
     currency,
   }: IBaseAccountSummaryOptions): Promise<IAccountSummary> {
     const path = `/md/${version}/summary/${id}/${currency}`;
     const url = new URL(path, this.url);
-    const summary = await this.fetch<IAccountSummary>(url);
-    return summary;
+    return this.fetch<IAccountSummary>(url);
   }
 
   /** Get the summary for the specified account and session date */
-  public async getAccountSummary({
+  public getAccountSummary({
     version = DefaultAPIVersion,
     id,
     date,
@@ -964,12 +942,11 @@ export class RestClient {
   }: IAccountSummaryOptions): Promise<IAccountSummary> {
     const path = `/md/${version}/summary/${id}/${date}/${currency}`;
     const url = new URL(path, this.url);
-    const summary = await this.fetch<IAccountSummary>(url);
-    return summary;
+    return this.fetch<IAccountSummary>(url);
   }
 
   /** Get the list of transactions */
-  public async getTransactions({
+  public getTransactions({
     version = DefaultAPIVersion,
     operationType,
     ...query
@@ -979,100 +956,87 @@ export class RestClient {
       : operationType;
     const url = new URL(`/md/${version}/transactions`, this.url);
     RestClient.setQuery(url, { operationType: type, ...query });
-    const transactions = await this.fetch<ITransactions>(url);
-    return transactions;
+    return this.fetch<ITransactions>(url);
   }
 
   /** Place new trading order */
-  public async placeOrder(options: IPlaceOrderOptionsV2): Promise<IOrderV2[]>;
-  public async placeOrder(options: IPlaceOrderOptionsV3): Promise<IOrderV3[]>;
-  public async placeOrder({
+  public placeOrder(options: IPlaceOrderOptionsV2): Promise<IOrderV2[]>;
+  public placeOrder(options: IPlaceOrderOptionsV3): Promise<IOrderV3[]>;
+  public placeOrder({
     version = DefaultAPIVersion,
     ...data
   }: IPlaceOrderOptions): Promise<IOrderV2[] | IOrderV3[]> {
     const url = new URL(`/trade/${version}/orders`, this.url);
     const method = "POST";
     const body = JSON.stringify(data);
-    const order = await this.fetch<IOrderV2[] | IOrderV3[]>(url, {
-      method,
-      body,
-    });
-    return order;
+    return this.fetch<IOrderV2[] | IOrderV3[]>(url, { method, body });
   }
 
   /** Get the list of historical orders */
-  public async getOrders({
+  public getOrders({
     version = DefaultAPIVersion,
     ...query
   }: IOrdersOptions): Promise<IOrder[]> {
     const url = new URL(`/trade/${version}/orders`, this.url);
     RestClient.setQuery(url, { ...query });
-    const orders = await this.fetch<IOrder[]>(url);
-    return orders;
+    return this.fetch<IOrder[]>(url);
   }
 
   /** Get the list of active trading orders */
-  public async getActiveOrders({
+  public getActiveOrders({
     version = DefaultAPIVersion,
     ...query
   }: IActiveOrdersOptions): Promise<IOrder[]> {
     const url = new URL(`/trade/${version}/orders/active`, this.url);
     RestClient.setQuery(url, { ...query });
-    const orders = await this.fetch<IOrder[]>(url);
-    return orders;
+    return this.fetch<IOrder[]>(url);
   }
 
   /** Replace or cancel trading order */
-  public async modifyOrder({
+  public modifyOrder({
     version = DefaultAPIVersion,
     orderId,
     ...data
   }: IModifyOrderOptions): Promise<IOrder> {
     const url = new URL(`/trade/${version}/orders/${orderId}`, this.url);
     const body = JSON.stringify(data);
-    const order = await this.fetch<IOrder>(url, { method: "POST", body });
-    return order;
+    return this.fetch<IOrder>(url, { method: "POST", body });
   }
 
   /** Get the order with specified identifier */
-  public async getOrder({
+  public getOrder({
     version = DefaultAPIVersion,
     orderId,
   }: IOrderId): Promise<IOrder> {
     const url = new URL(`/trade/${version}/orders/${orderId}`, this.url);
-    const order = await this.fetch<IOrder>(url);
-    return order;
+    return this.fetch<IOrder>(url);
   }
 
   /** Get order updates stream via HTTP */
-  public async orderUpdatesHttp({
+  public orderUpdatesHttp({
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<JSONStream> {
     const url = new URL(`/trade/${version}/stream/orders`, this.url);
-    const stream = await this.fetchStream(url);
-    return stream;
+    return this.fetchStream(url);
   }
 
   /** Get trades updates stream via HTTP */
-  public async tradesHttp({
+  public tradesHttp({
     version = DefaultAPIVersion,
   }: IVersion = {}): Promise<JSONStream> {
     const url = new URL(`/trade/${version}/stream/trades`, this.url);
-    const stream = await this.fetchStream(url);
-    return stream;
+    return this.fetchStream(url);
   }
 
   /** Make a request and return JSONStream */
-  public async fetchStream(
+  public fetchStream(
     url: string | URL,
     options: fetch.RequestInit = {}
   ): Promise<JSONStream> {
     const headers = new fetch.Headers(options.headers ?? this.headers);
     headers.set("Accept", "application/x-json-stream");
 
-    const stream = RestClient.fetchStream(url, { ...options, headers });
-
-    return stream;
+    return RestClient.fetchStream(url, { ...options, headers });
   }
 
   /** Get a JSON Web Token */
@@ -1096,9 +1060,7 @@ export class RestClient {
       ],
     };
 
-    const jwt = RestClient.JWT(this.#shared_key, payload);
-
-    return jwt;
+    return RestClient.JWT(this.#shared_key, payload);
   }
 
   /** Get authorization headers */
@@ -1150,8 +1112,7 @@ export class RestClient {
       .update(`${encodedHeader}.${encodedPayload}`)
       .digest("base64");
     const encodedSignature = RestClient.base64URL(signature);
-    const jwt = `${encodedHeader}.${encodedPayload}.${encodedSignature}`;
-    return jwt;
+    return `${encodedHeader}.${encodedPayload}.${encodedSignature}`;
   }
 
   /** Make a request and return a stream */
@@ -1166,8 +1127,7 @@ export class RestClient {
     }
 
     if (!response.ok) {
-      const data = await response.json();
-      throw data;
+      throw await response.json();
     }
 
     const stream = new JSONStream();
