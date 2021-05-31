@@ -1,5 +1,11 @@
 # Changelog
 
+### [3.0.1](https://github.com/b2broker/exante-node/compare/v3.0.0...v3.0.1) (2021-05-31)
+
+### Performance Improvements
+
+- **JSONStream:** add the `chunk` property to errors ([fa4023d](https://github.com/b2broker/exante-node/commit/fa4023dea67fec113f19ee53a71d6e9f73fbacbf))
+
 ## [3.0.0](https://github.com/b2broker/exante-node/compare/v2.0.0...v3.0.0) (2021-04-21)
 
 ### ⚠ BREAKING CHANGES
