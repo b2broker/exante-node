@@ -465,8 +465,7 @@ suite("RestClient", () => {
       {
         id: "NASDAQ",
         country: "US",
-        name:
-          "NASDAQ: National Association of Securities Dealers Automated Quotations",
+        name: "NASDAQ: National Association of Securities Dealers Automated Quotations",
       },
     ];
 
@@ -481,8 +480,7 @@ suite("RestClient", () => {
       {
         id: "NASDAQ",
         country: "US",
-        name:
-          "NASDAQ: National Association of Securities Dealers Automated Quotations",
+        name: "NASDAQ: National Association of Securities Dealers Automated Quotations",
       },
     ];
 
