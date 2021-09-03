@@ -70,7 +70,7 @@
     "prettier": "^2.3.2",
     "semantic-release": "^17.4.3",
     "snyk": "^1.696.0",
-    "ts-node": "^10.0.0",
+    "ts-node": "^10.2.1",
     "typedoc": "^0.20.36"
   }
 }
