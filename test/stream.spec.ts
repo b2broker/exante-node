@@ -1,5 +1,5 @@
-import assert from "assert";
-import { JSONStream } from "../";
+import { deepStrictEqual, ok } from "node:assert";
+import { JSONStream } from "../index.js";
 
 suite("JSONStream", () => {
   test("._transform()", async () => {
@@ -8,7 +8,7 @@ suite("JSONStream", () => {
 
     await new Promise<void>((resolve) => {
       stream.once("data", (data) => {
-        assert.deepStrictEqual(data, message);
+        deepStrictEqual(data, message);
         resolve();
       });
       stream.write(Buffer.from(`${JSON.stringify(message)}\n`));
@@ -22,13 +22,13 @@ suite("JSONStream", () => {
 
     await new Promise<void>((resolve) => {
       stream.once("error", (error) => {
-        assert.deepStrictEqual(
+        deepStrictEqual(
           (error as { json_string?: string })?.json_string,
           json_string
         );
-        assert.deepStrictEqual(error.message, message);
-        assert.deepStrictEqual(error.name, "SyntaxError");
-        assert.ok(error instanceof SyntaxError);
+        deepStrictEqual(error.message, message);
+        deepStrictEqual(error.name, "SyntaxError");
+        ok(error instanceof SyntaxError);
         resolve();
       });
       stream.write(Buffer.from(json_string));

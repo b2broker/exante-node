@@ -1,9 +1,8 @@
-import assert from "assert";
-import { Readable } from "stream";
+import { deepStrictEqual, ok, fail, rejects } from "node:assert";
+import { Readable } from "node:stream";
 import nock from "nock";
 
-import {
-  RestClient,
+import RestClient, {
   ExanteDemoURL,
   ExanteLiveURL,
   IUserAccount,
@@ -25,7 +24,7 @@ import {
   IOrder,
   DefaultAPIVersion,
   JSONStream,
-} from "../";
+} from "../index.js";
 
 const client_id = "d0c5340b-6d6c-49d9-b567-48c4bfca13d2";
 const app_id = "6cca6a14-a5e3-4219-9542-86123fc9d6c3";
@@ -39,17 +38,15 @@ async function* StreamMessages(
   messages: Record<string, unknown>[]
 ): AsyncGenerator<Buffer> {
   for (const message of messages) {
-    const data = Buffer.from(JSON.stringify({ ...message }));
-    const promise = await new Promise<Buffer>((resolve) => {
-      setTimeout(resolve, 1, data);
+    yield await new Promise<Buffer>((resolve) => {
+      setTimeout(resolve, 1, Buffer.from(JSON.stringify({ ...message })));
     });
-    yield promise;
   }
 }
 
 suite("RestClient", () => {
   test("constructor", () => {
-    assert.deepStrictEqual(client.url.href, url);
+    deepStrictEqual(client.url.href, url);
   });
 
   test("constructor (when `demo` is `true`)", () => {
@@ -59,7 +56,7 @@ suite("RestClient", () => {
       app_id,
       demo: true,
     });
-    assert.deepStrictEqual(otherClient.url, new URL(ExanteDemoURL));
+    deepStrictEqual(otherClient.url, new URL(ExanteDemoURL));
   });
 
   test("constructor (when `demo` is `false`)", () => {
@@ -69,7 +66,7 @@ suite("RestClient", () => {
       app_id,
       demo: false,
     });
-    assert.deepStrictEqual(otherClient.url, new URL(ExanteLiveURL));
+    deepStrictEqual(otherClient.url, new URL(ExanteLiveURL));
   });
 
   test(".fetch() (passes headers)", async () => {
@@ -83,21 +80,19 @@ suite("RestClient", () => {
 
     const data = await client.fetch(url);
 
-    assert.deepStrictEqual(data, response);
+    deepStrictEqual(data, response);
   });
 
   test(".fetch() (rejects with non `Error`)", async () => {
-    const response = { ok: 1 };
+    const response = { ok: 0 };
     const reqheaders = {
       "Content-Type": "application/json",
       Authorization: (value: string): boolean => value.includes("Bearer "),
     };
 
-    nock(url, { reqheaders }).get("/").delay(1).reply(200, response);
+    nock(url, { reqheaders }).get("/").delay(1).reply(400, response);
 
-    const data = await client.fetch(url);
-
-    assert.deepStrictEqual(data, response);
+    await rejects(() => client.fetch(url), response);
   });
 
   test(".fetchStream() (passes headers)", async () => {
@@ -117,7 +112,7 @@ suite("RestClient", () => {
 
     await new Promise<void>((resolve) => {
       stream.on("data", (data) => {
-        assert.deepStrictEqual(data, response);
+        deepStrictEqual(data, response);
         resolve();
       });
     });
@@ -133,7 +128,7 @@ suite("RestClient", () => {
     nock(url).get(`/md/${version}/accounts`).delay(1).reply(200, response);
 
     const accounts = await client.getAccounts({ version });
-    assert.deepStrictEqual(accounts, response);
+    deepStrictEqual(accounts, response);
   });
 
   test(".getAccounts() (with no arguments)", async () => {
@@ -148,7 +143,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const accounts = await client.getAccounts();
-    assert.deepStrictEqual(accounts, response);
+    deepStrictEqual(accounts, response);
   });
 
   test(".getDailyChanges()", async () => {
@@ -165,7 +160,7 @@ suite("RestClient", () => {
     nock(url).get(`/md/${version}/change`).delay(1).reply(200, response);
 
     const changes = await client.getDailyChanges({ version });
-    assert.deepStrictEqual(changes, response);
+    deepStrictEqual(changes, response);
   });
 
   test(".getDailyChanges() (with no arguments)", async () => {
@@ -184,7 +179,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const changes = await client.getDailyChanges();
-    assert.deepStrictEqual(changes, response);
+    deepStrictEqual(changes, response);
   });
 
   test(".getDailyChange()", async () => {
@@ -205,7 +200,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const changes = await client.getDailyChange({ version, symbolId });
-    assert.deepStrictEqual(changes, response);
+    deepStrictEqual(changes, response);
   });
 
   test(".getDailyChange() (when `symbolId` is an array)", async () => {
@@ -231,7 +226,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const changes = await client.getDailyChange({ symbolId });
-    assert.deepStrictEqual(changes, response);
+    deepStrictEqual(changes, response);
   });
 
   test(".getCurrencies()", async () => {
@@ -324,7 +319,7 @@ suite("RestClient", () => {
     nock(url).get(`/md/${version}/crossrates`).delay(1).reply(200, response);
 
     const currencies = await client.getCurrencies({ version });
-    assert.deepStrictEqual(currencies, response);
+    deepStrictEqual(currencies, response);
   });
 
   test(".getCurrencies() (with no arguments)", async () => {
@@ -419,7 +414,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const currencies = await client.getCurrencies();
-    assert.deepStrictEqual(currencies, response);
+    deepStrictEqual(currencies, response);
   });
 
   test(".getCrossrate()", async () => {
@@ -438,7 +433,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const crossrate = await client.getCrossrate({ version, from, to });
-    assert.deepStrictEqual(crossrate, response);
+    deepStrictEqual(crossrate, response);
   });
 
   test(".getCrossrate() (with no `version`)", async () => {
@@ -456,7 +451,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const currencies = await client.getCrossrate({ from, to });
-    assert.deepStrictEqual(currencies, response);
+    deepStrictEqual(currencies, response);
   });
 
   test(".getExchanges()", async () => {
@@ -472,7 +467,7 @@ suite("RestClient", () => {
     nock(url).get(`/md/${version}/exchanges`).delay(1).reply(200, response);
 
     const exchanges = await client.getExchanges({ version });
-    assert.deepStrictEqual(exchanges, response);
+    deepStrictEqual(exchanges, response);
   });
 
   test(".getExchanges() (with no arguments)", async () => {
@@ -490,7 +485,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const exchanges = await client.getExchanges();
-    assert.deepStrictEqual(exchanges, response);
+    deepStrictEqual(exchanges, response);
   });
 
   test(".getExchangeSymbols()", async () => {
@@ -527,7 +522,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const symbols = await client.getExchangeSymbols({ version, exchangeId });
-    assert.deepStrictEqual(symbols, response);
+    deepStrictEqual(symbols, response);
   });
 
   test(".getExchangeSymbols() (with no version)", async () => {
@@ -557,7 +552,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const symbols = await client.getExchangeSymbols({ exchangeId });
-    assert.deepStrictEqual(symbols, response);
+    deepStrictEqual(symbols, response);
   });
 
   test(".getGroups()", async () => {
@@ -574,7 +569,7 @@ suite("RestClient", () => {
     nock(url).get(`/md/${version}/groups`).delay(1).reply(200, response);
 
     const groups = await client.getGroups({ version });
-    assert.deepStrictEqual(groups, response);
+    deepStrictEqual(groups, response);
   });
 
   test(".getGroups() (with no version)", async () => {
@@ -593,7 +588,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const groups = await client.getGroups();
-    assert.deepStrictEqual(groups, response);
+    deepStrictEqual(groups, response);
   });
 
   test(".getGroupSymbols()", async () => {
@@ -630,7 +625,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const symbols = await client.getGroupSymbols({ version, groupId });
-    assert.deepStrictEqual(symbols, response);
+    deepStrictEqual(symbols, response);
   });
 
   test(".getGroupSymbols() (with no `version`)", async () => {
@@ -664,7 +659,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const symbols = await client.getGroupSymbols({ groupId });
-    assert.deepStrictEqual(symbols, response);
+    deepStrictEqual(symbols, response);
   });
 
   test(".getGroupNearestSymbol()", async () => {
@@ -703,7 +698,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const symbol = await client.getGroupNearestSymbol({ version, groupId });
-    assert.deepStrictEqual(symbol, response);
+    deepStrictEqual(symbol, response);
   });
 
   test(".getGroupNearestSymbol() (with no `version`)", async () => {
@@ -730,7 +725,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const symbol = await client.getGroupNearestSymbol({ groupId });
-    assert.deepStrictEqual(symbol, response);
+    deepStrictEqual(symbol, response);
   });
 
   test(".getSymbols()", async () => {
@@ -763,7 +758,7 @@ suite("RestClient", () => {
     nock(url).get(`/md/${version}/symbols`).delay(1).reply(200, response);
 
     const symbols = await client.getSymbols({ version });
-    assert.deepStrictEqual(symbols, response);
+    deepStrictEqual(symbols, response);
   });
 
   test(".getSymbols() (with no `version`)", async () => {
@@ -791,7 +786,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const symbols = await client.getSymbols();
-    assert.deepStrictEqual(symbols, response);
+    deepStrictEqual(symbols, response);
   });
 
   test(".getSymbol()", async () => {
@@ -830,7 +825,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const symbol = await client.getSymbol({ version, symbolId });
-    assert.deepStrictEqual(symbol, response);
+    deepStrictEqual(symbol, response);
   });
 
   test(".getSymbol() (with no `version`)", async () => {
@@ -857,7 +852,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const symbol = await client.getSymbol({ symbolId });
-    assert.deepStrictEqual(symbol, response);
+    deepStrictEqual(symbol, response);
   });
 
   test(".getSymbolSchedule()", async () => {
@@ -879,7 +874,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const schedule = await client.getSymbolSchedule({ version, symbolId });
-    assert.deepStrictEqual(schedule, response);
+    deepStrictEqual(schedule, response);
   });
 
   test(".getSymbolSchedule() (with no `version`)", async () => {
@@ -920,7 +915,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const schedule = await client.getSymbolSchedule({ types, symbolId });
-    assert.deepStrictEqual(schedule, response);
+    deepStrictEqual(schedule, response);
   });
 
   test(".getSymbolSpecification()", async () => {
@@ -943,7 +938,7 @@ suite("RestClient", () => {
       version,
       symbolId,
     });
-    assert.deepStrictEqual(specification, response);
+    deepStrictEqual(specification, response);
   });
 
   test(".getSymbolSpecification() (with no `version`)", async () => {
@@ -964,7 +959,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const specification = await client.getSymbolSpecification({ symbolId });
-    assert.deepStrictEqual(specification, response);
+    deepStrictEqual(specification, response);
   });
 
   test(".getTypes()", async () => {
@@ -974,7 +969,7 @@ suite("RestClient", () => {
     nock(url).get(`/md/${version}/types`).delay(1).reply(200, response);
 
     const types = await client.getTypes({ version });
-    assert.deepStrictEqual(types, response);
+    deepStrictEqual(types, response);
   });
 
   test(".getTypes() (with no `version`)", async () => {
@@ -996,7 +991,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const types = await client.getTypes();
-    assert.deepStrictEqual(types, response);
+    deepStrictEqual(types, response);
   });
 
   test(".getTypeSymbols()", async () => {
@@ -1033,7 +1028,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const symbols = await client.getTypeSymbols({ version, symbolType });
-    assert.deepStrictEqual(symbols, response);
+    deepStrictEqual(symbols, response);
   });
 
   test(".getTypeSymbols() (with no `version`)", async () => {
@@ -1062,7 +1057,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const symbols = await client.getTypeSymbols({ symbolType });
-    assert.deepStrictEqual(symbols, response);
+    deepStrictEqual(symbols, response);
   });
 
   test(".getTradesStream()", async () => {
@@ -1089,15 +1084,15 @@ suite("RestClient", () => {
 
     const stream = await client.getTradesStream({ symbolIds });
 
-    assert.ok(stream instanceof JSONStream);
+    ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
       stream.once("data", (data1) => {
-        assert.deepStrictEqual(data1, trade1);
+        deepStrictEqual(data1, trade1);
         stream.once("data", (data2) => {
-          assert.deepStrictEqual(data2, trade2);
+          deepStrictEqual(data2, trade2);
           stream.once("data", (data3) => {
-            assert.deepStrictEqual(data3, heartbeat);
+            deepStrictEqual(data3, heartbeat);
             stream.once("end", resolve);
           });
         });
@@ -1129,15 +1124,15 @@ suite("RestClient", () => {
 
     const stream = await client.getTradesStream({ symbolIds });
 
-    assert.ok(stream instanceof JSONStream);
+    ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
       stream.once("data", (data1) => {
-        assert.deepStrictEqual(data1, trade1);
+        deepStrictEqual(data1, trade1);
         stream.once("data", (data2) => {
-          assert.deepStrictEqual(data2, trade2);
+          deepStrictEqual(data2, trade2);
           stream.once("data", (data3) => {
-            assert.deepStrictEqual(data3, heartbeat);
+            deepStrictEqual(data3, heartbeat);
             stream.once("end", resolve);
           });
         });
@@ -1164,11 +1159,11 @@ suite("RestClient", () => {
 
     const stream = await client.getQuoteStream({ version, symbolIds, level });
 
-    assert.ok(stream instanceof JSONStream);
+    ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
       stream.once("data", (data) => {
-        assert.deepStrictEqual(data, quote);
+        deepStrictEqual(data, quote);
         stream.once("end", resolve);
       });
     });
@@ -1201,15 +1196,15 @@ suite("RestClient", () => {
 
     const stream = await client.getQuoteStream({ symbolIds, level });
 
-    assert.ok(stream instanceof JSONStream);
+    ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
       stream.once("data", (data1) => {
-        assert.deepStrictEqual(data1, quote1);
+        deepStrictEqual(data1, quote1);
         stream.once("data", (data2) => {
-          assert.deepStrictEqual(data2, quote2);
+          deepStrictEqual(data2, quote2);
           stream.once("data", (data3) => {
-            assert.deepStrictEqual(data3, heartbeat);
+            deepStrictEqual(data3, heartbeat);
             stream.once("end", resolve);
           });
         });
@@ -1282,7 +1277,7 @@ suite("RestClient", () => {
       level,
       symbolIds,
     });
-    assert.deepStrictEqual(quote, response);
+    deepStrictEqual(quote, response);
   });
 
   test(".getLastQuote() (with no `version`)", async () => {
@@ -1302,7 +1297,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const quote = await client.getLastQuote({ symbolIds });
-    assert.deepStrictEqual(quote, response);
+    deepStrictEqual(quote, response);
   });
 
   test(".getCandles()", async () => {
@@ -1337,7 +1332,7 @@ suite("RestClient", () => {
       to,
       size,
     });
-    assert.deepStrictEqual(candles, response);
+    deepStrictEqual(candles, response);
   });
 
   test(".getCandles() (with no `version`)", async () => {
@@ -1360,7 +1355,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const candles = await client.getCandles({ duration, symbolId });
-    assert.deepStrictEqual(candles, response);
+    deepStrictEqual(candles, response);
   });
 
   test(".getTicks()", async () => {
@@ -1393,7 +1388,7 @@ suite("RestClient", () => {
       size,
       type,
     });
-    assert.deepStrictEqual(ticks, response);
+    deepStrictEqual(ticks, response);
   });
 
   test(".getTicks() (with no `version`)", async () => {
@@ -1413,7 +1408,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const ticks = await client.getTicks({ symbolId });
-    assert.deepStrictEqual(ticks, response);
+    deepStrictEqual(ticks, response);
   });
 
   test(".getAccountSummaryWithoutDate()", async () => {
@@ -1464,7 +1459,7 @@ suite("RestClient", () => {
       id,
       currency,
     });
-    assert.deepStrictEqual(summary, response);
+    deepStrictEqual(summary, response);
   });
 
   test(".getAccountSummaryWithoutDate() (with no `version`)", async () => {
@@ -1510,7 +1505,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const summary = await client.getAccountSummaryWithoutDate({ id, currency });
-    assert.deepStrictEqual(summary, response);
+    deepStrictEqual(summary, response);
   });
 
   test(".getAccountSummary()", async () => {
@@ -1563,7 +1558,7 @@ suite("RestClient", () => {
       date,
       currency,
     });
-    assert.deepStrictEqual(summary, response);
+    deepStrictEqual(summary, response);
   });
 
   test(".getAccountSummary() (with no `version`)", async () => {
@@ -1614,7 +1609,7 @@ suite("RestClient", () => {
       date,
       currency,
     });
-    assert.deepStrictEqual(summary, response);
+    deepStrictEqual(summary, response);
   });
 
   test(".getTransactions()", async () => {
@@ -1674,7 +1669,7 @@ suite("RestClient", () => {
       orderId,
       orderPos,
     });
-    assert.deepStrictEqual(transactions, response);
+    deepStrictEqual(transactions, response);
   });
 
   test(".getTransactions() (with no `version`)", async () => {
@@ -1705,7 +1700,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const transactions = await client.getTransactions();
-    assert.deepStrictEqual(transactions, response);
+    deepStrictEqual(transactions, response);
   });
 
   test(".placeOrder()", async () => {
@@ -1765,7 +1760,7 @@ suite("RestClient", () => {
       orderType,
       accountId,
     });
-    assert.deepStrictEqual(order, response);
+    deepStrictEqual(order, response);
   });
 
   test(".placeOrder() (with no version)", async () => {
@@ -1870,7 +1865,7 @@ suite("RestClient", () => {
       gttExpiration,
       priceDistance,
     });
-    assert.deepStrictEqual(order, response);
+    deepStrictEqual(order, response);
   });
 
   test(".getOrders()", async () => {
@@ -1932,7 +1927,7 @@ suite("RestClient", () => {
       to,
       accountId,
     });
-    assert.deepStrictEqual(orders, response);
+    deepStrictEqual(orders, response);
   });
 
   test(".getOrders() (with no version)", async () => {
@@ -1972,7 +1967,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const orders = await client.getOrders({ account });
-    assert.deepStrictEqual(orders, response);
+    deepStrictEqual(orders, response);
   });
 
   test(".getActiveOrders()", async () => {
@@ -2030,7 +2025,7 @@ suite("RestClient", () => {
       symbolId,
       accountId,
     });
-    assert.deepStrictEqual(orders, response);
+    deepStrictEqual(orders, response);
   });
 
   test(".getActiveOrders() (with no version)", async () => {
@@ -2071,7 +2066,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const orders = await client.getActiveOrders({ account, instrument });
-    assert.deepStrictEqual(orders, response);
+    deepStrictEqual(orders, response);
   });
 
   test(".modifyOrder()", async () => {
@@ -2133,7 +2128,7 @@ suite("RestClient", () => {
       action,
       parameters,
     });
-    assert.deepStrictEqual(order, response);
+    deepStrictEqual(order, response);
   });
 
   test(".modifyOrder()  (with no version)", async () => {
@@ -2169,7 +2164,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const order = await client.modifyOrder({ orderId, action });
-    assert.deepStrictEqual(order, response);
+    deepStrictEqual(order, response);
   });
 
   test(".getOrder()", async () => {
@@ -2220,7 +2215,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const order = await client.getOrder({ version, orderId });
-    assert.deepStrictEqual(order, response);
+    deepStrictEqual(order, response);
   });
 
   test(".getOrder() (with no version)", async () => {
@@ -2254,7 +2249,7 @@ suite("RestClient", () => {
       .reply(200, response);
 
     const order = await client.getOrder({ orderId });
-    assert.deepStrictEqual(order, response);
+    deepStrictEqual(order, response);
   });
 
   test(".orderUpdatesHttp()", async () => {
@@ -2308,13 +2303,13 @@ suite("RestClient", () => {
 
     const stream = await client.orderUpdatesHttp({ version });
 
-    assert.ok(stream instanceof JSONStream);
+    ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
       stream.once("data", (data1) => {
-        assert.deepStrictEqual(data1, order);
+        deepStrictEqual(data1, order);
         stream.once("data", (data2) => {
-          assert.deepStrictEqual(data2, heartbeat);
+          deepStrictEqual(data2, heartbeat);
           stream.once("end", resolve);
         });
       });
@@ -2354,13 +2349,13 @@ suite("RestClient", () => {
 
     const stream = await client.orderUpdatesHttp();
 
-    assert.ok(stream instanceof JSONStream);
+    ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
       stream.once("data", (data1) => {
-        assert.deepStrictEqual(data1, order);
+        deepStrictEqual(data1, order);
         stream.once("data", (data2) => {
-          assert.deepStrictEqual(data2, heartbeat);
+          deepStrictEqual(data2, heartbeat);
           stream.once("end", resolve);
         });
       });
@@ -2389,13 +2384,13 @@ suite("RestClient", () => {
 
     const stream = await client.tradesHttp({ version });
 
-    assert.ok(stream instanceof JSONStream);
+    ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
       stream.once("data", (data1) => {
-        assert.deepStrictEqual(data1, trade);
+        deepStrictEqual(data1, trade);
         stream.once("data", (data2) => {
-          assert.deepStrictEqual(data2, heartbeat);
+          deepStrictEqual(data2, heartbeat);
           stream.once("end", resolve);
         });
       });
@@ -2422,13 +2417,13 @@ suite("RestClient", () => {
 
     const stream = await client.tradesHttp();
 
-    assert.ok(stream instanceof JSONStream);
+    ok(stream instanceof JSONStream);
 
     await new Promise((resolve) => {
       stream.once("data", (data1) => {
-        assert.deepStrictEqual(data1, trade);
+        deepStrictEqual(data1, trade);
         stream.once("data", (data2) => {
-          assert.deepStrictEqual(data2, heartbeat);
+          deepStrictEqual(data2, heartbeat);
           stream.once("end", resolve);
         });
       });
@@ -2445,31 +2440,22 @@ suite("RestClient", () => {
       const base64URLEncodedBuffer = "AQIDBAU";
       const base64URLEncodedObject = "eyJhIjoxLCJiIjoiQDIifQ";
 
-      assert.deepStrictEqual(
-        RestClient.base64URL(string),
-        base64URLEncodedString
-      );
-      assert.deepStrictEqual(
-        RestClient.base64URL(buffer),
-        base64URLEncodedBuffer
-      );
-      assert.deepStrictEqual(
-        RestClient.base64URL(object),
-        base64URLEncodedObject
-      );
+      deepStrictEqual(RestClient.base64URL(string), base64URLEncodedString);
+      deepStrictEqual(RestClient.base64URL(buffer), base64URLEncodedBuffer);
+      deepStrictEqual(RestClient.base64URL(object), base64URLEncodedObject);
     });
 
     test(".setQuery()", () => {
       let a: undefined;
       const otherUrl = new URL(ExanteDemoURL);
       RestClient.setQuery(otherUrl, { a });
-      assert.deepStrictEqual(otherUrl.href, ExanteDemoURL);
+      deepStrictEqual(otherUrl.href, ExanteDemoURL);
       RestClient.setQuery(otherUrl, { a: 1 });
-      assert.deepStrictEqual(otherUrl.href, `${ExanteDemoURL}?a=1`);
+      deepStrictEqual(otherUrl.href, `${ExanteDemoURL}?a=1`);
       RestClient.setQuery(otherUrl, { a: "" });
-      assert.deepStrictEqual(otherUrl.href, `${ExanteDemoURL}?a=`);
+      deepStrictEqual(otherUrl.href, `${ExanteDemoURL}?a=`);
       RestClient.setQuery(otherUrl, { b: "1" });
-      assert.deepStrictEqual(otherUrl.href, `${ExanteDemoURL}?a=&b=1`);
+      deepStrictEqual(otherUrl.href, `${ExanteDemoURL}?a=&b=1`);
     });
 
     test(".JWT()", () => {
@@ -2479,7 +2465,7 @@ suite("RestClient", () => {
       const jwt =
         "eyJhIjoiYSJ9.eyJiIjoiYiJ9.OEv6m0EMcLTqQIo3ckjolE3nKlaZ_dPQHxtGIlw92GQ";
       const token = RestClient.JWT(secret, payload, header);
-      assert.deepStrictEqual(token, jwt);
+      deepStrictEqual(token, jwt);
     });
 
     test(".JWT() (with no header)", () => {
@@ -2488,7 +2474,7 @@ suite("RestClient", () => {
       const jwt =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIiLCJpc3MiOiJpc3MiLCJpYXQiOjEsImV4cCI6MiwiYXVkIjpbIm9obGMiXX0.W_YpgmyZLs-TP8cSVn0oZmGIJyWtBbkiH9KvjnQr7rw";
       const token = RestClient.JWT(secret, payload);
-      assert.deepStrictEqual(token, jwt);
+      deepStrictEqual(token, jwt);
     });
 
     test(".fetchStream()", async () => {
@@ -2501,13 +2487,13 @@ suite("RestClient", () => {
 
       const stream = await RestClient.fetchStream(url);
 
-      assert.ok(stream instanceof JSONStream);
+      ok(stream instanceof JSONStream);
 
       await new Promise((resolve) => {
         stream.once("data", (data1) => {
-          assert.deepStrictEqual(data1, heartbeat);
+          deepStrictEqual(data1, heartbeat);
           stream.once("data", (data2) => {
-            assert.deepStrictEqual(data2, pong);
+            deepStrictEqual(data2, pong);
             stream.once("end", resolve);
           });
         });
@@ -2520,9 +2506,9 @@ suite("RestClient", () => {
 
       try {
         await RestClient.fetchStream(url);
-        assert.fail("Should throw a Error");
+        fail("Should throw a Error");
       } catch (error) {
-        assert.deepStrictEqual(error, message);
+        deepStrictEqual(error, message);
       }
     });
 
@@ -2533,7 +2519,7 @@ suite("RestClient", () => {
 
       const data = await RestClient.fetch(url);
 
-      assert.deepStrictEqual(data, response);
+      deepStrictEqual(data, response);
     });
 
     test(".fetch() (throws `Error` on non 2xx responses)", async () => {
@@ -2542,9 +2528,9 @@ suite("RestClient", () => {
 
       try {
         await RestClient.fetch(url);
-        assert.fail("Should throw a Error");
+        fail("Should throw a Error");
       } catch (error) {
-        assert.deepStrictEqual(error, message);
+        deepStrictEqual(error, message);
       }
     });
 
@@ -2554,10 +2540,10 @@ suite("RestClient", () => {
       const message = "Unexpected token o in JSON at position 1";
       try {
         await RestClient.fetch(url);
-        assert.fail("Should throw a Error");
+        fail("Should throw a Error");
       } catch (error) {
-        assert.ok(error instanceof Error);
-        assert.deepStrictEqual(error.message, message);
+        ok(error instanceof Error);
+        deepStrictEqual(error.message, message);
       }
     });
   });
