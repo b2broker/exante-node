@@ -26,7 +26,7 @@ jobs:
         run: npm ci
 
       - name: Tests
-        run: npm test
+        run: npm run test:ci
 
       - name: Prettier
         run: npm run prettier
@@ -37,14 +37,44 @@ jobs:
       - name: commitlint
         run: npm run commitlint:all
 
-      - name: Docs
-        run: npm run docs:ci
-
-      - name: Publish
+      - name: Publish (test)
         run: npm run publish:test
 
+  docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@main
+
+      - uses: actions/setup-node@main
+        with:
+          node-version: 16
+          check-latest: true
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Docs
+        run: npm run docs:build
+
+  coverage:
+    needs: [test]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@main
+
+      - uses: actions/setup-node@main
+        with:
+          node-version: 16
+          check-latest: true
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Coverage
-        run: npm run coverage
+        run: npm run coverage:ci
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
@@ -52,12 +82,14 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   release:
-    needs: [test]
+    needs: [test, docs, coverage]
 
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@main
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@main
         with:

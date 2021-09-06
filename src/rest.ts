@@ -1,7 +1,7 @@
-import { createHmac } from "crypto";
-import fetch from "node-fetch";
+import { createHmac } from "node:crypto";
+import fetch, { RequestInit, Headers } from "node-fetch";
 
-import JSONStream from "./stream";
+import JSONStream from "./stream.js";
 
 export const ExanteDemoURL = "https://api-demo.exante.eu/";
 export const ExanteLiveURL = "https://api-live.exante.eu/";
@@ -716,7 +716,7 @@ export class RestClient {
   /** Make a request and parse the body as JSON */
   public fetch<T = unknown>(
     url: string | URL,
-    { headers = this.headers, ...options }: fetch.RequestInit = {}
+    { headers = this.#headers, ...options }: RequestInit = {}
   ): Promise<T> {
     return RestClient.fetch<T>(url, { headers, ...options });
   }
@@ -1031,16 +1031,16 @@ export class RestClient {
   /** Make a request and return JSONStream */
   public fetchStream(
     url: string | URL,
-    options: fetch.RequestInit = {}
+    options: RequestInit = {}
   ): Promise<JSONStream> {
-    const headers = new fetch.Headers(options.headers ?? this.headers);
+    const headers = new Headers(options.headers ?? this.#headers);
     headers.set("Accept", "application/x-json-stream");
 
     return RestClient.fetchStream(url, { ...options, headers });
   }
 
   /** Get a JSON Web Token */
-  private get token(): string {
+  get #token(): string {
     const iat = (Date.now() / 1000) | 0;
 
     const payload = {
@@ -1064,10 +1064,10 @@ export class RestClient {
   }
 
   /** Get authorization headers */
-  private get headers(): fetch.Headers {
-    const Authorization = `Bearer ${this.token}`;
+  get #headers(): Headers {
+    const Authorization = `Bearer ${this.#token}`;
     const type = "application/json";
-    return new fetch.Headers({ Authorization, "Content-Type": type });
+    return new Headers({ Authorization, "Content-Type": type });
   }
 
   /** Convert to Base64URL */
@@ -1118,27 +1118,26 @@ export class RestClient {
   /** Make a request and return a stream */
   public static async fetchStream(
     url: string | URL,
-    options: fetch.RequestInit = {}
+    options: RequestInit = {}
   ): Promise<JSONStream> {
     const response = await fetch(url.toString(), { ...options });
-    /* istanbul ignore next */
+    /* c8 ignore start */
     if (!response.body) {
       throw new Error("Empty body");
     }
+    /* c8 ignore stop */
 
     if (!response.ok) {
       throw await response.json();
     }
 
-    const stream = new JSONStream();
-    response.body.pipe(stream);
-    return stream;
+    return response.body.pipe(new JSONStream());
   }
 
   /** Make a request and parse the body as JSON */
   public static async fetch<T = unknown>(
     url: string | URL,
-    options: fetch.RequestInit = {}
+    options: RequestInit = {}
   ): Promise<T> {
     const response = await fetch(url.toString(), { ...options });
 

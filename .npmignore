@@ -14,6 +14,9 @@ build/test/
 # Documentation
 docs/
 
+# c8 config - https://github.com/bcoe/c8
+.c8rc.json
+
 # Commitlint config - https://commitlint.js.org/
 .commitlintrc.json
 
