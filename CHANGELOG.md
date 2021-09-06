@@ -1,5 +1,28 @@
 # Changelog
 
+## [4.0.0](https://github.com/b2broker/exante-node/compare/v3.0.1...v4.0.0) (2021-09-06)
+
+### ⚠ BREAKING CHANGES
+
+- drop `Node<16.8.0` support
+- change the package type to ES module
+
+### Bug Fixes
+
+- **JSONStream:** buffer incomplete chunks ([a07831f](https://github.com/b2broker/exante-node/commit/a07831fabff36a76be52f3e74e9c7dc732bf727a))
+
+### Performance Improvements
+
+- drop `Node<16.8.0` support ([0e8469a](https://github.com/b2broker/exante-node/commit/0e8469ab557ad25507bb1a2f45895a85bffca55b))
+
+### Dependencies
+
+- upgrade `node-fetch` to `v3.0.0` ([7516aa1](https://github.com/b2broker/exante-node/commit/7516aa15ebc8a7236678d49d3f83f765541d89b2))
+
+### Miscellaneous Chores
+
+- change the package type to ES module ([b212812](https://github.com/b2broker/exante-node/commit/b212812b7b058b3109dc66a9945b45b4c09433ee))
+
 ### [3.0.1](https://github.com/b2broker/exante-node/compare/v3.0.0...v3.0.1) (2021-05-31)
 
 ### Performance Improvements
