@@ -716,7 +716,7 @@ export class RestClient {
   /** Make a request and parse the body as JSON */
   public fetch<T = unknown>(
     url: string | URL,
-    { headers = this.headers, ...options }: RequestInit = {}
+    { headers = this.#headers, ...options }: RequestInit = {}
   ): Promise<T> {
     return RestClient.fetch<T>(url, { headers, ...options });
   }
@@ -1033,14 +1033,14 @@ export class RestClient {
     url: string | URL,
     options: RequestInit = {}
   ): Promise<JSONStream> {
-    const headers = new Headers(options.headers ?? this.headers);
+    const headers = new Headers(options.headers ?? this.#headers);
     headers.set("Accept", "application/x-json-stream");
 
     return RestClient.fetchStream(url, { ...options, headers });
   }
 
   /** Get a JSON Web Token */
-  private get token(): string {
+  get #token(): string {
     const iat = (Date.now() / 1000) | 0;
 
     const payload = {
@@ -1064,8 +1064,8 @@ export class RestClient {
   }
 
   /** Get authorization headers */
-  private get headers(): Headers {
-    const Authorization = `Bearer ${this.token}`;
+  get #headers(): Headers {
+    const Authorization = `Bearer ${this.#token}`;
     const type = "application/json";
     return new Headers({ Authorization, "Content-Type": type });
   }
