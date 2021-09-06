@@ -39,7 +39,11 @@ async function* StreamMessages(
 ): AsyncGenerator<Buffer> {
   for (const message of messages) {
     yield await new Promise<Buffer>((resolve) => {
-      setTimeout(resolve, 1, Buffer.from(JSON.stringify({ ...message })));
+      setTimeout(
+        resolve,
+        1,
+        Buffer.from(`${JSON.stringify({ ...message })}\n`)
+      );
     });
   }
 }

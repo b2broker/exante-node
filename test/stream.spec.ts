@@ -31,7 +31,71 @@ suite("JSONStream", () => {
         ok(error instanceof SyntaxError);
         resolve();
       });
-      stream.write(Buffer.from(json_string));
+      stream.write(Buffer.from(`${json_string}\n`));
     });
+  });
+
+  test("._transform() (buffers data)", async () => {
+    const message1 = { event: "heartbeat" };
+    const message2 = { data: "message" };
+    const buf1 = Buffer.from(JSON.stringify(message1));
+    const buf2 = Buffer.from(JSON.stringify(message2));
+    const stream = new JSONStream();
+
+    const promise = new Promise<void>((resolve) => {
+      stream.once("data", (data1) => {
+        deepStrictEqual(data1, message1);
+        stream.once("data", (data2) => {
+          deepStrictEqual(data2, message2);
+          resolve();
+        });
+      });
+    });
+
+    for (let i = 0; i < buf1.byteLength; i++) {
+      await new Promise<void>((resolve, reject) => {
+        stream.write(buf1.slice(i, i + 1), (error) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve();
+          }
+        });
+      });
+    }
+
+    await new Promise<void>((resolve, reject) => {
+      stream.write("\n", (error) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve();
+        }
+      });
+    });
+
+    for (let i = 0; i < buf2.byteLength; i++) {
+      await new Promise<void>((resolve, reject) => {
+        stream.write(buf2.slice(i, i + 1), (error) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve();
+          }
+        });
+      });
+    }
+
+    await new Promise<void>((resolve, reject) => {
+      stream.write("\n", (error) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve();
+        }
+      });
+    });
+
+    await promise;
   });
 });
