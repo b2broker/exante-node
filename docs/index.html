@@ -1,32 +1,30 @@
 <!DOCTYPE html>
-<html class="default no-js">
+<html class="default">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <title>exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <script async src="assets/js/search.js" id="search-script"></script>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/highlight.css" />
+    <script async src="assets/search.js" id="search-script"></script>
   </head>
   <body>
+    <script>
+      document.body.classList.add(localStorage.getItem("tsd-theme") || "os");
+    </script>
     <header>
       <div class="tsd-page-toolbar">
         <div class="container">
           <div class="table-wrap">
-            <div
-              class="table-cell"
-              id="tsd-search"
-              data-index="assets/js/search.json"
-              data-base="."
-            >
+            <div class="table-cell" id="tsd-search" data-base=".">
               <div class="field">
                 <label
                   for="tsd-search-field"
                   class="tsd-widget search no-caption"
                   >Search</label
-                >
-                <input id="tsd-search-field" type="text" />
+                ><input type="text" id="tsd-search-field" />
               </div>
               <ul class="results">
                 <li class="state loading">Preparing search index...</li>
@@ -51,12 +49,17 @@
                       <li data-value="private" class="selected">All</li>
                     </ul>
                   </div>
-                  <input type="checkbox" id="tsd-filter-inherited" checked />
-                  <label class="tsd-widget" for="tsd-filter-inherited"
+                  <input
+                    type="checkbox"
+                    id="tsd-filter-inherited"
+                    checked
+                  /><label class="tsd-widget" for="tsd-filter-inherited"
                     >Inherited</label
-                  >
-                  <input type="checkbox" id="tsd-filter-externals" checked />
-                  <label class="tsd-widget" for="tsd-filter-externals"
+                  ><input
+                    type="checkbox"
+                    id="tsd-filter-externals"
+                    checked
+                  /><label class="tsd-widget" for="tsd-filter-externals"
                     >Externals</label
                   >
                 </div>
@@ -69,9 +72,7 @@
         </div>
       </div>
       <div class="tsd-page-title">
-        <div class="container">
-          <h1>exante</h1>
-        </div>
+        <div class="container"><h1>exante</h1></div>
       </div>
     </header>
     <div class="container container-main">
@@ -142,6 +143,7 @@
               Node.js library for Exante&#39;s
               <a href="https://api-live.exante.eu/api-docs/">API</a>.
             </p>
+
             <a
               href="#installation"
               id="installation"
@@ -149,8 +151,9 @@
             >
               <h2>Installation</h2>
             </a>
-            <pre><code class="language-bash"><span style="color: #000000">npm install exante</span>
+            <pre><code class="language-bash"><span class="hl-0">npm install exante</span>
 </code></pre>
+
             <a
               href="#usage"
               id="usage"
@@ -167,6 +170,7 @@
               >). For more detailed documentation please see
               <a href="https://b2broker.github.io/exante-node/">docs</a>.
             </p>
+
             <a
               href="#restclient"
               id="restclient"
@@ -174,12 +178,7 @@
             >
               <h3>RestClient</h3>
             </a>
-            <pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">RestClient</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;exante&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client_id</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;d0c5340b-6d6c-49d9-b567-48c4bfca13d2&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">app_id</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;6cca6a14-a5e3-4219-9542-86123fc9d6c3&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">shared_key</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;5eeac64cc46b34f5332e5326/CHo4bRWq6pqqynnWKQg&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">demo</span><span style="color: #000000"> = </span><span style="color: #0000FF">false</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">RestClient</span><span style="color: #000000">({ </span><span style="color: #001080">client_id</span><span style="color: #000000">, </span><span style="color: #001080">app_id</span><span style="color: #000000">, </span><span style="color: #001080">shared_key</span><span style="color: #000000">, </span><span style="color: #001080">demo</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">RestClient</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&quot;exante&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">client_id</span><span class="hl-0"> = </span><span class="hl-3">&quot;d0c5340b-6d6c-49d9-b567-48c4bfca13d2&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">app_id</span><span class="hl-0"> = </span><span class="hl-3">&quot;6cca6a14-a5e3-4219-9542-86123fc9d6c3&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">shared_key</span><span class="hl-0"> = </span><span class="hl-3">&quot;5eeac64cc46b34f5332e5326/CHo4bRWq6pqqynnWKQg&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">demo</span><span class="hl-0"> = </span><span class="hl-4">false</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">client</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-6">RestClient</span><span class="hl-0">({ </span><span class="hl-2">client_id</span><span class="hl-0">, </span><span class="hl-2">app_id</span><span class="hl-0">, </span><span class="hl-2">shared_key</span><span class="hl-0">, </span><span class="hl-2">demo</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -189,8 +188,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">accounts</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getAccounts</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">accounts</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getAccounts</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -200,8 +198,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">changes</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getDailyChanges</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;2.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">changes</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getDailyChanges</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -211,9 +208,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;MSFT.NASDAQ&quot;</span><span style="color: #000000">];</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">changes</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getDailyChange</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">symbolId</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbolId</span><span class="hl-0"> = [</span><span class="hl-3">&quot;AAPL.NASDAQ&quot;</span><span class="hl-0">, </span><span class="hl-3">&quot;MSFT.NASDAQ&quot;</span><span class="hl-0">];</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">changes</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getDailyChange</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0">, </span><span class="hl-2">symbolId</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -223,8 +218,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">currencies</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getCurrencies</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;2.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">currencies</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getCurrencies</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -234,9 +228,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">from</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;USD&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">to</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;EUR&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">crossrate</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getCrossrate</span><span style="color: #000000">({ </span><span style="color: #001080">from</span><span style="color: #000000">, </span><span style="color: #001080">to</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">from</span><span class="hl-0"> = </span><span class="hl-3">&quot;USD&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">to</span><span class="hl-0"> = </span><span class="hl-3">&quot;EUR&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">crossrate</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getCrossrate</span><span class="hl-0">({ </span><span class="hl-2">from</span><span class="hl-0">, </span><span class="hl-2">to</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -246,8 +238,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">exchanges</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getExchanges</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">exchanges</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getExchanges</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -257,9 +248,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">exchangeId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;NASDAQ&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbols</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getExchangeSymbols</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">exchangeId</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;2.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">exchangeId</span><span class="hl-0"> = </span><span class="hl-3">&quot;NASDAQ&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbols</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getExchangeSymbols</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0">, </span><span class="hl-2">exchangeId</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -269,7 +258,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">groups</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getGroups</span><span style="color: #000000">({});</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">groups</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getGroups</span><span class="hl-0">({});</span>
 </code></pre>
             <ul>
               <li>
@@ -279,9 +268,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">groupId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;NG&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbols</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getGroupSymbols</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">groupId</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">groupId</span><span class="hl-0"> = </span><span class="hl-3">&quot;NG&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbols</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getGroupSymbols</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0">, </span><span class="hl-2">groupId</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -291,9 +278,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">groupId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;NG&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbol</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getGroupNearestSymbol</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">groupId</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;2.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">groupId</span><span class="hl-0"> = </span><span class="hl-3">&quot;NG&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbol</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getGroupNearestSymbol</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0">, </span><span class="hl-2">groupId</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -303,7 +288,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbols</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getSymbols</span><span style="color: #000000">();</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbols</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getSymbols</span><span class="hl-0">();</span>
 </code></pre>
             <ul>
               <li>
@@ -313,9 +298,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbol</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getSymbol</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">symbolId</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbolId</span><span class="hl-0"> = </span><span class="hl-3">&quot;AAPL.NASDAQ&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbol</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getSymbol</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0">, </span><span class="hl-2">symbolId</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -325,10 +308,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">types</span><span style="color: #000000"> = </span><span style="color: #0000FF">true</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">schedule</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getSymbolSchedule</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">symbolId</span><span style="color: #000000">, </span><span style="color: #001080">types</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;2.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbolId</span><span class="hl-0"> = </span><span class="hl-3">&quot;AAPL.NASDAQ&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">types</span><span class="hl-0"> = </span><span class="hl-4">true</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">schedule</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getSymbolSchedule</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0">, </span><span class="hl-2">symbolId</span><span class="hl-0">, </span><span class="hl-2">types</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -338,8 +318,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">specification</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getSymbolSpecification</span><span style="color: #000000">({ </span><span style="color: #001080">symbolId</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbolId</span><span class="hl-0"> = </span><span class="hl-3">&quot;AAPL.NASDAQ&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">specification</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getSymbolSpecification</span><span class="hl-0">({ </span><span class="hl-2">symbolId</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -349,8 +328,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">types</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getTypes</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">types</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getTypes</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -360,9 +338,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolType</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;OPTION&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbols</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getTypeSymbols</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">symbolType</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;2.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbolType</span><span class="hl-0"> = </span><span class="hl-3">&quot;OPTION&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbols</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getTypeSymbols</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0">, </span><span class="hl-2">symbolType</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -372,11 +348,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolIds</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;MSFT.NASDAQ&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;GAZP.MICEX&quot;</span><span style="color: #000000">];</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">stream</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getTradesStream</span><span style="color: #000000">({ </span><span style="color: #001080">symbolIds</span><span style="color: #000000"> });</span>
-<span style="color: #AF00DB">for</span><span style="color: #000000"> </span><span style="color: #AF00DB">await</span><span style="color: #000000"> (</span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">update</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">stream</span><span style="color: #000000">) {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">update</span><span style="color: #000000">);</span>
-<span style="color: #000000">}</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbolIds</span><span class="hl-0"> = [</span><span class="hl-3">&quot;MSFT.NASDAQ&quot;</span><span class="hl-0">, </span><span class="hl-3">&quot;AAPL.NASDAQ&quot;</span><span class="hl-0">, </span><span class="hl-3">&quot;GAZP.MICEX&quot;</span><span class="hl-0">];</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">stream</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getTradesStream</span><span class="hl-0">({ </span><span class="hl-2">symbolIds</span><span class="hl-0"> });</span><br/><span class="hl-1">for</span><span class="hl-0"> </span><span class="hl-1">await</span><span class="hl-0"> (</span><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">update</span><span class="hl-0"> </span><span class="hl-4">of</span><span class="hl-0"> </span><span class="hl-2">stream</span><span class="hl-0">) {</span><br/><span class="hl-0">  </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-6">log</span><span class="hl-0">(</span><span class="hl-2">update</span><span class="hl-0">);</span><br/><span class="hl-0">}</span>
 </code></pre>
             <ul>
               <li>
@@ -386,13 +358,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolIds</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;MSFT.NASDAQ&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;GAZP.MICEX&quot;</span><span style="color: #000000">];</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">level</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;market_depth&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">stream</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getQuoteStream</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">symbolIds</span><span style="color: #000000">, </span><span style="color: #001080">level</span><span style="color: #000000"> });</span>
-<span style="color: #AF00DB">for</span><span style="color: #000000"> </span><span style="color: #AF00DB">await</span><span style="color: #000000"> (</span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">update</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">stream</span><span style="color: #000000">) {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">update</span><span style="color: #000000">);</span>
-<span style="color: #000000">}</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbolIds</span><span class="hl-0"> = [</span><span class="hl-3">&quot;MSFT.NASDAQ&quot;</span><span class="hl-0">, </span><span class="hl-3">&quot;AAPL.NASDAQ&quot;</span><span class="hl-0">, </span><span class="hl-3">&quot;GAZP.MICEX&quot;</span><span class="hl-0">];</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">level</span><span class="hl-0"> = </span><span class="hl-3">&quot;market_depth&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">ac</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-6">AbortController</span><span class="hl-0">();</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">stream</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getQuoteStream</span><span class="hl-0">(</span><br/><span class="hl-0">  { </span><span class="hl-2">version</span><span class="hl-0">, </span><span class="hl-2">symbolIds</span><span class="hl-0">, </span><span class="hl-2">level</span><span class="hl-0"> },</span><br/><span class="hl-0">  { </span><span class="hl-2">signal:</span><span class="hl-0"> </span><span class="hl-2">ac</span><span class="hl-0">.</span><span class="hl-2">signal</span><span class="hl-0"> }</span><br/><span class="hl-0">);</span><br/><span class="hl-1">for</span><span class="hl-0"> </span><span class="hl-1">await</span><span class="hl-0"> (</span><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">update</span><span class="hl-0"> </span><span class="hl-4">of</span><span class="hl-0"> </span><span class="hl-2">stream</span><span class="hl-0">) {</span><br/><span class="hl-0">  </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-6">log</span><span class="hl-0">(</span><span class="hl-2">update</span><span class="hl-0">);</span><br/><span class="hl-0">}</span>
 </code></pre>
             <ul>
               <li>
@@ -402,9 +368,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolIds</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;MSFT.NASDAQ&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">];</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">level</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;market_depth&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">quote</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getLastQuote</span><span style="color: #000000">({ </span><span style="color: #001080">symbolIds</span><span style="color: #000000">, </span><span style="color: #001080">level</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbolIds</span><span class="hl-0"> = [</span><span class="hl-3">&quot;MSFT.NASDAQ&quot;</span><span class="hl-0">, </span><span class="hl-3">&quot;AAPL.NASDAQ&quot;</span><span class="hl-0">];</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">level</span><span class="hl-0"> = </span><span class="hl-3">&quot;market_depth&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">quote</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getLastQuote</span><span class="hl-0">({ </span><span class="hl-2">symbolIds</span><span class="hl-0">, </span><span class="hl-2">level</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -413,20 +377,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">duration</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3600&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">from</span><span style="color: #000000"> = </span><span style="color: #098658">1481565600000</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">to</span><span style="color: #000000"> = </span><span style="color: #098658">1481572800000</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">size</span><span style="color: #000000"> = </span><span style="color: #098658">1</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">candles</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getCandles</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">version</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">duration</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">symbolId</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">from</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">to</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">size</span><span style="color: #000000">,</span>
-<span style="color: #000000">});</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">duration</span><span class="hl-0"> = </span><span class="hl-3">&quot;3600&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbolId</span><span class="hl-0"> = </span><span class="hl-3">&quot;AAPL.NASDAQ&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">from</span><span class="hl-0"> = </span><span class="hl-7">1481565600000</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">to</span><span class="hl-0"> = </span><span class="hl-7">1481572800000</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">size</span><span class="hl-0"> = </span><span class="hl-7">1</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">candles</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getCandles</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">version</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">duration</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">symbolId</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">from</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">to</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">size</span><span class="hl-0">,</span><br/><span class="hl-0">});</span>
 </code></pre>
             <ul>
               <li>
@@ -436,20 +387,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">from</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;1481565600000&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">to</span><span style="color: #000000"> = </span><span style="color: #098658">1481572800000</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">size</span><span style="color: #000000"> = </span><span style="color: #098658">1</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">type</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;trades&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">ticks</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getTicks</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">version</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">symbolId</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">from</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">to</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">size</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">type</span><span style="color: #000000">,</span>
-<span style="color: #000000">});</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;2.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbolId</span><span class="hl-0"> = </span><span class="hl-3">&quot;AAPL.NASDAQ&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">from</span><span class="hl-0"> = </span><span class="hl-3">&quot;1481565600000&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">to</span><span class="hl-0"> = </span><span class="hl-7">1481572800000</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">size</span><span class="hl-0"> = </span><span class="hl-7">1</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">type</span><span class="hl-0"> = </span><span class="hl-3">&quot;trades&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">ticks</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getTicks</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">version</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">symbolId</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">from</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">to</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">size</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">type</span><span class="hl-0">,</span><br/><span class="hl-0">});</span>
 </code></pre>
             <ul>
               <li>
@@ -459,10 +397,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">id</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;ABC1234.001&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">currency</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;EUR&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">summary</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getAccountSummary</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">id</span><span style="color: #000000">, </span><span style="color: #001080">currency</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">id</span><span class="hl-0"> = </span><span class="hl-3">&quot;ABC1234.001&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">currency</span><span class="hl-0"> = </span><span class="hl-3">&quot;EUR&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">summary</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getAccountSummary</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0">, </span><span class="hl-2">id</span><span class="hl-0">, </span><span class="hl-2">currency</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -472,16 +407,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">id</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;ABC1234.001&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">date</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2013-02-16&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">currency</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;EUR&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">summary</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getAccountSummary</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">version</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">id</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">date</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">currency</span><span style="color: #000000">,</span>
-<span style="color: #000000">});</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">id</span><span class="hl-0"> = </span><span class="hl-3">&quot;ABC1234.001&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">date</span><span class="hl-0"> = </span><span class="hl-3">&quot;2013-02-16&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">currency</span><span class="hl-0"> = </span><span class="hl-3">&quot;EUR&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">summary</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getAccountSummary</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">version</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">id</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">date</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">currency</span><span class="hl-0">,</span><br/><span class="hl-0">});</span>
 </code></pre>
             <ul>
               <li>
@@ -491,14 +417,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">operationType</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;TRADE&quot;</span><span style="color: #000000">];</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">limit</span><span style="color: #000000"> = </span><span style="color: #098658">1</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">transactions</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getTransactions</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">symbolId</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">operationType</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">limit</span><span style="color: #000000">,</span>
-<span style="color: #000000">});</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbolId</span><span class="hl-0"> = </span><span class="hl-3">&quot;AAPL.NASDAQ&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">operationType</span><span class="hl-0"> = [</span><span class="hl-3">&quot;TRADE&quot;</span><span class="hl-0">];</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">limit</span><span class="hl-0"> = </span><span class="hl-7">1</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">transactions</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getTransactions</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">symbolId</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">operationType</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">limit</span><span class="hl-0">,</span><br/><span class="hl-0">});</span>
 </code></pre>
             <ul>
               <li>
@@ -508,24 +427,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">symbolId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;AAPL.NASDAQ&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">side</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;sell&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">quantity</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;1&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">limitPrice</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;10000&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">duration</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;good_till_cancel&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orderType</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;limit&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">accountId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;ABC1234.001&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">order</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">placeOrder</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">version</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">symbolId</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">side</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">quantity</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">limitPrice</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">duration</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">orderType</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">accountId</span><span style="color: #000000">,</span>
-<span style="color: #000000">});</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">symbolId</span><span class="hl-0"> = </span><span class="hl-3">&quot;AAPL.NASDAQ&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">side</span><span class="hl-0"> = </span><span class="hl-3">&quot;sell&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">quantity</span><span class="hl-0"> = </span><span class="hl-3">&quot;1&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">limitPrice</span><span class="hl-0"> = </span><span class="hl-3">&quot;10000&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">duration</span><span class="hl-0"> = </span><span class="hl-3">&quot;good_till_cancel&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">orderType</span><span class="hl-0"> = </span><span class="hl-3">&quot;limit&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">accountId</span><span class="hl-0"> = </span><span class="hl-3">&quot;ABC1234.001&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">order</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">placeOrder</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">version</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">symbolId</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">side</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">quantity</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">limitPrice</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">duration</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">orderType</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">accountId</span><span class="hl-0">,</span><br/><span class="hl-0">});</span>
 </code></pre>
             <ul>
               <li>
@@ -535,12 +437,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">limit</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;10&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">from</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2017-05-18T10:00:00.000Z&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">to</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2017-05-21T17:59:59.999Z&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">account</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;ABC1234.001&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orders</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getOrders</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">limit</span><span style="color: #000000">, </span><span style="color: #001080">from</span><span style="color: #000000">, </span><span style="color: #001080">to</span><span style="color: #000000">, </span><span style="color: #001080">account</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;2.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">limit</span><span class="hl-0"> = </span><span class="hl-3">&quot;10&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">from</span><span class="hl-0"> = </span><span class="hl-3">&quot;2017-05-18T10:00:00.000Z&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">to</span><span class="hl-0"> = </span><span class="hl-3">&quot;2017-05-21T17:59:59.999Z&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">account</span><span class="hl-0"> = </span><span class="hl-3">&quot;ABC1234.001&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">orders</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getOrders</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0">, </span><span class="hl-2">limit</span><span class="hl-0">, </span><span class="hl-2">from</span><span class="hl-0">, </span><span class="hl-2">to</span><span class="hl-0">, </span><span class="hl-2">account</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -550,9 +447,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">instrument</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;APL.NASDAQ&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">account</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;ABC1234.001&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orders</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getActiveOrders</span><span style="color: #000000">({ </span><span style="color: #001080">instrument</span><span style="color: #000000">, </span><span style="color: #001080">account</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">instrument</span><span class="hl-0"> = </span><span class="hl-3">&quot;APL.NASDAQ&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">account</span><span class="hl-0"> = </span><span class="hl-3">&quot;ABC1234.001&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">orders</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getActiveOrders</span><span class="hl-0">({ </span><span class="hl-2">instrument</span><span class="hl-0">, </span><span class="hl-2">account</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -562,19 +457,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orderId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;d642d2ca-fcb5-4910-9de4-7c91f275ca23&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">action</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;replace&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">limitPrice</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;101.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">quantity</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;7&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">stopPrice</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;102.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">priceDistance</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;1.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">order</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">modifyOrder</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">version</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">orderId</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">action</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">parameters:</span><span style="color: #000000"> { </span><span style="color: #001080">limitPrice</span><span style="color: #000000">, </span><span style="color: #001080">quantity</span><span style="color: #000000">, </span><span style="color: #001080">stopPrice</span><span style="color: #000000">, </span><span style="color: #001080">priceDistance</span><span style="color: #000000"> },</span>
-<span style="color: #000000">});</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">orderId</span><span class="hl-0"> = </span><span class="hl-3">&quot;d642d2ca-fcb5-4910-9de4-7c91f275ca23&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">action</span><span class="hl-0"> = </span><span class="hl-3">&quot;replace&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">limitPrice</span><span class="hl-0"> = </span><span class="hl-3">&quot;101.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">quantity</span><span class="hl-0"> = </span><span class="hl-3">&quot;7&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">stopPrice</span><span class="hl-0"> = </span><span class="hl-3">&quot;102.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">priceDistance</span><span class="hl-0"> = </span><span class="hl-3">&quot;1.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">order</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">modifyOrder</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">version</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">orderId</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">action</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">parameters:</span><span class="hl-0"> { </span><span class="hl-2">limitPrice</span><span class="hl-0">, </span><span class="hl-2">quantity</span><span class="hl-0">, </span><span class="hl-2">stopPrice</span><span class="hl-0">, </span><span class="hl-2">priceDistance</span><span class="hl-0"> },</span><br/><span class="hl-0">});</span>
 </code></pre>
             <ul>
               <li>
@@ -584,9 +467,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orderId</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;ffecfac8-ccf9-4015-9a0f-b49a6b9673b8&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">order</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getOrder</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000">, </span><span style="color: #001080">orderId</span><span style="color: #000000"> });</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">orderId</span><span class="hl-0"> = </span><span class="hl-3">&quot;ffecfac8-ccf9-4015-9a0f-b49a6b9673b8&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">order</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">getOrder</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0">, </span><span class="hl-2">orderId</span><span class="hl-0"> });</span>
 </code></pre>
             <ul>
               <li>
@@ -596,11 +477,7 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;2.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">stream</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">orderUpdatesHttp</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
-<span style="color: #AF00DB">for</span><span style="color: #000000"> </span><span style="color: #AF00DB">await</span><span style="color: #000000"> (</span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">update</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">stream</span><span style="color: #000000">) {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">update</span><span style="color: #000000">);</span>
-<span style="color: #000000">}</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;2.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">stream</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">orderUpdatesHttp</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0"> });</span><br/><span class="hl-1">for</span><span class="hl-0"> </span><span class="hl-1">await</span><span class="hl-0"> (</span><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">update</span><span class="hl-0"> </span><span class="hl-4">of</span><span class="hl-0"> </span><span class="hl-2">stream</span><span class="hl-0">) {</span><br/><span class="hl-0">  </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-6">log</span><span class="hl-0">(</span><span class="hl-2">update</span><span class="hl-0">);</span><br/><span class="hl-0">}</span>
 </code></pre>
             <ul>
               <li>
@@ -610,12 +487,9 @@
                 >
               </li>
             </ul>
-            <pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">version</span><span style="color: #000000"> = </span><span style="color: #A31515">&quot;3.0&quot;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">stream</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">tradesHttp</span><span style="color: #000000">({ </span><span style="color: #001080">version</span><span style="color: #000000"> });</span>
-<span style="color: #AF00DB">for</span><span style="color: #000000"> </span><span style="color: #AF00DB">await</span><span style="color: #000000"> (</span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">update</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">stream</span><span style="color: #000000">) {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">update</span><span style="color: #000000">);</span>
-<span style="color: #000000">}</span>
+            <pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">version</span><span class="hl-0"> = </span><span class="hl-3">&quot;3.0&quot;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">stream</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-6">tradesHttp</span><span class="hl-0">({ </span><span class="hl-2">version</span><span class="hl-0"> });</span><br/><span class="hl-1">for</span><span class="hl-0"> </span><span class="hl-1">await</span><span class="hl-0"> (</span><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">update</span><span class="hl-0"> </span><span class="hl-4">of</span><span class="hl-0"> </span><span class="hl-2">stream</span><span class="hl-0">) {</span><br/><span class="hl-0">  </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-6">log</span><span class="hl-0">(</span><span class="hl-2">update</span><span class="hl-0">);</span><br/><span class="hl-0">}</span>
 </code></pre>
+
             <a
               href="#test"
               id="test"
@@ -623,20 +497,21 @@
             >
               <h2>Test</h2>
             </a>
-            <pre><code class="language-bash"><span style="color: #000000">npm </span><span style="color: #795E26">test</span>
+            <pre><code class="language-bash"><span class="hl-0">npm </span><span class="hl-6">test</span>
 </code></pre>
           </div>
         </div>
         <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
           <nav class="tsd-navigation primary">
             <ul>
-              <li class="">
-                <a href="modules.html">Exports</a>
-              </li>
+              <li class="current"><a href="modules.html">Exports</a></li>
             </ul>
           </nav>
           <nav class="tsd-navigation secondary menu-sticky">
-            <ul class="before-current">
+            <ul>
+              <li class="tsd-kind-reference">
+                <a href="modules.html#default" class="tsd-kind-icon">default</a>
+              </li>
               <li class="tsd-kind-class">
                 <a href="classes/JSONStream.html" class="tsd-kind-icon"
                   >JSONStream</a
@@ -646,9 +521,6 @@
                 <a href="classes/RestClient.html" class="tsd-kind-icon"
                   >Rest<wbr />Client</a
                 >
-              </li>
-              <li class="tsd-kind-class">
-                <a href="classes/default.html" class="tsd-kind-icon">default</a>
               </li>
               <li class="tsd-kind-interface">
                 <a href="interfaces/IAccountSummary.html" class="tsd-kind-icon"
@@ -915,12 +787,12 @@
               </li>
               <li class="tsd-kind-interface">
                 <a href="interfaces/ISymbolIdOptions.html" class="tsd-kind-icon"
-                  >ISymbol<wbr />IdOptions</a
+                  >ISymbol<wbr />Id<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-interface">
                 <a href="interfaces/ISymbolIdType.html" class="tsd-kind-icon"
-                  >ISymbol<wbr />IdType</a
+                  >ISymbol<wbr />Id<wbr />Type</a
                 >
               </li>
               <li class="tsd-kind-interface">
@@ -1084,7 +956,7 @@
         </div>
       </div>
     </div>
-    <footer>
+    <footer class="">
       <div class="container">
         <h2>Legend</h2>
         <div class="tsd-legend-group">
@@ -1115,9 +987,18 @@
             </li>
           </ul>
         </div>
+        <h2>Settings</h2>
+        <p>
+          Theme
+          <select id="theme">
+            <option value="os">OS</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </p>
       </div>
     </footer>
     <div class="overlay"></div>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/main.js"></script>
   </body>
 </html>

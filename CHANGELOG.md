@@ -1,5 +1,15 @@
 # Changelog
 
+### [4.0.1](https://github.com/b2broker/exante-node/compare/v4.0.0...v4.0.1) (2021-12-11)
+
+### Performance Improvements
+
+- add `AbortSignal` to stream methods ([f70e8be](https://github.com/b2broker/exante-node/commit/f70e8be58d12038cbf36d558de4ab6c440c1f4e9)), closes [#54](https://github.com/b2broker/exante-node/issues/54)
+
+### Dependencies
+
+- upgrade `node-fetch` to `v3.1.0` ([1bf1859](https://github.com/b2broker/exante-node/commit/1bf18591923f3ddfb8bb9e2dd73bbbb9f7f9fa57))
+
 ## [4.0.0](https://github.com/b2broker/exante-node/compare/v3.0.1...v4.0.0) (2021-09-06)
 
 ### ⚠ BREAKING CHANGES

@@ -1,32 +1,30 @@
 <!DOCTYPE html>
-<html class="default no-js">
+<html class="default">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <title>exante</title>
     <meta name="description" content="Documentation for exante" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <script async src="assets/js/search.js" id="search-script"></script>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/highlight.css" />
+    <script async src="assets/search.js" id="search-script"></script>
   </head>
   <body>
+    <script>
+      document.body.classList.add(localStorage.getItem("tsd-theme") || "os");
+    </script>
     <header>
       <div class="tsd-page-toolbar">
         <div class="container">
           <div class="table-wrap">
-            <div
-              class="table-cell"
-              id="tsd-search"
-              data-index="assets/js/search.json"
-              data-base="."
-            >
+            <div class="table-cell" id="tsd-search" data-base=".">
               <div class="field">
                 <label
                   for="tsd-search-field"
                   class="tsd-widget search no-caption"
                   >Search</label
-                >
-                <input id="tsd-search-field" type="text" />
+                ><input type="text" id="tsd-search-field" />
               </div>
               <ul class="results">
                 <li class="state loading">Preparing search index...</li>
@@ -51,12 +49,17 @@
                       <li data-value="private" class="selected">All</li>
                     </ul>
                   </div>
-                  <input type="checkbox" id="tsd-filter-inherited" checked />
-                  <label class="tsd-widget" for="tsd-filter-inherited"
+                  <input
+                    type="checkbox"
+                    id="tsd-filter-inherited"
+                    checked
+                  /><label class="tsd-widget" for="tsd-filter-inherited"
                     >Inherited</label
-                  >
-                  <input type="checkbox" id="tsd-filter-externals" checked />
-                  <label class="tsd-widget" for="tsd-filter-externals"
+                  ><input
+                    type="checkbox"
+                    id="tsd-filter-externals"
+                    checked
+                  /><label class="tsd-widget" for="tsd-filter-externals"
                     >Externals</label
                   >
                 </div>
@@ -69,9 +72,7 @@
         </div>
       </div>
       <div class="tsd-page-title">
-        <div class="container">
-          <h1>exante</h1>
-        </div>
+        <div class="container"><h1>exante</h1></div>
       </div>
     </header>
     <div class="container container-main">
@@ -81,6 +82,16 @@
             <h2>Index</h2>
             <section class="tsd-panel tsd-index-panel">
               <div class="tsd-index-content">
+                <section class="tsd-index-section">
+                  <h3>References</h3>
+                  <ul class="tsd-index-list">
+                    <li class="tsd-kind-reference">
+                      <a href="modules.html#default" class="tsd-kind-icon"
+                        >default</a
+                      >
+                    </li>
+                  </ul>
+                </section>
                 <section class="tsd-index-section">
                   <h3>Classes</h3>
                   <ul class="tsd-index-list">
@@ -92,11 +103,6 @@
                     <li class="tsd-kind-class">
                       <a href="classes/RestClient.html" class="tsd-kind-icon"
                         >Rest<wbr />Client</a
-                      >
-                    </li>
-                    <li class="tsd-kind-class">
-                      <a href="classes/default.html" class="tsd-kind-icon"
-                        >default</a
                       >
                     </li>
                   </ul>
@@ -413,14 +419,14 @@
                       <a
                         href="interfaces/ISymbolIdOptions.html"
                         class="tsd-kind-icon"
-                        >ISymbol<wbr />IdOptions</a
+                        >ISymbol<wbr />Id<wbr />Options</a
                       >
                     </li>
                     <li class="tsd-kind-interface">
                       <a
                         href="interfaces/ISymbolIdType.html"
                         class="tsd-kind-icon"
-                        >ISymbol<wbr />IdType</a
+                        >ISymbol<wbr />Id<wbr />Type</a
                       >
                     </li>
                     <li class="tsd-kind-interface">
@@ -625,9 +631,18 @@
             </section>
           </section>
           <section class="tsd-panel-group tsd-member-group">
+            <h2>References</h2>
+            <section class="tsd-panel tsd-member tsd-kind-reference">
+              <a id="default" class="tsd-anchor"></a>
+              <h3>default</h3>
+              Renames and re-exports
+              <a href="classes/RestClient.html">RestClient</a>
+            </section>
+          </section>
+          <section class="tsd-panel-group tsd-member-group">
             <h2>Type aliases</h2>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IActiveOrdersOptions" class="tsd-anchor"></a>
+              <a id="IActiveOrdersOptions" class="tsd-anchor"></a>
               <h3>IActive<wbr />Orders<wbr />Options</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IActive<wbr />Orders<wbr />Options<span
@@ -660,7 +675,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="ICandleSize" class="tsd-anchor"></a>
+              <a id="ICandleSize" class="tsd-anchor"></a>
               <h3>ICandle<wbr />Size</h3>
               <div class="tsd-signature tsd-kind-icon">
                 ICandle<wbr />Size<span class="tsd-signature-symbol">:</span>
@@ -693,7 +708,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IDuration" class="tsd-anchor"></a>
+              <a id="IDuration" class="tsd-anchor"></a>
               <h3>IDuration</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IDuration<span class="tsd-signature-symbol">:</span>
@@ -732,7 +747,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IFill" class="tsd-anchor"></a>
+              <a id="IFill" class="tsd-anchor"></a>
               <h3>IFill</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IFill<span class="tsd-signature-symbol">:</span>
@@ -762,7 +777,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IIntrument" class="tsd-anchor"></a>
+              <a id="IIntrument" class="tsd-anchor"></a>
               <h3>IIntrument</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IIntrument<span class="tsd-signature-symbol">:</span>
@@ -792,7 +807,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IIntruments" class="tsd-anchor"></a>
+              <a id="IIntruments" class="tsd-anchor"></a>
               <h3>IIntruments</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IIntruments<span class="tsd-signature-symbol">:</span>
@@ -823,7 +838,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IModifyOrderOptions" class="tsd-anchor"></a>
+              <a id="IModifyOrderOptions" class="tsd-anchor"></a>
               <h3>IModify<wbr />Order<wbr />Options</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IModify<wbr />Order<wbr />Options<span
@@ -856,7 +871,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IOptionData" class="tsd-anchor"></a>
+              <a id="IOptionData" class="tsd-anchor"></a>
               <h3>IOption<wbr />Data</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IOption<wbr />Data<span class="tsd-signature-symbol">:</span>
@@ -886,7 +901,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IOrder" class="tsd-anchor"></a>
+              <a id="IOrder" class="tsd-anchor"></a>
               <h3>IOrder</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IOrder<span class="tsd-signature-symbol">:</span>
@@ -916,7 +931,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IOrderState" class="tsd-anchor"></a>
+              <a id="IOrderState" class="tsd-anchor"></a>
               <h3>IOrder<wbr />State</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IOrder<wbr />State<span class="tsd-signature-symbol">:</span>
@@ -946,7 +961,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IOrderType" class="tsd-anchor"></a>
+              <a id="IOrderType" class="tsd-anchor"></a>
               <h3>IOrder<wbr />Type</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IOrder<wbr />Type<span class="tsd-signature-symbol">:</span>
@@ -980,7 +995,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IOrdersOptions" class="tsd-anchor"></a>
+              <a id="IOrdersOptions" class="tsd-anchor"></a>
               <h3>IOrders<wbr />Options</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IOrders<wbr />Options<span class="tsd-signature-symbol">:</span>
@@ -1010,7 +1025,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IOrdersStatus" class="tsd-anchor"></a>
+              <a id="IOrdersStatus" class="tsd-anchor"></a>
               <h3>IOrders<wbr />Status</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IOrders<wbr />Status<span class="tsd-signature-symbol">:</span>
@@ -1039,7 +1054,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IPlaceOrderOptions" class="tsd-anchor"></a>
+              <a id="IPlaceOrderOptions" class="tsd-anchor"></a>
               <h3>IPlace<wbr />Order<wbr />Options</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IPlace<wbr />Order<wbr />Options<span
@@ -1072,7 +1087,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IPosition" class="tsd-anchor"></a>
+              <a id="IPosition" class="tsd-anchor"></a>
               <h3>IPosition</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IPosition<span class="tsd-signature-symbol">:</span>
@@ -1102,7 +1117,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="IQuoteSide" class="tsd-anchor"></a>
+              <a id="IQuoteSide" class="tsd-anchor"></a>
               <h3>IQuote<wbr />Side</h3>
               <div class="tsd-signature tsd-kind-icon">
                 IQuote<wbr />Side<span class="tsd-signature-symbol">:</span>
@@ -1132,7 +1147,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="ISide" class="tsd-anchor"></a>
+              <a id="ISide" class="tsd-anchor"></a>
               <h3>ISide</h3>
               <div class="tsd-signature tsd-kind-icon">
                 ISide<span class="tsd-signature-symbol">:</span>
@@ -1153,7 +1168,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="ITick" class="tsd-anchor"></a>
+              <a id="ITick" class="tsd-anchor"></a>
               <h3>ITick</h3>
               <div class="tsd-signature tsd-kind-icon">
                 ITick<span class="tsd-signature-symbol">:</span>
@@ -1189,7 +1204,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="ITransactions" class="tsd-anchor"></a>
+              <a id="ITransactions" class="tsd-anchor"></a>
               <h3>ITransactions</h3>
               <div class="tsd-signature tsd-kind-icon">
                 ITransactions<span class="tsd-signature-symbol">:</span>
@@ -1223,11 +1238,8 @@
           <section class="tsd-panel-group tsd-member-group">
             <h2>Variables</h2>
             <section class="tsd-panel tsd-member tsd-kind-variable">
-              <a name="DefaultAPIVersion" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagConst">Const</span>
-                DefaultAPIVersion
-              </h3>
+              <a id="DefaultAPIVersion" class="tsd-anchor"></a>
+              <h3>DefaultAPIVersion</h3>
               <div class="tsd-signature tsd-kind-icon">
                 DefaultAPIVersion<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">&quot;2.0&quot;</span
@@ -1246,11 +1258,8 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-variable">
-              <a name="ExanteDemoURL" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagConst">Const</span>
-                Exante<wbr />DemoURL
-              </h3>
+              <a id="ExanteDemoURL" class="tsd-anchor"></a>
+              <h3>Exante<wbr />DemoURL</h3>
               <div class="tsd-signature tsd-kind-icon">
                 Exante<wbr />DemoURL<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type"
@@ -1272,11 +1281,8 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-kind-variable">
-              <a name="ExanteLiveURL" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagConst">Const</span>
-                Exante<wbr />LiveURL
-              </h3>
+              <a id="ExanteLiveURL" class="tsd-anchor"></a>
+              <h3>Exante<wbr />LiveURL</h3>
               <div class="tsd-signature tsd-kind-icon">
                 Exante<wbr />LiveURL<span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type"
@@ -1302,13 +1308,14 @@
         <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
           <nav class="tsd-navigation primary">
             <ul>
-              <li class="current">
-                <a href="modules.html">Exports</a>
-              </li>
+              <li class="current"><a href="modules.html">Exports</a></li>
             </ul>
           </nav>
           <nav class="tsd-navigation secondary menu-sticky">
-            <ul class="before-current">
+            <ul>
+              <li class="tsd-kind-reference">
+                <a href="modules.html#default" class="tsd-kind-icon">default</a>
+              </li>
               <li class="tsd-kind-class">
                 <a href="classes/JSONStream.html" class="tsd-kind-icon"
                   >JSONStream</a
@@ -1318,9 +1325,6 @@
                 <a href="classes/RestClient.html" class="tsd-kind-icon"
                   >Rest<wbr />Client</a
                 >
-              </li>
-              <li class="tsd-kind-class">
-                <a href="classes/default.html" class="tsd-kind-icon">default</a>
               </li>
               <li class="tsd-kind-interface">
                 <a href="interfaces/IAccountSummary.html" class="tsd-kind-icon"
@@ -1587,12 +1591,12 @@
               </li>
               <li class="tsd-kind-interface">
                 <a href="interfaces/ISymbolIdOptions.html" class="tsd-kind-icon"
-                  >ISymbol<wbr />IdOptions</a
+                  >ISymbol<wbr />Id<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-interface">
                 <a href="interfaces/ISymbolIdType.html" class="tsd-kind-icon"
-                  >ISymbol<wbr />IdType</a
+                  >ISymbol<wbr />Id<wbr />Type</a
                 >
               </li>
               <li class="tsd-kind-interface">
@@ -1756,7 +1760,7 @@
         </div>
       </div>
     </div>
-    <footer>
+    <footer class="">
       <div class="container">
         <h2>Legend</h2>
         <div class="tsd-legend-group">
@@ -1787,9 +1791,18 @@
             </li>
           </ul>
         </div>
+        <h2>Settings</h2>
+        <p>
+          Theme
+          <select id="theme">
+            <option value="os">OS</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </p>
       </div>
     </footer>
     <div class="overlay"></div>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/main.js"></script>
   </body>
 </html>
