@@ -158,7 +158,12 @@ for await (const update of stream) {
 const version = "3.0";
 const symbolIds = ["MSFT.NASDAQ", "AAPL.NASDAQ", "GAZP.MICEX"];
 const level = "market_depth";
-const stream = await client.getQuoteStream({ version, symbolIds, level });
+const ac = new AbortController();
+
+const stream = await client.getQuoteStream(
+  { version, symbolIds, level },
+  { signal: ac.signal }
+);
 for await (const update of stream) {
   console.log(update);
 }

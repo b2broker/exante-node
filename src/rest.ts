@@ -878,22 +878,24 @@ export class RestClient {
   }
 
   /** Get the trades stream for the specified financial instrument */
-  public getTradesStream({ symbolIds }: ISymbolIds): Promise<JSONStream> {
+  public getTradesStream(
+    { symbolIds }: ISymbolIds,
+    { signal }: { signal?: AbortSignal } = {}
+  ): Promise<JSONStream> {
     const symbolId = Array.isArray(symbolIds) ? symbolIds.join(",") : symbolIds;
     const url = new URL(`/md/3.0/feed/trades/${symbolId}`, this.url);
-    return this.fetchStream(url);
+    return this.fetchStream(url, { signal });
   }
 
   /** Get the trades stream for the specified financial instrument */
-  public getQuoteStream({
-    version = DefaultAPIVersion,
-    symbolIds,
-    ...query
-  }: ILastQuoteOptions): Promise<JSONStream> {
+  public getQuoteStream(
+    { version = DefaultAPIVersion, symbolIds, ...query }: ILastQuoteOptions,
+    { signal }: { signal?: AbortSignal } = {}
+  ): Promise<JSONStream> {
     const symbolId = Array.isArray(symbolIds) ? symbolIds.join(",") : symbolIds;
     const url = new URL(`/md/${version}/feed/${symbolId}`, this.url);
     RestClient.setQuery(url, { ...query });
-    return this.fetchStream(url);
+    return this.fetchStream(url, { signal });
   }
 
   /** Get the list of OHLC candles */
@@ -1013,19 +1015,21 @@ export class RestClient {
   }
 
   /** Get order updates stream via HTTP */
-  public orderUpdatesHttp({
-    version = DefaultAPIVersion,
-  }: IVersion = {}): Promise<JSONStream> {
+  public orderUpdatesHttp(
+    { version = DefaultAPIVersion }: IVersion = {},
+    { signal }: { signal?: AbortSignal } = {}
+  ): Promise<JSONStream> {
     const url = new URL(`/trade/${version}/stream/orders`, this.url);
-    return this.fetchStream(url);
+    return this.fetchStream(url, { signal });
   }
 
   /** Get trades updates stream via HTTP */
-  public tradesHttp({
-    version = DefaultAPIVersion,
-  }: IVersion = {}): Promise<JSONStream> {
+  public tradesHttp(
+    { version = DefaultAPIVersion }: IVersion = {},
+    { signal }: { signal?: AbortSignal } = {}
+  ): Promise<JSONStream> {
     const url = new URL(`/trade/${version}/stream/trades`, this.url);
-    return this.fetchStream(url);
+    return this.fetchStream(url, { signal });
   }
 
   /** Make a request and return JSONStream */
